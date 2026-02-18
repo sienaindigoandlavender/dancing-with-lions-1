@@ -68,6 +68,16 @@ const MODULES = [
     href: '/data/ramadan-moon',
   },
   {
+    id: 'tourism-flow',
+    category: 'Tourism Intelligence',
+    title: 'Where 17.4 Million Tourists Go',
+    entries: '10 source markets',
+    status: 'Live',
+    description: 'Follow the flow. Source countries → gateway airports → destination cities → spending categories. Morocco became Africa\'s most-visited nation in 2024, surpassing Egypt. 112 billion MAD in revenue.',
+    fields: ['Source Countries', 'Gateways', 'Destinations', 'Revenue', 'Overnight Stays', 'Growth'],
+    href: '/data/tourism-flow',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
