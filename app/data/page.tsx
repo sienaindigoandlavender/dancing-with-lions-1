@@ -18,6 +18,16 @@ const MODULES = [
     href: '/data/maghreb-compared',
   },
   {
+    id: 'morocco-population',
+    category: 'Interactive Map',
+    title: 'Morocco Population Density',
+    entries: '12 regions',
+    status: 'Live',
+    description: 'Interactive Mapbox heatmap of Morocco\'s 12 administrative regions. Population, density, urbanization rate, and area — hover for detail.',
+    fields: ['Population', 'Density', 'Area', 'Urban %', 'Capital', 'Arabic Name'],
+    href: '/data/morocco-population',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
