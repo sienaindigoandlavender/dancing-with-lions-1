@@ -28,6 +28,16 @@ const MODULES = [
     href: '/data/morocco-population',
   },
   {
+    id: 'morocco-economy',
+    category: 'Economic Intelligence',
+    title: 'Morocco Economy in One Page',
+    entries: '8 indicators',
+    status: 'Live',
+    description: 'GDP, exports, FDI, tourism, remittances, key sectors. The essential economic snapshot every journalist grabs. Updated annually with IMF, World Bank, and Office des Changes data.',
+    fields: ['GDP', 'Exports', 'FDI Sources', 'Tourism Revenue', 'Remittances', 'Sector Breakdown'],
+    href: '/data/morocco-economy',
+  },
+  {
     id: 'al-andalus',
     category: 'Cultural Geography',
     title: 'The Al-Andalus Corridor',
