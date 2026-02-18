@@ -58,6 +58,16 @@ const MODULES = [
     href: '/data/al-andalus',
   },
   {
+    id: 'ramadan-moon',
+    category: 'Cultural Intelligence',
+    title: 'Ramadan & the Moon',
+    entries: '30 nights + 33-year cycle',
+    status: 'Live',
+    description: 'How the lunar calendar shapes Ramadan. 30 moon phases from crescent to crescent, the 33-year seasonal rotation, and fasting hours across decades — visualized for Marrakech.',
+    fields: ['Moon Phases', 'Seasonal Drift', 'Fasting Hours', 'Laylat al-Qadr', 'Temperature'],
+    href: '/data/ramadan-moon',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
