@@ -1,530 +1,522 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 
 // ═══ DATA ═══
-// Sources: FAO, Statista, Office des Changes, USDA FAS, EastFruit
-// Most recent available data (2022-2024)
-
 const CROPS = [
-  {
-    name: 'Tomatoes',
-    value: 1050,
-    unit: '$1.05B',
-    share: '60% of veg exports',
-    note: '#1 non-EU supplier to Europe',
-    region: 'Souss-Massa',
-    color: '#E63946',
-    emoji: '🍅',
-    // SVG illustration inline
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        <circle cx="40" cy="44" r="28" fill="#E63946" />
-        <circle cx="40" cy="44" r="28" fill="url(#tomato-shine)" />
-        <ellipse cx="40" cy="20" rx="12" ry="5" fill="#4a7c2e" />
-        <path d="M40 15 L38 8 M40 15 L42 7 M40 15 L36 9" stroke="#4a7c2e" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <ellipse cx="33" cy="38" rx="4" ry="6" fill="rgba(255,255,255,0.15)" transform="rotate(-15 33 38)" />
-        <defs>
-          <radialGradient id="tomato-shine" cx="35%" cy="35%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.1)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Berries',
-    value: 750,
-    unit: '$750M',
-    share: 'Blueberries, raspberries, strawberries',
-    note: '60% of fruit export growth since 2016',
-    region: 'Gharb, Loukkos, Dakhla',
-    color: '#5E60CE',
-    emoji: '🫐',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        <circle cx="30" cy="45" r="14" fill="#5E60CE" />
-        <circle cx="50" cy="42" r="12" fill="#7B2D8E" />
-        <circle cx="40" cy="55" r="13" fill="#3A0CA3" />
-        <circle cx="30" cy="45" r="14" fill="url(#berry-shine)" />
-        <circle cx="50" cy="42" r="12" fill="url(#berry-shine2)" />
-        <circle cx="40" cy="55" r="13" fill="url(#berry-shine3)" />
-        {/* Crown details on blueberries */}
-        <circle cx="28" cy="33" r="1.5" fill="#4a4a8a" />
-        <circle cx="32" cy="32" r="1.5" fill="#4a4a8a" />
-        <circle cx="30" cy="34" r="1" fill="#4a4a8a" />
-        <path d="M22 28 C25 26, 28 25, 30 27" stroke="#4a7c2e" strokeWidth="1.5" fill="none" />
-        <path d="M48 30 C50 28, 53 29, 52 31" stroke="#4a7c2e" strokeWidth="1.5" fill="none" />
-        <defs>
-          <radialGradient id="berry-shine" cx="30%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.25)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
-          </radialGradient>
-          <radialGradient id="berry-shine2" cx="35%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
-          </radialGradient>
-          <radialGradient id="berry-shine3" cx="30%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Citrus',
-    value: 451,
-    unit: '$451M',
-    share: 'Clementines, oranges, mandarins',
-    note: '597K tons exported 2024/25 season',
-    region: 'Souss-Massa, Gharb, Oriental',
-    color: '#F77F00',
-    emoji: '🍊',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        <circle cx="40" cy="42" r="26" fill="#F77F00" />
-        <circle cx="40" cy="42" r="26" fill="url(#orange-shine)" />
-        {/* Texture dots */}
-        {[...Array(12)].map((_, i) => (
-          <circle key={i} cx={30 + Math.cos(i * 0.52) * 15} cy={34 + Math.sin(i * 0.52) * 15} r="0.8" fill="rgba(255,255,255,0.15)" />
-        ))}
-        <ellipse cx="40" cy="18" rx="6" ry="3" fill="#4a7c2e" />
-        <path d="M40 15 L40 10" stroke="#5a3a1e" strokeWidth="2" strokeLinecap="round" />
-        <path d="M42 12 C46 8, 50 10, 48 14" stroke="#4a7c2e" strokeWidth="1.5" fill="#5a9e3e" opacity="0.8" />
-        <defs>
-          <radialGradient id="orange-shine" cx="35%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.1)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Olives & Olive Oil',
-    value: 380,
-    unit: '$380M',
-    share: '1M+ hectares · ancient groves',
-    note: '6th largest producer globally',
-    region: 'Fes-Meknes, Marrakech-Safi',
-    color: '#6b8e23',
-    emoji: '🫒',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        <ellipse cx="32" cy="42" rx="12" ry="16" fill="#6b8e23" transform="rotate(-10 32 42)" />
-        <ellipse cx="50" cy="46" rx="11" ry="14" fill="#556b2f" transform="rotate(8 50 46)" />
-        <ellipse cx="32" cy="42" rx="12" ry="16" fill="url(#olive-shine)" transform="rotate(-10 32 42)" />
-        <ellipse cx="50" cy="46" rx="11" ry="14" fill="url(#olive-shine2)" transform="rotate(8 50 46)" />
-        {/* Stems */}
-        <path d="M32 26 C30 20, 35 16, 40 14" stroke="#5a3a1e" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <path d="M50 32 C52 26, 48 20, 42 16" stroke="#5a3a1e" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        {/* Leaves */}
-        <ellipse cx="44" cy="12" rx="8" ry="3" fill="#7cad3a" transform="rotate(-20 44 12)" />
-        <ellipse cx="36" cy="14" rx="6" ry="2.5" fill="#6b9e30" transform="rotate(15 36 14)" />
-        <defs>
-          <radialGradient id="olive-shine" cx="30%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.25)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.1)" />
-          </radialGradient>
-          <radialGradient id="olive-shine2" cx="35%" cy="25%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.08)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Green Beans',
-    value: 220,
-    unit: '$220M',
-    share: '#2 vegetable export',
-    note: 'Mainly to EU fresh market',
-    region: 'Souss-Massa',
-    color: '#22c55e',
-    emoji: '🫛',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        <path d="M18 60 C20 45, 30 30, 45 25 C50 24, 55 26, 58 30" stroke="#22c55e" strokeWidth="8" fill="none" strokeLinecap="round" />
-        <path d="M18 60 C20 45, 30 30, 45 25 C50 24, 55 26, 58 30" stroke="url(#bean-shine)" strokeWidth="8" fill="none" strokeLinecap="round" />
-        <path d="M22 55 C26 42, 34 32, 48 28 C52 27, 56 30, 62 35" stroke="#1ea34e" strokeWidth="7" fill="none" strokeLinecap="round" />
-        {/* Bean bumps */}
-        <circle cx="30" cy="43" r="3" fill="rgba(255,255,255,0.1)" />
-        <circle cx="38" cy="35" r="2.5" fill="rgba(255,255,255,0.1)" />
-        <circle cx="46" cy="29" r="2.5" fill="rgba(255,255,255,0.1)" />
-        <defs>
-          <linearGradient id="bean-shine" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
-          </linearGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Argan Oil',
-    value: 120,
-    unit: '$120M',
-    share: 'Endemic to Morocco only',
-    note: 'UNESCO-protected argan forest',
-    region: 'Souss-Massa, Essaouira',
-    color: '#d4a017',
-    emoji: '🌰',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        {/* Argan nut */}
-        <ellipse cx="40" cy="44" rx="18" ry="22" fill="#c4912e" />
-        <ellipse cx="40" cy="44" rx="18" ry="22" fill="url(#argan-shine)" />
-        {/* Shell texture lines */}
-        <path d="M30 35 C35 30, 45 30, 50 35" stroke="rgba(139,90,40,0.4)" strokeWidth="1" fill="none" />
-        <path d="M28 42 C35 38, 45 38, 52 42" stroke="rgba(139,90,40,0.3)" strokeWidth="1" fill="none" />
-        <path d="M30 50 C35 46, 45 46, 50 50" stroke="rgba(139,90,40,0.3)" strokeWidth="1" fill="none" />
-        {/* Stem */}
-        <path d="M40 22 L40 14" stroke="#5a3a1e" strokeWidth="2" strokeLinecap="round" />
-        {/* Small leaf */}
-        <ellipse cx="45" cy="13" rx="6" ry="2.5" fill="#7cad3a" transform="rotate(-10 45 13)" />
-        <defs>
-          <radialGradient id="argan-shine" cx="35%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.15)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Avocados',
-    value: 95,
-    unit: '$95M',
-    share: 'Fastest-growing export crop',
-    note: 'Water-intensive — debated',
-    region: 'Gharb, Kenitra',
-    color: '#2d5a27',
-    emoji: '🥑',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        <ellipse cx="40" cy="42" rx="20" ry="26" fill="#2d5a27" />
-        <ellipse cx="40" cy="42" rx="20" ry="26" fill="url(#avo-shine)" />
-        {/* Inner flesh */}
-        <ellipse cx="40" cy="44" rx="14" ry="18" fill="#a8c256" />
-        {/* Pit */}
-        <circle cx="40" cy="48" r="10" fill="#8b6914" />
-        <circle cx="40" cy="48" r="10" fill="url(#pit-shine)" />
-        <defs>
-          <radialGradient id="avo-shine" cx="35%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.15)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.1)" />
-          </radialGradient>
-          <radialGradient id="pit-shine" cx="40%" cy="35%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.1)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
-  {
-    name: 'Seafood',
-    value: 3000,
-    unit: '$3B',
-    share: 'Sardines, octopus, shrimp',
-    note: 'World\'s largest sardine exporter',
-    region: 'Agadir, Dakhla, Essaouira',
-    color: '#48BFE3',
-    emoji: '🐟',
-    illustration: (
-      <svg viewBox="0 0 80 80" className="w-full h-full">
-        {/* Fish body */}
-        <ellipse cx="38" cy="40" rx="24" ry="14" fill="#48BFE3" />
-        {/* Tail */}
-        <path d="M60 40 L72 28 L72 52 Z" fill="#3a9fc4" />
-        {/* Eye */}
-        <circle cx="22" cy="37" r="4" fill="white" />
-        <circle cx="21" cy="37" r="2" fill="#0a0a0a" />
-        {/* Fin */}
-        <path d="M35 28 C38 18, 44 20, 42 28" fill="#3a9fc4" />
-        {/* Scales suggestion */}
-        <path d="M30 36 C33 34, 36 36, 33 38" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" fill="none" />
-        <path d="M38 36 C41 34, 44 36, 41 38" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" fill="none" />
-        <path d="M34 42 C37 40, 40 42, 37 44" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" fill="none" />
-        <path d="M42 42 C45 40, 48 42, 45 44" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" fill="none" />
-        <ellipse cx="38" cy="40" rx="24" ry="14" fill="url(#fish-shine)" />
-        <defs>
-          <radialGradient id="fish-shine" cx="30%" cy="30%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.15)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
-          </radialGradient>
-        </defs>
-      </svg>
-    ),
-  },
+  { name: 'Seafood', value: 3000, unit: '$3B', detail: 'Sardines, octopus, shrimp', note: "World's largest sardine exporter", region: 'Agadir · Dakhla · Essaouira', color: '#2B8EAD', colorEnd: '#1a5c72', iconColor: '#5BC0DE' },
+  { name: 'Tomatoes', value: 1050, unit: '$1.05B', detail: '60% of vegetable exports', note: '#1 non-EU supplier to Europe', region: 'Souss-Massa', color: '#C62828', colorEnd: '#7f1d1d', iconColor: '#EF5350' },
+  { name: 'Berries', value: 750, unit: '$750M', detail: 'Blueberries · raspberries · strawberries', note: '60% of fruit export growth since 2016', region: 'Gharb · Loukkos · Dakhla', color: '#6A1B9A', colorEnd: '#38006b', iconColor: '#AB47BC' },
+  { name: 'Citrus', value: 451, unit: '$451M', detail: 'Clementines · oranges · mandarins', note: '597K tons 2024/25 season', region: 'Souss-Massa · Gharb · Oriental', color: '#E65100', colorEnd: '#8c3100', iconColor: '#FF9800' },
+  { name: 'Olives', value: 380, unit: '$380M', detail: 'Oil + table olives · 1M+ hectares', note: '6th largest producer globally', region: 'Fes-Meknes · Marrakech-Safi', color: '#558B2F', colorEnd: '#2e5a00', iconColor: '#8BC34A' },
+  { name: 'Green Beans', value: 220, unit: '$220M', detail: '#2 vegetable export to EU', note: 'Fresh market, year-round supply', region: 'Souss-Massa', color: '#2E7D32', colorEnd: '#1b4d1f', iconColor: '#66BB6A' },
+  { name: 'Argan Oil', value: 120, unit: '$120M', detail: 'Endemic to Morocco only', note: 'UNESCO-protected argan forest', region: 'Souss-Massa · Essaouira', color: '#BF8C30', colorEnd: '#7a5a1e', iconColor: '#FFD54F' },
+  { name: 'Avocados', value: 95, unit: '$95M', detail: 'Fastest-growing export crop', note: 'Water-intensive — debated', region: 'Gharb · Kenitra', color: '#33691E', colorEnd: '#1a3a0f', iconColor: '#9CCC65' },
 ]
 
-// Sort by value descending
-const SORTED = [...CROPS].sort((a, b) => b.value - a.value)
-const MAX_VAL = SORTED[0].value
+const TOTAL = CROPS.reduce((s, c) => s + c.value, 0)
 
-export default function AgricultureExportsChart() {
-  const [visible, setVisible] = useState(false)
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
-  const ref = useRef<HTMLDivElement>(null)
+// ═══ SVG CROP ICONS ═══
+// Each drawn at origin, positioned by the radial layout
+
+function TomatoIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <circle cx="0" cy="4" r="16" fill="#EF5350" />
+      <circle cx="0" cy="4" r="16" fill="url(#glow-red)" />
+      <ellipse cx="0" cy="-10" rx="8" ry="3" fill="#4CAF50" opacity="0.9" />
+      <line x1="0" y1="-13" x2="-2" y2="-20" stroke="#4CAF50" strokeWidth="2" strokeLinecap="round" />
+      <line x1="0" y1="-13" x2="2" y2="-19" stroke="#388E3C" strokeWidth="1.5" strokeLinecap="round" />
+      <ellipse cx="-5" cy="-1" rx="3" ry="5" fill="rgba(255,255,255,0.12)" transform="rotate(-15)" />
+    </g>
+  )
+}
+
+function FishIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <ellipse cx="-2" cy="0" rx="18" ry="10" fill="#5BC0DE" />
+      <ellipse cx="-2" cy="0" rx="18" ry="10" fill="url(#glow-blue)" />
+      <path d="M14 0 L24 -9 L24 9 Z" fill="#3FA8C7" />
+      <circle cx="-12" cy="-2" r="3" fill="white" />
+      <circle cx="-13" cy="-2" r="1.5" fill="#1a1a1a" />
+      <path d="M-2 -8 C2 -14, 8 -12, 6 -8" fill="#3FA8C7" opacity="0.8" />
+      {[0, 1, 2].map(i => (
+        <path key={i} d={`M${-2 + i * 7} ${-3} C${1 + i * 7} ${-5}, ${4 + i * 7} ${-3}, ${1 + i * 7} ${-1}`} stroke="rgba(255,255,255,0.15)" strokeWidth="0.6" fill="none" />
+      ))}
+    </g>
+  )
+}
+
+function BerryIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <circle cx="-8" cy="3" r="10" fill="#7B1FA2" />
+      <circle cx="6" cy="0" r="9" fill="#9C27B0" />
+      <circle cx="-1" cy="10" r="9.5" fill="#6A1B9A" />
+      <circle cx="-8" cy="3" r="10" fill="url(#glow-purple)" />
+      <circle cx="6" cy="0" r="9" fill="url(#glow-purple)" />
+      {/* tiny crown marks */}
+      <circle cx="-10" cy="-5" r="1" fill="#4A148C" />
+      <circle cx="-6" cy="-6" r="1" fill="#4A148C" />
+      <path d="M-14 -4 C-12 -8, -8 -9, -6 -6" stroke="#388E3C" strokeWidth="1.2" fill="none" />
+    </g>
+  )
+}
+
+function OrangeIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <circle cx="0" cy="2" r="15" fill="#FF9800" />
+      <circle cx="0" cy="2" r="15" fill="url(#glow-orange)" />
+      {[...Array(8)].map((_, i) => (
+        <circle key={i} cx={Math.cos(i * 0.8) * 9} cy={2 + Math.sin(i * 0.8) * 9} r="0.6" fill="rgba(255,255,255,0.12)" />
+      ))}
+      <ellipse cx="0" cy="-12" rx="4" ry="2" fill="#4CAF50" opacity="0.85" />
+      <line x1="0" y1="-14" x2="0" y2="-19" stroke="#5D4037" strokeWidth="1.5" strokeLinecap="round" />
+    </g>
+  )
+}
+
+function OliveIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <ellipse cx="-6" cy="2" rx="8" ry="12" fill="#689F38" transform="rotate(-8)" />
+      <ellipse cx="7" cy="4" rx="7" ry="10" fill="#558B2F" transform="rotate(10)" />
+      <ellipse cx="-6" cy="2" rx="8" ry="12" fill="url(#glow-green)" transform="rotate(-8)" />
+      <path d="M-3 -10 C-2 -16, 3 -18, 6 -14" stroke="#5D4037" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <ellipse cx="8" cy="-16" rx="6" ry="2.2" fill="#7CB342" transform="rotate(-15)" />
+    </g>
+  )
+}
+
+function BeanIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <path d="M-16 8 C-12 -6, 0 -14, 14 -10" stroke="#66BB6A" strokeWidth="6" fill="none" strokeLinecap="round" />
+      <path d="M-14 12 C-10 -2, 2 -10, 16 -6" stroke="#4CAF50" strokeWidth="5" fill="none" strokeLinecap="round" />
+      <circle cx="-4" cy="-4" r="2" fill="rgba(255,255,255,0.1)" />
+      <circle cx="6" cy="-8" r="1.8" fill="rgba(255,255,255,0.1)" />
+    </g>
+  )
+}
+
+function ArganIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <ellipse cx="0" cy="2" rx="12" ry="15" fill="#BF8C30" />
+      <ellipse cx="0" cy="2" rx="12" ry="15" fill="url(#glow-gold)" />
+      <path d="M-6 -4 C0 -8, 6 -8, 8 -2" stroke="rgba(139,90,40,0.3)" strokeWidth="0.8" fill="none" />
+      <path d="M-7 4 C0 0, 7 0, 9 5" stroke="rgba(139,90,40,0.25)" strokeWidth="0.8" fill="none" />
+      <line x1="0" y1="-13" x2="0" y2="-20" stroke="#5D4037" strokeWidth="1.5" strokeLinecap="round" />
+      <ellipse cx="4" cy="-20" rx="5" ry="2" fill="#7CB342" transform="rotate(-10)" />
+    </g>
+  )
+}
+
+function AvocadoIcon({ x, y, size }: { x: number; y: number; size: number }) {
+  return (
+    <g transform={`translate(${x},${y}) scale(${size / 40})`}>
+      <ellipse cx="0" cy="2" rx="13" ry="17" fill="#33691E" />
+      <ellipse cx="0" cy="3" rx="9" ry="12" fill="#9CCC65" />
+      <circle cx="0" cy="7" r="7" fill="#795548" />
+      <circle cx="0" cy="7" r="7" fill="url(#glow-brown)" />
+      <ellipse cx="0" cy="2" rx="13" ry="17" fill="url(#glow-darkgreen)" />
+    </g>
+  )
+}
+
+const ICON_MAP: Record<string, (props: { x: number; y: number; size: number }) => JSX.Element> = {
+  Seafood: FishIcon,
+  Tomatoes: TomatoIcon,
+  Berries: BerryIcon,
+  Citrus: OrangeIcon,
+  Olives: OliveIcon,
+  'Green Beans': BeanIcon,
+  'Argan Oil': ArganIcon,
+  Avocados: AvocadoIcon,
+}
+
+// ═══ COMPONENT ═══
+
+export default function AgricultureRadialChart() {
+  const [hovered, setHovered] = useState<number | null>(null)
+  const [animated, setAnimated] = useState(false)
+  const svgRef = useRef<SVGSVGElement>(null)
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 300)
-    return () => clearTimeout(timer)
+    const t = setTimeout(() => setAnimated(true), 400)
+    return () => clearTimeout(t)
   }, [])
 
+  // Layout constants
+  const W = 800
+  const H = 800
+  const CX = W / 2
+  const CY = H / 2
+  const INNER_R = 90
+  const OUTER_R = 320
+  const GAP = 0.012 // radians gap between arcs
+  const START_ANGLE = -Math.PI / 2 // start at top
+
+  // Compute arcs
+  const arcs = useMemo(() => {
+    const totalAngle = 2 * Math.PI - GAP * CROPS.length
+    let currentAngle = START_ANGLE
+
+    return CROPS.map((crop, i) => {
+      const sweep = (crop.value / TOTAL) * totalAngle
+      const startAngle = currentAngle
+      const endAngle = currentAngle + sweep
+      const midAngle = (startAngle + endAngle) / 2
+
+      // Scale outer radius by value for extra drama
+      const valueRatio = crop.value / CROPS[0].value
+      const outerR = INNER_R + (OUTER_R - INNER_R) * (0.4 + 0.6 * valueRatio)
+
+      currentAngle = endAngle + GAP
+      return { ...crop, startAngle, endAngle, midAngle, outerR, index: i }
+    })
+  }, [])
+
+  // Arc path generator
+  const arcPath = (startAngle: number, endAngle: number, innerR: number, outerR: number) => {
+    const x1 = CX + innerR * Math.cos(startAngle)
+    const y1 = CY + innerR * Math.sin(startAngle)
+    const x2 = CX + outerR * Math.cos(startAngle)
+    const y2 = CY + outerR * Math.sin(startAngle)
+    const x3 = CX + outerR * Math.cos(endAngle)
+    const y3 = CY + outerR * Math.sin(endAngle)
+    const x4 = CX + innerR * Math.cos(endAngle)
+    const y4 = CY + innerR * Math.sin(endAngle)
+    const largeArc = endAngle - startAngle > Math.PI ? 1 : 0
+
+    return `M${x1},${y1} L${x2},${y2} A${outerR},${outerR} 0 ${largeArc} 1 ${x3},${y3} L${x4},${y4} A${innerR},${innerR} 0 ${largeArc} 0 ${x1},${y1} Z`
+  }
+
+  // Label position
+  const labelPos = (midAngle: number, r: number) => ({
+    x: CX + r * Math.cos(midAngle),
+    y: CY + r * Math.sin(midAngle),
+  })
+
   return (
-    <div
-      ref={ref}
-      style={{
-        background: '#FAF8F4',
-        fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
-        minHeight: '100vh',
-        padding: '0',
-      }}
-    >
+    <div style={{
+      background: '#0a0a0a',
+      minHeight: '100vh',
+      fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    }}>
       {/* Header */}
-      <div style={{ padding: '48px 32px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-        <p style={{
-          fontSize: '10px',
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
-          color: '#999',
-          marginBottom: '8px',
-        }}>
+      <div style={{ maxWidth: '800px', width: '100%', padding: '40px 24px 0' }}>
+        <p style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#555', marginBottom: '8px' }}>
           Dancing with Lions · Data
         </p>
         <h1 style={{
           fontFamily: "'Georgia', 'Times New Roman', serif",
-          fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+          fontSize: 'clamp(1.8rem, 5vw, 3rem)',
           fontWeight: 400,
           fontStyle: 'italic',
-          lineHeight: 1.05,
-          color: '#0a0a0a',
+          lineHeight: 1.1,
+          color: '#ffffff',
           margin: '0 0 8px 0',
         }}>
           What Morocco Grows<br />& Sends to the World
         </h1>
-        <p style={{ fontSize: '13px', color: '#737373', maxWidth: '520px', lineHeight: 1.6 }}>
-          Agricultural and seafood exports by value. Morocco is the #1 non-EU
-          supplier of fresh fruits and vegetables to Europe. Data: FAO, Office des Changes, 2022–2024.
+        <p style={{ fontSize: '12px', color: '#666', maxWidth: '440px', lineHeight: 1.6 }}>
+          ~$6.5 billion in agricultural and seafood exports. Each arc is proportional to export value. The further it reaches, the larger the trade.
         </p>
       </div>
 
-      {/* Divider */}
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ height: '2px', background: '#0a0a0a' }} />
+      {/* SVG Radial Chart */}
+      <div style={{ position: 'relative', width: '100%', maxWidth: '800px' }}>
+        <svg
+          ref={svgRef}
+          viewBox={`0 0 ${W} ${H}`}
+          style={{ width: '100%', height: 'auto' }}
+        >
+          {/* Gradient definitions */}
+          <defs>
+            {arcs.map((arc, i) => (
+              <radialGradient key={`grad-${i}`} id={`arc-grad-${i}`} cx="50%" cy="50%" r="50%">
+                <stop offset="30%" stopColor={arc.color} />
+                <stop offset="100%" stopColor={arc.colorEnd} />
+              </radialGradient>
+            ))}
+            {/* Glow filters */}
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="soft-glow">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            {/* Icon glow gradients */}
+            <radialGradient id="glow-red" cx="35%" cy="30%"><stop offset="0%" stopColor="rgba(255,255,255,0.2)" /><stop offset="100%" stopColor="rgba(0,0,0,0.1)" /></radialGradient>
+            <radialGradient id="glow-blue" cx="30%" cy="30%"><stop offset="0%" stopColor="rgba(255,255,255,0.15)" /><stop offset="100%" stopColor="rgba(0,0,0,0.05)" /></radialGradient>
+            <radialGradient id="glow-purple" cx="35%" cy="30%"><stop offset="0%" stopColor="rgba(255,255,255,0.2)" /><stop offset="100%" stopColor="rgba(0,0,0,0.08)" /></radialGradient>
+            <radialGradient id="glow-orange" cx="35%" cy="30%"><stop offset="0%" stopColor="rgba(255,255,255,0.2)" /><stop offset="100%" stopColor="rgba(0,0,0,0.1)" /></radialGradient>
+            <radialGradient id="glow-green" cx="30%" cy="30%"><stop offset="0%" stopColor="rgba(255,255,255,0.2)" /><stop offset="100%" stopColor="rgba(0,0,0,0.1)" /></radialGradient>
+            <radialGradient id="glow-gold" cx="35%" cy="25%"><stop offset="0%" stopColor="rgba(255,255,255,0.25)" /><stop offset="100%" stopColor="rgba(0,0,0,0.1)" /></radialGradient>
+            <radialGradient id="glow-brown" cx="40%" cy="35%"><stop offset="0%" stopColor="rgba(255,255,255,0.25)" /><stop offset="100%" stopColor="rgba(0,0,0,0.1)" /></radialGradient>
+            <radialGradient id="glow-darkgreen" cx="35%" cy="30%"><stop offset="0%" stopColor="rgba(255,255,255,0.1)" /><stop offset="100%" stopColor="rgba(0,0,0,0.05)" /></radialGradient>
+          </defs>
+
+          {/* Faint concentric rings */}
+          {[120, 180, 240, 300].map(r => (
+            <circle key={r} cx={CX} cy={CY} r={r} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+          ))}
+
+          {/* Arcs */}
+          {arcs.map((arc, i) => {
+            const isHovered = hovered === i
+            const isOther = hovered !== null && hovered !== i
+            return (
+              <g key={arc.name}>
+                {/* Glow behind hovered arc */}
+                {isHovered && (
+                  <path
+                    d={arcPath(arc.startAngle, arc.endAngle, INNER_R - 4, arc.outerR + 8)}
+                    fill={arc.color}
+                    opacity={0.2}
+                    filter="url(#soft-glow)"
+                  />
+                )}
+                <path
+                  d={arcPath(arc.startAngle, arc.endAngle, INNER_R, arc.outerR)}
+                  fill={`url(#arc-grad-${i})`}
+                  opacity={animated ? (isOther ? 0.25 : 1) : 0}
+                  style={{
+                    transition: 'opacity 0.4s ease',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(null)}
+                />
+              </g>
+            )
+          })}
+
+          {/* Crop icons — positioned at mid-angle, between inner and outer */}
+          {arcs.map((arc, i) => {
+            const IconComponent = ICON_MAP[arc.name]
+            if (!IconComponent) return null
+            const iconR = INNER_R + (arc.outerR - INNER_R) * 0.55
+            const pos = labelPos(arc.midAngle, iconR)
+            const iconSize = 16 + (arc.value / CROPS[0].value) * 20
+            const isOther = hovered !== null && hovered !== i
+            return (
+              <g
+                key={`icon-${i}`}
+                opacity={animated ? (isOther ? 0.2 : 1) : 0}
+                style={{ transition: 'opacity 0.4s ease', pointerEvents: 'none' }}
+              >
+                <IconComponent x={pos.x} y={pos.y} size={iconSize} />
+              </g>
+            )
+          })}
+
+          {/* Value labels on arcs — only show for segments with enough room */}
+          {arcs.map((arc, i) => {
+            const sweep = arc.endAngle - arc.startAngle
+            if (sweep < 0.25) return null // too narrow
+            const labelR = INNER_R + (arc.outerR - INNER_R) * 0.88
+            const pos = labelPos(arc.midAngle, labelR)
+            const isOther = hovered !== null && hovered !== i
+            return (
+              <text
+                key={`val-${i}`}
+                x={pos.x}
+                y={pos.y}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="rgba(255,255,255,0.8)"
+                fontSize="11"
+                fontFamily="'IBM Plex Mono', monospace"
+                fontWeight="600"
+                opacity={animated ? (isOther ? 0.15 : 1) : 0}
+                style={{ transition: 'opacity 0.4s ease', pointerEvents: 'none' }}
+              >
+                {arc.unit}
+              </text>
+            )
+          })}
+
+          {/* Outer name labels */}
+          {arcs.map((arc, i) => {
+            const outerLabelR = arc.outerR + 18
+            const pos = labelPos(arc.midAngle, outerLabelR)
+            const isRight = arc.midAngle > -Math.PI / 2 && arc.midAngle < Math.PI / 2
+            const isOther = hovered !== null && hovered !== i
+            return (
+              <text
+                key={`name-${i}`}
+                x={pos.x}
+                y={pos.y}
+                textAnchor={isRight ? 'start' : 'end'}
+                dominantBaseline="middle"
+                fill={hovered === i ? arc.iconColor : 'rgba(255,255,255,0.5)'}
+                fontSize="11"
+                fontFamily="'IBM Plex Mono', monospace"
+                fontWeight="500"
+                letterSpacing="0.04em"
+                opacity={animated ? (isOther ? 0.2 : 1) : 0}
+                style={{ transition: 'all 0.3s ease', pointerEvents: 'none' }}
+              >
+                {arc.name.toUpperCase()}
+              </text>
+            )
+          })}
+
+          {/* Center circle */}
+          <circle cx={CX} cy={CY} r={INNER_R - 2} fill="#0a0a0a" />
+          <circle cx={CX} cy={CY} r={INNER_R - 2} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+          {/* Center text */}
+          {hovered === null ? (
+            <g>
+              <text x={CX} y={CY - 18} textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="'IBM Plex Mono', monospace" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }}>
+                TOTAL EXPORTS
+              </text>
+              <text x={CX} y={CY + 10} textAnchor="middle" fill="#ffffff" fontSize="28" fontFamily="'Georgia', serif" fontStyle="italic">
+                ~$6.5B
+              </text>
+              <text x={CX} y={CY + 30} textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="'IBM Plex Mono', monospace">
+                agri-food + seafood
+              </text>
+            </g>
+          ) : (
+            <g>
+              <text x={CX} y={CY - 28} textAnchor="middle" fill={arcs[hovered].iconColor} fontSize="9" fontFamily="'IBM Plex Mono', monospace" letterSpacing="0.1em">
+                {arcs[hovered].name.toUpperCase()}
+              </text>
+              <text x={CX} y={CY - 4} textAnchor="middle" fill="#ffffff" fontSize="26" fontFamily="'Georgia', serif" fontStyle="italic">
+                {arcs[hovered].unit}
+              </text>
+              <text x={CX} y={CY + 16} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="'IBM Plex Mono', monospace">
+                {arcs[hovered].detail}
+              </text>
+              <text x={CX} y={CY + 32} textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="'IBM Plex Mono', monospace">
+                {arcs[hovered].region}
+              </text>
+            </g>
+          )}
+        </svg>
       </div>
 
-      {/* Chart */}
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '24px 32px 48px' }}>
-        {SORTED.map((crop, i) => {
-          const barWidth = (crop.value / MAX_VAL) * 100
-          const isHovered = hoveredIdx === i
-          return (
-            <div
-              key={crop.name}
-              onMouseEnter={() => setHoveredIdx(i)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '80px 1fr 100px',
-                alignItems: 'center',
-                gap: '16px',
-                padding: '12px 0',
-                borderBottom: '1px solid #e5e5e5',
-                cursor: 'default',
-                transition: 'background 0.2s ease',
-                background: isHovered ? 'rgba(0,0,0,0.02)' : 'transparent',
-              }}
-            >
-              {/* Illustration */}
-              <div style={{
-                width: '64px',
-                height: '64px',
-                transition: 'transform 0.3s ease',
-                transform: isHovered ? 'scale(1.15)' : 'scale(1)',
-              }}>
-                {crop.illustration}
-              </div>
-
-              {/* Bar + labels */}
-              <div>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: '8px',
-                  marginBottom: '6px',
-                }}>
-                  <span style={{
-                    fontSize: '15px',
-                    fontWeight: 600,
-                    color: '#0a0a0a',
-                  }}>
-                    {crop.name}
-                  </span>
-                  <span style={{
-                    fontSize: '11px',
-                    color: '#999',
-                  }}>
-                    {crop.share}
-                  </span>
-                </div>
-
-                {/* Bar */}
-                <div style={{
-                  width: '100%',
-                  height: '28px',
-                  background: '#eeebe6',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}>
-                  <div style={{
-                    height: '100%',
-                    width: visible ? `${barWidth}%` : '0%',
-                    background: crop.color,
-                    transition: `width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
-                    transitionDelay: `${i * 100}ms`,
-                    position: 'relative',
-                  }}>
-                    {barWidth > 25 && (
-                      <span style={{
-                        position: 'absolute',
-                        right: '8px',
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        color: 'rgba(255,255,255,0.9)',
-                      }}>
-                        {crop.unit}
-                      </span>
-                    )}
-                  </div>
-                  {barWidth <= 25 && (
-                    <span style={{
-                      position: 'absolute',
-                      left: `calc(${barWidth}% + 8px)`,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      fontSize: '11px',
-                      fontWeight: 600,
-                      color: '#0a0a0a',
-                    }}>
-                      {crop.unit}
-                    </span>
-                  )}
-                </div>
-
-                {/* Detail row */}
-                <div style={{
-                  display: 'flex',
-                  gap: '16px',
-                  marginTop: '4px',
-                  overflow: 'hidden',
-                  maxHeight: isHovered ? '24px' : '0px',
-                  opacity: isHovered ? 1 : 0,
-                  transition: 'max-height 0.3s ease, opacity 0.3s ease',
-                }}>
-                  <span style={{ fontSize: '10px', color: crop.color, fontWeight: 500 }}>
-                    {crop.note}
-                  </span>
-                  <span style={{ fontSize: '10px', color: '#aaa' }}>
-                    Region: {crop.region}
-                  </span>
-                </div>
-              </div>
-
-              {/* Value on right */}
-              <div style={{ textAlign: 'right' }}>
-                <span style={{
-                  fontFamily: "'Georgia', 'Times New Roman', serif",
-                  fontSize: '22px',
-                  fontStyle: 'italic',
-                  color: '#0a0a0a',
-                }}>
-                  {crop.unit}
-                </span>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      {/* Total bar */}
+      {/* Legend strip */}
       <div style={{
-        maxWidth: '1100px',
-        margin: '0 auto',
-        padding: '0 32px 16px',
+        maxWidth: '800px',
+        width: '100%',
+        padding: '0 24px 16px',
       }}>
-        <div style={{ height: '2px', background: '#0a0a0a', marginBottom: '12px' }} />
         <div style={{
           display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'baseline',
+          flexWrap: 'wrap',
+          gap: '12px 20px',
+          justifyContent: 'center',
         }}>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: '#0a0a0a', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            Total Agri-food & Seafood Exports
-          </span>
-          <span style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: '32px',
-            fontStyle: 'italic',
-            color: '#0a0a0a',
-          }}>
-            ~$6.5B
-          </span>
+          {CROPS.map((crop, i) => (
+            <div
+              key={crop.name}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                cursor: 'pointer',
+                opacity: hovered !== null && hovered !== i ? 0.3 : 1,
+                transition: 'opacity 0.3s ease',
+              }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: crop.color }} />
+              <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.5)' }}>{crop.name}</span>
+              <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)' }}>{crop.unit}</span>
+            </div>
+          ))}
         </div>
-        <p style={{ fontSize: '11px', color: '#999', marginTop: '2px' }}>
-          19.4% of total goods exports · #2 sector after automotive
-        </p>
+      </div>
+
+      {/* Annotation */}
+      <div style={{
+        maxWidth: '800px',
+        width: '100%',
+        padding: '16px 24px',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+      }}>
+        {hovered !== null ? (
+          <div style={{ textAlign: 'center', minHeight: '48px' }}>
+            <p style={{ fontSize: '13px', color: arcs[hovered].iconColor, margin: '0 0 4px' }}>
+              {arcs[hovered].note}
+            </p>
+            <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.3)' }}>
+              {((arcs[hovered].value / TOTAL) * 100).toFixed(1)}% of total agri-food exports
+            </p>
+          </div>
+        ) : (
+          <div style={{ textAlign: 'center', minHeight: '48px' }}>
+            <p style={{
+              fontFamily: "'Georgia', 'Times New Roman', serif",
+              fontSize: '16px',
+              fontStyle: 'italic',
+              color: 'rgba(255,255,255,0.4)',
+              margin: 0,
+            }}>
+              Hover each arc to explore
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Big fact */}
       <div style={{
-        background: '#E63946',
-        padding: '48px 32px',
-        margin: '24px 0 0',
+        width: '100%',
+        background: 'linear-gradient(135deg, #C62828 0%, #7f1d1d 100%)',
+        padding: '40px 24px',
+        marginTop: '8px',
       }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: 'clamp(1.3rem, 4vw, 2.2rem)',
-            fontStyle: 'italic',
-            color: '#ffffff',
-            lineHeight: 1.3,
-            margin: 0,
-          }}>
-            Morocco is the world&apos;s third-fastest-growing fruit and vegetable
-            exporter. It feeds Europe from 14 km away.
-          </p>
-          <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', marginTop: '12px' }}>
-            Source: EastFruit / FAO
-          </p>
-        </div>
+        <p style={{
+          fontFamily: "'Georgia', 'Times New Roman', serif",
+          fontSize: 'clamp(1.1rem, 3.5vw, 1.8rem)',
+          fontStyle: 'italic',
+          color: '#ffffff',
+          lineHeight: 1.35,
+          maxWidth: '600px',
+          margin: '0 auto',
+          textAlign: 'center',
+        }}>
+          Morocco is the world&apos;s third-fastest-growing fruit and vegetable exporter. It feeds Europe from 14 km away.
+        </p>
+        <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: '10px' }}>
+          Source: EastFruit / FAO · Data: 2022–2024
+        </p>
       </div>
 
       {/* Footer */}
       <div style={{
-        background: '#0a0a0a',
-        padding: '24px 32px',
+        width: '100%',
+        padding: '16px 24px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '8px',
       }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.3)' }}>
-            © {new Date().getFullYear()} Dancing with Lions · dancingwithlions.com · This visualization may not be reproduced without attribution.
-          </p>
-          <p style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: '14px',
-            fontStyle: 'italic',
-            color: '#E63946',
-          }}>
-            Source: Dancing with Lions
-          </p>
-        </div>
+        <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.2)' }}>
+          © {new Date().getFullYear()} Dancing with Lions · This visualization may not be reproduced without attribution
+        </p>
+        <p style={{
+          fontFamily: "'Georgia', 'Times New Roman', serif",
+          fontSize: '12px',
+          fontStyle: 'italic',
+          color: '#C62828',
+        }}>
+          Source: Dancing with Lions
+        </p>
       </div>
     </div>
   )
