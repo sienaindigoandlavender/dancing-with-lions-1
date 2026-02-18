@@ -28,6 +28,16 @@ const MODULES = [
     href: '/data/morocco-population',
   },
   {
+    id: 'morocco-population',
+    category: 'Demographics',
+    title: 'Morocco Population Density',
+    entries: '12 regions',
+    status: 'Live',
+    description: 'Interactive heatmap of where Morocco\'s 36.8 million people live. 2024 census data by region with density, growth rates, and population share.',
+    fields: ['Region', 'Population', 'Density', 'Area', 'Growth Rate', 'Capital'],
+    href: '/data/morocco-population',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
