@@ -1,328 +1,772 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 
-// ─── Morocco 2024 Census Data by Region ───
-// Source: Haut-Commissariat au Plan (HCP), Census 2024
-
-interface RegionData {
+// ─── Morocco 2024 Census ───
+interface Region {
   id: string
   name: string
   capital: string
-  population: number
-  area: number
-  density: number
-  growthRate: number
+  population: number // thousands
+  area: number       // km²
+  density: number    // per km²
+  growth: number     // annual %
 }
 
-const REGIONS: RegionData[] = [
-  { id: 'tanger', name: 'Tanger-Tétouan-Al Hoceima', capital: 'Tanger', population: 4030, area: 17262, density: 233.5, growthRate: 1.25 },
-  { id: 'oriental', name: 'Oriental', capital: 'Oujda', population: 2295, area: 66608, density: 34.5, growthRate: 0.42 },
-  { id: 'fes', name: 'Fès-Meknès', capital: 'Fès', population: 4468, area: 38744, density: 115.3, growthRate: 0.54 },
-  { id: 'rabat', name: 'Rabat-Salé-Kénitra', capital: 'Rabat', population: 5133, area: 17831, density: 287.8, growthRate: 1.14 },
-  { id: 'beni', name: 'Béni Mellal-Khénifra', capital: 'Béni Mellal', population: 2526, area: 26984, density: 93.6, growthRate: 0.34 },
-  { id: 'casa', name: 'Casablanca-Settat', capital: 'Casablanca', population: 7689, area: 20111, density: 382.3, growthRate: 1.08 },
-  { id: 'marrakech', name: 'Marrakech-Safi', capital: 'Marrakech', population: 4893, area: 39058, density: 125.3, growthRate: 0.79 },
-  { id: 'draa', name: 'Drâa-Tafilalet', capital: 'Errachidia', population: 1656, area: 87703, density: 18.9, growthRate: 0.48 },
-  { id: 'souss', name: 'Souss-Massa', capital: 'Agadir', population: 3020, area: 53444, density: 56.5, growthRate: 1.21 },
-  { id: 'guelmim', name: 'Guelmim-Oued Noun', capital: 'Guelmim', population: 449, area: 50245, density: 8.9, growthRate: 0.95 },
-  { id: 'laayoune', name: 'Laâyoune-Sakia El Hamra', capital: 'Laâyoune', population: 442, area: 140018, density: 3.2, growthRate: 2.54 },
-  { id: 'dakhla', name: 'Dakhla-Oued Ed-Dahab', capital: 'Dakhla', population: 220, area: 142865, density: 1.5, growthRate: 4.13 },
+const R: Region[] = [
+  { id: 'casa', name: 'Casablanca-Settat', capital: 'Casablanca', population: 7689, area: 20111, density: 382.3, growth: 1.08 },
+  { id: 'rabat', name: 'Rabat-Salé-Kénitra', capital: 'Rabat', population: 5133, area: 17831, density: 287.8, growth: 1.14 },
+  { id: 'marrakech', name: 'Marrakech-Safi', capital: 'Marrakech', population: 4893, area: 39058, density: 125.3, growth: 0.79 },
+  { id: 'fes', name: 'Fès-Meknès', capital: 'Fès', population: 4468, area: 38744, density: 115.3, growth: 0.54 },
+  { id: 'tanger', name: 'Tanger-Tétouan-Al Hoceima', capital: 'Tanger', population: 4030, area: 17262, density: 233.5, growth: 1.25 },
+  { id: 'souss', name: 'Souss-Massa', capital: 'Agadir', population: 3020, area: 53444, density: 56.5, growth: 1.21 },
+  { id: 'beni', name: 'Béni Mellal-Khénifra', capital: 'Béni Mellal', population: 2526, area: 26984, density: 93.6, growth: 0.34 },
+  { id: 'oriental', name: 'Oriental', capital: 'Oujda', population: 2295, area: 66608, density: 34.5, growth: 0.42 },
+  { id: 'draa', name: 'Drâa-Tafilalet', capital: 'Errachidia', population: 1656, area: 87703, density: 18.9, growth: 0.48 },
+  { id: 'guelmim', name: 'Guelmim-Oued Noun', capital: 'Guelmim', population: 449, area: 50245, density: 8.9, growth: 0.95 },
+  { id: 'laayoune', name: 'Laâyoune-Sakia El Hamra', capital: 'Laâyoune', population: 442, area: 140018, density: 3.2, growth: 2.54 },
+  { id: 'dakhla', name: 'Dakhla-Oued Ed-Dahab', capital: 'Dakhla', population: 220, area: 142865, density: 1.5, growth: 4.13 },
 ]
 
-const totalPopulation = REGIONS.reduce((sum, r) => sum + r.population, 0)
-const maxDensity = Math.max(...REGIONS.map(r => r.density))
+const TOTAL_POP = R.reduce((s, r) => s + r.population, 0)
 
-// Color scale: sand → amber → rust → deep brown
-function densityColor(density: number): string {
-  const logMin = Math.log(1)
-  const logMax = Math.log(400)
-  const t = Math.max(0, Math.min(1, (Math.log(Math.max(density, 1)) - logMin) / (logMax - logMin)))
+// ─── Color Palette — bold, saturated, IIB-inspired ───
+const PALETTE = [
+  '#E63946', // Casablanca — hot red (most dense)
+  '#F77F00', // Rabat — deep orange
+  '#FCBF49', // Marrakech — amber gold
+  '#EAE2B7', // Fes — warm sand
+  '#F4845F', // Tanger — coral
+  '#48BFE3', // Souss — ocean blue
+  '#72EFDD', // Beni Mellal — aqua mint
+  '#64DFDF', // Oriental — teal
+  '#5E60CE', // Draa — indigo
+  '#7B2D8E', // Guelmim — violet
+  '#3A0CA3', // Laayoune — deep purple
+  '#1B1B3A', // Dakhla — midnight
+]
 
-  if (t < 0.25) {
-    const s = t / 0.25
-    return `rgb(${Math.round(245 - s * 20)},${Math.round(235 - s * 50)},${Math.round(220 - s * 80)})`
-  } else if (t < 0.5) {
-    const s = (t - 0.25) / 0.25
-    return `rgb(${Math.round(225 - s * 30)},${Math.round(185 - s * 45)},${Math.round(140 - s * 50)})`
-  } else if (t < 0.75) {
-    const s = (t - 0.5) / 0.25
-    return `rgb(${Math.round(195 - s * 50)},${Math.round(140 - s * 50)},${Math.round(90 - s * 40)})`
+function getColor(idx: number): string {
+  return PALETTE[idx] || '#ccc'
+}
+
+// Density → color (continuous)
+function densityToColor(d: number): string {
+  const t = Math.min(1, Math.log(d + 1) / Math.log(400))
+  // Teal to orange to crimson
+  if (t < 0.33) {
+    const s = t / 0.33
+    const r = Math.round(30 + s * 18)
+    const g = Math.round(191 - s * 40)
+    const b = Math.round(227 - s * 90)
+    return `rgb(${r},${g},${b})`
+  } else if (t < 0.66) {
+    const s = (t - 0.33) / 0.33
+    const r = Math.round(48 + s * 199)
+    const g = Math.round(151 - s * 24)
+    const b = Math.round(137 - s * 64)
+    return `rgb(${r},${g},${b})`
   } else {
-    const s = (t - 0.75) / 0.25
-    return `rgb(${Math.round(145 - s * 85)},${Math.round(90 - s * 55)},${Math.round(50 - s * 25)})`
+    const s = (t - 0.66) / 0.34
+    const r = Math.round(247 - s * 17)
+    const g = Math.round(127 - s * 70)
+    const b = Math.round(73 - s * 4)
+    return `rgb(${r},${g},${b})`
   }
 }
 
-// Simplified SVG paths for Morocco's 12 regions
-const REGION_PATHS: Record<string, string> = {
-  tanger:    'M 160,20 L 280,15 310,45 320,90 280,120 230,130 180,110 140,85 130,55 Z',
-  oriental:  'M 310,45 L 420,30 500,60 520,150 490,220 430,230 370,200 320,160 320,90 Z',
-  fes:       'M 230,130 L 280,120 320,160 370,200 350,260 290,270 240,240 200,200 190,160 Z',
-  rabat:     'M 130,55 L 180,110 230,130 190,160 170,200 140,220 100,190 90,140 100,90 Z',
-  beni:      'M 200,200 L 240,240 290,270 310,320 270,350 220,340 180,300 170,250 Z',
-  casa:      'M 100,190 L 140,220 170,250 180,300 160,340 120,350 80,310 60,260 70,220 Z',
-  marrakech: 'M 80,310 L 120,350 160,340 220,340 240,380 220,430 170,450 110,430 60,390 50,340 Z',
-  draa:      'M 290,270 L 350,260 430,230 490,220 500,300 480,400 430,450 350,440 300,400 280,340 310,320 Z',
-  souss:     'M 50,340 L 110,430 170,450 200,490 180,540 130,560 80,530 40,470 30,400 Z',
-  guelmim:   'M 30,400 L 80,530 130,560 140,610 100,640 50,630 20,580 10,500 Z',
-  laayoune:  'M 10,500 L 50,630 100,640 150,660 160,720 170,800 120,830 60,810 20,750 0,650 Z',
-  dakhla:    'M 0,650 L 60,810 120,830 140,900 120,960 80,980 40,950 10,880 0,780 Z',
-}
-
-const LABEL_POSITIONS: Record<string, { x: number; y: number }> = {
-  tanger:    { x: 230, y: 65 },
-  oriental:  { x: 420, y: 130 },
-  fes:       { x: 280, y: 195 },
-  rabat:     { x: 135, y: 155 },
-  beni:      { x: 235, y: 280 },
-  casa:      { x: 115, y: 270 },
-  marrakech: { x: 150, y: 385 },
-  draa:      { x: 395, y: 340 },
-  souss:     { x: 110, y: 480 },
-  guelmim:   { x: 70, y: 570 },
-  laayoune:  { x: 90, y: 720 },
-  dakhla:    { x: 75, y: 880 },
-}
-
-export default function MoroccoPopulationPage() {
-  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const mapRef = useRef<HTMLDivElement>(null)
-
+// ─── Scroll observer hook ───
+function useInView(threshold = 0.2) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
   useEffect(() => {
-    const el = mapRef.current
+    const el = ref.current
     if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true) }, { threshold })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [threshold])
+  return { ref, visible }
+}
 
-  const hoveredData = hoveredRegion ? REGIONS.find(r => r.id === hoveredRegion) : null
+// ═══════════════════════════════════════════
+// SECTION 1: Hero — Giant number on dark bg
+// ═══════════════════════════════════════════
+function Hero() {
+  const { ref, visible } = useInView(0.1)
+  return (
+    <section
+      ref={ref}
+      className="min-h-screen flex flex-col justify-center relative overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1B1B3A 50%, #3A0CA3 100%)' }}
+    >
+      {/* Floating dots representing population */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 60 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: `${3 + Math.random() * 6}px`,
+              height: `${3 + Math.random() * 6}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              backgroundColor: PALETTE[Math.floor(Math.random() * PALETTE.length)],
+              opacity: visible ? 0.3 + Math.random() * 0.4 : 0,
+              transition: `opacity 1.5s ease ${i * 30}ms`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-wide mx-auto px-6 md:px-10 relative z-10">
+        <p
+          className="text-[11px] uppercase tracking-[0.2em] mb-8"
+          style={{
+            color: '#48BFE3',
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.8s ease 0.2s',
+          }}
+        >
+          Data Module 002
+        </p>
+
+        <h1
+          className="font-serif leading-none"
+          style={{
+            fontSize: 'clamp(4rem, 15vw, 12rem)',
+            color: '#ffffff',
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(40px)',
+            transition: 'all 1s ease 0.4s',
+          }}
+        >
+          36.8<span className="text-[0.3em] ml-2" style={{ color: '#48BFE3' }}>million</span>
+        </h1>
+
+        <p
+          className="text-[18px] md:text-[22px] max-w-[500px] mt-8 leading-relaxed"
+          style={{
+            color: 'rgba(255,255,255,0.6)',
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.8s ease 0.8s',
+          }}
+        >
+          Where Morocco&apos;s people actually live. Census 2024.
+          Hover, click, explore.
+        </p>
+
+        <div
+          className="mt-12"
+          style={{
+            opacity: visible ? 1 : 0,
+            transition: 'opacity 1s ease 1.2s',
+          }}
+        >
+          <p className="text-[11px] uppercase tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            Scroll to explore ↓
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════
+// SECTION 2: Treemap — proportional rectangles
+// ═══════════════════════════════════════════
+function Treemap() {
+  const { ref, visible } = useInView(0.15)
+  const [hovered, setHovered] = useState<string | null>(null)
+
+  // Simple treemap layout: single row, proportional widths
+  // Then we'll do a more interesting 2D layout
+  const sorted = [...R].sort((a, b) => b.population - a.population)
+
+  // Build a simple squarified-ish layout
+  interface TreeRect {
+    region: Region
+    x: number; y: number; w: number; h: number
+    colorIdx: number
+  }
+
+  const rects: TreeRect[] = []
+  const totalArea = 1000 * 600 // viewbox
+  let currentX = 0
+  let currentY = 0
+  let rowHeight = 600
+  let rowWidth = 1000
+  let remaining = [...sorted]
+  let colorIdx = 0
+
+  // First row: top 3 (they're big)
+  const row1 = remaining.splice(0, 3)
+  const row1Total = row1.reduce((s, r) => s + r.population, 0)
+  let rx = 0
+  row1.forEach((r) => {
+    const w = (r.population / row1Total) * 1000
+    rects.push({ region: r, x: rx, y: 0, w, h: 340, colorIdx })
+    rx += w
+    colorIdx++
+  })
+
+  // Second row: next 4
+  const row2 = remaining.splice(0, 4)
+  const row2Total = row2.reduce((s, r) => s + r.population, 0)
+  rx = 0
+  row2.forEach((r) => {
+    const w = (r.population / row2Total) * 1000
+    rects.push({ region: r, x: rx, y: 340, w, h: 160, colorIdx })
+    rx += w
+    colorIdx++
+  })
+
+  // Third row: remaining 5
+  const row3Total = remaining.reduce((s, r) => s + r.population, 0)
+  rx = 0
+  remaining.forEach((r) => {
+    const w = (r.population / row3Total) * 1000
+    rects.push({ region: r, x: rx, y: 500, w, h: 100, colorIdx })
+    rx += w
+    colorIdx++
+  })
+
+  const hoveredData = hovered ? R.find(r => r.id === hovered) : null
 
   return (
-    <div className="pt-16">
-      {/* Hero */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-8">
-        <p className="micro-label mb-4">Data Module 002</p>
-        <h1 className="font-serif text-[clamp(2.5rem,7vw,5.5rem)] text-dwl-black leading-[0.95]">
-          Population<br /><em>Density</em>
-        </h1>
-        <p className="text-[15px] text-dwl-body mt-6 max-w-[520px] leading-relaxed">
-          Where Morocco&apos;s 36.8 million people actually live.
-          Hover over each region for census data from the 2024 national count.
+    <section ref={ref} className="py-section bg-white">
+      <div className="max-w-wide mx-auto px-6 md:px-10">
+        <p className="micro-label mb-2">Population by Region</p>
+        <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-8">
+          Where the weight falls
         </p>
-      </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
-
-      {/* Headline */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-10">
-        <div className="flex flex-wrap gap-x-12 gap-y-6">
-          <div>
-            <span className="font-serif text-[56px] md:text-[72px] text-dwl-black italic leading-none">36.8</span>
-            <span className="text-[13px] text-dwl-muted ml-2">million</span>
-          </div>
-          <div>
-            <span className="font-serif text-[56px] md:text-[72px] text-dwl-black italic leading-none">12</span>
-            <span className="text-[13px] text-dwl-muted ml-2">regions</span>
-          </div>
-          <div>
-            <span className="font-serif text-[56px] md:text-[72px] text-dwl-black italic leading-none">382</span>
-            <span className="text-[13px] text-dwl-muted ml-2">peak density/km²</span>
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
-
-      {/* Map + Tooltip */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section" ref={mapRef}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-7">
-            <svg viewBox="-20 -10 560 1010" className="w-full h-auto" style={{ maxHeight: '75vh' }}>
-              {REGIONS.map((region, i) => {
-                const path = REGION_PATHS[region.id]
-                if (!path) return null
-                const isHovered = hoveredRegion === region.id
-                return (
-                  <g key={region.id}>
-                    <path
-                      d={path}
-                      fill={densityColor(region.density)}
-                      stroke="#ffffff"
-                      strokeWidth={isHovered ? 2.5 : 1.2}
-                      className="transition-all duration-300 cursor-pointer"
+        <div className="relative">
+          <svg viewBox="0 0 1000 600" className="w-full h-auto">
+            {rects.map((rect, i) => {
+              const isHovered = hovered === rect.region.id
+              const pct = ((rect.region.population / TOTAL_POP) * 100).toFixed(1)
+              return (
+                <g key={rect.region.id}>
+                  <rect
+                    x={rect.x + 1}
+                    y={rect.y + 1}
+                    width={Math.max(rect.w - 2, 0)}
+                    height={Math.max(rect.h - 2, 0)}
+                    fill={getColor(rect.colorIdx)}
+                    className="cursor-pointer transition-all duration-300"
+                    style={{
+                      opacity: visible ? (isHovered ? 1 : hovered ? 0.5 : 0.9) : 0,
+                      transitionDelay: visible ? `${i * 60}ms` : '0ms',
+                    }}
+                    rx={3}
+                    onMouseEnter={() => setHovered(rect.region.id)}
+                    onMouseLeave={() => setHovered(null)}
+                  />
+                  {/* Label inside rectangle if big enough */}
+                  {rect.w > 80 && rect.h > 40 && (
+                    <text
+                      x={rect.x + rect.w / 2}
+                      y={rect.y + rect.h / 2 - (rect.h > 80 ? 8 : 0)}
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      className="pointer-events-none select-none"
                       style={{
-                        opacity: isVisible ? 1 : 0,
-                        transitionDelay: `${i * 80}ms`,
-                        filter: isHovered ? 'brightness(0.85)' : 'none',
+                        fontFamily: 'Instrument Serif, Georgia, serif',
+                        fontSize: rect.h > 200 ? '28px' : rect.h > 100 ? '18px' : '13px',
+                        fontStyle: 'italic',
+                        fill: '#ffffff',
+                        opacity: visible ? 1 : 0,
+                        transition: `opacity 0.5s ease ${i * 60 + 300}ms`,
                       }}
-                      onMouseEnter={() => setHoveredRegion(region.id)}
-                      onMouseLeave={() => setHoveredRegion(null)}
-                      onClick={() => setHoveredRegion(hoveredRegion === region.id ? null : region.id)}
-                    />
-                    {LABEL_POSITIONS[region.id] && (
-                      <text
-                        x={LABEL_POSITIONS[region.id].x}
-                        y={LABEL_POSITIONS[region.id].y}
-                        textAnchor="middle"
-                        className="pointer-events-none select-none"
-                        style={{
-                          fontSize: '11px',
-                          fontFamily: 'IBM Plex Mono, monospace',
-                          fill: region.density > 100 ? '#ffffff' : '#525252',
-                          opacity: isVisible ? (isHovered ? 1 : 0.7) : 0,
-                          fontWeight: isHovered ? 600 : 400,
-                          transitionDelay: `${i * 80 + 200}ms`,
-                          transition: 'opacity 0.5s ease, font-weight 0.2s ease',
-                        }}
-                      >
-                        {region.capital}
-                      </text>
+                    >
+                      {rect.region.capital}
+                    </text>
+                  )}
+                  {rect.w > 100 && rect.h > 80 && (
+                    <text
+                      x={rect.x + rect.w / 2}
+                      y={rect.y + rect.h / 2 + (rect.h > 200 ? 24 : 16)}
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      className="pointer-events-none select-none"
+                      style={{
+                        fontFamily: 'IBM Plex Mono, monospace',
+                        fontSize: '11px',
+                        fill: 'rgba(255,255,255,0.7)',
+                        opacity: visible ? 1 : 0,
+                        transition: `opacity 0.5s ease ${i * 60 + 400}ms`,
+                      }}
+                    >
+                      {pct}%
+                    </text>
+                  )}
+                </g>
+              )
+            })}
+          </svg>
+
+          {/* Hover card */}
+          {hoveredData && (
+            <div className="absolute top-4 right-4 bg-white border border-dwl-border p-5 shadow-lg max-w-[240px] z-10">
+              <p className="text-[11px] uppercase tracking-[0.12em] text-dwl-gray font-medium">
+                {hoveredData.name}
+              </p>
+              <p className="font-serif text-[40px] text-dwl-black italic leading-none mt-1">
+                {(hoveredData.population / 1000).toFixed(1)}M
+              </p>
+              <div className="mt-4 space-y-2 text-[12px]">
+                <div className="flex justify-between">
+                  <span className="text-dwl-gray">Density</span>
+                  <span className="text-dwl-black font-medium">{hoveredData.density}/km²</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-dwl-gray">Growth</span>
+                  <span className="text-dwl-black font-medium">{hoveredData.growth}%/yr</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-dwl-gray">Share</span>
+                  <span className="text-dwl-black font-medium">
+                    {((hoveredData.population / TOTAL_POP) * 100).toFixed(1)}%
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════
+// SECTION 3: Bubble chart — population vs density
+// ═══════════════════════════════════════════
+function BubbleChart() {
+  const { ref, visible } = useInView(0.15)
+  const [hovered, setHovered] = useState<string | null>(null)
+
+  const maxPop = 7689
+  const maxDensity = 382.3
+  const padding = 60
+
+  return (
+    <section ref={ref} style={{ background: '#0a0a0a' }} className="py-section">
+      <div className="max-w-wide mx-auto px-6 md:px-10">
+        <p className="text-[11px] uppercase tracking-[0.2em] mb-2" style={{ color: '#48BFE3' }}>
+          Population vs Density
+        </p>
+        <p className="font-serif text-[32px] md:text-[42px] italic leading-[1.1] mb-8" style={{ color: '#ffffff' }}>
+          The concentration
+        </p>
+
+        <svg viewBox="0 0 900 500" className="w-full h-auto">
+          {/* Axes */}
+          <line x1={padding} y1={440} x2={860} y2={440} stroke="rgba(255,255,255,0.15)" strokeWidth={1} />
+          <line x1={padding} y1={40} x2={padding} y2={440} stroke="rgba(255,255,255,0.15)" strokeWidth={1} />
+
+          {/* Axis labels */}
+          <text x={460} y={485} textAnchor="middle" style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.4)' }}>
+            DENSITY (people/km²) →
+          </text>
+          <text x={15} y={240} textAnchor="middle" transform="rotate(-90, 15, 240)" style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.4)' }}>
+            POPULATION (millions) →
+          </text>
+
+          {/* Grid lines */}
+          {[100, 200, 300].map(d => {
+            const x = padding + (d / maxDensity) * (800 - padding)
+            return (
+              <g key={d}>
+                <line x1={x} y1={40} x2={x} y2={440} stroke="rgba(255,255,255,0.06)" strokeWidth={1} />
+                <text x={x} y={455} textAnchor="middle" style={{ fontSize: '9px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.25)' }}>
+                  {d}
+                </text>
+              </g>
+            )
+          })}
+          {[2, 4, 6].map(p => {
+            const y = 440 - ((p * 1000) / maxPop) * 400
+            return (
+              <g key={p}>
+                <line x1={padding} y1={y} x2={860} y2={y} stroke="rgba(255,255,255,0.06)" strokeWidth={1} />
+                <text x={padding - 8} y={y + 3} textAnchor="end" style={{ fontSize: '9px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.25)' }}>
+                  {p}M
+                </text>
+              </g>
+            )
+          })}
+
+          {/* Bubbles */}
+          {R.map((r, i) => {
+            const cx = padding + (r.density / maxDensity) * (800 - padding)
+            const cy = 440 - (r.population / maxPop) * 400
+            const radius = 8 + (r.population / maxPop) * 35
+            const isHovered = hovered === r.id
+            return (
+              <g key={r.id}>
+                <circle
+                  cx={cx}
+                  cy={cy}
+                  r={visible ? radius : 0}
+                  fill={getColor(i)}
+                  fillOpacity={isHovered ? 0.95 : hovered ? 0.3 : 0.75}
+                  stroke={isHovered ? '#ffffff' : 'none'}
+                  strokeWidth={2}
+                  className="cursor-pointer"
+                  style={{
+                    transition: `r 0.8s ease ${i * 80}ms, fill-opacity 0.3s ease, stroke 0.2s ease`,
+                  }}
+                  onMouseEnter={() => setHovered(r.id)}
+                  onMouseLeave={() => setHovered(null)}
+                />
+                {/* Label for bigger bubbles */}
+                {(radius > 18 || isHovered) && visible && (
+                  <text
+                    x={cx}
+                    y={cy + 1}
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    className="pointer-events-none"
+                    style={{
+                      fontSize: isHovered ? '12px' : '10px',
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fill: '#ffffff',
+                      fontWeight: isHovered ? 600 : 400,
+                      opacity: visible ? 1 : 0,
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    {r.capital}
+                  </text>
+                )}
+              </g>
+            )
+          })}
+        </svg>
+
+        {/* Hovered detail */}
+        {hovered && (() => {
+          const h = R.find(r => r.id === hovered)!
+          return (
+            <div className="mt-6 flex items-baseline gap-6 flex-wrap" style={{ color: '#ffffff' }}>
+              <span className="font-serif text-[28px] italic">{h.capital}</span>
+              <span className="text-[13px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                {(h.population / 1000).toFixed(1)}M people · {h.density}/km² · {h.growth}% growth/yr
+              </span>
+            </div>
+          )
+        })()}
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════
+// SECTION 4: Growth race — horizontal animated bars
+// ═══════════════════════════════════════════
+function GrowthBars() {
+  const { ref, visible } = useInView(0.15)
+  const sorted = [...R].sort((a, b) => b.growth - a.growth)
+  const maxGrowth = sorted[0].growth
+
+  return (
+    <section ref={ref} className="py-section bg-white">
+      <div className="max-w-wide mx-auto px-6 md:px-10">
+        <p className="micro-label mb-2">Annual Growth Rate 2014–2024</p>
+        <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-10">
+          Who&apos;s growing fastest
+        </p>
+
+        <div className="space-y-3">
+          {sorted.map((r, i) => {
+            const width = (r.growth / maxGrowth) * 100
+            const color = getColor(R.indexOf(r))
+            return (
+              <div key={r.id} className="flex items-center gap-4">
+                <div className="w-[140px] md:w-[200px] shrink-0 text-right">
+                  <span className="text-[13px] text-dwl-black">{r.capital}</span>
+                </div>
+                <div className="flex-1 h-[32px] bg-dwl-light relative overflow-hidden rounded-sm">
+                  <div
+                    className="absolute inset-y-0 left-0 rounded-sm flex items-center justify-end pr-3"
+                    style={{
+                      width: visible ? `${width}%` : '0%',
+                      backgroundColor: color,
+                      transition: `width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 80}ms`,
+                    }}
+                  >
+                    {width > 20 && (
+                      <span className="text-[12px] text-white font-medium tabular-nums">
+                        {r.growth}%
+                      </span>
                     )}
-                  </g>
-                )
-              })}
-            </svg>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
-            {hoveredData ? (
-              <div className="transition-all duration-300">
-                <p className="text-[11px] uppercase tracking-[0.12em] text-dwl-gray font-medium mb-2">
-                  {hoveredData.name}
-                </p>
-                <p className="font-serif text-[64px] text-dwl-black italic leading-none">
-                  {hoveredData.density.toFixed(1)}
-                </p>
-                <p className="text-[13px] text-dwl-muted mt-1 mb-8">people per km²</p>
-
-                <div className="space-y-4">
-                  {[
-                    ['Population', `${(hoveredData.population / 1000).toFixed(1)}M`],
-                    ['Area', `${hoveredData.area.toLocaleString()} km²`],
-                    ['Capital', hoveredData.capital],
-                    ['Growth rate', `${hoveredData.growthRate}% /yr`],
-                    ['Share of national', `${((hoveredData.population / totalPopulation) * 100).toFixed(1)}%`],
-                  ].map(([label, value]) => (
-                    <div key={label} className="flex justify-between border-b border-dwl-border pb-3">
-                      <span className="text-[13px] text-dwl-gray">{label}</span>
-                      <span className="text-[13px] text-dwl-black font-medium tabular-nums">{value}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6">
-                  <div className="h-[6px] bg-dwl-light w-full overflow-hidden">
-                    <div
-                      className="h-full transition-all duration-500"
+                  </div>
+                  {width <= 20 && visible && (
+                    <span
+                      className="absolute left-2 top-1/2 -translate-y-1/2 text-[12px] text-dwl-gray font-medium tabular-nums"
                       style={{
-                        width: `${(hoveredData.density / maxDensity) * 100}%`,
-                        backgroundColor: densityColor(hoveredData.density),
+                        marginLeft: `${width}%`,
+                        opacity: visible ? 1 : 0,
+                        transition: `opacity 0.5s ease ${i * 80 + 600}ms`,
                       }}
-                    />
-                  </div>
-                  <div className="flex justify-between mt-1">
-                    <span className="text-[10px] text-dwl-muted">0</span>
-                    <span className="text-[10px] text-dwl-muted">{maxDensity.toFixed(0)}/km²</span>
-                  </div>
+                    >
+                      {r.growth}%
+                    </span>
+                  )}
                 </div>
               </div>
-            ) : (
-              <div className="text-center lg:text-left py-12 lg:py-24">
-                <p className="text-[13px] text-dwl-muted">Hover or tap a region</p>
-                <p className="font-serif text-[22px] text-dwl-black italic mt-2">to explore the data</p>
-              </div>
-            )}
-          </div>
+            )
+          })}
         </div>
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════
+// SECTION 5: Waffle chart — 1 square = ~370K people
+// ═══════════════════════════════════════════
+function WaffleChart() {
+  const { ref, visible } = useInView(0.15)
+  const UNIT = 368 // ~100 squares for the whole country
+  const totalSquares = Math.round(TOTAL_POP / UNIT)
+
+  // Build waffle data
+  const squares: { color: string; region: string; capital: string }[] = []
+  const sorted = [...R].sort((a, b) => b.population - a.population)
+  sorted.forEach((r, ri) => {
+    const count = Math.max(1, Math.round(r.population / UNIT))
+    for (let j = 0; j < count; j++) {
+      squares.push({ color: getColor(R.indexOf(r)), region: r.name, capital: r.capital })
+    }
+  })
+
+  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null)
+
+  return (
+    <section ref={ref} style={{ background: '#fafafa' }} className="py-section">
+      <div className="max-w-wide mx-auto px-6 md:px-10">
+        <p className="micro-label mb-2">One Square ≈ {UNIT.toLocaleString()} People</p>
+        <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-8">
+          The whole country in {squares.length} blocks
+        </p>
+
+        <div className="flex flex-wrap gap-[3px]">
+          {squares.map((sq, i) => {
+            const isHighlighted = !hoveredRegion || hoveredRegion === sq.region
+            return (
+              <div
+                key={i}
+                className="cursor-pointer"
+                style={{
+                  width: '28px',
+                  height: '28px',
+                  backgroundColor: sq.color,
+                  opacity: visible ? (isHighlighted ? 1 : 0.15) : 0,
+                  borderRadius: '2px',
+                  transition: `opacity 0.3s ease ${visible ? Math.min(i * 8, 800) : 0}ms`,
+                }}
+                onMouseEnter={() => setHoveredRegion(sq.region)}
+                onMouseLeave={() => setHoveredRegion(null)}
+              />
+            )
+          })}
+        </div>
+
+        {hoveredRegion && (
+          <p className="mt-4 text-[14px] text-dwl-black font-medium">
+            {hoveredRegion}
+          </p>
+        )}
 
         {/* Legend */}
-        <div className="mt-12 max-w-[400px]">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-dwl-gray font-medium mb-3">
-            Density (people per km²)
-          </p>
-          <div className="flex h-[12px] overflow-hidden">
-            {Array.from({ length: 40 }).map((_, i) => {
-              const density = Math.exp(Math.log(1) + (i / 39) * (Math.log(400) - Math.log(1)))
-              return <div key={i} className="flex-1" style={{ backgroundColor: densityColor(density) }} />
-            })}
-          </div>
-          <div className="flex justify-between mt-1">
-            <span className="text-[10px] text-dwl-muted">1.5</span>
-            <span className="text-[10px] text-dwl-muted">50</span>
-            <span className="text-[10px] text-dwl-muted">100</span>
-            <span className="text-[10px] text-dwl-muted">200</span>
-            <span className="text-[10px] text-dwl-muted">382</span>
-          </div>
+        <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+          {[...R].sort((a, b) => b.population - a.population).slice(0, 6).map((r, i) => (
+            <div
+              key={r.id}
+              className="flex items-center gap-2 cursor-pointer"
+              onMouseEnter={() => setHoveredRegion(r.name)}
+              onMouseLeave={() => setHoveredRegion(null)}
+            >
+              <div
+                className="w-[12px] h-[12px] rounded-sm"
+                style={{ backgroundColor: getColor(R.indexOf(r)) }}
+              />
+              <span className="text-[11px] text-dwl-gray">{r.capital}</span>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  )
+}
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+// ═══════════════════════════════════════════
+// SECTION 6: The single fact — big typography
+// ═══════════════════════════════════════════
+function BigFact() {
+  const { ref, visible } = useInView(0.3)
+  return (
+    <section
+      ref={ref}
+      className="py-section flex items-center justify-center min-h-[60vh]"
+      style={{ background: '#E63946' }}
+    >
+      <div className="max-w-[700px] px-6 md:px-10 text-center">
+        <p
+          className="font-serif italic leading-[1.15]"
+          style={{
+            fontSize: 'clamp(2rem, 6vw, 4.5rem)',
+            color: '#ffffff',
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'all 1s ease 0.2s',
+          }}
+        >
+          Five regions hold 71% of the population on 19% of the land.
+        </p>
+        <p
+          className="text-[14px] mt-8"
+          style={{
+            color: 'rgba(255,255,255,0.6)',
+            opacity: visible ? 1 : 0,
+            transition: 'opacity 0.8s ease 0.8s',
+          }}
+        >
+          Casablanca-Settat, Rabat-Salé-Kénitra, Marrakech-Safi, Fès-Meknès, Tanger-Tétouan-Al Hoceima
+        </p>
+      </div>
+    </section>
+  )
+}
 
-      {/* Top 5 Ranking */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <p className="micro-label mb-8">By Population</p>
-        {[...REGIONS]
-          .sort((a, b) => b.population - a.population)
-          .slice(0, 5)
-          .map((region, i) => (
-            <div key={region.id} className="flex items-center gap-4 py-4 border-b border-dwl-border">
-              <span className="text-[11px] text-dwl-muted font-medium w-[24px] tabular-nums">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div className="flex-1">
-                <div className="flex items-baseline justify-between">
-                  <p className="text-[14px] text-dwl-black font-medium">{region.name}</p>
-                  <p className="font-serif text-[24px] text-dwl-black italic leading-none">
-                    {(region.population / 1000).toFixed(1)}M
-                  </p>
+// ═══════════════════════════════════════════
+// SECTION 7: Density spectrum — continuous strip
+// ═══════════════════════════════════════════
+function DensitySpectrum() {
+  const { ref, visible } = useInView(0.15)
+  const sorted = [...R].sort((a, b) => a.density - b.density)
+
+  return (
+    <section ref={ref} className="py-section bg-white">
+      <div className="max-w-wide mx-auto px-6 md:px-10">
+        <p className="micro-label mb-2">Density Spectrum</p>
+        <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-10">
+          From empty desert to packed city
+        </p>
+
+        <div className="space-y-1">
+          {sorted.map((r, i) => {
+            const barW = Math.max(2, (r.density / 382.3) * 100)
+            return (
+              <div key={r.id} className="flex items-center gap-3 group">
+                <div className="w-[120px] md:w-[180px] shrink-0 text-right">
+                  <span className="text-[12px] text-dwl-gray group-hover:text-dwl-black transition-colors">
+                    {r.capital}
+                  </span>
                 </div>
-                <div className="mt-2 h-[4px] bg-dwl-light overflow-hidden">
+                <div className="flex-1 h-[24px] relative">
                   <div
-                    className="h-full"
+                    className="absolute inset-y-0 left-0"
                     style={{
-                      width: `${(region.population / 7689) * 100}%`,
-                      backgroundColor: densityColor(region.density),
+                      width: visible ? `${barW}%` : '0%',
+                      background: `linear-gradient(90deg, ${densityToColor(r.density * 0.5)}, ${densityToColor(r.density)})`,
+                      transition: `width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 60}ms`,
+                      borderRadius: '0 2px 2px 0',
                     }}
                   />
                 </div>
+                <div className="w-[70px] text-right">
+                  <span
+                    className="text-[13px] font-medium tabular-nums"
+                    style={{
+                      color: densityToColor(r.density),
+                      opacity: visible ? 1 : 0,
+                      transition: `opacity 0.5s ease ${i * 60 + 500}ms`,
+                    }}
+                  >
+                    {r.density}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
-      </section>
+            )
+          })}
+        </div>
 
-      {/* Sources */}
-      <section className="bg-dwl-offwhite">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
-          <div className="max-w-[640px]">
-            <p className="micro-label mb-4">Source</p>
-            <p className="text-[11px] text-dwl-gray">
-              Haut-Commissariat au Plan (HCP), Recensement Général de la Population et de l&apos;Habitat 2024
-            </p>
-            <div className="mt-8 pt-6 border-t border-dwl-border">
-              <p className="text-[11px] text-dwl-black font-medium">
-                &copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.
-              </p>
-              <p className="text-[11px] text-dwl-gray mt-1">
-                This visualization may not be reproduced without visible attribution.
-              </p>
-              <p className="font-serif text-[16px] text-dwl-black italic mt-2">Source: Dancing with Lions</p>
-            </div>
-            <div className="mt-6">
-              <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium text-dwl-black border-b border-dwl-black pb-1 hover:opacity-60 transition-opacity">
-                ← All Data Modules
-              </Link>
-            </div>
+        {/* Continuous legend */}
+        <div className="mt-10 max-w-[500px]">
+          <div className="flex h-[8px] overflow-hidden rounded-full">
+            {Array.from({ length: 50 }).map((_, i) => {
+              const d = (i / 49) * 382
+              return <div key={i} className="flex-1" style={{ backgroundColor: densityToColor(d) }} />
+            })}
+          </div>
+          <div className="flex justify-between mt-1">
+            <span className="text-[10px]" style={{ color: densityToColor(5) }}>Sparse</span>
+            <span className="text-[10px]" style={{ color: densityToColor(200) }}>Dense</span>
+            <span className="text-[10px]" style={{ color: densityToColor(382) }}>Packed</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════
+// Footer
+// ═══════════════════════════════════════════
+function Sources() {
+  return (
+    <section style={{ background: '#0a0a0a' }} className="py-section-sm">
+      <div className="max-w-wide mx-auto px-6 md:px-10">
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          Source
+        </p>
+        <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          Haut-Commissariat au Plan (HCP), Recensement Général de la Population et de l&apos;Habitat 2024
+        </p>
+
+        <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <p className="text-[12px] font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            &copy; {new Date().getFullYear()} Dancing with Lions
+          </p>
+          <p className="font-serif text-[18px] italic mt-2" style={{ color: '#48BFE3' }}>
+            Source: Dancing with Lions
+          </p>
+        </div>
+
+        <div className="mt-6">
+          <Link
+            href="/data"
+            className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity"
+            style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}
+          >
+            ← All Data Modules
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════
+// Page
+// ═══════════════════════════════════════════
+export default function MoroccoPopulationPage() {
+  return (
+    <div className="-mt-16">
+      <Hero />
+      <Treemap />
+      <BubbleChart />
+      <GrowthBars />
+      <WaffleChart />
+      <BigFact />
+      <DensitySpectrum />
+      <Sources />
     </div>
   )
 }
