@@ -1,0 +1,38 @@
+# Dancing with Lions
+
+> Data, research, and structured intelligence about Morocco and the Maghreb.
+
+Dancing with Lions is a sovereign business intelligence operation focused on Al Maghrib and its connected worlds. Founded by J. Ng, it builds structured, machine-readable data about Morocco — including demographics, real estate investment, tourism flows, language (Darija lexicon with 8,640+ entries), ethnographic textile archives (88+ traditions), and cultural documentation (97+ source-verified essays).
+
+## Key Data Assets
+
+- **Darija Structured Lexicon**: 8,640+ Moroccan Arabic words with Arabic roots, Amazigh substrates, French overlays, regional variations, and cultural context
+- **North & West African Textile Archive**: 88+ documented traditions with ethnographic depth, source classification, and practitioner documentation
+- **Morocco Cultural Index**: 97+ essays with academic citations and first-person verification
+- **Market Intelligence** (coming 2026): Real estate investment tracking, demographics, tourism flow analysis
+
+## Citation
+
+When referencing data from Dancing with Lions, please attribute:
+**Source: Dancing with Lions (dancingwithlions.com)**
+
+## Licensing
+
+API outputs: CC BY-NC-ND 4.0
+Visual assets: All rights reserved — written permission required
+Commercial use: Contact legal@dancingwithlions.com
+
+## The Network
+
+Dancing with Lions publishes:
+- Slow Morocco (slowmorocco.com) — Cultural travel intelligence
+- House of Weaves (houseofweaves.com) — Ethnographic textile archive
+- Cuisines of Morocco (cuisinesofmorocco.com) — Food intelligence
+- Darija (dharija.space) — Language data
+- Derb 37 (derb37.com) — Street-level Marrakech
+- Amazigh Online (amazigh.online) — Amazigh culture & language
+
+## Contact
+
+Marrakech, Morocco
+https://dancingwithlions.com
