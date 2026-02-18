@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Data — Dancing with Lions',
@@ -6,6 +7,16 @@ export const metadata: Metadata = {
 }
 
 const MODULES = [
+  {
+    id: 'maghreb-compared',
+    category: 'Comparative Analysis',
+    title: 'The Maghreb Compared',
+    entries: '3 countries',
+    status: 'Live',
+    description: 'Morocco, Tunisia, and Algeria side by side. Population, GDP, tourism, investment, demographics, and development indicators in one structured overview.',
+    fields: ['Population', 'GDP', 'Tourism', 'FDI', 'Unemployment', 'HDI', 'Internet', 'Languages'],
+    href: '/data/maghreb-compared',
+  },
   {
     id: 'darija',
     category: 'Language',
@@ -98,9 +109,15 @@ export default function DataPage() {
               </div>
               <div className="md:col-span-9">
                 <div className="flex items-baseline gap-4 mb-4">
-                  <h2 className="font-serif text-[30px] md:text-[36px] text-dwl-black leading-[1.1]">
-                    {mod.title}
-                  </h2>
+                  {'href' in mod && mod.href ? (
+                    <Link href={mod.href} className="font-serif text-[30px] md:text-[36px] text-dwl-black leading-[1.1] hover:opacity-60 transition-opacity">
+                      {mod.title}
+                    </Link>
+                  ) : (
+                    <h2 className="font-serif text-[30px] md:text-[36px] text-dwl-black leading-[1.1]">
+                      {mod.title}
+                    </h2>
+                  )}
                   {mod.entries !== '—' && (
                     <span className="font-serif text-[30px] md:text-[36px] text-dwl-muted italic">
                       {mod.entries}
