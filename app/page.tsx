@@ -68,8 +68,8 @@ export default function HomePage() {
         <div className="animate-fade-up">
           <p className="micro-label mb-6 delay-1 animate-fade-up">Cultural Intelligence</p>
           <h1 className="font-serif text-[clamp(3.5rem,10vw,8rem)] text-dwl-black leading-[0.95] tracking-[-0.01em] delay-2 animate-fade-up">
-            The Bloomberg<br />
-            <em>of North Africa</em>
+            Dancing<br />
+            <em>with Lions</em>
           </h1>
         </div>
         <div className="mt-12 max-w-[580px] delay-3 animate-fade-up">

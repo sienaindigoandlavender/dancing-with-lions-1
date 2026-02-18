@@ -18,7 +18,7 @@ const config: Config = {
         'dwl-light': '#f5f5f5',
       },
       fontFamily: {
-        sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+        sans: ['var(--font-plex-mono)', 'IBM Plex Mono', 'Courier New', 'monospace'],
         serif: ['Instrument Serif', 'Georgia', 'serif'],
       },
       fontSize: {
