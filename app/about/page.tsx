@@ -39,7 +39,7 @@ export default function AboutPage() {
               Dancing with Lions is a sovereign business intelligence operation — data, research,
               structured intelligence — about Al Maghrib and its connected worlds.
             </p>
-            <p className="text-body text-dwl-gray leading-relaxed">
+            <p className="text-body text-dwl-body leading-relaxed">
               It publishes. It builds digital tools and interactive data experiences. It holds
               deep, structured intelligence that institutions, investors, AI systems, consultants,
               and brands need — and delivers it in forms that are both rigorous and beautiful.
@@ -132,11 +132,11 @@ export default function AboutPage() {
           </div>
           <div className="md:col-span-8 max-w-[580px]">
             <p className="font-serif text-[32px] text-dwl-black italic mb-6">J. Ng</p>
-            <p className="text-body text-dwl-gray leading-relaxed">
+            <p className="text-body text-dwl-body leading-relaxed">
               Hakka Chinese, born in Mauritius, trained in Canada, rooted in Morocco.
               11 years living in Marrakech. 25 years building brands.
             </p>
-            <p className="text-body text-dwl-gray leading-relaxed mt-4">
+            <p className="text-body text-dwl-body leading-relaxed mt-4">
               The riad is the credential, not the definition. Cultural intelligence —
               the building, the mapping, the connecting, the making-data-alive —
               that&apos;s where the brain lives.
@@ -152,7 +152,7 @@ export default function AboutPage() {
           <p className="font-serif text-[24px] text-dwl-black italic max-w-[580px] leading-[1.4]">
             Until 2030: Morocco. Full depth. The proof of concept.
           </p>
-          <p className="text-body text-dwl-gray mt-4 max-w-[580px]">
+          <p className="text-body text-dwl-body mt-4 max-w-[580px]">
             The architecture expands along routes, not borders — Al Maghrib, the Trans-Saharan corridor,
             the Andalusi bridge to southern Spain and Portugal.
           </p>

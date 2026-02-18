@@ -10,8 +10,9 @@
   --background: #ffffff;
   --background-alt: #fafafa;
   --text: #0a0a0a;
-  --text-secondary: #666666;
-  --text-muted: #999999;
+  --text-body: #262626;
+  --text-secondary: #525252;
+  --text-muted: #737373;
   --border: #e5e5e5;
 }
 
@@ -64,7 +65,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 /* Border utility — always 1px */

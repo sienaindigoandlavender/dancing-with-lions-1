@@ -73,7 +73,7 @@ export default function HomePage() {
           </h1>
         </div>
         <div className="mt-12 max-w-[580px] delay-3 animate-fade-up">
-          <p className="text-body text-dwl-gray leading-relaxed">
+          <p className="text-body text-dwl-body leading-relaxed">
             Dancing with Lions builds structured intelligence about Morocco and the Maghreb.
             Data, research, maps, timelines — made alive and made beautiful.
             The depth that doesn&apos;t exist anywhere else.
@@ -113,7 +113,7 @@ export default function HomePage() {
               that isn&apos;t five years old? Who&apos;s tracking real estate investment patterns across the Maghreb
               in a format a fund manager in London can use?
             </p>
-            <p className="text-body text-dwl-gray mt-6 max-w-[640px]">
+            <p className="text-body text-dwl-body mt-6 max-w-[640px]">
               Almost nobody. And the little that exists is ugly, fragmented, outdated,
               and locked in PDFs written by people who&apos;ve never lived in the region.
             </p>
@@ -188,7 +188,7 @@ export default function HomePage() {
             <p className="font-serif text-[24px] md:text-[28px] leading-[1.45] text-dwl-black max-w-[580px]">
               When the cameras come, someone needs to make sure the world sees more than stadiums and bling.
             </p>
-            <p className="text-body text-dwl-gray mt-6 max-w-[580px]">
+            <p className="text-body text-dwl-body mt-6 max-w-[580px]">
               Morocco has thousands of years of civilization. The story didn&apos;t start when the
               Arabs arrived. It started with the Amazigh, the Phoenicians at Lixus, the Romans at Volubilis,
               trade routes that connected sub-Saharan gold to Mediterranean silver long before anyone drew a border.

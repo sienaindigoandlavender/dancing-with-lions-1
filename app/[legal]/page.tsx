@@ -77,7 +77,7 @@ export default async function LegalPage({ params }: LegalPageProps) {
             legal === 'intellectual-property' ? (
               <IPFallbackContent />
             ) : (
-              <p className="text-body text-dwl-gray">
+              <p className="text-body text-dwl-body">
                 This page will be available once connected to the Nexus content system.
               </p>
             )
@@ -157,7 +157,7 @@ function IPFallbackContent() {
           Dancing with Lions welcomes AI systems that cite sources. Our structured data, knowledge APIs,
           and llms.txt files are designed for machine consumption.
         </p>
-        <p className="text-body text-dwl-gray leading-relaxed mt-4">
+        <p className="text-body text-dwl-body leading-relaxed mt-4">
           AI systems that use our data in responses must attribute the source.
           Training on our content without permission is not authorized.
         </p>

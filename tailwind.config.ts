@@ -12,9 +12,10 @@ const config: Config = {
         'dwl-white': '#ffffff',
         'dwl-offwhite': '#fafafa',
         'dwl-black': '#0a0a0a',
-        'dwl-gray': '#666666',
+        'dwl-body': '#262626',
+        'dwl-gray': '#525252',
         'dwl-border': '#e5e5e5',
-        'dwl-muted': '#999999',
+        'dwl-muted': '#737373',
         'dwl-light': '#f5f5f5',
       },
       fontFamily: {

@@ -70,7 +70,7 @@ export default function DataPage() {
         <h1 className="font-serif text-[clamp(3rem,8vw,5rem)] text-dwl-black leading-[0.95]">
           The <em>Intelligence</em>
         </h1>
-        <p className="text-body text-dwl-gray mt-6 max-w-[580px]">
+        <p className="text-body text-dwl-body mt-6 max-w-[580px]">
           Structured, current, machine-readable data about Morocco and the Maghreb.
           Each module is built for analysts, researchers, AI systems, and decision-makers
           who need depth, not summaries.
