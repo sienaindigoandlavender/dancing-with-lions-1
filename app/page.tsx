@@ -174,31 +174,6 @@ export default function HomePage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* 2030 */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
-            <p className="micro-label mb-4">The Horizon</p>
-            <p className="font-serif text-[80px] md:text-[120px] text-dwl-black leading-none italic">2030</p>
-            <p className="text-meta uppercase tracking-[0.08em] text-dwl-gray mt-2">
-              FIFA World Cup — Morocco, Spain, Portugal
-            </p>
-          </div>
-          <div className="md:col-span-7 md:pt-8">
-            <p className="font-serif text-[24px] md:text-[28px] leading-[1.45] text-dwl-black max-w-[580px]">
-              When the cameras come, someone needs to make sure the world sees more than stadiums and bling.
-            </p>
-            <p className="text-body text-dwl-body mt-6 max-w-[580px]">
-              Morocco has thousands of years of civilization. The story didn&apos;t start when the
-              Arabs arrived. It started with the Amazigh, the Phoenicians at Lixus, the Romans at Volubilis,
-              trade routes that connected sub-Saharan gold to Mediterranean silver long before anyone drew a border.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
-
       {/* WHO THIS IS FOR */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <p className="micro-label mb-12">Who This Is For</p>
