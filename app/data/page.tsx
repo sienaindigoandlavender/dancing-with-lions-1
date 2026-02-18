@@ -28,6 +28,16 @@ const MODULES = [
     href: '/data/morocco-population',
   },
   {
+    id: 'morocco-agriculture',
+    category: 'Illustrated Data',
+    title: 'What Morocco Grows & Sends to the World',
+    entries: '8 exports',
+    status: 'Live',
+    description: 'Illustrated agricultural and seafood export chart. Tomatoes, berries, citrus, olives, argan oil, avocados, green beans, sardines — ranked by value with hand-drawn SVG illustrations.',
+    fields: ['Tomatoes', 'Berries', 'Citrus', 'Olives', 'Argan', 'Seafood', 'Avocados', 'Green Beans'],
+    href: '/data/morocco-agriculture',
+  },
+  {
     id: 'morocco-economy',
     category: 'Economic Intelligence',
     title: 'Morocco Economy in One Page',
