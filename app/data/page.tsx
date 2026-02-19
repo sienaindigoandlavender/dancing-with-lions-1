@@ -218,6 +218,16 @@ const MODULES = [
     href: '/data/medina-data',
   },
   {
+    id: 'pulse-medina',
+    category: 'Generative Sensory Map',
+    title: 'The Pulse of the Medina',
+    entries: '11 craft quarters × 24 hours × 123 street threads × 5 prayer pauses',
+    status: 'Live',
+    description: 'Marrakech\'s medina as a living organism. Canvas-rendered pulsating street threads coloured by craft quarter and thickened by crowd density. Time slider from 5AM Fajr to midnight silence. Interactive: play, scrub, jump to prayer times.',
+    fields: ['Quarter', 'Craft', 'Sound', 'Peak Hour', 'Colour', 'Activity'],
+    href: '/data/pulse-medina',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
