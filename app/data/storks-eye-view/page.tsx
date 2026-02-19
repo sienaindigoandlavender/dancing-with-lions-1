@@ -281,6 +281,29 @@ export default function StorksEyeViewPage() {
           the deeper the nest.
         </p>
 
+        {/* ─── LIVE STATUS ─── */}
+        {(() => {
+          const m = new Date().getMonth()
+          const status = m >= 1 && m <= 2
+            ? { text: 'Storks arriving. First pairs returning from West Africa to Moroccan nesting sites.', phase: 'Returning', color: C.flight, icon: '↗' }
+            : m >= 3 && m <= 5
+            ? { text: 'Breeding season. Chicks hatching at Chellah, El Badi, Volubilis. Nests active across all 11 sites.', phase: 'Breeding', color: C.stork, icon: '◉' }
+            : m >= 6 && m <= 7
+            ? { text: 'Fledging. Young storks testing wings on Marinid walls and Roman columns.', phase: 'Fledging', color: C.warm, icon: '↑' }
+            : m >= 8 && m <= 9
+            ? { text: 'Southbound. 150,000+ storks funneling through the Strait of Gibraltar toward the Sahel.', phase: 'Migrating South', color: C.sky, icon: '↓' }
+            : { text: 'Overwintering. ~30% of Moroccan storks now stay year-round. The rest are in the Sahel, 3,000 km south.', phase: 'Wintering', color: C.water, icon: '◎' }
+          return (
+            <div className="mt-8 flex items-start gap-3 p-4" style={{ background: `${status.color}08`, borderLeft: `3px solid ${status.color}` }}>
+              <span className="inline-block w-[8px] h-[8px] rounded-full mt-1 animate-pulse shrink-0" style={{ background: status.color }} />
+              <div>
+                <span className="font-mono text-[11px] font-semibold" style={{ color: status.color }}>{status.icon} {status.phase} — {new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</span>
+                <p className="text-[12px] mt-1" style={{ color: C.text }}>{status.text}</p>
+              </div>
+            </div>
+          )
+        })()}
+
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           {[
             { v: '~3,000', unit: 'pairs', l: 'breeding in Morocco', c: C.stork },
@@ -332,26 +355,40 @@ export default function StorksEyeViewPage() {
             Europe → Gibraltar → Morocco → Sahel. The western migration route. Some storks no longer cross the Sahara — milder winters and landfill feeding keep them in Morocco year-round.
           </p>
           <div className="space-y-1">
-            {FLYWAY_POINTS.map((p, i) => (
+            {FLYWAY_POINTS.map((p, i) => {
+              // Determine if storks are currently at this location
+              const m = new Date().getMonth() // 0=Jan
+              const monthRanges: Record<string, number[]> = {
+                'Northern Europe': [3,4,5,6,7], 'Central Europe': [7,8],
+                'Iberia': [8,9,2,3], 'Strait of Gibraltar': [8,9,2,3],
+                'Northern Morocco': [9,10,1,2], 'Gharb Wetlands': [9,10,11,0,1,2],
+                'Middle Atlas': [10,11,0,1], 'Sub-Sahara': [10,11,0,1,2],
+              }
+              const isHere = monthRanges[p.name]?.includes(m) || false
+              return (
               <div key={p.name} className="flex items-center gap-3 transition-all duration-500"
                 style={{ opacity: flyR.vis ? 1 : 0, transitionDelay: `${i * 80}ms` }}>
                 <span className="font-mono text-[10px] w-14 text-right shrink-0" style={{ color: C.muted }}>{p.lat}°N</span>
                 {/* Flight line */}
                 <div className="relative w-6 flex justify-center">
                   <div className="w-px h-6" style={{ background: i < FLYWAY_POINTS.length - 1 ? C.flight : 'transparent' }} />
-                  <div className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full border"
+                  <div className={`absolute top-1/2 -translate-y-1/2 rounded-full border ${isHere ? 'animate-pulse' : ''}`}
                     style={{
-                      borderColor: p.name === 'Strait of Gibraltar' ? C.sky : C.flight,
-                      background: p.name === 'Strait of Gibraltar' ? C.sky : `${C.flight}20`,
+                      width: isHere ? '10px' : '10px', height: isHere ? '10px' : '10px',
+                      borderColor: isHere ? C.stork : p.name === 'Strait of Gibraltar' ? C.sky : C.flight,
+                      background: isHere ? C.stork : p.name === 'Strait of Gibraltar' ? C.sky : `${C.flight}20`,
+                      boxShadow: isHere ? `0 0 8px ${C.stork}60` : 'none',
                     }} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <span className="font-mono text-[11px] font-bold" style={{ color: C.ink }}>{p.name}</span>
-                  <span className="font-mono text-[10px] ml-2" style={{ color: C.muted }}>{p.label}</span>
+                  <span className="font-mono text-[11px]" style={{ color: C.ink, fontWeight: isHere ? 700 : 400 }}>{p.name}</span>
+                  <span className="font-mono text-[10px] ml-2" style={{ color: isHere ? C.stork : C.muted }}>{p.label}</span>
+                  {isHere && <span className="font-mono text-[9px] ml-2 font-semibold" style={{ color: C.stork }}>← NOW</span>}
                 </div>
-                <span className="font-mono text-[10px] shrink-0" style={{ color: C.stork }}>{p.month}</span>
+                <span className="font-mono text-[10px] shrink-0" style={{ color: isHere ? C.stork : C.muted, fontWeight: isHere ? 600 : 400 }}>{p.month}</span>
               </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
