@@ -178,6 +178,16 @@ const MODULES = [
     href: '/data/dynasty-timeline',
   },
   {
+    id: 'languages-of-morocco',
+    category: 'Linguistic Cartography',
+    title: 'Languages of Morocco',
+    entries: '12 regions × 9 languages × 5 census years',
+    status: 'Live',
+    description: 'Who speaks what where — choropleth map of Amazigh mother-tongue by region, three Amazigh language zones mapped, plus French, Spanish, Hassaniya overlays. Timeline of Amazigh decline from 43% (1912) to 24.8% (2024). The data existed in census records. Nobody had made it visual.',
+    fields: ['Region', 'Amazigh %', 'Primary Variety', 'Darija %', 'Population', 'Urbanization'],
+    href: '/data/languages-of-morocco',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
