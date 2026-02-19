@@ -25,7 +25,7 @@ const C = {
   night: '#1A1A2E',
   nightMid: '#2D2D44',
   dawn: '#C4956A',
-  parchment: '#FAFAF5',
+  parchment: '#FFFFFF',
 }
 
 // ═══ CITY DATA ═══
@@ -455,7 +455,7 @@ export default function CalendarOfLightPage() {
               CALCULATED FROM SOLAR DECLINATION EQUATIONS · LATITUDES VIA GOOGLE EARTH · © 2026 DANCING WITH LIONS
             </text>
             <text x="600" y="1272" textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.dawn}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </text>
 
           </svg>
@@ -543,7 +543,7 @@ export default function CalendarOfLightPage() {
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.dawn }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

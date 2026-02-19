@@ -20,8 +20,8 @@ const C = {
   text: '#262626',
   muted: '#737373',
   border: '#e5e5e5',
-  parchment: '#FAFAF5',
-  cream: '#F5F0E8',
+  parchment: '#FFFFFF',
+  cream: '#FFFFFF',
   mosque: '#2D6E4F',
   hammam: '#5A6E8B',
   foundouk: '#8B5A3A',
@@ -450,7 +450,7 @@ export default function MedinaDataPage() {
               SOURCES: UNESCO WH NOMINATION · FIELD SURVEY · RIAD DI SIENA OBSERVATION · IRCAM · © 2026 DANCING WITH LIONS
             </text>
             <text x={CX} y={H - 8} textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.mosque}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </text>
           </svg>
         </div>
@@ -544,7 +544,7 @@ export default function MedinaDataPage() {
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.mosque }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

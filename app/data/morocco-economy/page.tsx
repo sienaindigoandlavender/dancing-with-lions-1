@@ -496,7 +496,7 @@ export default function MoroccoEconomyPage() {
               This visualization may not be reproduced without visible attribution.
             </p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#E63946' }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
 

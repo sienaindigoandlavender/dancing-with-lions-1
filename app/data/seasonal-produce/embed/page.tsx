@@ -103,7 +103,7 @@ export default function EmbedPage() {
           © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
         </p>
         <p style={{ fontFamily: "Georgia, serif", fontStyle: 'italic', fontSize: '9px', color: '#2DC653', margin: 0 }}>
-          Source: Dancing with Lions
+          © Dancing with Lions
         </p>
       </div>
     </div>

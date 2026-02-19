@@ -103,7 +103,7 @@ export default function TourismEmbedPage() {
           © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
         </p>
         <p style={{ fontFamily: "Georgia, serif", fontStyle: 'italic', fontSize: '9px', color: '#E63946', margin: 0 }}>
-          Source: Dancing with Lions
+          © Dancing with Lions
         </p>
       </div>
     </div>

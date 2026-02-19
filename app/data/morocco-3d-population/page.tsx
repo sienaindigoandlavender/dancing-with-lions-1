@@ -479,7 +479,7 @@ export default function Morocco3DPopulation() {
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontStyle: 'italic', fontSize: 12, color: EARTH.emerald, margin: 0 }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

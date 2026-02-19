@@ -26,8 +26,8 @@ const C = {
   text: '#262626',
   muted: '#737373',
   border: '#e5e5e5',
-  parchment: '#FAFAF5',
-  cream: '#F5F0E8',
+  parchment: '#FFFFFF',
+  cream: '#FFFFFF',
   sea: '#E8EEF2',
 }
 
@@ -765,7 +765,7 @@ export default function LanguagesPage() {
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.tashelhit }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

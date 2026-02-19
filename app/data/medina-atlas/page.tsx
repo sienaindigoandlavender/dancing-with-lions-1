@@ -39,7 +39,7 @@ const C = {
   body: '#262626',
   muted: '#737373',
   border: '#e5e5e5',
-  parchment: '#F5F0E8',
+  parchment: '#FFFFFF',
   parchmentDark: '#E8DFD0',
 }
 
@@ -644,7 +644,7 @@ export default function MedinaAtlasPage() {
                 © 2026 Dancing with Lions. This map may not be reproduced without written permission and visible attribution.
               </text>
               <text x="0" y="56" textAnchor="middle" fontSize="7" fontStyle="italic" fill={C.mosque}>
-                Source: Dancing with Lions
+                © Dancing with Lions
               </text>
             </g>
 
@@ -754,7 +754,7 @@ export default function MedinaAtlasPage() {
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.mosque }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

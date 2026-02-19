@@ -206,7 +206,7 @@ function ShareEmbed() {
               </button>
             </div>
             <p className="text-[9px] mt-2" style={{ color: EARTH.muted }}>
-              Free to embed with attribution. &ldquo;Source: Dancing with Lions&rdquo; must remain visible.
+              Free to embed with attribution. &ldquo;© Dancing with Lions&rdquo; must remain visible.
             </p>
           </div>
         </div>
@@ -482,7 +482,7 @@ export default function SeasonalProducePage() {
               © {new Date().getFullYear()} Dancing with Lions · Cuisines of Morocco. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: EARTH.emerald }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

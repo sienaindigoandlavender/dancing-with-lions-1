@@ -649,7 +649,7 @@ export default function TourismFlowPage() {
 <p style="font-size:11px;color:#888;margin-top:4px;">Source: <a href="https://dancingwithlions.com/data/tourism-flow" style="color:#888;">Dancing with Lions</a></p>`}
               </pre>
               <p className="text-[9px] text-white/15 mt-2">
-                Free to embed with attribution. The &ldquo;Source: Dancing with Lions&rdquo; credit must remain visible.
+                Free to embed with attribution. The &ldquo;© Dancing with Lions&rdquo; credit must remain visible.
               </p>
             </div>
           </div>
@@ -673,7 +673,7 @@ export default function TourismFlowPage() {
               © {new Date().getFullYear()} Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
             </p>
             <p className="font-serif italic text-[12px] text-[#E63946]">
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

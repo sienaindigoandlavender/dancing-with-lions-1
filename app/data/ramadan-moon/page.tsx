@@ -504,7 +504,7 @@ export default function RamadanMoonPage() {
               © {new Date().getFullYear()} Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
             </p>
             <p className="font-serif italic text-[12px] text-[#FCBF49]">
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

@@ -20,8 +20,8 @@ const C = {
   text: '#262626',
   muted: '#737373',
   border: '#e5e5e5',
-  parchment: '#FAFAF5',
-  cream: '#F5F0E8',
+  parchment: '#FFFFFF',
+  cream: '#FFFFFF',
 }
 
 // ═══ MONTH DATA ═══
@@ -383,7 +383,7 @@ export default function MoroccanCalendarPage() {
               SOURCES: MOROCCAN MINISTRY OF HABOUS · MINISTRY OF NATIONAL EDUCATION · HCP · IRCAM · © 2026 DANCING WITH LIONS
             </text>
             <text x={CX} y={H + 115} textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.islamic}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </text>
           </svg>
         </div>
@@ -543,7 +543,7 @@ export default function MoroccanCalendarPage() {
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.islamic }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>
