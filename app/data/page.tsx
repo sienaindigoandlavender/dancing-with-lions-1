@@ -348,6 +348,16 @@ const MODULES = [
     href: '/data/digital-zellige',
   },
   {
+    id: 'roma-africana',
+    category: 'History',
+    title: 'Roma Africana: The Romans in Africa',
+    entries: '25 milestones × 9 eras × 6 provinces × 12 major sites × 8 UNESCO sites',
+    status: 'Live',
+    description: '844 years of Roman rule across North Africa — from the destruction of Carthage (146 BCE) to the Arab conquest (698 CE). Interactive SVG map of the full coastline from Morocco to Libya showing all six provinces with hover details. Twelve major ruins mapped. Vertical timeline from Punic Wars through Vandal and Byzantine periods. Province data, UNESCO sites, economic output (1M tonnes of grain, olive oil exports). The two sections: coastal Latin cities on a Berber continent.',
+    fields: ['Province', 'Capital', 'Modern Country', 'Area', 'Established', 'Site', 'UNESCO', 'Year', 'Era'],
+    href: '/data/roma-africana',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
