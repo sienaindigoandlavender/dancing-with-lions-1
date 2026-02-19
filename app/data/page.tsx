@@ -198,6 +198,16 @@ const MODULES = [
     href: '/data/moroccan-calendar',
   },
   {
+    id: 'spice-routes',
+    category: 'Supply Chain Cartography',
+    title: 'The Spice Routes',
+    entries: '14 spices × 5 supply chain stages × 3 price points',
+    status: 'Live',
+    description: 'Origin → Hub → Souk → Dish → Export. Fourteen spices flowing through Morocco as coloured rivers. Price escalation from field ($4/kg cumin in Alnif) to Paris jar ($25/kg). Ras el hanout deconstructed into 17 components. 60,000 tons visualised.',
+    fields: ['Spice', 'Origin', 'Volume', 'Price (Origin/Souk/Paris)', 'Season', 'Dishes'],
+    href: '/data/spice-routes',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
