@@ -88,6 +88,16 @@ const MODULES = [
     href: '/data/seasonal-produce',
   },
   {
+    id: 'morocco-3d-population',
+    category: 'Demographics',
+    title: '37.8 Million People',
+    entries: '240+ grid cells',
+    status: 'Live',
+    description: 'Morocco population density as a 3D isometric bar map. Each grid cell extruded by people per square kilometre. Drag to rotate. The Atlantic corridor vs. the empty south.',
+    fields: ['Population Density', 'Grid Cells', 'City Labels', 'Density Scale', '2024 Census'],
+    href: '/data/morocco-3d-population',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
