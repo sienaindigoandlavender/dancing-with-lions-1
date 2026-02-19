@@ -308,7 +308,14 @@ function ConfederationMap({ groups, selectedGroup, onSelect, showLanguageLayer }
 
     import('mapbox-gl').then((mapboxgl) => {
       if (cancelled || !mapContainer.current) return
-      import('mapbox-gl/dist/mapbox-gl.css')
+
+      // Inject Mapbox CSS via CDN link tag
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
 
       mapboxgl.default.accessToken = MAPBOX_TOKEN
 
