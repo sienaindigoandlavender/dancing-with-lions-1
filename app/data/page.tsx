@@ -278,6 +278,16 @@ const MODULES = [
     href: '/data/demographic-atlas',
   },
   {
+    id: 'solar-compass',
+    category: 'Energy',
+    title: 'The Solar Compass',
+    entries: '4 phases × 24 hourly output points × 7 energy mix sources × 7 milestones',
+    status: 'Live',
+    description: '580 MW. 3,000 hectares. The world\'s largest concentrated solar plant, built in the Saharan foothills of Ouarzazate. An interactive sun tracker shows 7,400 heliostats adjusting in real time, molten salt storing energy for 7 hours after sunset, and Morocco\'s road from 64% coal to 52% renewable by 2030.',
+    fields: ['Phase', 'Technology', 'Capacity MW', 'Storage Hours', 'GWh/yr', 'CO₂ Avoided', 'Hour', 'Direct MW', 'Stored MW'],
+    href: '/data/solar-compass',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
