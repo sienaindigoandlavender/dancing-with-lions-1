@@ -208,6 +208,16 @@ const MODULES = [
     href: '/data/spice-routes',
   },
   {
+    id: 'medina-data',
+    category: 'Urban Anatomy',
+    title: 'The Medina as Data',
+    entries: '18 feature types × 6 concentric zones × 20 souks × 17 gates',
+    status: 'Live',
+    description: 'Marrakech\'s medina as a data organism. Concentric rings from Friday mosque outward showing how Islamic urbanism organizes a city: sacred → commercial → residential → industrial → defensive. 186 mosques, 97 foundouks, 82 fountains, 25 hammams, 19 gates, 400 derbs — all counted and diagrammed.',
+    fields: ['Feature', 'Category', 'Count', 'Ring', 'Function', 'Note'],
+    href: '/data/medina-data',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
