@@ -46,21 +46,21 @@ export default function EmbedPage() {
 
   return (
     <div style={{
-      background: '#0a0a0a', color: '#fff', fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
+      background: '#ffffff', color: '#0a0a0a', fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
       padding: '16px', minHeight: '100%',
     }}>
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '12px' }}>
         <div>
-          <p style={{ fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#555', margin: 0 }}>
+          <p style={{ fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#737373', margin: 0 }}>
             Dancing with Lions · Cuisines of Morocco
           </p>
-          <p style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontSize: '22px', fontStyle: 'italic', margin: '4px 0 0', color: '#fff' }}>
+          <p style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontSize: '22px', fontStyle: 'italic', margin: '4px 0 0', color: '#0a0a0a' }}>
             What Grows When
           </p>
         </div>
         <a href="https://dancingwithlions.com/data/seasonal-produce" target="_blank" rel="noopener noreferrer"
-          style={{ fontSize: '9px', color: '#666', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+          style={{ fontSize: '9px', color: '#737373', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
           Full interactive →
         </a>
       </div>
@@ -72,8 +72,8 @@ export default function EmbedPage() {
           const peakItems = items.filter(it => it.peak.includes(mi))
 
           return (
-            <div key={month} style={{ background: '#0a0a0a', padding: '10px' }}>
-              <p style={{ fontFamily: "Georgia, serif", fontStyle: 'italic', fontSize: '13px', margin: '0 0 6px', color: 'rgba(255,255,255,0.7)' }}>
+            <div key={month} style={{ background: '#ffffff', padding: '10px' }}>
+              <p style={{ fontFamily: "Georgia, serif", fontStyle: 'italic', fontSize: '13px', margin: '0 0 6px', color: '#0a0a0a' }}>
                 {month}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3px' }}>
@@ -87,7 +87,7 @@ export default function EmbedPage() {
                   </span>
                 ))}
                 {peakItems.length > 6 && (
-                  <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.2)', padding: '2px 3px' }}>
+                  <span style={{ fontSize: '8px', color: '#a3a3a3', padding: '2px 3px' }}>
                     +{peakItems.length - 6}
                   </span>
                 )}
@@ -99,7 +99,7 @@ export default function EmbedPage() {
 
       {/* Footer */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
-        <p style={{ fontSize: '8px', color: 'rgba(255,255,255,0.15)', margin: 0 }}>
+        <p style={{ fontSize: '8px', color: '#a3a3a3', margin: 0 }}>
           © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
         </p>
         <p style={{ fontFamily: "Georgia, serif", fontStyle: 'italic', fontSize: '9px', color: '#2DC653', margin: 0 }}>

@@ -18,8 +18,8 @@ const config: Config = {
         'dwl-muted': '#737373',
         'dwl-light': '#f5f5f5',
         // Earth palette for data visualizations
-        'earth-paper': '#FAF6F1',
-        'earth-cream': '#F0EBE3',
+        'earth-paper': '#ffffff',
+        'earth-cream': '#fafafa',
         'earth-saffron': '#C17F28',
         'earth-rust': '#A0522D',
         'earth-brick': '#8B3A3A',

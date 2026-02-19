@@ -6,13 +6,13 @@ import Link from 'next/link'
 // ═══ EARTH PALETTE ═══
 
 const EARTH = {
-  paper: '#FAF6F1',
-  cream: '#F0EBE3',
-  ink: '#2C2420',
-  body: '#4A4039',
-  muted: '#8A7E74',
-  border: '#DDD5CA',
-  faint: '#E8E2D9',
+  paper: '#ffffff',
+  cream: '#fafafa',
+  ink: '#0a0a0a',
+  body: '#262626',
+  muted: '#737373',
+  border: '#e5e5e5',
+  faint: '#f5f5f5',
   // Data colors — all earth
   saffron: '#C17F28',
   rust: '#A0522D',

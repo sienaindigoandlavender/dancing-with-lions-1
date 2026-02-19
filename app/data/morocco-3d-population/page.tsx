@@ -34,12 +34,12 @@ const COLS = Math.ceil((BOUNDS.lngMax - BOUNDS.lngMin) / STEP)
 
 // Earth palette
 const EARTH = {
-  paper: '#FAF6F1',
-  cream: '#F0EBE3',
-  ink: '#2C2420',
-  body: '#4A4039',
-  muted: '#8A7E74',
-  border: '#DDD5CA',
+  paper: '#ffffff',
+  cream: '#fafafa',
+  ink: '#0a0a0a',
+  body: '#262626',
+  muted: '#737373',
+  border: '#e5e5e5',
   saffron: '#C17F28',
   rust: '#A0522D',
   brick: '#8B3A3A',
@@ -144,7 +144,7 @@ function getDensity(lat: number, lng: number): number {
 
 // Density → color (earth palette gradient)
 function densityColor(d: number): string {
-  if (d < 10) return '#E8E2D9'      // near-empty desert/rural — faint
+  if (d < 10) return '#f5f5f5'      // near-empty desert/rural — faint
   if (d < 50) return EARTH.sage      // light rural
   if (d < 200) return EARTH.terracotta // moderate
   if (d < 800) return EARTH.rust      // urban
@@ -409,7 +409,7 @@ export default function Morocco3DPopulation() {
           </p>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             {[
-              { label: '< 10 / km²', color: '#E8E2D9', desc: 'Desert, uninhabited' },
+              { label: '< 10 / km²', color: '#f5f5f5', desc: 'Desert, uninhabited' },
               { label: '10–50', color: EARTH.sage, desc: 'Rural' },
               { label: '50–200', color: EARTH.terracotta, desc: 'Towns' },
               { label: '200–800', color: EARTH.rust, desc: 'Urban' },

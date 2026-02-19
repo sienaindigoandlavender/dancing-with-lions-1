@@ -34,13 +34,13 @@ const maxSource = Math.max(...SOURCES.map(s => s.value))
 export default function TourismEmbedPage() {
   return (
     <div style={{
-      background: '#0a0a0a', color: '#fff', fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
+      background: '#ffffff', color: '#0a0a0a', fontFamily: "'IBM Plex Mono', 'Courier New', monospace",
       padding: '16px', minHeight: '100%',
     }}>
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '14px' }}>
         <div>
-          <p style={{ fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#555', margin: 0 }}>
+          <p style={{ fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#737373', margin: 0 }}>
             Dancing with Lions · Tourism Intelligence
           </p>
           <p style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontSize: '22px', fontStyle: 'italic', margin: '4px 0 0' }}>
@@ -48,7 +48,7 @@ export default function TourismEmbedPage() {
           </p>
         </div>
         <a href="https://dancingwithlions.com/data/tourism-flow" target="_blank" rel="noopener noreferrer"
-          style={{ fontSize: '9px', color: '#666', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+          style={{ fontSize: '9px', color: '#737373', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
           Full interactive →
         </a>
       </div>
@@ -56,12 +56,12 @@ export default function TourismEmbedPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
         {/* Source countries */}
         <div>
-          <p style={{ fontSize: '8px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#444', margin: '0 0 8px' }}>
+          <p style={{ fontSize: '8px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#737373', margin: '0 0 8px' }}>
             Where they come from
           </p>
           {SOURCES.map(s => (
             <div key={s.label} style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-              <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.35)', width: '60px', textAlign: 'right' }}>{s.label}</span>
+              <span style={{ fontSize: '8px', color: '#737373', width: '60px', textAlign: 'right' }}>{s.label}</span>
               <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.03)' }}>
                 <div style={{ width: `${(s.value / maxSource) * 100}%`, height: '100%', background: s.color, opacity: 0.7 }} />
               </div>
@@ -72,12 +72,12 @@ export default function TourismEmbedPage() {
 
         {/* Destinations */}
         <div>
-          <p style={{ fontSize: '8px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#444', margin: '0 0 8px' }}>
+          <p style={{ fontSize: '8px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#737373', margin: '0 0 8px' }}>
             Where they go
           </p>
           {DESTINATIONS.map(d => (
             <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-              <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.35)', width: '60px', textAlign: 'right' }}>{d.label}</span>
+              <span style={{ fontSize: '8px', color: '#737373', width: '60px', textAlign: 'right' }}>{d.label}</span>
               <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.03)' }}>
                 <div style={{ width: `${(d.pct / 40) * 100}%`, height: '100%', background: d.color, opacity: 0.7 }} />
               </div>
@@ -93,13 +93,13 @@ export default function TourismEmbedPage() {
         <div style={{ width: '49%', background: '#3A0CA3', opacity: 0.6 }} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3px' }}>
-        <span style={{ fontSize: '7px', color: 'rgba(255,255,255,0.25)' }}>8.8M Foreign (51%)</span>
-        <span style={{ fontSize: '7px', color: 'rgba(255,255,255,0.25)' }}>8.6M Diaspora (49%)</span>
+        <span style={{ fontSize: '7px', color: '#a3a3a3' }}>8.8M Foreign (51%)</span>
+        <span style={{ fontSize: '7px', color: '#a3a3a3' }}>8.6M Diaspora (49%)</span>
       </div>
 
       {/* Footer */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
-        <p style={{ fontSize: '8px', color: 'rgba(255,255,255,0.15)', margin: 0 }}>
+        <p style={{ fontSize: '8px', color: '#a3a3a3', margin: 0 }}>
           © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
         </p>
         <p style={{ fontFamily: "Georgia, serif", fontStyle: 'italic', fontSize: '9px', color: '#E63946', margin: 0 }}>
