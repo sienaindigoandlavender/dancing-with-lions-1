@@ -388,6 +388,16 @@ const MODULES = [
     href: '/data/four-peaks',
   },
   {
+    id: 'the-empty-quarter',
+    category: 'Geography',
+    title: 'The Empty Quarter',
+    entries: '11 countries × 5 terrain types × 5 peoples × 10 species × 16 stats × Green Sahara cycle',
+    status: 'Live',
+    description: 'The Sahara as ecosystem. 9.2 million km² mapped across 11 countries with interactive SVG showing borders, mountain ranges, ergs, rivers, and key sites. Five terrain types (hamada, erg, reg, wadi, volcanic) with animated composition bar. Five Saharan peoples: Tuareg, Sahrawi, Toubou, Moors, oasis communities. Biodiversity cards for 10 key species. The Green Sahara — the 20,000-year wet/dry cycle driven by Earth\'s axial precession.',
+    fields: ['Country', 'Desert %', 'Desert Area', 'Terrain Type', 'People', 'Species', 'Climate', 'Geology'],
+    href: '/data/the-empty-quarter',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
