@@ -244,6 +244,35 @@ export default function WorldCupBlueprintPage() {
           new roads, new hotels, new reasons to stay.
         </p>
 
+        {/* Live countdown */}
+        {(() => {
+          const kickoff = new Date('2030-06-13T17:00:00Z')
+          const now = new Date()
+          const diff = kickoff.getTime() - now.getTime()
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+          const months = Math.floor(days / 30.44)
+          const pctComplete = Math.min(100, Math.max(0, ((new Date('2026-01-01').getTime() - new Date('2023-01-01').getTime()) / (kickoff.getTime() - new Date('2023-01-01').getTime())) * 100))
+          const timelinePct = Math.min(100, Math.max(0, ((now.getTime() - new Date('2023-01-01').getTime()) / (kickoff.getTime() - new Date('2023-01-01').getTime())) * 100))
+          return diff > 0 ? (
+            <div className="mt-8 p-4" style={{ background: `${C.rail}06`, borderLeft: `3px solid ${C.rail}` }}>
+              <div className="flex items-center gap-3">
+                <span className="inline-block w-[8px] h-[8px] rounded-full animate-pulse shrink-0" style={{ background: C.rail }} />
+                <span className="font-mono text-[22px] font-bold" style={{ color: C.rail }}>{days.toLocaleString()}</span>
+                <span className="font-mono text-[11px]" style={{ color: C.muted }}>days to kickoff · {months} months</span>
+              </div>
+              {/* Timeline bar */}
+              <div className="mt-3 h-[6px] rounded-full overflow-hidden" style={{ background: `${C.rail}15` }}>
+                <div className="h-full rounded-full transition-all duration-1000" style={{ width: `${timelinePct}%`, background: C.rail }} />
+              </div>
+              <div className="flex justify-between mt-1">
+                <span className="font-mono text-[9px]" style={{ color: C.muted }}>Bid won (2023)</span>
+                <span className="font-mono text-[9px] font-semibold" style={{ color: C.rail }}>{timelinePct.toFixed(0)}% of timeline elapsed</span>
+                <span className="font-mono text-[9px]" style={{ color: C.muted }}>Kickoff (Jun 2030)</span>
+              </div>
+            </div>
+          ) : null
+        })()}
+
         {/* Numbers */}
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           {[

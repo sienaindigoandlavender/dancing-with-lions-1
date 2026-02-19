@@ -176,12 +176,47 @@ export default function WorldCup2030Page() {
           <br />
           <span className="text-[clamp(1.5rem,4vw,2.5rem)]" style={{ color: '#525252' }}>Infrastructure Map</span>
         </h1>
-        <p className="text-[13px] max-w-[620px] leading-[1.7] mb-8" style={{ color: '#262626' }}>
+        <p className="text-[13px] max-w-[620px] leading-[1.7] mb-6" style={{ color: '#262626' }}>
           Every stadium, railway line, highway, airport, and hotel project across
           Morocco, Spain, and Portugal — the complete infrastructure picture for
           the first World Cup across two continents. Twenty stadiums. Seventeen cities.
           Forty-one billion dollars in Moroccan infrastructure alone.
         </p>
+
+        {/* Live countdown */}
+        {(() => {
+          const kickoff = new Date('2030-06-13T17:00:00Z') // Opening match
+          const now = new Date()
+          const diff = kickoff.getTime() - now.getTime()
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+          const months = Math.floor(days / 30.44)
+          const weeks = Math.floor(days / 7)
+          return diff > 0 ? (
+            <div className="flex items-start gap-3 p-4 mb-6" style={{ background: `${C.morocco}08`, borderLeft: `3px solid ${C.morocco}` }}>
+              <span className="inline-block w-[8px] h-[8px] rounded-full mt-1 animate-pulse shrink-0" style={{ background: C.morocco }} />
+              <div>
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="font-mono text-[22px] font-bold" style={{ color: C.morocco }}>{days.toLocaleString()}</span>
+                  <span className="font-mono text-[11px]" style={{ color: '#737373' }}>days to kickoff</span>
+                </div>
+                <div className="flex gap-4 mt-1">
+                  {[
+                    { v: months, l: 'months' },
+                    { v: weeks, l: 'weeks' },
+                    { v: hours, l: 'hours today' },
+                  ].map(u => (
+                    <span key={u.l} className="font-mono text-[10px]" style={{ color: '#737373' }}>{u.v.toLocaleString()} {u.l}</span>
+                  ))}
+                </div>
+                <p className="text-[11px] mt-1" style={{ color: '#525252' }}>
+                  Opening match: June 13, 2030 — estimated. First World Cup across two continents.
+                </p>
+              </div>
+            </div>
+          ) : null
+        })()}
+
         <div className="flex flex-wrap gap-6 md:gap-10">
           {[
             { n: '20', l: 'Stadiums', c: C.morocco },
