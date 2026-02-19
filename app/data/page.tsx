@@ -133,6 +133,30 @@ export default function DataPage() {
         </div>
       </div>
 
+      {/* ─── TOP PAGINATION ─── */}
+      {totalPages > 1 && (
+        <div className="max-w-wide mx-auto px-6 md:px-10 pt-8">
+          <div className="flex items-center justify-between">
+            <p className="text-[11px] text-dwl-muted">
+              Showing {safePage * PER_PAGE + 1}–{Math.min((safePage + 1) * PER_PAGE, filtered.length)} of {filtered.length} modules
+            </p>
+            <div className="flex items-center gap-1">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button key={i}
+                  onClick={() => setPage(i)}
+                  className="w-7 h-7 text-[11px] font-medium transition-colors"
+                  style={{
+                    background: i === safePage ? '#0a0a0a' : 'transparent',
+                    color: i === safePage ? '#fff' : '#737373',
+                  }}>
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ─── MODULE LIST ─── */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         {visible.length === 0 && (
@@ -229,21 +253,6 @@ export default function DataPage() {
         </div>
       )}
 
-      <section className="bg-dwl-offwhite">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
-          <div className="max-w-[640px]">
-            <p className="micro-label mb-4">For Developers &amp; AI Systems</p>
-            <p className="text-[15px] text-dwl-black leading-relaxed">
-              Knowledge APIs are available at <code className="text-[14px] bg-dwl-light px-2 py-0.5">/api/knowledge/</code> for
-              structured access. Machine-readable formats include JSON-LD, CSV exports, and Schema.org
-              structured data. See <code className="text-[14px] bg-dwl-light px-2 py-0.5">/llms.txt</code> for AI discovery.
-            </p>
-            <p className="text-[14px] text-dwl-gray mt-4">
-              All API outputs are licensed under CC BY-NC-ND 4.0. Attribution required.
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 const C = {
   ink: '#0a0a0a', text: '#262626', muted: '#737373', border: '#e5e5e5',
@@ -29,7 +30,42 @@ interface MoroccanGroup {
   origin: string; region: string; language: string
   population: string; note: string; keyFact: string
   subgroups?: string[]
+  // Map data
+  center: [number, number] // [lng, lat]
+  zoom?: number
 }
+
+// Language regions for the map overlay layer — approximate polygon centers & radii
+const LANG_REGIONS: { name: string; color: string; areas: { center: [number, number]; label: string }[] }[] = [
+  {
+    name: 'Tashelhit', color: '#15803D',
+    areas: [
+      { center: [-8.5, 30.2], label: 'Souss Valley' },
+      { center: [-9.2, 29.8], label: 'Anti-Atlas (west)' },
+      { center: [-7.8, 29.4], label: 'Anti-Atlas (east)' },
+      { center: [-8.0, 31.3], label: 'High Atlas (west)' },
+      { center: [-9.7, 30.4], label: 'Agadir region' },
+    ]
+  },
+  {
+    name: 'Central Atlas Tamazight', color: '#0369A1',
+    areas: [
+      { center: [-5.5, 32.8], label: 'Middle Atlas' },
+      { center: [-5.0, 32.0], label: 'Khenifra / Zayane' },
+      { center: [-6.0, 31.5], label: 'High Atlas (central)' },
+      { center: [-5.5, 31.2], label: 'Dadès / Todra' },
+      { center: [-4.5, 31.8], label: 'Midelt corridor' },
+    ]
+  },
+  {
+    name: 'Tarifit', color: '#9A3412',
+    areas: [
+      { center: [-3.4, 35.1], label: 'Rif (central)' },
+      { center: [-4.0, 35.0], label: 'Rif (west)' },
+      { center: [-2.9, 34.9], label: 'Rif (east)' },
+    ]
+  },
+]
 
 const MOROCCO_GROUPS: MoroccanGroup[] = [
   {
@@ -39,6 +75,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'The most powerful tribal confederation of southeastern Morocco from the 16th–20th centuries. Divided into "five fifths" (khams khmas), all claiming descent from 40 sons of the ancestor Dadda Atta. Expanded from Jbel Saghro northward and southward, raiding as far as Touat in Algeria by the 19th century. Resisted French colonialism until their last stand at the Battle of Bougafer, 1933.',
     keyFact: 'Elected a supreme chief (amghar n-ufilla) annually — rotational democracy predating European models',
     subgroups: ['Aït Wallal', 'Aït Wahlim', 'Aït Isful', 'Aït Yazza', 'Aït Unibgi'],
+    center: [-5.8, 31.0],
   },
   {
     name: 'Aït Yafelman', tamazight: 'ⴰⵢⵜ ⵢⴰⴼⵍⵎⴰⵏ', meaning: 'Those who found peace',
@@ -47,6 +84,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'Formed in the 17th century specifically to counter Aït Atta expansion. Four founding tribes: Aït Marghad, Aït Haddidou, Aït Izdeg, Aït Yahya. The Aït Marghad were originally Aït Atta — they split after a conflict over butter tribute. Centuries of warfare between these two confederations shaped southeastern Morocco.',
     keyFact: 'Name literally means "we will find peace" — a military alliance born from the desire to end Aït Atta raids',
     subgroups: ['Aït Marghad', 'Aït Haddidou', 'Aït Izdeg', 'Aït Yahya'],
+    center: [-5.7, 31.8],
   },
   {
     name: 'Masmuda', tamazight: 'ⵎⴰⵚⵎⵓⴷⴰ', meaning: 'Ancient confederation name',
@@ -55,6 +93,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'One of the three great medieval Berber confederations alongside Zenata and Sanhaja. Ibn Khaldun classified them as Baranis (sedentary). The Almohad dynasty (1121–1269) emerged from the Masmuda. Subgroups included the Ghomaras (northern Morocco), Haha, Hintata, and the Barghawata who created their own religion in the 8th century.',
     keyFact: 'The Almohad Empire — one of the largest in history — was built by Masmuda Berbers from the High Atlas',
     subgroups: ['Ghomara', 'Haha', 'Hintata', 'Barghawata', 'Masmouda proper'],
+    center: [-7.5, 31.2],
   },
   {
     name: 'Sanhaja', tamazight: 'ⵚⵏⵀⴰⵊⴰ', meaning: 'Ancient confederation name',
@@ -63,6 +102,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'The Almoravid dynasty (1040–1147) emerged from Sanhaja Berbers of the western Sahara. The confederation spanned an enormous territory from Senegal to the Atlas. In medieval Morocco, the Sanhaja were often in conflict with the Zenata. The Tuareg are considered a Sanhaja-related group.',
     keyFact: 'Founded the Almoravid Empire — from the Sahara to Andalusia, from Senegal to Zaragoza',
     subgroups: ['Lamtuna', 'Godala', 'Massufa', 'Aït Atta (Sanhaja origin)'],
+    center: [-6.0, 30.0],
   },
   {
     name: 'Zenata', tamazight: 'ⵣⵏⴰⵜⴰ', meaning: 'Ancient confederation name',
@@ -71,6 +111,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'Ibn Khaldun classified the Zenata as Butr (nomadic). They dominated the eastern Maghreb and were rivals of the Sanhaja. The Marinid dynasty (1244–1465) and Wattasid dynasty (1472–1554) were Zenata Berbers. The Aït Seghrouchen are modern Zenata descendants.',
     keyFact: 'The Marinid dynasty that built the great madrasas of Fes was Zenata Berber',
     subgroups: ['Miknasa', 'Banu Ifran', 'Maghrawa', 'Aït Seghrouchen'],
+    center: [-3.5, 33.5],
   },
   {
     name: 'Riffians', tamazight: 'ⵉⵔⵉⴼⵉⵢⵏ', meaning: 'People of the Rif',
@@ -79,6 +120,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'Historically the fiercest warriors in Morocco. Under Abdelkrim El Khattabi, the Riffians defeated a Spanish army of 20,000 at Annual in 1921 — one of the greatest anti-colonial victories in African history. Established the Republic of the Rif (1921–1926) before being defeated by a combined Franco-Spanish force of 250,000.',
     keyFact: 'The Republic of the Rif (1921–1926) was Africa\'s first modern republic',
     subgroups: ['Aït Ouriaghel', 'Aït Waryaghar', 'Temsamane', 'Aït Said', 'Guelaya', 'Beni Bou Ifrour'],
+    center: [-3.5, 35.0],
   },
   {
     name: 'Ishilhayen (Shilha/Chleuh)', tamazight: 'ⵉⵛⵍⵃⵉⵢⵏ', meaning: 'People of Tashelhit',
@@ -87,6 +129,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'The largest Amazigh group in Morocco by speaker count. Tashelhit has the richest literary tradition of any Berber language. Historically agricultural and merchant people. Many traditional Amazigh films are made in Tashelhit. The Souss Valley is their heartland.',
     keyFact: 'Largest Amazigh language group in Morocco — ~8 million including heritage speakers',
     subgroups: ['Ida Ou Tanane', 'Haha', 'Ida Ou Semlal', 'Aït Baamrane', 'Aït Souss'],
+    center: [-8.8, 30.4],
   },
   {
     name: 'Imazighen (Central Atlas)', tamazight: 'ⵉⵎⴰⵣⵉⵖⵏ', meaning: 'Free people',
@@ -95,6 +138,7 @@ const MOROCCO_GROUPS: MoroccanGroup[] = [
     note: 'Self-identify specifically as "Imazighen" — the term that became the pan-Amazigh identity marker. Also known as Beraber. Includes pastoralists, transhumance communities, and settled agricultural groups. Khenifra and the Zayane region are culturally central.',
     keyFact: 'The Zayane resistance under Moha ou Hammou Zayani lasted from 1914 to 1921',
     subgroups: ['Zayane', 'Beni Mguild', 'Aït Oumalou', 'Beni Mtir', 'Aït Youssi'],
+    center: [-5.5, 33.0],
   },
 ]
 
@@ -225,11 +269,255 @@ const LANGUAGES = [
   { name: 'Siwi', speakers: '~25,000', region: 'Egypt (Siwa Oasis)', script: 'Oral only', status: 'Endangered' },
 ]
 
+// ═══════════════════════════════════════════════════
+// MAPBOX — CONFEDERATION MAP
+// ═══════════════════════════════════════════════════
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+
+const TYPE_COLORS: Record<string, string> = {
+  'confederation': '#0a0a0a',
+  'language-group': '#4A5568',
+  'tribe': '#6B4E37',
+}
+
+const LANG_COLORS: Record<string, string> = {
+  'Tashelhit': '#15803D',
+  'Central Atlas Tamazight': '#0369A1',
+  'Tarifit': '#9A3412',
+  'Various': '#737373',
+}
+
+function ConfederationMap({ groups, selectedGroup, onSelect, showLanguageLayer }: {
+  groups: MoroccanGroup[]
+  selectedGroup: number
+  onSelect: (i: number) => void
+  showLanguageLayer: boolean
+}) {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+  const langMarkersRef = useRef<any[]>([])
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  // Initialize map
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current) return
+
+    let cancelled = false
+
+    import('mapbox-gl').then((mapboxgl) => {
+      if (cancelled || !mapContainer.current) return
+      import('mapbox-gl/dist/mapbox-gl.css')
+
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!,
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [-6.0, 32.0],
+        zoom: 5.4,
+        minZoom: 4.5,
+        maxZoom: 9,
+        attributionControl: false,
+        pitchWithRotate: false,
+        dragRotate: false,
+      })
+
+      map.addControl(
+        new mapboxgl.default.AttributionControl({ compact: true }),
+        'bottom-left'
+      )
+      map.addControl(
+        new mapboxgl.default.NavigationControl({ showCompass: false }),
+        'top-right'
+      )
+
+      map.on('load', () => {
+        mapRef.current = map
+        setMapLoaded(true)
+      })
+    })
+
+    return () => { cancelled = true; mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+
+  // Confederation markers
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+
+    // Clear existing
+    markersRef.current.forEach(m => m.remove())
+    markersRef.current = []
+
+    import('mapbox-gl').then((mapboxgl) => {
+      groups.forEach((g, i) => {
+        const isSelected = i === selectedGroup
+        const size = isSelected ? 18 : 12
+        const color = TYPE_COLORS[g.type] || '#0a0a0a'
+
+        const el = document.createElement('div')
+        el.style.width = `${size}px`
+        el.style.height = `${size}px`
+        el.style.backgroundColor = isSelected ? color : color
+        el.style.border = isSelected ? '3px solid #fff' : '2px solid #fff'
+        el.style.borderRadius = '50%'
+        el.style.cursor = 'pointer'
+        el.style.transition = 'all 0.2s'
+        el.style.opacity = isSelected ? '1' : '0.75'
+        el.style.boxShadow = isSelected ? '0 0 0 2px ' + color : 'none'
+        el.title = g.name
+        el.addEventListener('click', () => onSelect(i))
+
+        // Label
+        const labelEl = document.createElement('div')
+        labelEl.style.position = 'absolute'
+        labelEl.style.left = `${size + 6}px`
+        labelEl.style.top = '50%'
+        labelEl.style.transform = 'translateY(-50%)'
+        labelEl.style.whiteSpace = 'nowrap'
+        labelEl.style.fontSize = isSelected ? '12px' : '10px'
+        labelEl.style.fontWeight = isSelected ? '700' : '500'
+        labelEl.style.fontFamily = 'Inter, system-ui, sans-serif'
+        labelEl.style.color = isSelected ? '#0a0a0a' : '#737373'
+        labelEl.style.textShadow = '0 0 4px #FAFAF8, 0 0 4px #FAFAF8, 0 0 4px #FAFAF8'
+        labelEl.style.transition = 'all 0.2s'
+        labelEl.textContent = g.name
+
+        const wrapper = document.createElement('div')
+        wrapper.style.position = 'relative'
+        wrapper.appendChild(el)
+        wrapper.appendChild(labelEl)
+
+        const marker = new mapboxgl.default.Marker({
+          element: wrapper,
+          anchor: 'center',
+        })
+          .setLngLat(g.center)
+          .addTo(mapRef.current!)
+
+        markersRef.current.push(marker)
+      })
+    })
+  }, [mapLoaded, groups, selectedGroup, onSelect])
+
+  // Language layer markers (translucent circles)
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+
+    // Clear existing language markers
+    langMarkersRef.current.forEach(m => m.remove())
+    langMarkersRef.current = []
+
+    if (!showLanguageLayer) return
+
+    import('mapbox-gl').then((mapboxgl) => {
+      LANG_REGIONS.forEach(lang => {
+        lang.areas.forEach(area => {
+          const el = document.createElement('div')
+          el.style.width = '60px'
+          el.style.height = '60px'
+          el.style.backgroundColor = lang.color
+          el.style.opacity = '0.15'
+          el.style.borderRadius = '50%'
+          el.style.border = `2px solid ${lang.color}`
+          el.style.pointerEvents = 'none'
+
+          const labelEl = document.createElement('div')
+          labelEl.style.position = 'absolute'
+          labelEl.style.bottom = '-16px'
+          labelEl.style.left = '50%'
+          labelEl.style.transform = 'translateX(-50%)'
+          labelEl.style.whiteSpace = 'nowrap'
+          labelEl.style.fontSize = '8px'
+          labelEl.style.fontFamily = 'Inter, system-ui, sans-serif'
+          labelEl.style.color = lang.color
+          labelEl.style.fontWeight = '600'
+          labelEl.style.textShadow = '0 0 3px #FAFAF8, 0 0 3px #FAFAF8'
+          labelEl.textContent = area.label
+
+          const wrapper = document.createElement('div')
+          wrapper.style.position = 'relative'
+          wrapper.appendChild(el)
+          wrapper.appendChild(labelEl)
+
+          const marker = new mapboxgl.default.Marker({
+            element: wrapper,
+            anchor: 'center',
+          })
+            .setLngLat(area.center)
+            .addTo(mapRef.current!)
+
+          langMarkersRef.current.push(marker)
+        })
+      })
+    })
+  }, [mapLoaded, showLanguageLayer])
+
+  // Fly to selected group
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    const g = groups[selectedGroup]
+    mapRef.current.flyTo({
+      center: g.center,
+      zoom: g.zoom || 7,
+      duration: 800,
+    })
+  }, [selectedGroup, mapLoaded, groups])
+
+  return (
+    <div className="relative w-full">
+      <div ref={mapContainer} className="w-full h-[420px] md:h-[560px]" style={{ background: '#f2f0eb' }} />
+
+      {/* Legend */}
+      <div className="absolute bottom-12 left-4 bg-white/95 backdrop-blur-sm p-4 max-w-[180px]">
+        <p className="text-[10px] uppercase tracking-[0.1em] text-dwl-gray font-medium mb-2">Type</p>
+        {Object.entries(TYPE_COLORS).map(([key, color]) => (
+          <div key={key} className="flex items-center gap-2 mb-1">
+            <div className="rounded-full flex-shrink-0" style={{ width: 8, height: 8, background: color }} />
+            <span className="text-[10px] text-dwl-gray capitalize">{key.replace('-', ' ')}</span>
+          </div>
+        ))}
+        {showLanguageLayer && (
+          <>
+            <p className="text-[10px] uppercase tracking-[0.1em] text-dwl-gray font-medium mt-3 mb-2">Language</p>
+            {LANG_REGIONS.map(l => (
+              <div key={l.name} className="flex items-center gap-2 mb-1">
+                <div className="rounded-full flex-shrink-0" style={{ width: 8, height: 8, background: l.color, opacity: 0.5 }} />
+                <span className="text-[10px] text-dwl-gray">{l.name}</span>
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+
+      {/* Selected info card */}
+      {mapLoaded && (
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 max-w-[220px] border border-dwl-border">
+          <p className="font-serif text-[18px] text-dwl-black leading-tight">{groups[selectedGroup].name}</p>
+          <p className="text-[12px] text-dwl-muted mt-0.5">{groups[selectedGroup].tamazight}</p>
+          <p className="text-[11px] text-dwl-gray mt-2">{groups[selectedGroup].region}</p>
+          <p className="text-[10px] mt-2" style={{ color: LANG_COLORS[groups[selectedGroup].language] || '#737373' }}>
+            ● {groups[selectedGroup].language}
+          </p>
+        </div>
+      )}
+
+      {!mapLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#f2f0eb]">
+          <p className="text-[13px] text-dwl-gray uppercase tracking-[0.08em]">Loading map...</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ═══ MAIN COMPONENT ═══
 
 export default function FreePeoplePage() {
   const [tab, setTab] = useState<'morocco' | 'africa'>('morocco')
   const [selectedGroup, setSelectedGroup] = useState(0)
+  const [showLangLayer, setShowLangLayer] = useState(false)
 
   const hero = useReveal()
   const numbers = useReveal()
@@ -332,6 +620,29 @@ export default function FreePeoplePage() {
               <div className="text-[11px] text-dwl-muted mt-2">
                 Total: 24.8% of Morocco&apos;s 37 million population. Amazigh associations claim the real figure is 65–85%.
               </div>
+            </div>
+
+            {/* ─── INTERACTIVE MAP ─── */}
+            <div className="mb-12">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-[10px] uppercase tracking-[0.06em] text-dwl-muted">Interactive Map — Click markers to explore</div>
+                <button
+                  onClick={() => setShowLangLayer(!showLangLayer)}
+                  className="text-[11px] px-3 py-1.5 border transition-colors"
+                  style={{
+                    background: showLangLayer ? C.ink : 'transparent',
+                    color: showLangLayer ? '#fff' : C.muted,
+                    borderColor: showLangLayer ? C.ink : C.border,
+                  }}>
+                  {showLangLayer ? 'Hide' : 'Show'} Language Layer
+                </button>
+              </div>
+              <ConfederationMap
+                groups={MOROCCO_GROUPS}
+                selectedGroup={selectedGroup}
+                onSelect={setSelectedGroup}
+                showLanguageLayer={showLangLayer}
+              />
             </div>
 
             {/* Group selector tabs */}
