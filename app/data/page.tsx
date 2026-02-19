@@ -368,6 +368,16 @@ const MODULES = [
     href: '/data/the-long-rise',
   },
   {
+    id: 'the-nomad-pulse',
+    category: 'Remote Work',
+    title: 'The Nomad Pulse',
+    entries: '6 time zones × 5 nomad hubs × 8 towers × 6 co-living spaces × 7 cost categories',
+    status: 'Live',
+    description: 'Morocco\'s remote work geography — mapped, timed, and priced. A clock-face dashboard mapping Marrakech working hours against NYC, London, Paris, Dubai, and Tokyo. Voronoi diagram of 5G tower catchment areas along the Taghazout–Tamraght surf corridor. Five nomad hubs with Wi-Fi speeds, co-living spaces, and cost breakdowns. 92.2% internet penetration — highest in Africa.',
+    fields: ['City', 'Time Zone', 'Working Hours', 'Wi-Fi Speed', 'Cost/Month', 'Co-living', '5G Coverage'],
+    href: '/data/the-nomad-pulse',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
