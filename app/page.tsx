@@ -1,70 +1,50 @@
 import Link from 'next/link'
 
-const LIVE_MODULES = [
+const FEATURED = [
   {
-    id: 'world-cup-2030',
-    label: 'Infrastructure Intelligence',
-    title: '2030 World Cup Infrastructure Map',
-    metric: '$41B',
-    metricLabel: 'Morocco infrastructure — 20 stadiums, 17 cities',
-    href: '/data/world-cup-2030',
+    label: 'Currency Intelligence',
+    title: 'The Dirham\u2019s Journey',
+    desc: 'Twenty-one years of exchange rates annotated with every crisis, reform, and turning point. The line barely moves \u2014 and that\u2019s the story.',
+    href: '/data/dirhams-journey',
   },
   {
-    id: 'tourism-flow',
-    label: 'Tourism Intelligence',
-    title: 'Where 17.4 Million Tourists Go',
-    metric: '17.4M',
-    metricLabel: 'visitors in 2024 — Africa\'s most visited nation',
-    href: '/data/tourism-flow',
+    label: 'Competitive Intelligence',
+    title: 'Africa Rising',
+    desc: 'Morocco\u2019s rank among 54 nations across six metrics, animated year by year. Watch the lines climb. The trajectory is the argument.',
+    href: '/data/africa-rising',
   },
   {
-    id: 'economy',
-    label: 'Economic Intelligence',
-    title: 'Morocco Economy in One Page',
-    metric: '$183B',
-    metricLabel: 'GDP — automotive, phosphates, tourism, remittances',
-    href: '/data/morocco-economy',
-  },
-  {
-    id: 'agriculture',
-    label: 'Agricultural Intelligence',
-    title: 'What Morocco Grows',
-    metric: '$6.5B',
-    metricLabel: 'agricultural exports — radial harvest wheel',
-    href: '/data/morocco-agriculture',
-  },
-  {
-    id: 'al-andalus',
-    label: 'Cultural Geography',
-    title: 'The Al-Andalus Corridor',
-    metric: '800',
-    metricLabel: 'years of shared DNA — Seville to Fes',
-    href: '/data/al-andalus',
-  },
-  {
-    id: 'ramadan',
-    label: 'Cultural Intelligence',
-    title: 'Ramadan & the Moon',
-    metric: '33',
-    metricLabel: 'year lunar cycle — fasting hours, seasonal drift',
-    href: '/data/ramadan-moon',
-  },
-  {
-    id: 'population',
-    label: 'Demographics',
-    title: 'Morocco Population Density',
-    metric: '37.8M',
-    metricLabel: 'people — 7-section density infographic',
-    href: '/data/morocco-population',
+    label: 'Religious & Cultural Geography',
+    title: 'The Jewish Atlas of Morocco',
+    desc: 'Two communities, separate synagogues for 300 years, 300,000 at their peak, roughly 2,500 today. Fourteen cities mapped.',
+    href: '/data/jewish-atlas',
   },
 ]
 
-const NETWORK_SITES = [
-  { title: 'Slow Morocco', type: 'Cultural journeys', domain: 'slowmorocco.com' },
+const LATEST = [
+  { title: 'The Ottoman Empire in North Africa', cat: 'Imperial History', href: '/data/ottoman-north-africa' },
+  { title: 'The Reconquista & the Exodus', cat: 'Migration History', href: '/data/reconquista-exodus' },
+  { title: 'The Gates of Marrakech', cat: 'Architectural Heritage', href: '/data/gates-of-marrakech' },
+  { title: 'The 14km Gap', cat: 'Comparative Data', href: '/data/14km-gap' },
+  { title: 'Where 17.4 Million Tourists Go', cat: 'Tourism Intelligence', href: '/data/tourism-flow' },
+  { title: 'The Al-Andalus Corridor', cat: 'Cultural Geography', href: '/data/al-andalus' },
+]
+
+const CATEGORIES = [
+  { name: 'Economic Intelligence', count: 8, examples: 'GDP, agriculture, trade, real estate, currency, phosphates' },
+  { name: 'Cultural Geography', count: 14, examples: 'Al-Andalus, spice routes, zellige, Gnawa, Amazigh symbols' },
+  { name: 'Imperial History', count: 9, examples: 'Roman, Phoenician, Ottoman, Almohad, dynasty timelines' },
+  { name: 'Tourism & Infrastructure', count: 7, examples: 'Arrivals, World Cup, Tangier Med, Al Boraq, airports' },
+  { name: 'Religious & Natural Heritage', count: 8, examples: 'Jewish atlas, seven saints, bird atlas, water, scent' },
+  { name: 'Comparative & Demographic', count: 7, examples: '14km gap, Africa Rising, population, Maghreb compared' },
+]
+
+const NETWORK = [
+  { title: 'Slow Morocco', type: 'Cultural journeys & travel intelligence', domain: 'slowmorocco.com' },
+  { title: 'House of Weaves', type: 'Textile archive \u2014 88+ traditions', domain: 'houseofweaves.com' },
+  { title: 'Cuisines of Morocco', type: 'Food intelligence \u2014 regional, historical', domain: 'cuisinesofmorocco.com' },
+  { title: 'Darija', type: 'Language data \u2014 8,640+ words', domain: 'dharija.space' },
   { title: 'Riad di Siena', type: 'Sanctuary guesthouse, Marrakech', domain: 'riadofsiena.com' },
-  { title: 'House of Weaves', type: 'Textile archive — 88+ traditions', domain: 'houseofweaves.com' },
-  { title: 'Darija', type: 'Language data — 8,640+ words', domain: 'dharija.space' },
-  { title: 'Cuisines of Morocco', type: 'Food intelligence', domain: 'cuisinesofmorocco.com' },
 ]
 
 export default function HomePage() {
@@ -74,7 +54,7 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section className="min-h-[85vh] flex flex-col justify-end px-6 md:px-10 pb-16 max-w-wide mx-auto">
         <div className="animate-fade-up">
-          <p className="micro-label mb-6 delay-1 animate-fade-up">Business Intelligence · Cultural Depth · Morocco</p>
+          <p className="micro-label mb-6 delay-1 animate-fade-up">Data Stories · Cultural Intelligence · Morocco & the Maghreb</p>
           <h1 className="font-serif text-[clamp(3.5rem,10vw,8rem)] text-dwl-black leading-[0.95] tracking-[-0.01em] delay-2 animate-fade-up">
             Dancing<br />
             <em>with Lions</em>
@@ -82,9 +62,10 @@ export default function HomePage() {
         </div>
         <div className="mt-12 max-w-[520px] delay-3 animate-fade-up">
           <p className="text-body text-dwl-body leading-relaxed">
-            When the decision matters, you need more than numbers.
-            Business intelligence and a deep understanding of Morocco&apos;s
-            history, culture, and how things actually work on the ground.
+            A guide to Morocco told through data. Interactive maps, animated timelines,
+            and layered visualizations that reveal the patterns underneath &mdash;
+            the trade routes still shaping commerce, the dynasties still echoing
+            in architecture, the numbers behind the country Africa chose to watch.
           </p>
         </div>
         <div className="mt-8 flex items-center gap-6 delay-4 animate-fade-up">
@@ -92,7 +73,7 @@ export default function HomePage() {
             href="/data"
             className="text-meta uppercase tracking-[0.08em] font-medium text-dwl-black border-b border-dwl-black pb-1 hover:opacity-60 transition-opacity"
           >
-            Explore the Data
+            Explore 67 Data Stories
           </Link>
           <Link
             href="/about"
@@ -105,64 +86,109 @@ export default function HomePage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* ═══ LIVE DATA MODULES ═══ */}
+      {/* ═══ FEATURED STORIES ═══ */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <p className="micro-label mb-4">Published Research</p>
-        <p className="font-serif text-[24px] text-dwl-black italic mb-12">
-          Thirteen interactive modules live.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-dwl-border">
-          {LIVE_MODULES.map((mod) => (
+        <p className="micro-label mb-12">Featured Stories</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-dwl-border">
+          {FEATURED.map((story) => (
             <Link
-              key={mod.id}
-              href={mod.href}
+              key={story.href}
+              href={story.href}
               className="bg-white p-8 md:p-10 group hover:bg-dwl-offwhite transition-colors"
             >
-              <p className="text-meta uppercase tracking-[0.08em] text-dwl-gray mb-4">{mod.label}</p>
-              <p className="font-serif text-[48px] md:text-[56px] text-dwl-black leading-none italic group-hover:opacity-70 transition-opacity">
-                {mod.metric}
+              <p className="text-meta uppercase tracking-[0.08em] text-dwl-gray mb-4">{story.label}</p>
+              <p className="font-serif text-[22px] md:text-[26px] text-dwl-black leading-[1.15] italic group-hover:opacity-70 transition-opacity">
+                {story.title}
               </p>
-              <p className="text-[13px] text-dwl-gray mt-2 mb-4">{mod.metricLabel}</p>
-              <p className="text-[15px] text-dwl-black font-medium">{mod.title}</p>
+              <p className="text-[13px] text-dwl-body mt-4 leading-relaxed">{story.desc}</p>
             </Link>
           ))}
         </div>
-        <div className="mt-6 flex justify-between items-center">
-          <Link
-            href="/data"
-            className="text-meta uppercase tracking-[0.08em] font-medium text-dwl-black border-b border-dwl-black pb-1 hover:opacity-60 transition-opacity"
-          >
-            View All Modules
-          </Link>
-          <p className="text-[13px] text-dwl-muted">
-            + The Maghreb Compared · Seasonal Produce · Real Estate · Trade Partners
+      </section>
+
+      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+
+      {/* ═══ LATEST ═══ */}
+      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <p className="micro-label mb-4">Latest</p>
+            <p className="font-serif text-[28px] md:text-[32px] leading-[1.25] text-dwl-black italic">
+              67 data stories published.
+            </p>
+            <p className="text-[13px] text-dwl-body mt-4 leading-relaxed">
+              Each one is an interactive exploration &mdash; maps you can fly through,
+              timelines you can expand, charts that animate the argument.
+              Not essays with a chart on top. The visualization is the story.
+            </p>
+            <Link
+              href="/data"
+              className="text-meta uppercase tracking-[0.08em] font-medium text-dwl-black border-b border-dwl-black pb-1 mt-6 inline-block hover:opacity-60 transition-opacity"
+            >
+              View All Data Stories
+            </Link>
+          </div>
+          <div className="md:col-span-8">
+            {LATEST.map((item, i) => (
+              <Link key={i} href={item.href} className="block py-4 border-b border-dwl-border group hover:pl-2 transition-all">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <span className="text-[11px] text-dwl-muted font-medium tabular-nums mr-3">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-[15px] text-dwl-black font-medium group-hover:opacity-70 transition-opacity">{item.title}</span>
+                  </div>
+                  <span className="text-[12px] text-dwl-gray shrink-0">{item.cat}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+
+      {/* ═══ WHAT THIS IS ═══ */}
+      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="max-w-[700px]">
+          <p className="font-serif text-[28px] md:text-[34px] leading-[1.35] text-dwl-black italic">
+            There is no other publication doing this.
+          </p>
+          <p className="text-body text-dwl-body mt-8 leading-relaxed">
+            Travel guides tell you where to eat. Data platforms sell you a PDF.
+            News outlets run a feature and move on. Nobody is building a permanent,
+            deepening archive of interactive data stories about a single region &mdash;
+            where the visualization is the editorial language and every story
+            compounds on the last.
+          </p>
+          <p className="text-body text-dwl-body mt-4 leading-relaxed">
+            The Monocle eye. The Atlas Obscura curiosity.
+            The rigour of a research desk. Applied to Morocco
+            and the Maghreb by someone who has lived inside
+            the country for eleven years.
           </p>
         </div>
       </section>
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* ═══ THE POSITIONING ═══ */}
+      {/* ═══ CATEGORIES ═══ */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <div className="max-w-[700px]">
-          <p className="font-serif text-[28px] md:text-[34px] leading-[1.4] text-dwl-black italic">
-            What made Apple a trillion-dollar company wasn&apos;t the chip.
-            It was the design eye — the insistence that technology without
-            culture is just a box.
-          </p>
-          <p className="text-body text-dwl-body mt-6 leading-relaxed">
-            The same is true for doing business in the Maghreb.
-            A GDP figure is a number. A tourism forecast is a spreadsheet.
-            But understanding why Marrakech commands the premium it does —
-            the 800 years of trade routes underneath the medina, the diaspora
-            that drives half the tourism, the Ramadan calendar that reshapes
-            every quarter, the geometry in the zellige that predates anything
-            in a European textbook — that&apos;s what turns data into decisions.
-          </p>
-          <p className="text-body text-dwl-body mt-4 leading-relaxed">
-            Business intelligence without cultural intelligence is just
-            a spreadsheet. We publish both.
-          </p>
+        <p className="micro-label mb-12">Browse by Category</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-dwl-border">
+          {CATEGORIES.map((cat) => (
+            <Link
+              key={cat.name}
+              href="/data"
+              className="bg-white p-6 group hover:bg-dwl-offwhite transition-colors"
+            >
+              <div className="flex items-baseline justify-between mb-2">
+                <p className="text-[14px] text-dwl-black font-semibold">{cat.name}</p>
+                <span className="text-[11px] text-dwl-muted tabular-nums">{cat.count} stories</span>
+              </div>
+              <p className="text-[12px] text-dwl-gray leading-relaxed">{cat.examples}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -172,7 +198,7 @@ export default function HomePage() {
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <p className="micro-label mb-12">The Network</p>
         <div className="max-w-[640px]">
-          {NETWORK_SITES.map((site, i) => (
+          {NETWORK.map((site, i) => (
             <div key={i} className="py-4 border-b border-dwl-border grid grid-cols-12 gap-4 items-baseline">
               <span className="col-span-1 text-[11px] text-dwl-muted font-medium tabular-nums">
                 {String(i + 1).padStart(2, '0')}
@@ -194,15 +220,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ IP ═══ */}
+      {/* ═══ DATA & LICENSING ═══ */}
       <section className="bg-dwl-offwhite">
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
           <div className="max-w-[640px]">
-            <p className="micro-label mb-4">Intellectual Property</p>
+            <p className="micro-label mb-4">Data & Licensing</p>
             <p className="text-[15px] text-dwl-black leading-relaxed">
-              All data visualizations, maps, charts, infographics, and original research published by
-              Dancing with Lions are protected by copyright. Reproduction requires written permission
-              and visible attribution.
+              All data stories, visualizations, and original datasets published by
+              Dancing with Lions are available for licensing. Institutional access,
+              editorial syndication, and custom data packages available on request.
             </p>
             <p className="font-serif text-[22px] text-dwl-black italic mt-4">
               &ldquo;Source: Dancing with Lions&rdquo;
