@@ -13,8 +13,8 @@ const C = {
   text: '#262626',
   muted: '#737373',
   border: '#e5e5e5',
-  parchment: '#FAFAF5',
-  cream: '#F5F0E8',
+  bg: '#FFFFFF',
+  bgAlt: '#FFFFFF',
   construction: '#2D6E8E',  // compass/ruler lines
   star: '#C17F28',          // star pattern
   fill: '#8B6914',
@@ -197,9 +197,9 @@ export default function GeometryOfCulturePage() {
 
       {/* THE POSTER */}
       <section className="max-w-[1400px] mx-auto px-4 md:px-6">
-        <div className="border p-4 md:p-8" style={{ borderColor: C.border, background: C.parchment }}>
+        <div className="border p-4 md:p-8" style={{ borderColor: C.border }}>
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-            <rect width={W} height={H} fill={C.parchment} />
+            <rect width={W} height={H} fill="white" />
 
             <text x={W / 2} y={30} textAnchor="middle" fontSize="10" letterSpacing="4" fontWeight="600" fill={C.ink}>
               THE GEOMETRY OF CULTURE
@@ -601,7 +601,7 @@ export default function GeometryOfCulturePage() {
               SOURCES: ABOUFADIL ET AL. 2013 · M&Uuml;LLER 1944 · CASTERA 1999 · PACCARD 1980 · HCP 2024 · ANRT · © 2026 DANCING WITH LIONS
             </text>
             <text x={W / 2} y={H - 14} textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.star}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </text>
           </svg>
         </div>
@@ -701,7 +701,7 @@ export default function GeometryOfCulturePage() {
               &copy; {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.star }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>

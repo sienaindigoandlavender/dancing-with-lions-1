@@ -13,8 +13,8 @@ const C = {
   text: '#262626',
   muted: '#737373',
   border: '#e5e5e5',
-  parchment: '#FAFAF5',
-  cream: '#F5F0E8',
+  bg: '#FFFFFF',
+  bgAlt: '#FFFFFF',
   rail: '#2D6E4F',
   railLight: '#4AAF7A',
   road: '#A0522D',
@@ -142,9 +142,9 @@ export default function WorldCupBlueprintPage() {
 
       {/* ═══ THE $41 BILLION ═══ */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="border p-6 md:p-10" style={{ borderColor: C.border, background: C.parchment }}>
+        <div className="border p-6 md:p-10" style={{ borderColor: C.border }}>
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-            <rect width={W} height={H} fill={C.parchment} />
+            <rect width={W} height={H} fill="white" />
 
             {/* Title block */}
             <text x={W / 2} y={35} textAnchor="middle" fontSize="10" letterSpacing="4" fontWeight="600" fill={C.ink}>
@@ -542,7 +542,7 @@ export default function WorldCupBlueprintPage() {
               SOURCES: AGBI · MOROCCO WORLD NEWS · ONCF · MIPA INSTITUTE · VALORIS SECURITIES · FIFA · UNESCO · WEETRACKER · © 2026 DANCING WITH LIONS
             </text>
             <text x={W / 2} y={H - 14} textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.rail}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </text>
           </svg>
         </div>
@@ -643,7 +643,7 @@ export default function WorldCupBlueprintPage() {
               &copy; {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.rail }}>
-              Source: Dancing with Lions
+              © Dancing with Lions
             </p>
           </div>
         </div>
