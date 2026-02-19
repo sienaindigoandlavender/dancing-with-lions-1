@@ -238,6 +238,16 @@ const MODULES = [
     href: '/data/world-cup-blueprint',
   },
   {
+    id: 'geometry-of-culture',
+    category: 'Mathematical Cartography',
+    title: 'The Geometry of Culture',
+    entries: '6 star families × 17 wallpaper groups × 5 dynasties × 12 regions × 5 Hasba steps',
+    status: 'Live',
+    description: 'The mathematics of Moroccan zellige. Compass-and-straightedge construction of 6-, 8-, 10-, 12-, 16-, and 24-fold stars. All 17 wallpaper groups classified. Dynasty complexity timeline. Regional innovation mapped to star geometry.',
+    fields: ['Star Family', 'n-Fold', 'Wallpaper Group', 'Construction', 'Dynasty', 'Region', 'Innovation Index'],
+    href: '/data/geometry-of-culture',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
