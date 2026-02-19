@@ -181,7 +181,7 @@ export default function StorksEyeViewPage() {
   const totalNests = SITES.reduce((a, s) => a + s.nests, 0)
 
   return (
-    <div className="min-h-screen" style={{ background: '#FDFBF7', color: C.ink }}>
+    <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
       <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">

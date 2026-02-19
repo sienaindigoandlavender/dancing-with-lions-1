@@ -49,12 +49,12 @@ const MODULES = [
   },
   {
     id: 'al-andalus',
-    category: 'Cultural Geography',
-    title: 'The Al-Andalus Corridor',
-    entries: '30+ points',
+    category: 'History',
+    title: 'Al-Andalus: When Three Nations Were One',
+    entries: '25 milestones × 7 eras × 11 territory snapshots × 10 cities × 5 monuments',
     status: 'Live',
-    description: 'One continuous cultural bridge from Seville to Fes. Architecture, music, food, language — four layers of shared DNA across 800 years. Interactive Mapbox map with toggle layers.',
-    fields: ['Architecture', 'Music', 'Food', 'Language', 'Trade Routes', 'Loanwords'],
+    description: 'From the Almoravid crossing of 1086 to the fall of Granada in 1492. Interactive SVG map of Iberia with slider showing the frontier contracting over four centuries — city dots change colour as they fall to Christian armies. Vertical timeline with 25 expandable events across seven eras. Territory percentage chart. Shared heritage panel (Koutoubia, Giralda, Hassan Tower, Alhambra).',
+    fields: ['Year', 'Event', 'Dynasty', 'Territory %', 'City', 'Fall Date', 'Monument'],
     href: '/data/al-andalus',
   },
   {
