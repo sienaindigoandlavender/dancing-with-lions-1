@@ -148,6 +148,16 @@ const MODULES = [
     href: '/data/medina-atlas',
   },
   {
+    id: 'calendar-of-light',
+    category: 'Astronomical Chart',
+    title: 'The Calendar of Light',
+    entries: '6 cities × 12 months',
+    status: 'Live',
+    description: 'A radial astronomical illustration — sunrise, sunset, and daylight hours across twelve months for Morocco\'s six World Cup host cities. Each city gets a ring. Tangier swings nearly 5 hours between solstices. Agadir barely moves. The shape is the latitude.',
+    fields: ['Daylight Hours', 'Sunrise', 'Sunset', 'Latitude', 'Seasonal Swing'],
+    href: '/data/calendar-of-light',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
