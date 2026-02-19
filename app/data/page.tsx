@@ -308,6 +308,16 @@ const MODULES = [
     href: '/data/high-speed-horizon',
   },
   {
+    id: 'storks-eye-view',
+    category: 'Biodiversity & Heritage',
+    title: 'The Stork\'s Eye View',
+    entries: '11 nesting sites × 10 Chellah nests × 8 flyway points × 5 census years',
+    status: 'Live',
+    description: 'Ciconia ciconia. Where ruins rise, nests follow. A vintage field-journal mapping white storks on Moroccan monuments: 10 clickable nests at Chellah with individual bird data, the western migration flyway from the Baltics to the Sahel, 11 landmark nesting sites from El Badi to Volubilis, and a 40-year population trend from 7,600 pairs to near-recovery.',
+    fields: ['Site', 'City', 'Nests', 'Elevation', 'Type', 'Season', 'Nest ID', 'Position', 'Age', 'Chicks/yr', 'Flyway Point', 'Latitude'],
+    href: '/data/storks-eye-view',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
