@@ -128,6 +128,16 @@ const MODULES = [
     href: '/data/wind-and-sun',
   },
   {
+    id: 'the-build',
+    category: 'Infrastructure Timeline',
+    title: 'The Build',
+    entries: '27 years × 5 metrics',
+    status: 'Live',
+    description: 'Watch Morocco construct itself. Highways, railways, airports, hotels, tourist arrivals — 2004 to 2030, animated year by year. Press play. Watch the World Cup ramp go vertical.',
+    fields: ['Highway km', 'Railway km', 'Airport Capacity', 'Hotel Rooms', 'Tourist Arrivals', 'HSR km'],
+    href: '/data/the-build',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
