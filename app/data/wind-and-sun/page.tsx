@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 // ═══ EARTH PALETTE ═══
@@ -258,6 +258,77 @@ function RadialBloom({ inst, size, isHovered, isSelected, onHover, onClick }: {
 
 // ═══ PAGE ═══
 
+// ═══ MAPBOX MAP ═══
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+const TYPE_MAP_COLORS: Record<string, string> = { solar: C.sun, wind: C.wind, hydro: C.hydro }
+
+function EnergyMap({ installations, selected, onSelect }: { installations: Installation[]; selected: Installation | null; onSelect: (i: Installation) => void }) {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
+    let cancelled = false
+    import('mapbox-gl').then((mapboxgl) => {
+      if (cancelled || !mapContainer.current) return
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link'); link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
+        center: [-7.5, 30.5], zoom: 5, minZoom: 4.5, maxZoom: 9,
+        attributionControl: false, pitchWithRotate: false, dragRotate: false,
+      })
+      map.addControl(new mapboxgl.default.AttributionControl({ compact: true }), 'bottom-left')
+      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
+      map.on('load', () => { mapRef.current = map; setMapLoaded(true) })
+    })
+    return () => { cancelled = true; mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    markersRef.current.forEach(m => m.remove()); markersRef.current = []
+    import('mapbox-gl').then((mapboxgl) => {
+      installations.forEach((inst) => {
+        const isSel = selected?.name === inst.name
+        const color = TYPE_MAP_COLORS[inst.type] || '#0a0a0a'
+        const size = Math.max(10, Math.min(24, inst.capacity / 80))
+        const el = document.createElement('div')
+        el.style.cssText = `width:${isSel ? size + 6 : size}px;height:${isSel ? size + 6 : size}px;background:${color};border:2px solid #fff;border-radius:50%;cursor:pointer;transition:all 0.2s;opacity:${isSel ? '1' : '0.8'};box-shadow:${isSel ? `0 0 0 2px ${color}` : 'none'}`
+        el.title = `${inst.name} (${inst.capacity}MW)`
+        el.addEventListener('click', () => onSelect(inst))
+        markersRef.current.push(new mapboxgl.default.Marker({ element: el, anchor: 'center' }).setLngLat([inst.lng, inst.lat]).addTo(mapRef.current!))
+      })
+    })
+  }, [mapLoaded, installations, selected, onSelect])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded || !selected) return
+    mapRef.current.flyTo({ center: [selected.lng, selected.lat], zoom: 7.5, duration: 800 })
+  }, [selected, mapLoaded])
+
+  return (
+    <div className="relative w-full">
+      <div ref={mapContainer} className="w-full h-[380px] md:h-[480px]" style={{ background: '#f2f0eb' }} />
+      {mapLoaded && selected && (
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 max-w-[200px] border" style={{ borderColor: C.border }}>
+          <p className="font-serif text-[15px] leading-tight" style={{ color: C.ink }}>{selected.name}</p>
+          <p className="text-[11px] mt-1" style={{ color: TYPE_MAP_COLORS[selected.type] }}>{selected.capacity} MW · {selected.type}</p>
+          <p className="text-[10px] mt-1" style={{ color: C.muted }}>{selected.region}</p>
+        </div>
+      )}
+      {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center bg-[#f2f0eb]"><p className="text-[13px] uppercase tracking-[0.08em]" style={{ color: C.muted }}>Loading map...</p></div>}
+    </div>
+  )
+}
+
 export default function WindAndSunPage() {
   const [hovered, setHovered] = useState<string | null>(null)
   const [selected, setSelected] = useState<Installation | null>(null)
@@ -350,6 +421,12 @@ export default function WindAndSunPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ═══ INSTALLATION MAP ═══ */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8 mb-4">
+        <p className="text-[10px] uppercase tracking-[0.06em] mb-3" style={{ color: C.muted }}>Installation Map — Click markers to explore. Circle size = capacity (MW).</p>
+        <EnergyMap installations={filtered} selected={selected} onSelect={setSelected} />
       </section>
 
       {/* ═══ BLOOM GARDEN ═══ */}

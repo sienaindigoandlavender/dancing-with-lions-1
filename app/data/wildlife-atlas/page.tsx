@@ -247,17 +247,18 @@ interface NationalPark {
   region: string
   keySpecies: string[]
   note: string
+  lat: number; lng: number
 }
 
 const PARKS: NationalPark[] = [
-  { name: 'Toubkal', established: 1942, area: '38,000 ha', region: 'High Atlas', keySpecies: ['Barbary macaque', 'Barbary sheep', 'Golden eagle', 'Bearded vulture'], note: 'North Africa\'s highest peak (4,167m). Morocco\'s oldest national park. Alpine meadows and cedar forests.' },
-  { name: 'Souss-Massa', established: 1991, area: '33,800 ha', region: 'Agadir / Atlantic coast', keySpecies: ['Northern bald ibis', 'Scimitar oryx (reintroduced)', 'Addax (reintroduced)', 'Flamingos'], note: 'Holds the world\'s only wild breeding colonies of northern bald ibis. Morocco\'s most important bird conservation site.' },
-  { name: 'Ifrane', established: 2004, area: '53,800 ha', region: 'Middle Atlas', keySpecies: ['Barbary macaque (largest population)', 'Atlas cedar forests', 'Barbary stag', 'Booted eagle'], note: 'Africa\'s largest remaining Barbary macaque population. Atlas cedar forests — some trees over 800 years old.' },
-  { name: 'Al Hoceima', established: 2004, area: '48,460 ha', region: 'Rif / Mediterranean coast', keySpecies: ['Mediterranean monk seal', 'Osprey', 'Eleonora\'s falcon', 'Bottlenose dolphin'], note: 'Marine and terrestrial park. Secluded coves provide refuge for Mediterranean monk seal.' },
-  { name: 'Talassemtane', established: 2004, area: '58,950 ha', region: 'Rif Mountains (near Chefchaouen)', keySpecies: ['Barbary macaque', 'Moroccan fir (Abies marocana)', 'Golden jackal'], note: 'Home to the critically endangered Moroccan fir — a relict species from the Ice Age. Dense forests near Chefchaouen.' },
-  { name: 'Tazekka', established: 1950, area: '13,737 ha', region: 'Middle Atlas (near Taza)', keySpecies: ['Barbary macaque (reintroduction site)', 'Wild boar', 'Atlas deer'], note: '"Born to be Wild" programme returns confiscated macaques to protected habitat here.' },
-  { name: 'Iriqui', established: 1994, area: '123,000 ha', region: 'Draa-Tafilalt (Saharan fringe)', keySpecies: ['Dorcas gazelle', 'Fennec fox', 'Desert hedgehog', 'Houbara bustard'], note: 'Former lake bed on the Saharan edge. Seasonal wetland that attracts migratory birds and desert species.' },
-  { name: 'Khenifiss', established: 2006, area: '185,000 ha', region: 'Atlantic Sahara coast', keySpecies: ['Flamingos', 'Monk seal (occasional)', 'Spoonbills', 'Marbled teal'], note: 'Coastal lagoon and desert. Major wintering ground for European migratory birds.' },
+  { name: 'Toubkal', established: 1942, area: '38,000 ha', region: 'High Atlas', lat: 31.06, lng: -7.92, keySpecies: ['Barbary macaque', 'Barbary sheep', 'Golden eagle', 'Bearded vulture'], note: 'North Africa\'s highest peak (4,167m). Morocco\'s oldest national park. Alpine meadows and cedar forests.' },
+  { name: 'Souss-Massa', established: 1991, area: '33,800 ha', region: 'Agadir / Atlantic coast', lat: 30.06, lng: -9.66, keySpecies: ['Northern bald ibis', 'Scimitar oryx (reintroduced)', 'Addax (reintroduced)', 'Flamingos'], note: 'Holds the world\'s only wild breeding colonies of northern bald ibis. Morocco\'s most important bird conservation site.' },
+  { name: 'Ifrane', established: 2004, area: '53,800 ha', region: 'Middle Atlas', lat: 33.53, lng: -5.11, keySpecies: ['Barbary macaque (largest population)', 'Atlas cedar forests', 'Barbary stag', 'Booted eagle'], note: 'Africa\'s largest remaining Barbary macaque population. Atlas cedar forests — some trees over 800 years old.' },
+  { name: 'Al Hoceima', established: 2004, area: '48,460 ha', region: 'Rif / Mediterranean coast', lat: 35.15, lng: -3.93, keySpecies: ['Mediterranean monk seal', 'Osprey', 'Eleonora\'s falcon', 'Bottlenose dolphin'], note: 'Marine and terrestrial park. Secluded coves provide refuge for Mediterranean monk seal.' },
+  { name: 'Talassemtane', established: 2004, area: '58,950 ha', region: 'Rif Mountains (near Chefchaouen)', lat: 35.08, lng: -5.14, keySpecies: ['Barbary macaque', 'Moroccan fir (Abies marocana)', 'Golden jackal'], note: 'Home to the critically endangered Moroccan fir — a relict species from the Ice Age. Dense forests near Chefchaouen.' },
+  { name: 'Tazekka', established: 1950, area: '13,737 ha', region: 'Middle Atlas (near Taza)', lat: 34.10, lng: -4.13, keySpecies: ['Barbary macaque (reintroduction site)', 'Wild boar', 'Atlas deer'], note: '"Born to be Wild" programme returns confiscated macaques to protected habitat here.' },
+  { name: 'Iriqui', established: 1994, area: '123,000 ha', region: 'Draa-Tafilalt (Saharan fringe)', lat: 29.97, lng: -6.33, keySpecies: ['Dorcas gazelle', 'Fennec fox', 'Desert hedgehog', 'Houbara bustard'], note: 'Former lake bed on the Saharan edge. Seasonal wetland that attracts migratory birds and desert species.' },
+  { name: 'Khenifiss', established: 2006, area: '185,000 ha', region: 'Atlantic Sahara coast', lat: 28.02, lng: -12.28, keySpecies: ['Flamingos', 'Monk seal (occasional)', 'Spoonbills', 'Marbled teal'], note: 'Coastal lagoon and desert. Major wintering ground for European migratory birds.' },
 ]
 
 // ─── LOSS TIMELINE ───
@@ -293,6 +294,8 @@ const TIMELINE: LossEvent[] = [
 // ═══════════════════════════════════════════════════
 // COMPONENTS
 // ═══════════════════════════════════════════════════
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
 
 function StatusBadge({ status }: { status: IUCNStatus }) {
   return (
@@ -369,6 +372,74 @@ function SpeciesCard({ s, expanded, onToggle, delay }: { s: Species; expanded: b
   )
 }
 
+function ParkMap({ parks, selected, onSelect }: { parks: NationalPark[]; selected: number; onSelect: (i: number) => void }) {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
+    let cancelled = false
+    import('mapbox-gl').then((mapboxgl) => {
+      if (cancelled || !mapContainer.current) return
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link'); link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
+        center: [-6.5, 31.5], zoom: 5, minZoom: 4.5, maxZoom: 9,
+        attributionControl: false, pitchWithRotate: false, dragRotate: false,
+      })
+      map.addControl(new mapboxgl.default.AttributionControl({ compact: true }), 'bottom-left')
+      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
+      map.on('load', () => { mapRef.current = map; setMapLoaded(true) })
+    })
+    return () => { cancelled = true; mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    markersRef.current.forEach(m => m.remove()); markersRef.current = []
+    import('mapbox-gl').then((mapboxgl) => {
+      parks.forEach((p, i) => {
+        const isSel = i === selected; const size = isSel ? 18 : 11
+        const el = document.createElement('div')
+        el.style.cssText = `width:${size}px;height:${size}px;background:${isSel ? '#15803D' : '#0a0a0a'};border:2px solid #fff;border-radius:50%;cursor:pointer;transition:all 0.2s;opacity:${isSel ? '1' : '0.7'};box-shadow:${isSel ? '0 0 0 2px #15803D' : 'none'}`
+        el.title = p.name; el.addEventListener('click', () => onSelect(i))
+        const label = document.createElement('div')
+        label.style.cssText = `position:absolute;left:${size + 6}px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:${isSel ? '12px' : '10px'};font-weight:${isSel ? '700' : '500'};font-family:Inter,system-ui,sans-serif;color:${isSel ? '#0a0a0a' : '#737373'};text-shadow:0 0 4px #FAFAF8,0 0 4px #FAFAF8,0 0 4px #FAFAF8`
+        label.textContent = p.name
+        const w = document.createElement('div'); w.style.position = 'relative'; w.appendChild(el); w.appendChild(label)
+        markersRef.current.push(new mapboxgl.default.Marker({ element: w, anchor: 'center' }).setLngLat([p.lng, p.lat]).addTo(mapRef.current!))
+      })
+    })
+  }, [mapLoaded, parks, selected, onSelect])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    const p = parks[selected]
+    mapRef.current.flyTo({ center: [p.lng, p.lat], zoom: 7.5, duration: 800 })
+  }, [selected, mapLoaded, parks])
+
+  return (
+    <div className="relative w-full">
+      <div ref={mapContainer} className="w-full h-[400px] md:h-[500px]" style={{ background: '#f2f0eb' }} />
+      {mapLoaded && (
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 max-w-[200px] border border-dwl-border">
+          <p className="font-serif text-[16px] text-dwl-black leading-tight">{parks[selected].name}</p>
+          <p className="text-[11px] text-dwl-muted mt-1">{parks[selected].region}</p>
+          <p className="text-[10px] text-dwl-muted mt-1">{parks[selected].area} · Est. {parks[selected].established}</p>
+        </div>
+      )}
+      {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center bg-[#f2f0eb]"><p className="text-[13px] text-dwl-gray uppercase tracking-[0.08em]">Loading map...</p></div>}
+    </div>
+  )
+}
+
 // ═══════════════════════════════════════════════════
 // MAIN PAGE
 // ═══════════════════════════════════════════════════
@@ -376,6 +447,7 @@ function SpeciesCard({ s, expanded, onToggle, delay }: { s: Species; expanded: b
 export default function WildlifeAtlasPage() {
   const [filter, setFilter] = useState<IUCNStatus | 'all' | 'highlight'>('all')
   const [expanded, setExpanded] = useState<string | null>('Barbary Lion')
+  const [selectedPark, setSelectedPark] = useState(0)
 
   const hero = useReveal()
   const numbers = useReveal()
@@ -577,6 +649,10 @@ export default function WildlifeAtlasPage() {
           <h2 className="font-serif text-[clamp(1.6rem,4vw,2.8rem)] text-dwl-black leading-tight mb-8">
             National Parks of Morocco
           </h2>
+
+          <div className="mb-10">
+            <ParkMap parks={PARKS} selected={selectedPark} onSelect={setSelectedPark} />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {PARKS.map((p, i) => (

@@ -27,6 +27,7 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 interface City {
   name: string; arabic: string; region: string; elevation: string
   lat: string; climate: string; koppen: string
+  mapLat: number; mapLng: number // for Mapbox
   tempHigh: number[]; tempLow: number[]; rainfall: number[]; sunHours: number[]
   annualRain: number; annualSun: number
   recordHigh: number; recordHighDate: string
@@ -37,7 +38,7 @@ interface City {
 const CITIES: City[] = [
   {
     name: 'Marrakech', arabic: 'مراكش', region: 'Interior Plain', elevation: '466m',
-    lat: '31.6°N', climate: 'Semi-arid (hot steppe)', koppen: 'BSh',
+    lat: '31.6°N', mapLat: 31.63, mapLng: -8.01, climate: 'Semi-arid (hot steppe)', koppen: 'BSh',
     tempHigh: [18, 20, 23, 25, 29, 34, 38, 38, 33, 28, 22, 18],
     tempLow:  [6, 8, 10, 12, 15, 18, 21, 21, 19, 15, 10, 7],
     rainfall: [32, 38, 38, 35, 18, 5, 1, 2, 8, 24, 40, 32],
@@ -49,7 +50,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Casablanca', arabic: 'الدار البيضاء', region: 'Atlantic Coast', elevation: '27m',
-    lat: '33.5°N', climate: 'Mediterranean (oceanic influence)', koppen: 'Csa',
+    lat: '33.5°N', mapLat: 33.57, mapLng: -7.59, climate: 'Mediterranean (oceanic influence)', koppen: 'Csa',
     tempHigh: [17, 18, 19, 20, 22, 25, 27, 28, 26, 24, 20, 18],
     tempLow:  [8, 9, 10, 12, 14, 17, 20, 20, 18, 15, 12, 9],
     rainfall: [58, 53, 49, 40, 18, 3, 0, 1, 7, 39, 68, 65],
@@ -61,7 +62,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Fes', arabic: 'فاس', region: 'Interior Basin', elevation: '411m',
-    lat: '34.0°N', climate: 'Mediterranean (continental)', koppen: 'Csa',
+    lat: '34.0°N', mapLat: 34.03, mapLng: -4.98, climate: 'Mediterranean (continental)', koppen: 'Csa',
     tempHigh: [15, 17, 20, 22, 27, 33, 37, 36, 31, 25, 19, 16],
     tempLow:  [4, 5, 7, 9, 13, 16, 20, 20, 17, 12, 8, 5],
     rainfall: [65, 60, 62, 55, 30, 7, 2, 2, 12, 45, 65, 70],
@@ -73,7 +74,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Tangier', arabic: 'طنجة', region: 'Strait of Gibraltar', elevation: '18m',
-    lat: '35.8°N', climate: 'Mediterranean', koppen: 'Csa',
+    lat: '35.8°N', mapLat: 35.77, mapLng: -5.80, climate: 'Mediterranean', koppen: 'Csa',
     tempHigh: [15, 16, 17, 19, 22, 25, 29, 29, 26, 22, 18, 16],
     tempLow:  [9, 9, 10, 12, 14, 17, 20, 20, 19, 15, 12, 10],
     rainfall: [99, 98, 72, 56, 30, 7, 1, 2, 18, 68, 110, 120],
@@ -85,7 +86,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Agadir', arabic: 'أكادير', region: 'Southern Atlantic Coast', elevation: '30m',
-    lat: '30.4°N', climate: 'Semi-arid (cool coast)', koppen: 'BSk',
+    lat: '30.4°N', mapLat: 30.42, mapLng: -9.60, climate: 'Semi-arid (cool coast)', koppen: 'BSk',
     tempHigh: [20, 21, 22, 22, 23, 25, 27, 27, 27, 26, 23, 21],
     tempLow:  [8, 10, 12, 13, 15, 17, 19, 19, 18, 16, 13, 10],
     rainfall: [36, 30, 22, 12, 3, 0, 0, 1, 4, 16, 30, 42],
@@ -97,7 +98,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Ouarzazate', arabic: 'ورزازات', region: 'Pre-Saharan Foothills', elevation: '1,160m',
-    lat: '30.9°N', climate: 'Desert (cold)', koppen: 'BWk',
+    lat: '30.9°N', mapLat: 30.92, mapLng: -6.90, climate: 'Desert (cold)', koppen: 'BWk',
     tempHigh: [17, 19, 22, 26, 31, 36, 40, 39, 34, 28, 22, 17],
     tempLow:  [2, 4, 7, 10, 14, 18, 22, 22, 18, 12, 7, 3],
     rainfall: [10, 8, 15, 10, 5, 2, 1, 3, 7, 12, 12, 8],
@@ -109,7 +110,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Ifrane', arabic: 'إفران', region: 'Middle Atlas Mountains', elevation: '1,665m',
-    lat: '33.5°N', climate: 'Mountain (oceanic-continental)', koppen: 'Csb',
+    lat: '33.5°N', mapLat: 33.53, mapLng: -5.11, climate: 'Mountain (oceanic-continental)', koppen: 'Csb',
     tempHigh: [9, 11, 14, 16, 21, 27, 31, 31, 26, 20, 14, 10],
     tempLow:  [-1, 0, 2, 4, 7, 11, 15, 15, 12, 8, 3, 0],
     rainfall: [110, 95, 100, 85, 55, 18, 5, 8, 25, 65, 95, 120],
@@ -121,7 +122,7 @@ const CITIES: City[] = [
   },
   {
     name: 'Errachidia', arabic: 'الراشيدية', region: 'Pre-Saharan Oasis', elevation: '1,045m',
-    lat: '31.9°N', climate: 'Desert (hot)', koppen: 'BWh',
+    lat: '31.9°N', mapLat: 31.93, mapLng: -4.43, climate: 'Desert (hot)', koppen: 'BWh',
     tempHigh: [17, 20, 24, 28, 33, 39, 42, 41, 35, 29, 22, 17],
     tempLow:  [2, 4, 7, 11, 15, 19, 23, 23, 19, 13, 7, 3],
     rainfall: [10, 8, 12, 8, 5, 2, 1, 3, 8, 12, 10, 10],
@@ -164,6 +165,81 @@ function tempColor(t: number): string {
 }
 
 // ═══ MAIN COMPONENT ═══
+
+// ═══ MAPBOX CLIMATE MAP ═══
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+
+function WeatherMap({ cities, selected, onSelect }: { cities: City[]; selected: number; onSelect: (i: number) => void }) {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
+    let cancelled = false
+    import('mapbox-gl').then((mapboxgl) => {
+      if (cancelled || !mapContainer.current) return
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link'); link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
+        center: [-6.5, 32.0], zoom: 5.2, minZoom: 4.5, maxZoom: 9,
+        attributionControl: false, pitchWithRotate: false, dragRotate: false,
+      })
+      map.addControl(new mapboxgl.default.AttributionControl({ compact: true }), 'bottom-left')
+      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
+      map.on('load', () => { mapRef.current = map; setMapLoaded(true) })
+    })
+    return () => { cancelled = true; mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    markersRef.current.forEach(m => m.remove()); markersRef.current = []
+    import('mapbox-gl').then((mapboxgl) => {
+      cities.forEach((c, i) => {
+        const isSel = i === selected
+        const avgHigh = c.tempHigh.reduce((a, v) => a + v, 0) / 12
+        const color = avgHigh >= 30 ? '#991B1B' : avgHigh >= 25 ? '#9A3412' : avgHigh >= 20 ? '#A16207' : '#0369A1'
+        const size = isSel ? 16 : 10
+        const el = document.createElement('div')
+        el.style.cssText = `width:${size}px;height:${size}px;background:${isSel ? color : C.ink};border:2px solid #fff;border-radius:50%;cursor:pointer;transition:all 0.2s;opacity:${isSel ? '1' : '0.7'};box-shadow:${isSel ? `0 0 0 2px ${color}` : 'none'}`
+        el.title = c.name; el.addEventListener('click', () => onSelect(i))
+        const label = document.createElement('div')
+        label.style.cssText = `position:absolute;left:${size + 5}px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:${isSel ? '12px' : '10px'};font-weight:${isSel ? '700' : '500'};font-family:Inter,system-ui,sans-serif;color:${isSel ? C.ink : C.muted};text-shadow:0 0 4px #FAFAF8,0 0 4px #FAFAF8`
+        label.textContent = `${c.name} ${isSel ? `· ${c.recordHigh}°C max` : ''}`
+        const w = document.createElement('div'); w.style.position = 'relative'; w.appendChild(el); w.appendChild(label)
+        markersRef.current.push(new mapboxgl.default.Marker({ element: w, anchor: 'center' }).setLngLat([c.mapLng, c.mapLat]).addTo(mapRef.current!))
+      })
+    })
+  }, [mapLoaded, cities, selected, onSelect])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    const c = cities[selected]
+    mapRef.current.flyTo({ center: [c.mapLng, c.mapLat], zoom: 7.5, duration: 800 })
+  }, [selected, mapLoaded, cities])
+
+  return (
+    <div className="relative w-full">
+      <div ref={mapContainer} className="w-full h-[320px] md:h-[400px]" style={{ background: '#f2f0eb' }} />
+      {mapLoaded && (
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 max-w-[200px] border border-dwl-border">
+          <p className="font-serif text-[16px] text-dwl-black leading-tight">{cities[selected].name}</p>
+          <p className="text-[11px] text-dwl-muted mt-0.5">{cities[selected].region} · {cities[selected].elevation}</p>
+          <p className="text-[10px] text-dwl-muted mt-1">{cities[selected].climate}</p>
+        </div>
+      )}
+      {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center bg-[#f2f0eb]"><p className="text-[13px] text-dwl-gray uppercase tracking-[0.08em]">Loading map...</p></div>}
+    </div>
+  )
+}
 
 export default function WeatherPortraitsPage() {
   const [selectedCity, setSelectedCity] = useState(0)
@@ -240,6 +316,11 @@ export default function WeatherPortraitsPage() {
                 {c.name}
               </button>
             ))}
+          </div>
+
+          {/* City Map */}
+          <div className="mb-10">
+            <WeatherMap cities={CITIES} selected={selectedCity} onSelect={setSelectedCity} />
           </div>
 
           {/* Active city portrait */}

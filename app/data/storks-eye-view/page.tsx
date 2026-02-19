@@ -171,12 +171,88 @@ function ChellahNestMap() {
 }
 
 // ═══ MAIN PAGE ═══
+// ═══ MAPBOX COLONY MAP ═══
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+
+function StorkColonyMap({ sites, selectedIdx, onSelect }: { sites: NestSite[]; selectedIdx: number; onSelect: (i: number) => void }) {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
+    let cancelled = false
+    import('mapbox-gl').then((mapboxgl) => {
+      if (cancelled || !mapContainer.current) return
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link'); link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
+        center: [-6.5, 32.5], zoom: 5.5, minZoom: 4.5, maxZoom: 12,
+        attributionControl: false, pitchWithRotate: false, dragRotate: false,
+      })
+      map.addControl(new mapboxgl.default.AttributionControl({ compact: true }), 'bottom-left')
+      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
+      map.on('load', () => { mapRef.current = map; setMapLoaded(true) })
+    })
+    return () => { cancelled = true; mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    markersRef.current.forEach(m => m.remove()); markersRef.current = []
+    import('mapbox-gl').then((mapboxgl) => {
+      sites.forEach((s, i) => {
+        const isSel = i === selectedIdx
+        const size = Math.max(8, Math.min(20, s.nests / 2))
+        const el = document.createElement('div')
+        el.style.cssText = `width:${isSel ? size + 6 : size}px;height:${isSel ? size + 6 : size}px;background:${isSel ? C.stork : C.nest};border:2px solid #fff;border-radius:50%;cursor:pointer;transition:all 0.2s;opacity:${isSel ? '1' : '0.75'};box-shadow:${isSel ? `0 0 0 2px ${C.stork}` : 'none'}`
+        el.title = `${s.name} (${s.nests} nests)`
+        el.addEventListener('click', () => onSelect(i))
+        const label = document.createElement('div')
+        label.style.cssText = `position:absolute;left:${(isSel ? size + 6 : size) + 6}px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:${isSel ? '11px' : '9px'};font-weight:${isSel ? '700' : '500'};font-family:Inter,system-ui,sans-serif;color:${isSel ? C.ink : C.muted};text-shadow:0 0 4px #FAFAF8,0 0 4px #FAFAF8,0 0 4px #FAFAF8`
+        label.textContent = s.name
+        const w = document.createElement('div'); w.style.position = 'relative'; w.appendChild(el); w.appendChild(label)
+        markersRef.current.push(new mapboxgl.default.Marker({ element: w, anchor: 'center' }).setLngLat([s.lon, s.lat]).addTo(mapRef.current!))
+      })
+    })
+  }, [mapLoaded, sites, selectedIdx, onSelect])
+
+  useEffect(() => {
+    if (!mapRef.current || !mapLoaded) return
+    const s = sites[selectedIdx]
+    mapRef.current.flyTo({ center: [s.lon, s.lat], zoom: 10, duration: 800 })
+  }, [selectedIdx, mapLoaded, sites])
+
+  return (
+    <div className="relative w-full mt-3">
+      <div ref={mapContainer} className="w-full h-[380px] md:h-[480px]" style={{ background: '#f2f0eb' }} />
+      {mapLoaded && (
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 max-w-[220px] border" style={{ borderColor: C.border }}>
+          <p className="font-mono text-[14px] font-bold" style={{ color: C.ink }}>{sites[selectedIdx].name}</p>
+          <p className="font-mono text-[10px] mt-0.5" style={{ color: C.muted }}>{sites[selectedIdx].city} · {sites[selectedIdx].type}</p>
+          <p className="font-mono text-[10px] mt-1" style={{ color: C.stork }}>{sites[selectedIdx].nests} nests · {sites[selectedIdx].elevation}</p>
+          <p className="font-mono text-[10px] mt-0.5" style={{ color: C.muted }}>{sites[selectedIdx].period}</p>
+        </div>
+      )}
+      {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center bg-[#f2f0eb]"><p className="font-mono text-[11px] uppercase tracking-[0.08em]" style={{ color: C.muted }}>Loading map...</p></div>}
+    </div>
+  )
+}
+
 export default function StorksEyeViewPage() {
   const heroR = useReveal()
   const numsR = useReveal()
   const flyR = useReveal()
   const sitesR = useReveal()
   const popR = useReveal()
+  const [selectedSiteIdx, setSelectedSiteIdx] = useState(0)
 
   const totalNests = SITES.reduce((a, s) => a + s.nests, 0)
 
@@ -277,6 +353,14 @@ export default function StorksEyeViewPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══ COLONY MAP ═══ */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+        <div className="border-t pt-6" style={{ borderColor: C.border }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.stork }}>Colony Map — Click markers to fly between nesting sites</p>
+          <StorkColonyMap sites={SITES} selectedIdx={selectedSiteIdx} onSelect={setSelectedSiteIdx} />
         </div>
       </section>
 

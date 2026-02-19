@@ -45,6 +45,7 @@ const MODULES = [
   { id: 'the-empty-quarter', category: 'Geography', title: 'The Empty Quarter', entries: '11 countries × 5 terrain types × 5 peoples × 10 species', status: 'Live', description: 'The Sahara as ecosystem. 9.2 million km² mapped across 11 countries. Five terrain types, five peoples, 10 key species, the Green Sahara cycle.', fields: ['Country', 'Desert %', 'Desert Area', 'Terrain Type', 'People', 'Species', 'Climate', 'Geology'], href: '/data/the-empty-quarter' },
   { id: 'the-free-people', category: 'Cultural Intelligence', title: 'The Free People — Imazighen', entries: '8 Moroccan confederations × 10 African countries × 10 languages × 21 timeline moments', status: 'Live', description: 'Part 1: Morocco\'s tribal confederations — Aït Atta, Aït Yafelman, Masmuda, Sanhaja, Zenata, Riffians, Ishilhayen, Central Atlas Imazighen. Five fifths, annual rotation democracy, Battle of Bougafer. 2024 census: 24.8% vs 85% (contested). Part 2: Across Africa — ten countries from Morocco to Egypt, Kabyles to Tuareg. 30–40 million people, 40 languages, 12,000 years. Tifinagh to Tamasheq. The maps forgot.', fields: ['Confederation', 'Tribe', 'Language', 'Region', 'Population', 'Sub-groups', 'Timeline', 'Official Status'], href: '/data/the-free-people' },
   { id: 'wildlife-atlas', category: 'Natural History', title: 'The Wildlife Atlas', entries: '18 featured species × 8 endangered × 5 extinct × 8 national parks', status: 'Live', description: 'Morocco\'s 40 ecosystems and 118 mammal species — from the ghost of the Barbary lion to the last northern bald ibis colony. Endangered species tracker, national parks mapped, and the stories of what was lost: Atlas bear, Bubal hartebeest, North African elephant. What still holds on: Barbary macaque, Mediterranean monk seal, Barbary leopard.', fields: ['Species', 'IUCN Status', 'Population', 'Habitat', 'Threats', 'National Park', 'Last Sighting'], href: '/data/wildlife-atlas' },
+  { id: 'colour-index', category: 'Cultural Intelligence', title: 'The Colour Index', entries: '24 colours × 6 categories × mineral sources × chemistry', status: 'Live', description: 'Morocco\'s chromatic DNA — a Pantone book for a country. Each colour mapped to its mineral pigment source, where it appears, what it means, and the chemistry that makes it. From the iron oxide of Marrakech\'s ramparts to the indigo of Tuareg turbans, from the cobalt of Fes zellige to the saffron of Taliouine. Geology, exile, and craft — the three forces that painted a nation.', fields: ['Hex', 'Pantone', 'Pigment Source', 'Chemistry', 'Where', 'Meaning', 'Category'], href: '/data/colour-index' },
   { id: 'weather-portraits', category: 'Climate Intelligence', title: 'Weather Portraits', entries: '8 cities × 12 months × 6 climate zones × 8 national extremes', status: 'Live', description: 'Eight cities, twelve months, one country that holds both Africa\'s coldest recorded temperature (−23.9°C, Ifrane) and some of its hottest (49.6°C, Marrakech). Radial temperature halos, rainfall bars, sunshine sparklines, record extremes. Six climate zones in 1,000km. A 73.5°C swing contained in a single nation.', fields: ['City', 'Temperature', 'Rainfall', 'Sunshine Hours', 'Record High', 'Record Low', 'Climate Zone', 'Köppen'], href: '/data/weather-portraits' },
   { id: 'darija', category: 'Language', title: 'Darija Structured Lexicon', entries: '8,640+', status: 'Live', description: 'The most comprehensive structured Moroccan Arabic dataset. Each entry: Arabic root, Amazigh substrate, French overlay, regional variations, cultural context.', fields: ['Word', 'Translation', 'Arabic Root', 'Category', 'Cultural Context', 'Regional Variant', 'Example Sentence'] },
   { id: 'textiles', category: 'Ethnographic Archive', title: 'North & West African Textiles', entries: '88+', status: 'Live', description: 'Source-documented textile traditions. Each story includes technique, region, motif lineage, spiritual significance, and practitioner documentation.', fields: ['Tradition', 'Region', 'Technique', 'Materials', 'Motif Lineage', 'Source Type', 'Practitioner'] },
@@ -67,12 +68,11 @@ export default function DataPage() {
     if (filter === 'coming') items = items.filter(m => m.status !== 'Live')
     if (search.trim()) {
       const q = search.toLowerCase()
-      items = items.filter(m =>
-        m.title.toLowerCase().includes(q) ||
-        m.category.toLowerCase().includes(q) ||
-        m.description.toLowerCase().includes(q) ||
-        m.fields.some(f => f.toLowerCase().includes(q))
-      )
+      const qAlt = q.replace('color', 'colour').replace('colour', 'color') // handle both spellings
+      items = items.filter(m => {
+        const blob = `${m.id} ${m.title} ${m.category} ${m.description} ${m.fields.join(' ')}`.toLowerCase()
+        return blob.includes(q) || blob.includes(qAlt)
+      })
     }
     return items
   }, [filter, search])
@@ -108,7 +108,7 @@ export default function DataPage() {
               { key: 'coming' as const, label: `Coming (${comingCount})` },
             ]).map(f => (
               <button key={f.key}
-                onClick={() => { setFilter(f.key); setPage(0) }}
+                onClick={() => { setFilter(f.key); setPage(0); setSearch('') }}
                 className="text-[11px] uppercase tracking-[0.08em] font-medium px-3 py-1.5 transition-colors"
                 style={{
                   background: filter === f.key ? '#0a0a0a' : 'transparent',
@@ -119,7 +119,7 @@ export default function DataPage() {
             ))}
           </div>
           <div className="flex-1 min-w-[200px] max-w-[360px] ml-auto relative">
-            <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5" fill="none" stroke="#737373" strokeWidth="1.5" viewBox="0 0 24 24">
+            <svg className="absolute left-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5" fill="none" stroke="#737373" strokeWidth="1.5" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
             </svg>
             <input
@@ -127,7 +127,7 @@ export default function DataPage() {
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(0) }}
               placeholder="Search modules..."
-              className="w-full text-[13px] pl-8 pr-3 py-1.5 border border-dwl-border bg-transparent outline-none focus:border-dwl-black transition-colors"
+              className="w-full text-[13px] pl-6 pr-3 py-1.5 bg-transparent outline-none border-b border-dwl-border focus:border-dwl-black transition-colors"
               style={{ color: '#0a0a0a' }}
             />
           </div>
