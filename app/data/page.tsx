@@ -98,6 +98,16 @@ const MODULES = [
     href: '/data/morocco-3d-population',
   },
   {
+    id: 'world-cup-2030',
+    category: 'Infrastructure Intelligence',
+    title: '2030 World Cup Infrastructure Map',
+    entries: '20 stadiums + 12 infrastructure projects',
+    status: 'Live',
+    description: 'Every stadium, highway, rail line, airport, and hotel project across Morocco, Spain, and Portugal. Construction status, budgets, timelines. Updated quarterly.',
+    fields: ['Stadiums', 'Capacity', 'Construction Status', 'Budgets', 'Rail', 'Highways', 'Airports', 'Hotels'],
+    href: '/data/world-cup-2030',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
