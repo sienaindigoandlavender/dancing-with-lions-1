@@ -378,6 +378,16 @@ const MODULES = [
     href: '/data/the-nomad-pulse',
   },
   {
+    id: 'four-peaks',
+    category: 'Geography',
+    title: 'Four Peaks',
+    entries: '4 mountains × 12 metrics × ecosystems × geology × unique facts',
+    status: 'Live',
+    description: 'Morocco\'s mountains in the context of the world. Jbel Toubkal (4,167m), Jbel Saghro (2,712m), Kilimanjaro (5,895m), and Everest (8,849m) drawn to the same vertical scale. SVG elevation profile with snow lines, basecamps, and death zone. Six animated comparison bars. Expandable mountain profiles with geology, ecosystem, trekking data, and unique facts.',
+    fields: ['Mountain', 'Elevation', 'Prominence', 'Range', 'Trek Days', 'Difficulty', 'Success Rate', 'Ecosystem'],
+    href: '/data/four-peaks',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
