@@ -248,6 +248,16 @@ const MODULES = [
     href: '/data/geometry-of-culture',
   },
   {
+    id: 'chameleon-country',
+    category: 'Cultural Cartography',
+    title: 'The Chameleon Country',
+    entries: '35 films × 6 hubs × 7 revenue years × 4 returning directors × 50+ identities',
+    status: 'Live',
+    description: 'Every landscape Morocco has pretended to be. 200+ productions mapped with colour palettes, GPS coordinates, budgets, and a "Look-alike Index" showing how often each city has doubled for Rome, Jerusalem, Tibet, or Mars.',
+    fields: ['Film', 'Year', 'Director', 'Location', 'Played As', 'Budget', 'Local Revenue', 'Palette'],
+    href: '/data/chameleon-country',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
