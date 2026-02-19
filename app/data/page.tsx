@@ -298,6 +298,16 @@ const MODULES = [
     href: '/data/tea-ceremony',
   },
   {
+    id: 'high-speed-horizon',
+    category: 'Infrastructure',
+    title: 'The High-Speed Horizon',
+    entries: '14 routes × 4 eras × 9 cities × 10 milestones',
+    status: 'Live',
+    description: 'Morocco is shrinking. An isochrone "melting map" where cities pull together as travel time collapses across four eras — 1920 colonial rail, 1980 post-independence, 2010 modern conventional, 2030 Al Boraq HSR. Select any two cities to see the century of compression: Tangier–Marrakech from 18 hours to 2h40.',
+    fields: ['City From', 'City To', 'Era', 'Minutes', 'Distance km', 'HSR', 'Time Saved', '% Compression'],
+    href: '/data/high-speed-horizon',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
