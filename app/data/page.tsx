@@ -358,6 +358,16 @@ const MODULES = [
     href: '/data/roma-africana',
   },
   {
+    id: 'the-long-rise',
+    category: 'Tourism',
+    title: 'The Long Rise',
+    entries: '26 years × arrivals × revenue × events',
+    status: 'Live',
+    description: 'Morocco\'s tourism arrivals from 2000 to 2025. An animated line that draws itself year by year. You watch 4.28M become 7M become 12M become 20M. The COVID cliff (−78%). The World Cup bounce. The AFCON surge. One number, one line, 25 years. The story of a country becoming a destination in real time.',
+    fields: ['Year', 'Arrivals (M)', 'Revenue ($B)', 'YoY Change', 'Event'],
+    href: '/data/the-long-rise',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
