@@ -338,6 +338,16 @@ const MODULES = [
     href: '/data/timeline-of-morocco',
   },
   {
+    id: 'digital-zellige',
+    category: 'The New Craft Economy',
+    title: 'Digital Zellige',
+    entries: '120 mosaic tiles × 7 product categories × 8 destinations × 7 years',
+    status: 'Live',
+    description: 'MAD 1.23 billion in handicraft exports, visualised as a generative zellige mosaic. 120 tiles — each coloured by destination country (US 49%, France 11%, Türkiye 7%), each centred with a product dot (pottery 36%, carpets 18%, clothing 17%). Hover to filter. The pattern is 12th-century geometry. The data is January 2026.',
+    fields: ['Product', 'Share %', 'Growth %', 'Destination', 'Country Share', 'Year', 'MAD Value'],
+    href: '/data/digital-zellige',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
