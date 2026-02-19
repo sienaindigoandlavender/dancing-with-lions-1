@@ -228,6 +228,16 @@ const MODULES = [
     href: '/data/pulse-medina',
   },
   {
+    id: 'world-cup-blueprint',
+    category: 'Infrastructure Economics',
+    title: 'Road to 2030: The World Cup Blueprint',
+    entries: '6 sectors × 8 routes × 6 host cities × 8 projections',
+    status: 'Live',
+    description: 'How $41 billion reshapes Morocco\'s skeleton. Investment rivers by sector, travel time compression (Tangier-Marrakech: 7h → 2h40m), GDP spillover zones for 6 host cities, AFCON proof of concept, LGV network schematic.',
+    fields: ['Sector', 'Budget', 'Route', 'Before', 'After', 'GDP Impact', 'Jobs', 'Spillover Zone'],
+    href: '/data/world-cup-blueprint',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
