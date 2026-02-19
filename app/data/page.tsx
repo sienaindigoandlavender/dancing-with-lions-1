@@ -268,6 +268,16 @@ const MODULES = [
     href: '/data/argan-constellation',
   },
   {
+    id: 'demographic-atlas',
+    category: 'Demographics',
+    title: 'The Demographic Atlas',
+    entries: '12 regions × 17 age bands × 10 fertility points × 7 marriage/divorce years × 3 gender gaps × 6 household metrics',
+    status: 'Live',
+    description: '36.8 million people counted in the 2024 census. Fertility collapsed to 1.97 — below replacement. Divorce-to-marriage ratio hit 50%. 19.2% of households led by women. 32.4% female illiteracy. Two countries living in one census: Casablanca converging with Europe, the Atlas holding to tradition.',
+    fields: ['Region', 'Population', 'Growth Rate', 'Urban %', 'Illiteracy', 'Fertility', 'Age Band', 'Male', 'Female', 'Marriage', 'Divorce'],
+    href: '/data/demographic-atlas',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
