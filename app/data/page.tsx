@@ -78,6 +78,16 @@ const MODULES = [
     href: '/data/tourism-flow',
   },
   {
+    id: 'seasonal-produce',
+    category: 'Food Intelligence',
+    title: 'What Grows When',
+    entries: '32 crops',
+    status: 'Live',
+    description: 'Seasonal calendar of Moroccan fruits and vegetables. Radial wheel + illustrated month-by-month guide with Darija names, growing regions, and peak seasons.',
+    fields: ['Fruits', 'Vegetables', 'Darija Names', 'Growing Regions', 'Peak Seasons', 'Categories'],
+    href: '/data/seasonal-produce',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',

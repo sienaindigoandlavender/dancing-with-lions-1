@@ -80,27 +80,22 @@ export default function AboutPage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* The Approach */}
+      {/* The Perspective */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="micro-label">The Approach</p>
+            <p className="micro-label">The Perspective</p>
           </div>
           <div className="md:col-span-8 max-w-[580px] space-y-6">
             <p className="font-serif text-[20px] text-dwl-black italic">
-              Data as art. Data as experience. Data as organism.
+              Eleven years in Morocco. Not visiting. Living.
             </p>
             <p className="text-body text-dwl-body leading-relaxed">
-              We don&apos;t publish static tables or PDF reports.
-              Every dataset gets the visual form that best reveals its story —
-              radial harvest wheels for agricultural exports, Sankey flows for tourism patterns,
-              interactive Mapbox corridors for cultural geography, illustrated SVG
-              charts where hand-drawn tomatoes and sardines sit inside their data arcs.
-            </p>
-            <p className="text-body text-dwl-body leading-relaxed">
-              The cultural depth makes the data credible. Anyone can compile statistics
-              about Morocco. We compile statistics and explain why they mean what they mean —
-              because we understand the culture underneath the numbers.
+              Anyone can compile statistics. We explain why they mean what they mean —
+              because we understand the culture underneath the numbers. The economic data
+              is credible because we know the souk. The cultural archive has depth
+              because we know the academic record. The language data is accurate because
+              we speak Darija at the corner shop, not in a classroom.
             </p>
           </div>
         </div>
