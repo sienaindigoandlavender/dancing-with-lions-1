@@ -258,6 +258,16 @@ const MODULES = [
     href: '/data/chameleon-country',
   },
   {
+    id: 'argan-constellation',
+    category: 'Sustainability & Labour',
+    title: 'The Argan Constellation',
+    entries: '7 extraction steps × 6 price stages × 10 forest data points × 655 cooperatives',
+    status: 'Live',
+    description: '20 hours of manual labour per litre. 40 kg of fruit. $0.80/hour wages. $980/litre on a luxury shelf. The circular dendrogram of argan oil extraction, the 1,225× price markup, and the fading green halo of a UNESCO forest losing 600 hectares per year.',
+    fields: ['Step', 'Hours', 'Price Stage', 'Value', 'Forest Coverage', 'Year', 'Cooperatives'],
+    href: '/data/argan-constellation',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
