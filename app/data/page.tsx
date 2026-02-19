@@ -328,6 +328,16 @@ const MODULES = [
     href: '/data/shadow-moucharabieh',
   },
   {
+    id: 'timeline-of-morocco',
+    category: 'History',
+    title: 'Timeline of Morocco',
+    entries: '45 milestones × 14 eras × 315,000 years',
+    status: 'Live',
+    description: 'From the oldest Homo sapiens fossils (Jebel Irhoud, 315,000 BCE) to the 2030 World Cup. A vertical interactive timeline spanning eight dynasties, three colonial powers, and one independence — with alternating left-right cards, era colour bands, and expandable historical detail for every turning point.',
+    fields: ['Year', 'Event', 'Era', 'Dynasty', 'Detail', 'Landmark'],
+    href: '/data/timeline-of-morocco',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
