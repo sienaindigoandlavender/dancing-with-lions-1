@@ -288,6 +288,16 @@ const MODULES = [
     href: '/data/solar-compass',
   },
   {
+    id: 'tea-ceremony',
+    category: 'Culinary Data Art',
+    title: 'The Tea Ceremony Topology',
+    entries: '6 steps × 3 glasses × 4 flavour compounds × 11 regional ratios × temperature curve',
+    status: 'Live',
+    description: 'Three glasses. One pot. Same leaves. The architecture of Moroccan hospitality dissected: an interactive pour-height simulator with live foam physics, the flavour compound shift across three infusions (life, love, death), and small multiples mapping the sugar-to-mint gradient from Tetouan\'s syrup to Agadir\'s wild herbs.',
+    fields: ['Step', 'Temperature', 'Duration', 'Glass', 'Mint %', 'Sugar %', 'Tannin %', 'Caffeine %', 'City', 'Sugar tbsp', 'Mint Intensity'],
+    href: '/data/tea-ceremony',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
