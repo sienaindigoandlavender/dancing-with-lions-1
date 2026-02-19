@@ -28,6 +28,11 @@ export default function Header() {
             <Link href="/intellectual-property" className="meta-text hover:text-dwl-black transition-colors">
               IP &amp; Licensing
             </Link>
+            <Link href="/data" className="hover:opacity-60 transition-opacity" aria-label="Search data modules">
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="text-dwl-gray">
+                <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+              </svg>
+            </Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -55,6 +60,12 @@ export default function Header() {
             </Link>
             <Link href="/intellectual-property" onClick={() => setMenuOpen(false)} className="meta-text">
               IP &amp; Licensing
+            </Link>
+            <Link href="/data" onClick={() => setMenuOpen(false)} className="meta-text flex items-center gap-2">
+              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+              </svg>
+              Search
             </Link>
           </nav>
         </div>
