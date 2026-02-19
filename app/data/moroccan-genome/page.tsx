@@ -93,6 +93,58 @@ const TIMELINE = [
   { year: '2025', event: 'Moroccan Genome Project Phase 1: 109 whole genomes sequenced. 27 million variants identified, 1.4 million novel. First Moroccan Major Allele Reference Genome (MMARG) proposed.', type: 'modern' },
 ]
 
+// ═══ ETHNICITY DATA ═══
+
+// Self-identification — 2021 survey, 1,200 Moroccan adults
+const SELF_ID = [
+  { label: 'Arab', pct: 68, color: '#AB47BC' },
+  { label: 'Amazigh (Berber)', pct: 25.6, color: '#1565C0' },
+  { label: 'Sahrawi', pct: 3.6, color: '#EF6C00' },
+  { label: 'Other', pct: 2.8, color: '#78909C' },
+]
+
+// Encyclopædia Britannica breakdown (alternate classification)
+const BRITANNICA = [
+  { label: 'Arab', pct: 44, color: '#AB47BC' },
+  { label: 'Arabized Berber', pct: 24, color: '#7E57C2' },
+  { label: 'Berber', pct: 21, color: '#1565C0' },
+  { label: 'Moorish / Hassani', pct: 10, color: '#EF6C00' },
+  { label: 'Other', pct: 1, color: '#78909C' },
+]
+
+// Language as ethnic proxy — 2024 Census + historical
+const LANGUAGE_TREND = [
+  { year: 1960, berber: 32, label: 'First post-independence census' },
+  { year: 2004, berber: 28.2, label: 'Tashelhit 14.6%, Tamazight 8.8%, Tarifit 4.8%' },
+  { year: 2014, berber: 26, label: 'Tashelhit 14.1%, Tamazight 7.9%, Tarifit 4%' },
+  { year: 2024, berber: 24.8, label: 'Tashelhit 14.2%, Tamazight 7.4%, Tarifit 3.2%' },
+]
+
+// Mother tongue — 2024 Census
+const MOTHER_TONGUE = [
+  { label: 'Arabic (Darija)', pct: 80.6, color: '#AB47BC' },
+  { label: 'Tashelhit (Souss/Atlas)', pct: 14.2, color: '#1565C0' },
+  { label: 'Central Tamazight (Middle Atlas)', pct: 7.4, color: '#0D47A1' },
+  { label: 'Tarifit (Rif)', pct: 3.2, color: '#1B5E20' },
+]
+
+// The three Amazigh language zones
+const AMAZIGH_ZONES = [
+  { name: 'Tashelhit (Shilha)', region: 'Souss Valley, High Atlas, Anti-Atlas', speakers: '~5.2 million', share: '14.2%', note: 'Largest Amazigh group in Morocco. ~8 million including diaspora. Rich oral poetry tradition (amarg). Historically important commercial class.' },
+  { name: 'Central Atlas Tamazight', region: 'Middle Atlas, eastern High Atlas, Taza to Tafilalt', speakers: '~2.7 million', share: '7.4%', note: 'Foundation for Standard Moroccan Amazigh. 40–45% of speakers monolingual. Extends from forested mountains to Saharan oases.' },
+  { name: 'Tarifit', region: 'Rif Mountains, northern Morocco', speakers: '~1.2 million', share: '3.2%', note: 'Historically most isolated. Strong diaspora in Belgium, Netherlands. Low mutual intelligibility with Tashelhit. Centre of 1958–59 Rif rebellion and 2016–17 Hirak protests.' },
+  { name: 'Hassaniya Arabic', region: 'Southern provinces, Western Sahara', speakers: '~300,000', share: '0.8%', note: 'Arabic dialect of Sahrawi population. Mix of Arab-Amazigh tribal heritage. Traditionally nomadic Bedouin. Centre of Western Sahara sovereignty dispute.' },
+]
+
+// Other ethnic groups
+const OTHER_GROUPS = [
+  { name: 'Haratin', note: 'Dark-skinned agriculturalists of the southern oases (Drâa-Tafilalet). Not necessarily of slave origin — historian Chouki El Hamel argues many descend from native Black populations predating the Arab conquest. Concentrated in Zagora, Ouarzazate, Tinghir. Formerly the majority in parts of southern Morocco. The term itself is considered pejorative; many prefer "Drawi" or "Sahrawi."' },
+  { name: 'Gnawa', note: 'Descendants of West African enslaved peoples (Soninke, Bambara, Fulani, Hausa) brought via trans-Saharan trade from 10th–19th centuries. Concentrated in Marrakech and Essaouira. Created a unique Sufi-African spiritual music tradition now recognised by UNESCO (2019). The name likely derives from Berber "agnaw" (Black person).' },
+  { name: 'Moriscos', note: 'Descendants of Muslim refugees expelled from Spain after the Reconquista (15th–17th centuries). Settled primarily in Rabat (Salé), Fez, Tetouan, Chefchaouen. Brought Andalusian architecture, music (malhun, andalusi), cuisine, and craft traditions that remain central to Moroccan urban culture.' },
+  { name: 'Jewish Moroccans', note: 'Present since at least the destruction of the First Temple (586 BCE). Peaked at 250,000 in 1948. Now ~2,500 in Morocco (largest Jewish community in the Arab world). Most emigrated to Israel, France, Canada after 1948. Morocco maintains Jewish heritage sites and the only Jewish museum in the Arab world (Casablanca).' },
+  { name: 'Sub-Saharan migrants', note: 'Growing community since 2000s. Morocco regularised ~50,000 irregular migrants in 2014 and 2017. Primarily from Senegal, Guinea, Côte d\'Ivoire, Mali, DR Congo. Some in transit to Europe; increasingly settling permanently. Complex relationship with existing Black Moroccan communities.' },
+]
+
 // Key findings summary
 const KEY_FINDINGS = [
   { stat: '51.2%', label: 'North African ancestry', detail: 'The majority component. Autochthonous. Not found at high frequency anywhere else on Earth.' },
@@ -221,7 +273,7 @@ export default function MoroccanGenomePage() {
             <em>The Moroccan<br />Genome</em>
           </h1>
           <p className="font-serif italic text-[clamp(1rem,2.5vw,1.4rem)] mb-6" style={{ color: C.muted }}>
-            300,000 years of migration written in nucleotides. What DNA says about who Moroccans are.
+            300,000 years of migration written in nucleotides. What DNA and identity say about who Moroccans are.
           </p>
           <p className="text-[15px] leading-[1.8] max-w-[620px]" style={{ color: C.text }}>
             Morocco sits at the crossroads of three continents. The Sahara to the south, the Mediterranean
@@ -347,6 +399,181 @@ export default function MoroccanGenomePage() {
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
+      {/* ═══ VI. THE IDENTITY QUESTION ═══ */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        <p className="micro-label mb-2" style={{ color: C.muted }}>Section VI</p>
+        <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Identity Question</h2>
+        <p className="text-[13px] mb-10 max-w-[540px]" style={{ color: C.text }}>
+          DNA says most Moroccans are genetically indistinguishable regardless of whether they speak
+          Arabic or Berber. But identity is not DNA. Ask a Moroccan "what are you?" and the answer
+          depends on who is asking, which categories are offered, and what is politically at stake.
+          Every number below is contested.
+        </p>
+
+        {/* Two competing frameworks side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+          <div>
+            <p className="font-mono text-[10px] mb-3 tracking-wider" style={{ color: C.muted }}>SELF-IDENTIFICATION (2021 SURVEY, n=1,200)</p>
+            {(() => {
+              const r = useReveal()
+              return (
+                <div ref={r.ref}>
+                  <div className="flex h-10 w-full overflow-hidden border" style={{ borderColor: C.border }}>
+                    {SELF_ID.map((d, i) => (
+                      <div key={d.label} className="h-full flex items-center justify-center transition-all duration-500"
+                        style={{ width: r.vis ? `${d.pct}%` : '0%', background: d.color, transitionDelay: `${i * 80}ms` }}>
+                        {d.pct > 8 && <span className="text-white text-[9px] font-mono">{d.pct}%</span>}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
+                    {SELF_ID.map(d => (
+                      <div key={d.label} className="flex items-center gap-1">
+                        <div className="w-2 h-2 rounded-sm" style={{ background: d.color }} />
+                        <span className="text-[9px] font-mono" style={{ color: C.muted }}>{d.label} ({d.pct}%)</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })()}
+          </div>
+          <div>
+            <p className="font-mono text-[10px] mb-3 tracking-wider" style={{ color: C.muted }}>ENCYCLOPÆDIA BRITANNICA CLASSIFICATION</p>
+            {(() => {
+              const r = useReveal()
+              return (
+                <div ref={r.ref}>
+                  <div className="flex h-10 w-full overflow-hidden border" style={{ borderColor: C.border }}>
+                    {BRITANNICA.map((d, i) => (
+                      <div key={d.label} className="h-full flex items-center justify-center transition-all duration-500"
+                        style={{ width: r.vis ? `${d.pct}%` : '0%', background: d.color, transitionDelay: `${i * 80}ms` }}>
+                        {d.pct > 8 && <span className="text-white text-[9px] font-mono">{d.pct}%</span>}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
+                    {BRITANNICA.map(d => (
+                      <div key={d.label} className="flex items-center gap-1">
+                        <div className="w-2 h-2 rounded-sm" style={{ background: d.color }} />
+                        <span className="text-[9px] font-mono" style={{ color: C.muted }}>{d.label} ({d.pct}%)</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })()}
+          </div>
+        </div>
+
+        <p className="text-[12px] leading-relaxed p-3 border-l-2 mb-12 max-w-[620px]" style={{ borderColor: C.na, color: C.text }}>
+          Note the gap: when Moroccans self-identify, 68% say "Arab." But Britannica classifies only
+          44% as Arab and adds a category — "Arabized Berber" (24%) — for people who are genetically
+          and historically Amazigh but culturally and linguistically Arab. The Amazigh movement contests
+          all of these numbers, arguing that 40–85% of Moroccans are of Amazigh origin, and that centuries
+          of Arabisation policy have suppressed indigenous identity.
+        </p>
+
+        {/* Mother tongue — the language proxy */}
+        <p className="font-mono text-[10px] mb-3 tracking-wider" style={{ color: C.muted }}>MOTHER TONGUE — 2024 CENSUS</p>
+        {(() => {
+          const r = useReveal()
+          return (
+            <div ref={r.ref} className="mb-10">
+              {MOTHER_TONGUE.map((d, i) => (
+                <div key={d.label} className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[10px] font-mono w-[200px] text-right shrink-0" style={{ color: C.muted }}>{d.label}</span>
+                  <div className="flex-1 h-5 relative" style={{ background: '#f5f5f5' }}>
+                    <div className="h-full flex items-center px-2 transition-all duration-700"
+                      style={{ width: r.vis ? `${d.pct}%` : '0%', background: d.color, transitionDelay: `${i * 60}ms` }}>
+                      {d.pct > 5 && <span className="text-white font-mono text-[9px]">{d.pct}%</span>}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <p className="text-[11px] mt-2 ml-[210px]" style={{ color: C.muted }}>
+                Amazigh speakers total 24.8% (percentages overlap due to bilingualism). Amazigh activists claim methodology undercounts, estimating 40%+.
+              </p>
+            </div>
+          )
+        })()}
+
+        {/* Berber language decline trend */}
+        <p className="font-mono text-[10px] mb-3 tracking-wider" style={{ color: C.muted }}>BERBER-SPEAKING POPULATION (% BY CENSUS)</p>
+        {(() => {
+          const r = useReveal()
+          return (
+            <div ref={r.ref} className="mb-10 flex items-end gap-4 h-[140px]">
+              {LANGUAGE_TREND.map((d, i) => (
+                <div key={d.year} className="flex flex-col items-center flex-1">
+                  <span className="text-[10px] font-mono mb-1 transition-all duration-500"
+                    style={{ color: C.na, opacity: r.vis ? 1 : 0 }}>{d.berber}%</span>
+                  <div className="w-full transition-all duration-700 flex items-end justify-center"
+                    style={{ height: r.vis ? `${(d.berber / 35) * 100}px` : '0px', background: C.na, opacity: 0.7 + (d.berber / 100), transitionDelay: `${i * 100}ms` }}>
+                  </div>
+                  <span className="text-[9px] font-mono mt-1" style={{ color: C.muted }}>{d.year}</span>
+                </div>
+              ))}
+            </div>
+          )
+        })()}
+        <p className="text-[11px] leading-relaxed max-w-[540px]" style={{ color: C.text }}>
+          Berber-speaking Moroccans have declined from 32% at independence (1960) to 24.8% in the
+          2024 census. Amazigh organisations call this "linguistic genocide" — the result of decades of
+          Arabisation in education, media, and administration. The 2011 constitution made Tamazight an
+          official language, but literacy in Berber remains at just 1.5%.
+        </p>
+
+        {/* Amazigh zones */}
+        <div className="mt-12">
+          <p className="font-mono text-[10px] mb-4 tracking-wider" style={{ color: C.muted }}>THE THREE AMAZIGH LANGUAGE ZONES + HASSANIYA</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {AMAZIGH_ZONES.map((z, i) => {
+              const rv = useReveal()
+              const zoneColors = [C.na, '#0D47A1', '#1B5E20', '#EF6C00']
+              return (
+                <div key={z.name} ref={rv.ref} className="border p-4 transition-all duration-500"
+                  style={{ borderColor: C.border, opacity: rv.vis ? 1 : 0, transform: rv.vis ? 'translateY(0)' : 'translateY(8px)', transitionDelay: `${i * 80}ms` }}>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: zoneColors[i] }} />
+                    <p className="font-serif text-[15px]">{z.name}</p>
+                    <span className="text-[10px] font-mono ml-auto" style={{ color: zoneColors[i] }}>{z.share}</span>
+                  </div>
+                  <p className="text-[10px] font-mono mb-1" style={{ color: C.muted }}>{z.region} · {z.speakers}</p>
+                  <p className="text-[11px] leading-relaxed" style={{ color: C.text }}>{z.note}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+
+      {/* ═══ VII. THE INVISIBLE GROUPS ═══ */}
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        <p className="micro-label mb-2" style={{ color: C.muted }}>Section VII</p>
+        <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Invisible Groups</h2>
+        <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.text }}>
+          The Arab-Berber binary leaves out the Moroccans who fit neither category. These communities
+          are rarely counted in censuses or surveys, but they are woven into the country's fabric.
+        </p>
+        <div className="space-y-4">
+          {OTHER_GROUPS.map((g, i) => {
+            const rv = useReveal()
+            return (
+              <div key={g.name} ref={rv.ref} className="border-l-2 pl-4 py-2 transition-all duration-500"
+                style={{ borderColor: C.wa, opacity: rv.vis ? 1 : 0, transform: rv.vis ? 'translateX(0)' : 'translateX(-8px)', transitionDelay: `${i * 60}ms` }}>
+                <p className="font-serif text-[15px] mb-1">{g.name}</p>
+                <p className="text-[12px] leading-relaxed" style={{ color: C.text }}>{g.note}</p>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+
       {/* ═══ READING NOTES ═══ */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
         <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
@@ -363,6 +590,32 @@ export default function MoroccanGenomePage() {
               not a distinct genetic ancestry.
             </p>
           </div>
+          <div>
+            <p className="font-serif text-[18px] mb-2">The Counting Problem</p>
+            <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
+              Morocco has never conducted an ethnic census. All numbers are estimates or language
+              proxies. A 2021 survey says 68% Arab; Britannica says 44%. The gap is the "Arabized
+              Berber" — people genetically Amazigh who speak Arabic and identify as Arab. The
+              2024 census found 24.8% speak Berber, but Amazigh groups say the real figure is
+              40–85%, arguing the methodology undercounts. The 2011 constitution acknowledged the
+              problem by defining Morocco's identity as "Arab-Islamic, Amazigh, and Saharan-Hassani."
+              Even the state admits it is all three.
+            </p>
+          </div>
+          <div>
+            <p className="font-serif text-[18px] mb-2">"I Am from Here"</p>
+            <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
+              In 2020, Black Moroccan artist M'Barek Bouhchichi said: "Any Black person in
+              Morocco is told they came from sub-Saharan Africa. And this is where they are wrong.
+              I am from here." Historian Chouki El Hamel argues the Haratin are not
+              descendants of slaves but native Black populations who inhabited southern Morocco
+              before the Arab conquest. The assumption that darker skin equals foreign origin is
+              both genetically and historically unfounded — yet it persists, structuring social
+              hierarchies in the south. Out of 515 members of parliament, only 7 are Black.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           <div>
             <p className="font-serif text-[18px] mb-2">The Back-to-Africa Migration</p>
             <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
@@ -385,6 +638,17 @@ export default function MoroccanGenomePage() {
               gave certain lineages an outsized reproductive advantage.
             </p>
           </div>
+          <div>
+            <p className="font-serif text-[18px] mb-2">The Sahrawi Question</p>
+            <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
+              Sahrawis — Hassaniya-speaking tribes of mixed Arab-Amazigh descent — represent
+              roughly 3.6% of Morocco's population. They are genetically similar to southern
+              Moroccans and Mauritanians, with E-M81 at ~76% in Sahrawi men. The Western Sahara
+              sovereignty dispute makes their demographic counting politically charged: Morocco
+              claims the territory; the Polisario Front seeks independence. An estimated 90,000–190,000
+              Sahrawis live in the disputed territory, with ~165,000 in refugee camps in Algeria.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -394,10 +658,12 @@ export default function MoroccanGenomePage() {
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
         <p className="micro-label mb-4" style={{ color: C.muted }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
-          <p>Primary source: Moroccan Genome Project Phase 1 (2025), <em>Communications Biology</em>. 109 whole genomes. Ancestry percentages (51.2% North African, 10.9% European, 10.7% Middle Eastern, 6.8% West African) and Y-chromosome haplogroup frequencies (E1b1b1 36.6%, F 19.5%, G2 17.1%) from this study. E-M81 frequency data: Reguig et al. (2014), "Phylogeography of E1b1b1b-M81 Haplogroup and Analysis of its Subclades in Morocco," <em>Human Biology</em>. 295 Berber-speaking men. E-M81 TMRCA (2,000–3,000 ya): Solé-Morata et al. (2017), <em>Scientific Reports</em>. 32 North African Y-chromosome sequences. Demographic model and differential Arab/Amazigh origins: Serradell et al. (2024), <em>Genome Biology</em>. Taforalt ancient DNA: Loosdrecht et al. (2018), <em>Science</em>. mtDNA synthesis: Frigi et al. (2010); Coudray et al. (2009); Esteban et al. (multiple studies on L-haplogroup gradients). General context: Wikipedia, "Genetic studies on Moroccans" and "Genetic history of North Africa" (accessed Feb 2026, cross-referenced against cited primary literature). Arab vs Berber genetic similarity: Henn et al. (2012), Arauna et al. (2017), <em>Molecular Biology and Evolution</em>.</p>
+          <p><strong>Genetics:</strong> Moroccan Genome Project Phase 1 (2025), <em>Communications Biology</em>. 109 whole genomes. Ancestry: 51.2% North African, 10.9% European, 10.7% Middle Eastern, 6.8% West African. Y-haplogroups: E1b1b1 36.6%, F 19.5%, G2 17.1%. E-M81 frequency: Reguig et al. (2014), <em>Human Biology</em>, 295 Berber men. E-M81 TMRCA: Solé-Morata et al. (2017), <em>Scientific Reports</em>. Demographic model: Serradell et al. (2024), <em>Genome Biology</em>. Taforalt ancient DNA: Loosdrecht et al. (2018), <em>Science</em>. mtDNA synthesis: Frigi et al. (2010); Coudray et al. (2009). Arab/Berber genetic similarity: Arauna et al. (2017), <em>Molecular Biology and Evolution</em>.</p>
+          <p><strong>Ethnicity &amp; demographics:</strong> 2021 survey (n=1,200): 68% Arab, 25.6% Berber, 3.6% Sahrawi per Wikipedia "Demographics of Morocco." Britannica breakdown: 44% Arab, 24% Arabized Berber, 21% Berber, 10% Moorish. 2024 Census (HCP): 24.8% Berber-speakers (Tashelhit 14.2%, Tamazight 7.4%, Tarifit 3.2%); 80.6% Arabic mother tongue; 1.5% Berber literacy. Amazigh contestation: IWGIA <em>Indigenous World 2025</em>. Berber language decline: Wikipedia "Berber languages" citing census data 1960–2024.</p>
+          <p><strong>Haratin &amp; Gnawa:</strong> El Hamel, Chouki, "Blacks and Slavery in Morocco" (2006). Bouhchichi quote: POMEPS, "National Identity in the Afro-Arab Periphery" (2022). Parliamentary representation: same source (7/515 Black MPs). Gnawa history: Afropop Worldwide. UNESCO Intangible Heritage listing (2019). Haratin demographics: Wikipedia "Haratin," citing French explorer Charles de Foucauld and historian Remco Ensel. Jewish population: World Jewish Congress and Morocco.com.</p>
         </div>
         <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
-          © Dancing with Lions · dancingwithlions.com · Population genetics data represents group-level statistical patterns and does not determine individual identity or ancestry. This visualisation may not be reproduced without visible attribution.
+          © Dancing with Lions · dancingwithlions.com · Population genetics and ethnicity data represent group-level patterns and contested political categories. Numbers vary by source, methodology, and political context. This visualisation may not be reproduced without visible attribution.
         </p>
       </section>
     </div>
