@@ -108,6 +108,16 @@ const MODULES = [
     href: '/data/world-cup-2030',
   },
   {
+    id: '14km-gap',
+    category: 'Comparative Intelligence',
+    title: 'The 14km Gap',
+    entries: '18 metrics compared',
+    status: 'Live',
+    description: 'Morocco and Spain separated by 14 kilometres of water. GDP, life expectancy, tourism, infrastructure, education — the gap between the two World Cup co-hosts, visualized as tension threads.',
+    fields: ['GDP', 'Demographics', 'Healthcare', 'Education', 'Tourism', 'Infrastructure', 'Employment'],
+    href: '/data/14km-gap',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
