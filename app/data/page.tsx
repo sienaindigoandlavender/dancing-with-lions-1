@@ -188,6 +188,16 @@ const MODULES = [
     href: '/data/languages-of-morocco',
   },
   {
+    id: 'moroccan-calendar',
+    category: 'Temporal Cartography',
+    title: 'The Moroccan Calendar',
+    entries: '4 calendars × 12 months × 30+ events',
+    status: 'Live',
+    description: 'Four overlapping time systems on a single radial year-wheel. Gregorian for business, Islamic lunar for religion, Amazigh agricultural for seasons, French school calendar for family life. When they align (Ramadan + harvest + exams) = chaos. Nobody has ever visualised this.',
+    fields: ['Calendar System', 'Month', 'Event', 'Fixed/Shifting', 'What It Governs'],
+    href: '/data/moroccan-calendar',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
