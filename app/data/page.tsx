@@ -158,6 +158,16 @@ const MODULES = [
     href: '/data/calendar-of-light',
   },
   {
+    id: 'alphabet-of-craft',
+    category: 'Illustrated Taxonomy',
+    title: 'The Moroccan Alphabet of Craft',
+    entries: '60 crafts × 10 categories',
+    status: 'Live',
+    description: 'Every major craft tradition in Morocco — zellige to rammed earth — arranged as specimens on a single illustrated plate. Each entry: name, region, technique, materials. Tile, textile, leather, metal, wood, pottery, stone, fibre, body, architecture. Print it at A1.',
+    fields: ['Name', 'Category', 'Region', 'Technique', 'Materials', 'Period'],
+    href: '/data/alphabet-of-craft',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
