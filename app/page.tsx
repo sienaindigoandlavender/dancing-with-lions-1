@@ -109,7 +109,7 @@ export default function HomePage() {
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <p className="micro-label mb-4">Published Research</p>
         <p className="font-serif text-[24px] text-dwl-black italic mb-12">
-          Ten interactive modules live.
+          Twelve interactive modules live.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-dwl-border">
           {LIVE_MODULES.map((mod) => (

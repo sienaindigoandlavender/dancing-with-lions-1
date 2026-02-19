@@ -118,6 +118,16 @@ const MODULES = [
     href: '/data/14km-gap',
   },
   {
+    id: 'wind-and-sun',
+    category: 'Energy Intelligence',
+    title: 'Wind & Sun',
+    entries: '14 installations mapped',
+    status: 'Live',
+    description: 'Morocco\'s renewable energy installations mapped as radial blooms. Solar, wind, and hydro — each shape tells you when and where the energy flows. 52% renewable target by 2030.',
+    fields: ['Solar MW', 'Wind MW', 'Hydro MW', 'Monthly Output', 'Capacity Factor', 'Seasonal Complementarity'],
+    href: '/data/wind-and-sun',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
