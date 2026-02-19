@@ -1,551 +1,252 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
-// ═══ THE CALENDAR OF LIGHT ═══
-// A single radial illustration — sunrise, sunset, and daylight hours
-// across 12 months for Morocco's six 2030 World Cup host cities.
-// Each city gets a ring. The shape IS the data.
-// Tangier (35.8°N) has wider seasonal swing than Agadir (30.4°N).
-// Static SVG. Poster-grade. Print at A2.
-
 const C = {
-  tangier: '#1A5276',
-  rabat: '#2D6E4F',
-  casablanca: '#4A6741',
-  fes: '#8B6914',
-  marrakech: '#8B3A3A',
-  agadir: '#C17F28',
-  ink: '#0a0a0a',
-  body: '#262626',
-  muted: '#737373',
-  border: '#e5e5e5',
-  sunlight: '#F5E6C8',
-  twilight: '#E8D5B8',
-  night: '#1A1A2E',
-  nightMid: '#2D2D44',
-  dawn: '#C4956A',
-  parchment: '#FFFFFF',
+  tangier: '#1A5276', rabat: '#2D6E4F', casablanca: '#4A6741',
+  fes: '#8B6914', marrakech: '#8B3A3A', agadir: '#C17F28',
+  ink: '#0a0a0a', text: '#262626', muted: '#737373', border: '#e5e5e5',
+  sunlight: '#F5E6C8', dawn: '#C4956A',
 }
 
-// ═══ CITY DATA ═══
-interface City {
-  name: string
-  lat: number
-  lon: number
-  color: string
-  stadiums: string
+function useReveal(threshold = 0.1) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [vis, setVis] = useState(false)
+  useEffect(() => {
+    const el = ref.current; if (!el) return
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVis(true); obs.disconnect() } }, { threshold })
+    obs.observe(el); return () => obs.disconnect()
+  }, [threshold])
+  return { ref, vis }
 }
 
-const CITIES: City[] = [
-  { name: 'Tangier', lat: 35.77, lon: -5.80, color: C.tangier, stadiums: 'Ibn Batouta (75,600)' },
-  { name: 'Rabat', lat: 34.01, lon: -6.84, color: C.rabat, stadiums: 'Prince Moulay Abdellah (68,700)' },
-  { name: 'Casablanca', lat: 33.57, lon: -7.59, color: C.casablanca, stadiums: 'Hassan II (115,000)' },
-  { name: 'Fes', lat: 34.03, lon: -4.98, color: C.fes, stadiums: 'Fes Stadium (55,800)' },
-  { name: 'Marrakech', lat: 31.63, lon: -8.01, color: C.marrakech, stadiums: 'Marrakech Stadium (70,000)' },
-  { name: 'Agadir', lat: 30.42, lon: -9.60, color: C.agadir, stadiums: 'Agadir Stadium (70,000)' },
+const CITIES = [
+  { name: 'Tangier', lat: 35.77, color: C.tangier, stadium: 'Ibn Batouta (75,600)' },
+  { name: 'Fes', lat: 34.03, color: C.fes, stadium: 'Fes Stadium (55,800)' },
+  { name: 'Rabat', lat: 34.01, color: C.rabat, stadium: 'Prince Moulay Abdellah (68,700)' },
+  { name: 'Casablanca', lat: 33.57, color: C.casablanca, stadium: 'Grand Stade Hassan II (115,000)' },
+  { name: 'Marrakech', lat: 31.63, color: C.marrakech, stadium: 'Marrakech Stadium (70,000)' },
+  { name: 'Agadir', lat: 30.42, color: C.agadir, stadium: 'Agadir Stadium (70,000)' },
 ]
 
-// ═══ ASTRONOMICAL CALCULATIONS ═══
-// Day of year midpoints for each month
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const MONTH_DAYS = [15, 46, 74, 105, 135, 166, 196, 227, 258, 288, 319, 349]
-const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const MONTH_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-// Calculate daylight hours for a given latitude and day of year
 function daylightHours(lat: number, dayOfYear: number): number {
-  const declination = 23.45 * Math.sin((2 * Math.PI / 365) * (dayOfYear - 81))
+  const decl = 23.45 * Math.sin((2 * Math.PI / 365) * (dayOfYear - 81))
   const latRad = (lat * Math.PI) / 180
-  const decRad = (declination * Math.PI) / 180
-  const hourAngle = Math.acos(-Math.tan(latRad) * Math.tan(decRad))
-  return (2 * hourAngle * 180) / (15 * Math.PI)
+  const decRad = (decl * Math.PI) / 180
+  const ha = Math.acos(-Math.tan(latRad) * Math.tan(decRad))
+  return (2 * ha * 180) / (15 * Math.PI)
 }
 
-// Calculate sunrise time (hours after midnight, solar time)
-function sunriseTime(lat: number, dayOfYear: number): number {
-  const hours = daylightHours(lat, dayOfYear)
-  return 12 - hours / 2
-}
+function sunriseTime(lat: number, day: number) { return 12 - daylightHours(lat, day) / 2 }
+function sunsetTime(lat: number, day: number) { return 12 + daylightHours(lat, day) / 2 }
+function fmt(h: number) { const hr = Math.floor(h); const mn = Math.round((h - hr) * 60); return `${hr}:${mn.toString().padStart(2, '0')}` }
 
-// Calculate sunset time
-function sunsetTime(lat: number, dayOfYear: number): number {
-  const hours = daylightHours(lat, dayOfYear)
-  return 12 + hours / 2
-}
-
-// Precompute all data
-const cityData = CITIES.map(city => ({
-  ...city,
+const cityData = CITIES.map(c => ({
+  ...c,
   months: MONTH_DAYS.map(day => ({
-    daylight: daylightHours(city.lat, day),
-    sunrise: sunriseTime(city.lat, day),
-    sunset: sunsetTime(city.lat, day),
+    daylight: daylightHours(c.lat, day),
+    sunrise: sunriseTime(c.lat, day),
+    sunset: sunsetTime(c.lat, day),
   })),
 }))
 
-// ═══ SVG GEOMETRY ═══
-const CX = 600 // center x
-const CY = 620 // center y
-const RING_BASE = 140 // innermost ring radius
-const RING_GAP = 58 // gap between rings
-const RING_WIDTH = 44 // width of each ring band
-
-// Convert month index + value to polar coordinates
-function polarToXY(monthIdx: number, radius: number): [number, number] {
-  // Month 0 (Jan) at top, clockwise
-  const angle = ((monthIdx / 12) * 2 * Math.PI) - Math.PI / 2
-  return [
-    CX + radius * Math.cos(angle),
-    CY + radius * Math.sin(angle),
-  ]
-}
-
-// Create a closed radial path for daylight band
-function createRadialBand(
-  monthData: { daylight: number; sunrise: number; sunset: number }[],
-  innerRadius: number,
-  maxDaylight: number,
-  minDaylight: number,
-): string {
-  const outerPoints: string[] = []
-  const innerPoints: string[] = []
-
-  for (let i = 0; i <= 12; i++) {
-    const idx = i % 12
-    const angle = ((i / 12) * 2 * Math.PI) - Math.PI / 2
-    const daylightNorm = (monthData[idx].daylight - minDaylight) / (maxDaylight - minDaylight)
-    const outerR = innerRadius + daylightNorm * RING_WIDTH
-    const innerR = innerRadius
-
-    outerPoints.push(`${CX + outerR * Math.cos(angle)},${CY + outerR * Math.sin(angle)}`)
-    innerPoints.unshift(`${CX + innerR * Math.cos(angle)},${CY + innerR * Math.sin(angle)}`)
-  }
-
-  return `M ${outerPoints[0]} ${outerPoints.slice(1).map(p => `L ${p}`).join(' ')} ${innerPoints.map(p => `L ${p}`).join(' ')} Z`
-}
-
-// Create smooth radial path using daylight hours mapped to radius
-function createDaylightPath(
-  monthData: { daylight: number }[],
-  baseRadius: number,
-  scale: number,
-): string {
-  const points: [number, number][] = []
-  // Generate 360 points for smooth curve (interpolating between months)
-  for (let deg = 0; deg < 360; deg++) {
-    const monthFrac = (deg / 360) * 12
-    const m0 = Math.floor(monthFrac) % 12
-    const m1 = (m0 + 1) % 12
-    const t = monthFrac - Math.floor(monthFrac)
-    const daylight = monthData[m0].daylight * (1 - t) + monthData[m1].daylight * t
-    const r = baseRadius + (daylight - 9.5) * scale
-    const angle = ((deg / 360) * 2 * Math.PI) - Math.PI / 2
-    points.push([CX + r * Math.cos(angle), CY + r * Math.sin(angle)])
-  }
-  return `M ${points[0][0]},${points[0][1]} ${points.slice(1).map(p => `L ${p[0]},${p[1]}`).join(' ')} Z`
-}
-
 export default function CalendarOfLightPage() {
-  // Find global min/max daylight across all cities
-  const allDaylight = cityData.flatMap(c => c.months.map(m => m.daylight))
-  const minDL = Math.min(...allDaylight) // ~9.5h (Tangier, Dec)
-  const maxDL = Math.max(...allDaylight) // ~14.5h (Tangier, Jun)
+  const heroR = useReveal()
+  const chartR = useReveal()
+  const tableR = useReveal()
+  const [activeCity, setActiveCity] = useState(0)
+  const [hoverMonth, setHoverMonth] = useState<number | null>(null)
 
-  // Scale: 1 hour of daylight = how many pixels of radius
-  const hourScale = RING_WIDTH / (maxDL - minDL)
+  const city = cityData[activeCity]
+  const juneDaylight = city.months[5].daylight
+  const decDaylight = city.months[11].daylight
+  const swing = juneDaylight - decDaylight
 
   return (
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
-
-      {/* ═══ HERO ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 pt-36 pb-8">
-        <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
-          ← All Data Modules
-        </Link>
-        <p className="micro-label mb-2" style={{ color: C.muted }}>Module 015 · Astronomical Chart</p>
-        <h1 className="font-serif text-[clamp(2.5rem,7vw,5rem)] leading-[0.9] tracking-[-0.02em] mb-2">
-          <em>The Calendar of Light</em>
-        </h1>
-        <p className="font-serif italic text-[clamp(1rem,2.5vw,1.5rem)]" style={{ color: C.muted }}>
-          How the sun moves across six cities and twelve months
-        </p>
-        <p className="text-[13px] max-w-[640px] leading-[1.7] mt-4 mb-4" style={{ color: C.body }}>
-          Morocco&apos;s six 2030 World Cup host cities span five degrees of latitude —
-          from Agadir at 30.4°N to Tangier at 35.8°N. That difference reshapes the year.
-          Tangier gets 14 hours 28 minutes of light in June but only 9 hours 33 minutes
-          in December — a swing of nearly five hours. Agadir&apos;s swing is gentler:
-          13 hours 52 minutes to 10 hours 10 minutes. Each ring on this chart is one city.
-          The shape is the daylight. The further the curve bulges from centre, the longer the day.
-        </p>
-      </section>
-
-      {/* ═══ THE RADIAL CHART ═══ */}
-      <section className="max-w-[1400px] mx-auto px-4 md:px-10">
-        <div className="border overflow-hidden" style={{ borderColor: C.border, background: C.parchment }}>
-          <svg
-            viewBox="0 0 1200 1280"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-            style={{ fontFamily: "'IBM Plex Mono', monospace" }}
-          >
-            <rect width="1200" height="1280" fill={C.parchment} />
-
-            {/* Title */}
-            <text x="600" y="45" textAnchor="middle" fontSize="12" letterSpacing="5" fontWeight="600" fill={C.ink}>
-              THE CALENDAR OF LIGHT
-            </text>
-            <text x="600" y="62" textAnchor="middle" fontSize="7" letterSpacing="3" fill={C.muted}>
-              DAYLIGHT HOURS ACROSS TWELVE MONTHS · SIX HOST CITIES · 2030 FIFA WORLD CUP
-            </text>
-
-            {/* Month axis lines (12 spokes) */}
-            {MONTH_NAMES.map((name, i) => {
-              const angle = ((i / 12) * 2 * Math.PI) - Math.PI / 2
-              const innerR = RING_BASE - 20
-              const outerR = RING_BASE + CITIES.length * RING_GAP + 30
-              const x1 = CX + innerR * Math.cos(angle)
-              const y1 = CY + innerR * Math.sin(angle)
-              const x2 = CX + outerR * Math.cos(angle)
-              const y2 = CY + outerR * Math.sin(angle)
-              const labelR = outerR + 18
-              const lx = CX + labelR * Math.cos(angle)
-              const ly = CY + labelR * Math.sin(angle)
-              return (
-                <g key={name}>
-                  <line x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke={C.border} strokeWidth="0.5" />
-                  <text x={lx} y={ly + 3} textAnchor="middle"
-                    fontSize="8" fontWeight="500" letterSpacing="2" fill={C.muted}>
-                    {name.toUpperCase()}
-                  </text>
-                </g>
-              )
-            })}
-
-            {/* Solstice / Equinox markers */}
-            {[
-              { month: 2, label: 'SPRING EQUINOX', sub: 'Mar 20' },
-              { month: 5, label: 'SUMMER SOLSTICE', sub: 'Jun 21' },
-              { month: 8, label: 'AUTUMN EQUINOX', sub: 'Sep 22' },
-              { month: 11, label: 'WINTER SOLSTICE', sub: 'Dec 21' },
-            ].map(eq => {
-              const angle = ((eq.month / 12) * 2 * Math.PI) - Math.PI / 2
-              const r = RING_BASE + CITIES.length * RING_GAP + 50
-              const x = CX + r * Math.cos(angle)
-              const y = CY + r * Math.sin(angle)
-              return (
-                <g key={eq.label}>
-                  <text x={x} y={y} textAnchor="middle" fontSize="5.5" fontWeight="600"
-                    letterSpacing="1.5" fill={C.dawn}>
-                    {eq.label}
-                  </text>
-                  <text x={x} y={y + 9} textAnchor="middle" fontSize="4.5" fill={C.muted}>
-                    {eq.sub}
-                  </text>
-                </g>
-              )
-            })}
-
-            {/* ═══ CITY RINGS ═══ */}
-            {cityData.map((city, cityIdx) => {
-              const baseR = RING_BASE + cityIdx * RING_GAP
-
-              // Draw the ring base circle (faint)
-              return (
-                <g key={city.name}>
-                  {/* Base circle */}
-                  <circle cx={CX} cy={CY} r={baseR}
-                    fill="none" stroke={C.border} strokeWidth="0.3" />
-
-                  {/* Daylight shape — the bloom */}
-                  <path
-                    d={createDaylightPath(city.months, baseR, hourScale * 1.1)}
-                    fill={city.color}
-                    fillOpacity={0.12}
-                    stroke={city.color}
-                    strokeWidth="1.5"
-                  />
-
-                  {/* Monthly data points */}
-                  {city.months.map((m, mi) => {
-                    const r = baseR + (m.daylight - minDL) * hourScale * 1.1
-                    const [px, py] = polarToXY(mi, r)
-                    return (
-                      <circle key={mi} cx={px} cy={py} r={2}
-                        fill={city.color} fillOpacity={0.8}
-                      />
-                    )
-                  })}
-
-                  {/* Hour labels at Jun and Dec (max/min) */}
-                  {(() => {
-                    const junData = city.months[5] // June
-                    const decData = city.months[11] // December
-                    const junR = baseR + (junData.daylight - minDL) * hourScale * 1.1
-                    const decR = baseR + (decData.daylight - minDL) * hourScale * 1.1
-                    const [jx, jy] = polarToXY(5, junR + 10)
-                    const [dx, dy] = polarToXY(11, decR - 10)
-                    const junH = Math.floor(junData.daylight)
-                    const junM = Math.round((junData.daylight - junH) * 60)
-                    const decH = Math.floor(decData.daylight)
-                    const decM = Math.round((decData.daylight - decH) * 60)
-                    return (
-                      <>
-                        <text x={jx} y={jy} textAnchor="middle" fontSize="5" fill={city.color} fontWeight="500">
-                          {junH}h{junM.toString().padStart(2, '0')}
-                        </text>
-                        <text x={dx} y={dy} textAnchor="middle" fontSize="5" fill={city.color} fontWeight="500">
-                          {decH}h{decM.toString().padStart(2, '0')}
-                        </text>
-                      </>
-                    )
-                  })()}
-
-                  {/* City name label (at March position, outside) */}
-                  {(() => {
-                    const marData = city.months[2]
-                    const r = baseR + (marData.daylight - minDL) * hourScale * 1.1
-                    // Place label at ~1 o'clock position
-                    const labelAngle = ((1.5 / 12) * 2 * Math.PI) - Math.PI / 2
-                    const lx = CX + (baseR + RING_WIDTH / 2) * Math.cos(labelAngle)
-                    const ly = CY + (baseR + RING_WIDTH / 2) * Math.sin(labelAngle)
-                    return (
-                      <text x={lx} y={ly} textAnchor="start" fontSize="7"
-                        fontWeight="600" letterSpacing="1.5" fill={city.color}
-                        transform={`rotate(${(1.5 / 12) * 360 - 90}, ${lx}, ${ly})`}
-                      >
-                        {city.name.toUpperCase()} · {city.lat.toFixed(1)}°N
-                      </text>
-                    )
-                  })()}
-                </g>
-              )
-            })}
-
-            {/* ═══ CENTER LABEL ═══ */}
-            <circle cx={CX} cy={CY} r={RING_BASE - 30} fill="none" stroke={C.border} strokeWidth="0.5" />
-            <text x={CX} y={CY - 20} textAnchor="middle" fontSize="9" fontWeight="600" letterSpacing="2" fill={C.ink}>
-              MOROCCO
-            </text>
-            <text x={CX} y={CY - 6} textAnchor="middle" fontSize="6" fill={C.muted}>
-              30.4°N — 35.8°N
-            </text>
-            <text x={CX} y={CY + 8} textAnchor="middle" fontSize="6" fill={C.muted}>
-              Six host cities
-            </text>
-            <text x={CX} y={CY + 20} textAnchor="middle" fontSize="6" fill={C.muted}>
-              2030 World Cup
-            </text>
-
-            {/* ═══ HOUR RINGS (concentric reference) ═══ */}
-            {[10, 11, 12, 13, 14].map(h => {
-              const r = RING_BASE + (h - minDL) * hourScale * 1.1
-              if (r < RING_BASE - 10 || r > RING_BASE + CITIES.length * RING_GAP + 20) return null
-              return (
-                <g key={h}>
-                  <circle cx={CX} cy={CY} r={r}
-                    fill="none" stroke={C.border} strokeWidth="0.2" strokeDasharray="2,4" />
-                  <text x={CX + r + 3} y={CY - 3} fontSize="4" fill={C.border}>
-                    {h}h
-                  </text>
-                </g>
-              )
-            })}
-
-            {/* ═══ LEGEND ═══ */}
-            <g transform="translate(40, 1100)">
-              <rect x="0" y="0" width="320" height="140" fill={C.parchment} stroke={C.border} strokeWidth="0.5" />
-              <text x="160" y="18" textAnchor="middle" fontSize="7" fontWeight="600" letterSpacing="2" fill={C.ink}>
-                HOST CITIES BY LATITUDE
-              </text>
-
-              {cityData.map((city, i) => {
-                const junH = city.months[5].daylight
-                const decH = city.months[11].daylight
-                const swing = junH - decH
-                return (
-                  <g key={city.name} transform={`translate(15, ${30 + i * 17})`}>
-                    <rect x="0" y="0" width="10" height="10" fill={city.color} fillOpacity={0.3} stroke={city.color} strokeWidth="0.8" />
-                    <text x="16" y="8" fontSize="6" fontWeight="500" fill={city.color}>
-                      {city.name}
-                    </text>
-                    <text x="80" y="8" fontSize="5" fill={C.muted}>
-                      {city.lat.toFixed(1)}°N
-                    </text>
-                    <text x="120" y="8" fontSize="5" fill={C.muted}>
-                      Jun: {Math.floor(junH)}h{Math.round((junH % 1) * 60).toString().padStart(2, '0')}
-                    </text>
-                    <text x="180" y="8" fontSize="5" fill={C.muted}>
-                      Dec: {Math.floor(decH)}h{Math.round((decH % 1) * 60).toString().padStart(2, '0')}
-                    </text>
-                    <text x="240" y="8" fontSize="5" fill={C.dawn}>
-                      Swing: {Math.floor(swing)}h{Math.round((swing % 1) * 60).toString().padStart(2, '0')}
-                    </text>
-                  </g>
-                )
-              })}
-            </g>
-
-            {/* ═══ READING GUIDE ═══ */}
-            <g transform="translate(520, 1100)">
-              <rect x="0" y="0" width="280" height="140" fill={C.parchment} stroke={C.border} strokeWidth="0.5" />
-              <text x="140" y="18" textAnchor="middle" fontSize="7" fontWeight="600" letterSpacing="2" fill={C.ink}>
-                HOW TO READ THIS CHART
-              </text>
-              <text x="15" y="36" fontSize="5.5" fill={C.body}>
-                Each ring represents one city, ordered by latitude.
-              </text>
-              <text x="15" y="48" fontSize="5.5" fill={C.body}>
-                Innermost ring = Tangier (northernmost, 35.8°N).
-              </text>
-              <text x="15" y="60" fontSize="5.5" fill={C.body}>
-                Outermost ring = Agadir (southernmost, 30.4°N).
-              </text>
-              <text x="15" y="76" fontSize="5.5" fill={C.body}>
-                The curve bulges outward where days are longest (June).
-              </text>
-              <text x="15" y="88" fontSize="5.5" fill={C.body}>
-                It contracts inward where days are shortest (December).
-              </text>
-              <text x="15" y="100" fontSize="5.5" fill={C.body}>
-                Tangier&apos;s ring has the widest swing — its shape is
-              </text>
-              <text x="15" y="112" fontSize="5.5" fill={C.body}>
-                most elongated. Agadir&apos;s ring is rounder — closer to
-              </text>
-              <text x="15" y="124" fontSize="5.5" fill={C.body}>
-                the equator, its seasons are more even.
-              </text>
-            </g>
-
-            {/* ═══ WORLD CUP NOTE ═══ */}
-            <g transform="translate(860, 1100)">
-              <rect x="0" y="0" width="290" height="140" fill={C.parchment} stroke={C.border} strokeWidth="0.5" />
-              <text x="145" y="18" textAnchor="middle" fontSize="7" fontWeight="600" letterSpacing="2" fill={C.ink}>
-                WORLD CUP LIGHT
-              </text>
-              <text x="15" y="36" fontSize="5.5" fill={C.body}>
-                The 2030 World Cup runs June–July — the peak of
-              </text>
-              <text x="15" y="48" fontSize="5.5" fill={C.body}>
-                Morocco&apos;s light year. Matches in Tangier will have
-              </text>
-              <text x="15" y="60" fontSize="5.5" fill={C.body}>
-                14h28m of daylight. Agadir: 13h52m. Evening
-              </text>
-              <text x="15" y="72" fontSize="5.5" fill={C.body}>
-                kickoffs at 21:00 will begin in golden light — sunset
-              </text>
-              <text x="15" y="84" fontSize="5.5" fill={C.body}>
-                arrives at 21:38 in Tangier, 21:24 in Agadir.
-              </text>
-              <text x="15" y="100" fontSize="5.5" fill={C.body}>
-                The 14-minute sunset difference between north
-              </text>
-              <text x="15" y="112" fontSize="5.5" fill={C.body}>
-                and south is the latitude gap made visible —
-              </text>
-              <text x="15" y="124" fontSize="5.5" fill={C.body}>
-                five degrees reshaping every evening.
-              </text>
-            </g>
-
-            {/* ═══ COLOPHON ═══ */}
-            <text x="600" y="1260" textAnchor="middle" fontSize="5" letterSpacing="2" fill={C.muted}>
-              CALCULATED FROM SOLAR DECLINATION EQUATIONS · LATITUDES VIA GOOGLE EARTH · © 2026 DANCING WITH LIONS
-            </text>
-            <text x="600" y="1272" textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.dawn}>
-              © Dancing with Lions
-            </text>
-
-          </svg>
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+        <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
+        <p className="micro-label mb-3" style={{ color: C.muted }}>Astronomical Cartography</p>
+        <div ref={heroR.ref}>
+          <h1 className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.9] tracking-[-0.02em] mb-3 transition-all duration-1000"
+            style={{ opacity: heroR.vis ? 1 : 0, transform: heroR.vis ? 'translateY(0)' : 'translateY(20px)' }}>
+            <em>The Calendar of Light</em>
+          </h1>
+          <p className="font-serif italic text-[clamp(1rem,2.5vw,1.5rem)]" style={{ color: C.muted }}>
+            How latitude shapes the day. Six cities. Twelve months. Every minute of sunlight.
+          </p>
         </div>
+        <p className="text-[13px] max-w-[560px] leading-[1.7] mt-6" style={{ color: C.text }}>
+          Morocco spans 5.4° of latitude — from Tangier at 35.8°N to Agadir at 30.4°N.
+          That difference means Tangier gets {swing.toFixed(1)} more hours of daylight variation
+          between solstices than Agadir. In June, Tangier sees {fmt(cityData[0].months[5].sunset)} sunsets;
+          Agadir sees {fmt(cityData[5].months[5].sunset)}. By December, Tangier&apos;s day shrinks to {cityData[0].months[11].daylight.toFixed(1)} hours
+          while Agadir holds at {cityData[5].months[11].daylight.toFixed(1)}. Latitude is destiny — for light, for agriculture, for Ramadan fasting hours.
+        </p>
       </section>
 
-      {/* ═══ DATA TABLE ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
-        <div className="border-t pt-8" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-4" style={{ color: C.muted }}>Daylight Hours by City and Month (hours:minutes)</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-[11px]" style={{ borderCollapse: 'collapse' }}>
-              <thead>
-                <tr>
-                  <th className="text-left py-2 pr-4 font-medium" style={{ color: C.muted, borderBottom: `1px solid ${C.border}` }}>City</th>
-                  <th className="text-left py-2 px-1 font-medium" style={{ color: C.muted, borderBottom: `1px solid ${C.border}` }}>Lat</th>
-                  {MONTH_NAMES.map(m => (
-                    <th key={m} className="text-center py-2 px-1 font-medium" style={{ color: C.muted, borderBottom: `1px solid ${C.border}` }}>{m}</th>
-                  ))}
-                  <th className="text-center py-2 px-1 font-medium" style={{ color: C.dawn, borderBottom: `1px solid ${C.border}` }}>Swing</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cityData.map(city => {
-                  const maxH = Math.max(...city.months.map(m => m.daylight))
-                  const minH = Math.min(...city.months.map(m => m.daylight))
-                  const swing = maxH - minH
-                  return (
-                    <tr key={city.name}>
-                      <td className="py-1.5 pr-4 font-medium" style={{ color: city.color, borderBottom: `1px solid ${C.border}` }}>{city.name}</td>
-                      <td className="py-1.5 px-1" style={{ color: C.muted, borderBottom: `1px solid ${C.border}` }}>{city.lat.toFixed(1)}°</td>
-                      {city.months.map((m, i) => {
-                        const h = Math.floor(m.daylight)
-                        const min = Math.round((m.daylight - h) * 60)
-                        const isMax = m.daylight === maxH
-                        const isMin = m.daylight === minH
-                        return (
-                          <td key={i} className="py-1.5 px-1 text-center" style={{
-                            color: isMax ? city.color : isMin ? C.muted : C.body,
-                            fontWeight: isMax || isMin ? 600 : 400,
-                            borderBottom: `1px solid ${C.border}`,
-                          }}>
-                            {h}:{min.toString().padStart(2, '0')}
-                          </td>
-                        )
-                      })}
-                      <td className="py-1.5 px-1 text-center font-medium" style={{ color: C.dawn, borderBottom: `1px solid ${C.border}` }}>
-                        {Math.floor(swing)}:{Math.round((swing % 1) * 60).toString().padStart(2, '0')}
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+      {/* CITY SELECTOR + DAYLIGHT CHART */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+        <div className="border-t pt-6" style={{ borderColor: C.border }}>
+          <p className="micro-label mb-1" style={{ color: city.color }}>Daylight Hours by Month</p>
+          <p className="font-mono text-[11px] mb-4" style={{ color: C.muted }}>
+            Click a city. Hover bars for sunrise/sunset times. Taller bar = longer day.
+          </p>
+          {/* City buttons */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {CITIES.map((c, i) => (
+              <button key={c.name} onClick={() => setActiveCity(i)}
+                className="font-mono text-[11px] px-3 py-1.5 rounded-full border transition-all"
+                style={{
+                  borderColor: activeCity === i ? c.color : C.border,
+                  color: activeCity === i ? c.color : C.muted,
+                  background: activeCity === i ? `${c.color}06` : 'transparent',
+                }}>
+                {c.name} <span className="opacity-50">{c.lat.toFixed(1)}°N</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Bar chart */}
+          <div ref={chartR.ref} className="flex items-end gap-[2px] h-[280px] mb-2">
+            {city.months.map((m, i) => {
+              const minH = 8.5, maxH = 15.5
+              const heightPct = ((m.daylight - minH) / (maxH - minH)) * 100
+              const isHover = hoverMonth === i
+              return (
+                <div key={i} className="flex-1 flex flex-col items-center justify-end h-full relative"
+                  onMouseEnter={() => setHoverMonth(i)} onMouseLeave={() => setHoverMonth(null)}>
+                  {/* Tooltip */}
+                  {isHover && (
+                    <div className="absolute bottom-full mb-2 px-2 py-1 rounded-sm text-center whitespace-nowrap z-10"
+                      style={{ background: city.color, color: 'white', fontSize: 10, fontFamily: "'IBM Plex Mono', monospace" }}>
+                      <div>{m.daylight.toFixed(1)}h daylight</div>
+                      <div>↑ {fmt(m.sunrise)} — ↓ {fmt(m.sunset)}</div>
+                    </div>
+                  )}
+                  <div className="w-full rounded-t-sm transition-all duration-700"
+                    style={{
+                      height: chartR.vis ? `${heightPct}%` : '0%',
+                      background: isHover ? city.color : `${city.color}25`,
+                      transitionDelay: `${i * 50}ms`,
+                    }} />
+                </div>
+              )
+            })}
+          </div>
+          <div className="flex gap-[2px]">
+            {MONTHS.map((m, i) => (
+              <span key={m} className="flex-1 text-center font-mono text-[10px]"
+                style={{ color: hoverMonth === i ? city.color : C.muted }}>{m}</span>
+            ))}
+          </div>
+          {/* Key numbers */}
+          <div className="grid grid-cols-3 gap-6 mt-6">
+            <div>
+              <p className="font-mono text-[22px] font-bold" style={{ color: city.color }}>{juneDaylight.toFixed(1)}h</p>
+              <p className="font-mono text-[10px]" style={{ color: C.muted }}>Longest day (June solstice)</p>
+            </div>
+            <div>
+              <p className="font-mono text-[22px] font-bold" style={{ color: city.color }}>{decDaylight.toFixed(1)}h</p>
+              <p className="font-mono text-[10px]" style={{ color: C.muted }}>Shortest day (Dec solstice)</p>
+            </div>
+            <div>
+              <p className="font-mono text-[22px] font-bold" style={{ color: city.color }}>{swing.toFixed(1)}h</p>
+              <p className="font-mono text-[10px]" style={{ color: C.muted }}>Seasonal swing</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ CLOSING ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
-        <div className="border-t pt-8 max-w-[640px]" style={{ borderColor: C.border }}>
-          <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: C.ink }}>
-            Five degrees of latitude. Fourteen minutes of sunset. The difference between
-            Tangier and Agadir isn&apos;t just geography — it&apos;s the shape of every
-            evening, the rhythm of every Ramadan fast, the colour of the light on
-            the stadium wall at the moment the whistle blows.
+      {/* ALL CITIES COMPARISON */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+        <div className="border-t pt-6" style={{ borderColor: C.border }}>
+          <p className="micro-label mb-1" style={{ color: C.muted }}>City Comparison: June vs December</p>
+          <p className="font-mono text-[11px] mb-4" style={{ color: C.muted }}>
+            Higher latitude = wider swing between seasons. Tangier feels the difference most.
           </p>
+          <div ref={tableR.ref} className="space-y-3">
+            {cityData.map((c, i) => {
+              const junH = c.months[5].daylight
+              const decH = c.months[11].daylight
+              const sw = junH - decH
+              return (
+                <div key={c.name} className="transition-all duration-500"
+                  style={{ opacity: tableR.vis ? 1 : 0, transitionDelay: `${i * 80}ms` }}>
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="font-mono text-[12px] font-semibold w-24 shrink-0" style={{ color: c.color }}>{c.name}</span>
+                    <span className="font-mono text-[10px] w-12 shrink-0" style={{ color: C.muted }}>{c.lat.toFixed(1)}°N</span>
+                    <div className="flex-1 h-6 relative rounded-sm" style={{ background: `${C.border}30` }}>
+                      {/* December bar (shorter) */}
+                      <div className="absolute left-0 top-0 h-3 rounded-t-sm transition-all duration-700"
+                        style={{ width: tableR.vis ? `${(decH / 16) * 100}%` : '0%', background: `${c.color}15`, transitionDelay: `${i * 80}ms` }}>
+                        <span className="absolute right-1 top-0 font-mono text-[9px]" style={{ color: c.color }}>{decH.toFixed(1)}h Dec</span>
+                      </div>
+                      {/* June bar (longer) */}
+                      <div className="absolute left-0 top-3 h-3 rounded-b-sm transition-all duration-700"
+                        style={{ width: tableR.vis ? `${(junH / 16) * 100}%` : '0%', background: `${c.color}30`, transitionDelay: `${i * 80 + 100}ms` }}>
+                        <span className="absolute right-1 top-0 font-mono text-[9px] font-bold" style={{ color: c.color }}>{junH.toFixed(1)}h Jun</span>
+                      </div>
+                    </div>
+                    <span className="font-mono text-[11px] font-bold w-12 text-right" style={{ color: c.color }}>±{sw.toFixed(1)}h</span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 
-      {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources &amp; Method</p>
-          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: C.muted }}>
-            Daylight hours calculated from standard solar declination equations using
-            city latitudes (Google Earth). Sunrise/sunset times are solar (local apparent) time;
-            actual clock times vary with longitude within the Morocco time zone (GMT+1).
-            Cross-referenced with timeanddate.com and worlddata.info sunrise/sunset tables.
-            Stadium capacities from FIFA 2030 bid documentation. Morocco operates on
-            GMT+1 year-round (no daylight saving time as of 2024).
-          </p>
-          <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
-              © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
-            </p>
-            <p className="font-serif italic text-[12px]" style={{ color: C.dawn }}>
-              © Dancing with Lions
-            </p>
+      {/* RAMADAN INSIGHT */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+        <div className="border-t pt-6" style={{ borderColor: C.border }}>
+          <p className="micro-label mb-4" style={{ color: C.dawn }}>Why This Matters: Ramadan Fasting Hours</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <p className="text-[12px] leading-[1.7]" style={{ color: C.text }}>
+                During Ramadan (Feb 28 – Mar 30, 2026), Muslims fast from dawn to sunset.
+                In late February/March, Tangier&apos;s fasting day is approximately {cityData[0].months[2].daylight.toFixed(1)} hours
+                while Agadir&apos;s is {cityData[5].months[2].daylight.toFixed(1)} hours — a difference of about {(cityData[0].months[2].daylight - cityData[5].months[2].daylight).toFixed(0)} minutes.
+                When Ramadan falls in summer, that gap widens dramatically.
+              </p>
+            </div>
+            <div>
+              <p className="text-[12px] leading-[1.7]" style={{ color: C.text }}>
+                For the 2030 World Cup (June–July), match scheduling must account for light.
+                Evening matches in Tangier can start later — sunset at {fmt(cityData[0].months[5].sunset)} vs
+                Agadir&apos;s {fmt(cityData[5].months[5].sunset)}. An extra {((cityData[0].months[5].sunset - cityData[5].months[5].sunset) * 60).toFixed(0)} minutes
+                of twilight means different floodlight costs, different crowd behaviour, different broadcast windows.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* CLOSING + SOURCES */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+          <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
+            Light is infrastructure. It determines when you eat, when you pray,
+            when you play football, and when you harvest. Morocco&apos;s 5.4 degrees
+            of latitude produce a subtle gradient that shapes everything from
+            Ramadan endurance to World Cup scheduling. The sun does not care
+            about borders — but it cares about latitude.
+          </p>
+        </div>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
+          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+            Daylight calculations from standard solar declination formulae using city latitude
+            coordinates. Sunrise/sunset times are solar (not clock) time — actual clock times
+            vary with timezone, equation of time, and Morocco&apos;s seasonal daylight saving changes.
+            Stadium capacities from Morocco 2030 World Cup bid documents and AFCON 2025 records.
+            Ramadan dates from Umm al-Qura calendar (Saudi Arabia) adjusted for Moroccan sighting.
+          </p>
+          <p className="font-mono text-[11px] mt-4" style={{ color: C.tangier }}>© Dancing with Lions</p>
         </div>
       </section>
     </div>

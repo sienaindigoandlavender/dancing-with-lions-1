@@ -1,41 +1,27 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
-// ═══ THE MOROCCAN CALENDAR ═══
-// Four overlapping time systems on a single radial year-wheel.
-// Ring 1 (outer): Gregorian — business, national holidays
-// Ring 2: Islamic lunar — Ramadan, Eids, Mawlid (shifts ~11 days/year)
-// Ring 3: Amazigh agricultural — yennayer, seasons, harvest
-// Ring 4 (inner): French school calendar — rentrée, vacances, exams
-// Where they align = chaos. Where they diverge = Morocco.
-
 const C = {
-  gregorian: '#8B3A3A',
-  islamic: '#2D6E4F',
-  amazigh: '#8B6914',
-  school: '#1A5276',
-  overlap: '#722F37',
-  ink: '#0a0a0a',
-  text: '#262626',
-  muted: '#737373',
-  border: '#e5e5e5',
-  parchment: '#FFFFFF',
-  cream: '#FFFFFF',
+  gregorian: '#2D6E4F', islamic: '#722F37', amazigh: '#C17F28', school: '#1A5276',
+  ink: '#0a0a0a', text: '#262626', muted: '#737373', border: '#e5e5e5',
 }
 
-// ═══ MONTH DATA ═══
-const MONTHS = [
-  'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
-  'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
-]
+function useReveal(threshold = 0.1) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [vis, setVis] = useState(false)
+  useEffect(() => {
+    const el = ref.current; if (!el) return
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVis(true); obs.disconnect() } }, { threshold })
+    obs.observe(el); return () => obs.disconnect()
+  }, [threshold])
+  return { ref, vis }
+}
 
-const MONTH_FULL = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-]
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-// ═══ AMAZIGH MONTHS (Berber calendar, offset ~14 days from Gregorian) ═══
 const AMAZIGH_MONTHS = [
   { name: 'Yennayer', start: 'Jan 14', season: 'Tagrest (Winter)', activity: 'Ploughing, sowing' },
   { name: 'Furar', start: 'Feb 14', season: 'Tagrest', activity: 'Pruning trees' },
@@ -51,501 +37,246 @@ const AMAZIGH_MONTHS = [
   { name: 'Dujanbir', start: 'Dec 14', season: 'Tagrest (Winter)', activity: 'Sowing winter wheat' },
 ]
 
-// ═══ EVENTS BY CALENDAR SYSTEM ═══
 interface CalEvent {
-  month: number  // 0–11
-  dayStart: number
-  dayEnd?: number
-  name: string
+  month: number; day: number; dayEnd?: number; name: string
   system: 'gregorian' | 'islamic' | 'amazigh' | 'school'
   note?: string
-  color: string
-  fixed: boolean  // true = same date every year
 }
 
 const EVENTS: CalEvent[] = [
-  // ── GREGORIAN / NATIONAL HOLIDAYS (fixed) ──
-  { month: 0, dayStart: 1, name: 'New Year\'s Day', system: 'gregorian', color: C.gregorian, fixed: true },
-  { month: 0, dayStart: 11, name: 'Manifesto of Independence', system: 'gregorian', color: C.gregorian, fixed: true, note: '1944' },
-  { month: 4, dayStart: 1, name: 'Labour Day', system: 'gregorian', color: C.gregorian, fixed: true },
-  { month: 6, dayStart: 30, name: 'Throne Day', system: 'gregorian', color: C.gregorian, fixed: true, note: 'Biggest national holiday' },
-  { month: 7, dayStart: 14, name: 'Oued Ed-Dahab Day', system: 'gregorian', color: C.gregorian, fixed: true },
-  { month: 7, dayStart: 20, name: 'Revolution Day', system: 'gregorian', color: C.gregorian, fixed: true, note: '1953' },
-  { month: 7, dayStart: 21, name: 'Youth Day', system: 'gregorian', color: C.gregorian, fixed: true },
-  { month: 10, dayStart: 6, name: 'Green March', system: 'gregorian', color: C.gregorian, fixed: true, note: '1975' },
-  { month: 10, dayStart: 18, name: 'Independence Day', system: 'gregorian', color: C.gregorian, fixed: true, note: '1956' },
-
-  // ── ISLAMIC (lunar — these are 2026 approximate positions, shifts ~11 days/year) ──
-  { month: 2, dayStart: 1, dayEnd: 30, name: 'Ramadan', system: 'islamic', color: C.islamic, fixed: false, note: 'Feb 28 – Mar 29, 2026 (approx). Shifts 11 days earlier each year.' },
-  { month: 2, dayStart: 30, name: 'Eid al-Fitr', system: 'islamic', color: C.islamic, fixed: false, note: '~Mar 30, 2026. End of Ramadan. 2 days.' },
-  { month: 5, dayStart: 6, dayEnd: 8, name: 'Eid al-Adha', system: 'islamic', color: C.islamic, fixed: false, note: '~Jun 6, 2026. Sacrifice feast. Biggest family gathering.' },
-  { month: 5, dayStart: 27, name: 'Islamic New Year', system: 'islamic', color: C.islamic, fixed: false, note: '1 Muharram ~Jun 27, 2026' },
-  { month: 8, dayStart: 5, dayEnd: 6, name: 'Eid al-Mawlid', system: 'islamic', color: C.islamic, fixed: false, note: 'Prophet\'s birthday ~Sep 5, 2026' },
-
-  // ── AMAZIGH AGRICULTURAL ──
-  { month: 0, dayStart: 13, name: 'Yennayer (Amazigh New Year)', system: 'amazigh', color: C.amazigh, fixed: true, note: '2976. National holiday since 2024. Couscous with 7 vegetables.' },
-  { month: 2, dayStart: 20, name: 'Spring Equinox', system: 'amazigh', color: C.amazigh, fixed: true, note: 'Tafsut begins. Planting season opens.' },
-  { month: 5, dayStart: 21, name: 'Summer Solstice', system: 'amazigh', color: C.amazigh, fixed: true, note: 'Longest day. Grain harvest peaks.' },
-  { month: 5, dayStart: 14, dayEnd: 31, name: 'Grain Harvest', system: 'amazigh', color: C.amazigh, fixed: true, note: 'Barley + wheat. Threshing floors active.' },
-  { month: 8, dayStart: 22, name: 'Autumn Equinox', system: 'amazigh', color: C.amazigh, fixed: true, note: 'Amewan begins. Olive + date harvest.' },
-  { month: 9, dayStart: 1, dayEnd: 30, name: 'Olive Harvest', system: 'amazigh', color: C.amazigh, fixed: true, note: 'Major agricultural event. Oct–Nov.' },
-  { month: 11, dayStart: 21, name: 'Winter Solstice', system: 'amazigh', color: C.amazigh, fixed: true, note: 'Shortest day. New ploughing cycle.' },
-
-  // ── FRENCH SCHOOL CALENDAR (2025–2026) ──
-  { month: 8, dayStart: 8, name: 'Rentrée scolaire', system: 'school', color: C.school, fixed: true, note: 'School year begins. National event.' },
-  { month: 9, dayStart: 18, dayEnd: 31, name: 'Autumn Break', system: 'school', color: C.school, fixed: true, note: 'Vacances d\'automne. Oct 18 – Nov 3.' },
-  { month: 11, dayStart: 20, dayEnd: 31, name: 'Winter Break', system: 'school', color: C.school, fixed: true, note: 'Dec 20 – Jan 5. Overlaps New Year + Yennayer.' },
-  { month: 1, dayStart: 21, dayEnd: 28, name: 'February Break', system: 'school', color: C.school, fixed: true, note: 'Vacances d\'hiver. Feb 21 – Mar 9.' },
-  { month: 3, dayStart: 25, dayEnd: 30, name: 'Spring Break', system: 'school', color: C.school, fixed: true, note: 'Apr 25 – May 11.' },
-  { month: 5, dayStart: 30, name: 'End of School Year', system: 'school', color: C.school, fixed: true, note: 'Bac students finish. Others Jun 30.' },
+  // Gregorian / National
+  { month: 0, day: 1, name: "New Year's Day", system: 'gregorian' },
+  { month: 0, day: 11, name: 'Manifesto of Independence', system: 'gregorian', note: '1944' },
+  { month: 4, day: 1, name: 'Labour Day', system: 'gregorian' },
+  { month: 6, day: 30, name: 'Throne Day', system: 'gregorian', note: 'Biggest national holiday' },
+  { month: 7, day: 14, name: 'Oued Ed-Dahab Day', system: 'gregorian' },
+  { month: 7, day: 20, name: 'Revolution Day', system: 'gregorian', note: '1953' },
+  { month: 7, day: 21, name: 'Youth Day', system: 'gregorian' },
+  { month: 10, day: 6, name: 'Green March', system: 'gregorian', note: '1975' },
+  { month: 10, day: 18, name: 'Independence Day', system: 'gregorian', note: '1956' },
+  // Islamic (2026 approx)
+  { month: 2, day: 1, dayEnd: 30, name: 'Ramadan', system: 'islamic', note: 'Feb 28 – Mar 29, 2026. Shifts ~11 days earlier each year.' },
+  { month: 2, day: 30, name: 'Eid al-Fitr', system: 'islamic', note: '~Mar 30, 2026. End of Ramadan. 2 days off.' },
+  { month: 5, day: 6, dayEnd: 8, name: 'Eid al-Adha', system: 'islamic', note: '~Jun 6, 2026. Sacrifice feast. Biggest family gathering.' },
+  { month: 5, day: 27, name: 'Islamic New Year', system: 'islamic', note: '1 Muharram ~Jun 27, 2026' },
+  { month: 8, day: 5, name: 'Eid al-Mawlid', system: 'islamic', note: "Prophet's birthday ~Sep 5, 2026" },
+  // Amazigh
+  { month: 0, day: 13, name: 'Yennayer (Amazigh New Year)', system: 'amazigh', note: 'Year 2976. National holiday since 2024. Couscous with 7 vegetables.' },
+  { month: 2, day: 20, name: 'Spring Equinox', system: 'amazigh', note: 'Tafsut begins. Planting season.' },
+  { month: 5, day: 21, name: 'Summer Solstice', system: 'amazigh', note: 'Longest day. Grain harvest peaks.' },
+  { month: 5, day: 14, dayEnd: 30, name: 'Grain Harvest', system: 'amazigh', note: 'Barley + wheat. Threshing floors active.' },
+  { month: 8, day: 22, name: 'Autumn Equinox', system: 'amazigh', note: 'Amewan begins. Olive + date harvest.' },
+  { month: 9, day: 1, dayEnd: 30, name: 'Olive Harvest', system: 'amazigh', note: 'Major agricultural event. Oct–Nov.' },
+  { month: 11, day: 21, name: 'Winter Solstice', system: 'amazigh', note: 'Shortest day. New ploughing cycle.' },
+  // School
+  { month: 8, day: 8, name: 'Rentrée scolaire', system: 'school', note: 'School year begins.' },
+  { month: 9, day: 18, dayEnd: 31, name: 'Autumn Break', system: 'school', note: 'Oct 18 – Nov 3.' },
+  { month: 11, day: 20, dayEnd: 31, name: 'Winter Break', system: 'school', note: 'Dec 20 – Jan 5.' },
+  { month: 1, day: 21, dayEnd: 28, name: 'February Break', system: 'school', note: 'Feb 21 – Mar 9.' },
+  { month: 3, day: 25, dayEnd: 30, name: 'Spring Break', system: 'school', note: 'Apr 25 – May 11.' },
+  { month: 5, day: 30, name: 'End of School Year', system: 'school', note: 'Bac students finish.' },
 ]
 
-// ═══ SVG CONSTANTS ═══
-const W = 1200
-const H = 1200
-const CX = W / 2
-const CY = 500 // center of wheel
-// Ring radii (outer to inner)
-const R_OUT = 380 // Gregorian outer edge
-const R_GREG = [340, 380] // Gregorian band
-const R_ISLAM = [290, 335] // Islamic band
-const R_AMAZ = [240, 285] // Amazigh band
-const R_SCHOOL = [190, 235] // School band
-const R_INNER = 185 // inner edge
-
-// Convert month + day to angle (0 = top, clockwise)
-function dateToAngle(month: number, day: number): number {
-  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-  let totalDays = 0
-  for (let m = 0; m < month; m++) totalDays += daysInMonth[m]
-  totalDays += (day - 1)
-  return (totalDays / 365) * Math.PI * 2 - Math.PI / 2 // -90° so Jan starts at top
-}
-
-// Polar to cartesian
-function polar(cx: number, cy: number, r: number, angle: number): [number, number] {
-  return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)]
-}
-
-// SVG arc path
-function arcPath(cx: number, cy: number, r1: number, r2: number, a1: number, a2: number): string {
-  const largeArc = (a2 - a1) > Math.PI ? 1 : 0
-  const [ox1, oy1] = polar(cx, cy, r2, a1)
-  const [ox2, oy2] = polar(cx, cy, r2, a2)
-  const [ix2, iy2] = polar(cx, cy, r1, a2)
-  const [ix1, iy1] = polar(cx, cy, r1, a1)
-  return `M ${ox1},${oy1} A ${r2},${r2} 0 ${largeArc},1 ${ox2},${oy2} L ${ix2},${iy2} A ${r1},${r1} 0 ${largeArc},0 ${ix1},${iy1} Z`
+const SYSTEM_META: Record<string, { color: string; label: string }> = {
+  gregorian: { color: C.gregorian, label: 'National / Gregorian' },
+  islamic: { color: C.islamic, label: 'Islamic (Lunar)' },
+  amazigh: { color: C.amazigh, label: 'Amazigh (Agricultural)' },
+  school: { color: C.school, label: 'School Calendar' },
 }
 
 export default function MoroccanCalendarPage() {
+  const heroR = useReveal()
+  const [filter, setFilter] = useState<string>('all')
+  const [expandedMonth, setExpandedMonth] = useState<number | null>(null)
+
+  const filtered = filter === 'all' ? EVENTS : EVENTS.filter(e => e.system === filter)
+  const byMonth = MONTHS.map((_, i) => filtered.filter(e => e.month === i))
+
   return (
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
-
-      {/* ═══ HERO ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 pt-36 pb-6">
-        <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
-          ← All Data Modules
-        </Link>
-        <p className="micro-label mb-2" style={{ color: C.muted }}>Module 019 · Temporal Cartography</p>
-        <h1 className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.9] tracking-[-0.02em] mb-2">
-          <em>The Moroccan Calendar</em>
-        </h1>
-        <p className="font-serif italic text-[clamp(1rem,2.5vw,1.5rem)]" style={{ color: C.muted }}>
-          Four time systems on a single wheel
-        </p>
-        <p className="text-[13px] max-w-[640px] leading-[1.7] mt-4" style={{ color: C.text }}>
-          Morocco runs on four overlapping calendars. The Gregorian for business and
-          national holidays. The Islamic lunar calendar for Ramadan, Eids, and the
-          rhythm of spiritual life — shifting 11 days earlier each year. The Amazigh
-          agricultural calendar for ploughing, harvest, and Yennayer. And the French-inherited
-          school calendar for rentrée, vacances, and the baccalauréat. When they
-          align — Ramadan during harvest during exam season — the country buckles
-          and bends. Nobody has ever visualised all four at once. This is why Morocco
-          feels the way it does.
-        </p>
-      </section>
-
-      {/* ═══ THE RADIAL YEAR-WHEEL ═══ */}
-      <section className="max-w-[1200px] mx-auto px-4 md:px-6">
-        <div className="border p-4 md:p-6" style={{ borderColor: C.border, background: C.parchment }}>
-          <svg viewBox={`0 0 ${W} ${H + 200}`} className="w-full h-auto"
-            style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-            <rect width={W} height={H + 200} fill={C.parchment} />
-
-            {/* Title */}
-            <text x={CX} y={30} textAnchor="middle" fontSize="11" letterSpacing="4" fontWeight="600" fill={C.ink}>
-              THE FOUR CALENDARS OF MOROCCO
-            </text>
-            <text x={CX} y={46} textAnchor="middle" fontSize="6.5" letterSpacing="2" fill={C.muted}>
-              GREGORIAN · ISLAMIC LUNAR · AMAZIGH AGRICULTURAL · SCHOOL YEAR · OVERLAID ON A SINGLE RADIAL WHEEL
-            </text>
-
-            {/* ═══ MONTH SPOKES ═══ */}
-            {MONTHS.map((m, i) => {
-              const a = dateToAngle(i, 1)
-              const [x1, y1] = polar(CX, CY, R_INNER - 5, a)
-              const [x2, y2] = polar(CX, CY, R_OUT + 8, a)
-              const [xl, yl] = polar(CX, CY, R_OUT + 22, a)
-              return (
-                <g key={m}>
-                  <line x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke={C.border} strokeWidth="0.4" />
-                  <text x={xl} y={yl + 3} textAnchor="middle"
-                    fontSize="8" fontWeight="600" fill={C.ink}
-                    transform={`rotate(${(a * 180 / Math.PI) + 90}, ${xl}, ${yl})`}>
-                    {m}
-                  </text>
-                </g>
-              )
-            })}
-
-            {/* ═══ RING BACKGROUNDS ═══ */}
-            {/* Gregorian ring */}
-            <circle cx={CX} cy={CY} r={(R_GREG[0] + R_GREG[1]) / 2} fill="none"
-              stroke={C.gregorian} strokeWidth={R_GREG[1] - R_GREG[0]} strokeOpacity={0.04} />
-            {/* Islamic ring */}
-            <circle cx={CX} cy={CY} r={(R_ISLAM[0] + R_ISLAM[1]) / 2} fill="none"
-              stroke={C.islamic} strokeWidth={R_ISLAM[1] - R_ISLAM[0]} strokeOpacity={0.04} />
-            {/* Amazigh ring */}
-            <circle cx={CX} cy={CY} r={(R_AMAZ[0] + R_AMAZ[1]) / 2} fill="none"
-              stroke={C.amazigh} strokeWidth={R_AMAZ[1] - R_AMAZ[0]} strokeOpacity={0.04} />
-            {/* School ring */}
-            <circle cx={CX} cy={CY} r={(R_SCHOOL[0] + R_SCHOOL[1]) / 2} fill="none"
-              stroke={C.school} strokeWidth={R_SCHOOL[1] - R_SCHOOL[0]} strokeOpacity={0.04} />
-
-            {/* Ring borders */}
-            {[R_GREG[0], R_GREG[1], R_ISLAM[0], R_AMAZ[0], R_SCHOOL[0], R_SCHOOL[1]].map((r, i) => (
-              <circle key={i} cx={CX} cy={CY} r={r} fill="none"
-                stroke={C.border} strokeWidth="0.3" />
-            ))}
-
-            {/* Ring labels (rotated on left side) */}
-            {[
-              { label: 'GREGORIAN', r: (R_GREG[0] + R_GREG[1]) / 2, color: C.gregorian },
-              { label: 'ISLAMIC LUNAR', r: (R_ISLAM[0] + R_ISLAM[1]) / 2, color: C.islamic },
-              { label: 'AMAZIGH AGRICULTURAL', r: (R_AMAZ[0] + R_AMAZ[1]) / 2, color: C.amazigh },
-              { label: 'SCHOOL CALENDAR', r: (R_SCHOOL[0] + R_SCHOOL[1]) / 2, color: C.school },
-            ].map(ring => {
-              const a = Math.PI // left side (180°)
-              const [x, y] = polar(CX, CY, ring.r, a)
-              return (
-                <text key={ring.label} x={x} y={y} textAnchor="middle" fontSize="5" letterSpacing="2"
-                  fill={ring.color} fillOpacity={0.5} fontWeight="600"
-                  transform={`rotate(90, ${x}, ${y})`}>
-                  {ring.label}
-                </text>
-              )
-            })}
-
-            {/* ═══ AMAZIGH SEASONS (background arcs) ═══ */}
-            {[
-              { name: 'TAGREST (Winter)', start: dateToAngle(11, 21), end: dateToAngle(2, 20), color: '#6B8CAE' },
-              { name: 'TAFSUT (Spring)', start: dateToAngle(2, 20), end: dateToAngle(5, 21), color: '#7BA05B' },
-              { name: 'IWILEN (Summer)', start: dateToAngle(5, 21), end: dateToAngle(8, 22), color: '#C4956A' },
-              { name: 'AMEWAN (Autumn)', start: dateToAngle(8, 22), end: dateToAngle(11, 21), color: '#B07D4B' },
-            ].map(season => {
-              let end = season.end
-              if (end < season.start) end += Math.PI * 2
-              return (
-                <path key={season.name}
-                  d={arcPath(CX, CY, R_AMAZ[0], R_AMAZ[1], season.start, end)}
-                  fill={season.color} fillOpacity={0.08} stroke={season.color} strokeWidth="0.3" />
-              )
-            })}
-
-            {/* ═══ EVENT MARKERS ═══ */}
-            {EVENTS.map((ev, idx) => {
-              const a1 = dateToAngle(ev.month, ev.dayStart)
-              const a2 = ev.dayEnd ? dateToAngle(ev.month, ev.dayEnd) : a1 + 0.02
-              const isRange = !!ev.dayEnd
-
-              // Which ring?
-              let r1: number, r2: number
-              if (ev.system === 'gregorian') { r1 = R_GREG[0]; r2 = R_GREG[1] }
-              else if (ev.system === 'islamic') { r1 = R_ISLAM[0]; r2 = R_ISLAM[1] }
-              else if (ev.system === 'amazigh') { r1 = R_AMAZ[0]; r2 = R_AMAZ[1] }
-              else { r1 = R_SCHOOL[0]; r2 = R_SCHOOL[1] }
-
-              const midR = (r1 + r2) / 2
-              const midA = isRange ? (a1 + a2) / 2 : a1
-              const [tx, ty] = polar(CX, CY, midR, midA)
-
-              // Short name for display
-              const shortName = ev.name.length > 20 ? ev.name.slice(0, 18) + '…' : ev.name
-
-              return (
-                <g key={`${ev.name}-${idx}`}>
-                  {isRange ? (
-                    <path d={arcPath(CX, CY, r1 + 2, r2 - 2, a1, a2)}
-                      fill={ev.color} fillOpacity={ev.fixed ? 0.2 : 0.15}
-                      stroke={ev.color} strokeWidth="0.5"
-                      strokeDasharray={ev.fixed ? 'none' : '3,2'} />
-                  ) : (
-                    (() => {
-                      const [lx1, ly1] = polar(CX, CY, r1, a1)
-                      const [lx2, ly2] = polar(CX, CY, r2, a1)
-                      return <line x1={lx1} y1={ly1} x2={lx2} y2={ly2}
-                        stroke={ev.color} strokeWidth={1.2}
-                        strokeDasharray={ev.fixed ? 'none' : '2,2'} />
-                    })()
-                  )}
-                  {/* Label — only for non-range or important events */}
-                  {(!isRange || ev.name.includes('Ramadan') || ev.name.includes('Harvest') || ev.name.includes('Break') || ev.name.includes('Rentrée')) && (
-                    <text x={tx} y={ty + 2} textAnchor="middle" fontSize="4"
-                      fill={ev.color} fontWeight="500"
-                      transform={`rotate(${(midA * 180 / Math.PI) + 90}, ${tx}, ${ty})`}>
-                      {shortName}
-                    </text>
-                  )}
-                </g>
-              )
-            })}
-
-            {/* ═══ CENTER ═══ */}
-            <circle cx={CX} cy={CY} r={R_INNER} fill={C.cream} stroke={C.border} strokeWidth="0.5" />
-            <text x={CX} y={CY - 30} textAnchor="middle" fontSize="9" fontWeight="600" fill={C.ink} letterSpacing="2">
-              MOROCCO
-            </text>
-            <text x={CX} y={CY - 18} textAnchor="middle" fontSize="6" fill={C.muted} letterSpacing="1">
-              FOUR CALENDARS
-            </text>
-            <text x={CX} y={CY - 6} textAnchor="middle" fontSize="5" fill={C.muted}>
-              ONE COUNTRY
-            </text>
-            {/* Year markers */}
-            <text x={CX} y={CY + 12} textAnchor="middle" fontSize="7" fill={C.gregorian}>2026 CE</text>
-            <text x={CX} y={CY + 24} textAnchor="middle" fontSize="7" fill={C.islamic}>1447–1448 AH</text>
-            <text x={CX} y={CY + 36} textAnchor="middle" fontSize="7" fill={C.amazigh}>2976 Amazigh</text>
-            <text x={CX} y={CY + 48} textAnchor="middle" fontSize="6" fill={C.school}>Academic 2025–26</text>
-
-            {/* ═══ RAMADAN DRIFT ILLUSTRATION ═══ */}
-            {/* Show Ramadan's position across 5 years to illustrate the drift */}
-            <g>
-              {[
-                { year: 2024, month: 2, day: 12 },
-                { year: 2025, month: 2, day: 1 },
-                { year: 2026, month: 1, day: 18 },
-                { year: 2027, month: 1, day: 8 },
-                { year: 2028, month: 0, day: 28 },
-              ].map((r, i) => {
-                const a = dateToAngle(r.month, r.day)
-                const [x, y] = polar(CX, CY, R_ISLAM[1] + 3 + i * 4, a)
-                return (
-                  <g key={r.year}>
-                    <circle cx={x} cy={y} r={1.5}
-                      fill={C.islamic} fillOpacity={0.3 + i * 0.15} />
-                    <text x={x + 4} y={y + 2} fontSize="3.5" fill={C.islamic} fillOpacity={0.5}>
-                      {r.year}
-                    </text>
-                  </g>
-                )
-              })}
-              <text x={CX + R_ISLAM[1] + 30} y={CY - R_ISLAM[1] + 55} fontSize="4.5" fill={C.islamic}
-                fontStyle="italic" fillOpacity="0.6">
-                Ramadan drifts ← 11 days/year
-              </text>
-            </g>
-
-            {/* ═══ LEGEND ═══ */}
-            <g transform={`translate(50, ${H + 10})`}>
-              {[
-                { name: 'Gregorian (business + national)', color: C.gregorian, desc: 'Fixed dates. Throne Day, Independence, Labour Day. Governs commerce, government, international relations.' },
-                { name: 'Islamic Lunar (spiritual life)', color: C.islamic, desc: 'Shifts 11 days earlier each year. Ramadan, Eid al-Fitr, Eid al-Adha, Mawlid. Governs fasting, prayer, sacrifice, family gathering.' },
-                { name: 'Amazigh Agricultural (land + seasons)', color: C.amazigh, desc: 'Solar, fixed. Yennayer (Jan 13–14), equinoxes, solstices, harvest cycles. Governs ploughing, sowing, harvest. National holiday since 2024.' },
-                { name: 'School Calendar (family life)', color: C.school, desc: 'French-inherited structure. Rentrée (Sep), autumn/winter/spring breaks, baccalauréat (June). Governs family travel, domestic tourism, childcare.' },
-              ].map((leg, i) => (
-                <g key={leg.name} transform={`translate(${i * 275}, 0)`}>
-                  <rect width={12} height={12} fill={leg.color} fillOpacity={0.3} stroke={leg.color} strokeWidth="0.5" rx={2} />
-                  <text x={17} y={10} fontSize="6.5" fontWeight="600" fill={leg.color}>{leg.name}</text>
-                  <text x={17} y={22} fontSize="5" fill={C.muted}>
-                    {leg.desc.slice(0, 80)}
-                  </text>
-                  <text x={17} y={30} fontSize="5" fill={C.muted}>
-                    {leg.desc.slice(80)}
-                  </text>
-                </g>
-              ))}
-            </g>
-
-            {/* Dashed = shifts / Solid = fixed */}
-            <g transform={`translate(50, ${H + 55})`}>
-              <line x1={0} y1={5} x2={20} y2={5} stroke={C.ink} strokeWidth="1" />
-              <text x={25} y={8} fontSize="5" fill={C.muted}>Solid = fixed date</text>
-              <line x1={120} y1={5} x2={140} y2={5} stroke={C.ink} strokeWidth="1" strokeDasharray="3,2" />
-              <text x={145} y={8} fontSize="5" fill={C.muted}>Dashed = shifts annually (Islamic lunar)</text>
-            </g>
-
-            {/* Colophon */}
-            <text x={CX} y={H + 85} textAnchor="middle" fontSize="5" fill={C.muted} letterSpacing="1.5">
-              ISLAMIC DATES APPROXIMATE FOR 2026 · SHIFTS ~11 DAYS EARLIER EACH GREGORIAN YEAR · AMAZIGH CALENDAR OFFSET 13 DAYS FROM GREGORIAN (JULIAN LEGACY)
-            </text>
-            <text x={CX} y={H + 100} textAnchor="middle" fontSize="5" fill={C.muted} letterSpacing="1">
-              SOURCES: MOROCCAN MINISTRY OF HABOUS · MINISTRY OF NATIONAL EDUCATION · HCP · IRCAM · © 2026 DANCING WITH LIONS
-            </text>
-            <text x={CX} y={H + 115} textAnchor="middle" fontSize="6" fontStyle="italic" fill={C.islamic}>
-              © Dancing with Lions
-            </text>
-          </svg>
-        </div>
-      </section>
-
-      {/* ═══ THE AMAZIGH MONTHS ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
-        <div className="border-t pt-8" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-4" style={{ color: C.amazigh }}>The Amazigh Agricultural Year (2976)</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            {AMAZIGH_MONTHS.map((m, i) => (
-              <div key={m.name} className="border p-3" style={{ borderColor: C.border }}>
-                <p className="text-[11px] font-semibold" style={{ color: C.amazigh }}>{m.name}</p>
-                <p className="text-[8px]" style={{ color: C.muted }}>starts {m.start} · {MONTH_FULL[i]}</p>
-                <p className="text-[8px] mt-1" style={{ color: C.text }}>{m.season}</p>
-                <p className="text-[8px] italic" style={{ color: C.muted }}>{m.activity}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ COLLISIONS — WHERE CALENDARS OVERLAP ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
-        <div className="border-t pt-8" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.overlap }}>Collisions</p>
-          <p className="text-[13px] font-serif italic mb-4" style={{ color: C.ink }}>
-            When calendars overlap, Morocco bends
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+        <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
+        <p className="micro-label mb-3" style={{ color: C.muted }}>Temporal Cartography</p>
+        <div ref={heroR.ref}>
+          <h1 className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.9] tracking-[-0.02em] mb-3 transition-all duration-1000"
+            style={{ opacity: heroR.vis ? 1 : 0, transform: heroR.vis ? 'translateY(0)' : 'translateY(20px)' }}>
+            <em>The Moroccan Calendar</em>
+          </h1>
+          <p className="font-serif italic text-[clamp(1rem,2.5vw,1.5rem)]" style={{ color: C.muted }}>
+            Four calendars. One year. Time is not singular here.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border-l-2 pl-4" style={{ borderColor: C.overlap }}>
-              <p className="text-[11px] font-semibold mb-1" style={{ color: C.overlap }}>
-                Ramadan + School Exams
-              </p>
-              <p className="text-[11px] leading-[1.6]" style={{ color: C.text }}>
-                When Ramadan falls during May–June (as it did in 2018–2019),
-                students fast from dawn while preparing for the baccalauréat.
-                Cafés close during daylight. Productivity drops. School hours
-                shorten. The entire country runs on a different clock — rising
-                later, eating at sunset, staying up until 2am. Exams happen
-                anyway.
-              </p>
+        </div>
+        <p className="text-[13px] max-w-[560px] leading-[1.7] mt-6" style={{ color: C.text }}>
+          Morocco operates on four overlapping calendars simultaneously: Gregorian (state, business),
+          Islamic lunar (religion, Ramadan, Eid), Amazigh agricultural (planting, harvest, solstice),
+          and French school (rentrée, vacances). A Moroccan family tracks all four — and each year
+          the Islamic calendar drifts 11 days earlier through the Gregorian, creating a 33-year cycle
+          of shifting overlaps.
+        </p>
+        {/* Numbers */}
+        <div className="grid grid-cols-4 gap-6 mt-8">
+          {[
+            { v: '9', l: 'national holidays', c: C.gregorian },
+            { v: '5', l: 'Islamic observances', c: C.islamic },
+            { v: '7', l: 'Amazigh events', c: C.amazigh },
+            { v: '6', l: 'school terms', c: C.school },
+          ].map(n => (
+            <div key={n.l}>
+              <p className="font-mono text-[24px] font-bold" style={{ color: n.c }}>{n.v}</p>
+              <p className="font-mono text-[10px]" style={{ color: C.muted }}>{n.l}</p>
             </div>
-            <div className="border-l-2 pl-4" style={{ borderColor: C.overlap }}>
-              <p className="text-[11px] font-semibold mb-1" style={{ color: C.overlap }}>
-                Eid al-Adha + Summer Holidays
-              </p>
-              <p className="text-[11px] leading-[1.6]" style={{ color: C.text }}>
-                The sacrifice feast requires a sheep for every household —
-                prices spike, roads fill, every family travels to their
-                hometown. When this collides with the July–August school
-                break (as in 2026), the transport system maxes out.
-                Marrakech empties of tourists. Butchers work around the clock.
-                The entire country smells of grilled meat for three days.
-              </p>
+          ))}
+        </div>
+      </section>
+
+      {/* FILTER + MONTHLY TIMELINE */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+        <div className="border-t pt-6" style={{ borderColor: C.border }}>
+          <div className="flex items-baseline justify-between flex-wrap gap-4 mb-6">
+            <div>
+              <p className="micro-label mb-1" style={{ color: C.muted }}>Year at a Glance</p>
+              <p className="font-mono text-[11px]" style={{ color: C.muted }}>Click a month to expand. Filter by calendar system.</p>
             </div>
-            <div className="border-l-2 pl-4" style={{ borderColor: C.overlap }}>
-              <p className="text-[11px] font-semibold mb-1" style={{ color: C.overlap }}>
-                Yennayer + Winter Break + New Year
-              </p>
-              <p className="text-[11px] leading-[1.6]" style={{ color: C.text }}>
-                Three new years in two weeks. Gregorian January 1 (celebrated
-                in cities). Yennayer January 13 (national holiday since 2024).
-                The school winter break spans both. For Amazigh families,
-                this is a triple alignment — the Western calendar, the
-                ancestral calendar, and the children&apos;s freedom all arrive at once.
-                Couscous with seven vegetables on the 13th. The wheel turns.
-              </p>
+            <div className="flex gap-2 flex-wrap">
+              {['all', 'gregorian', 'islamic', 'amazigh', 'school'].map(f => (
+                <button key={f} onClick={() => setFilter(f)}
+                  className="font-mono text-[10px] px-3 py-1 rounded-full border transition-all"
+                  style={{
+                    borderColor: filter === f ? (f === 'all' ? C.muted : SYSTEM_META[f]?.color || C.muted) : C.border,
+                    color: filter === f ? (f === 'all' ? C.ink : SYSTEM_META[f]?.color || C.ink) : C.muted,
+                    background: filter === f ? `${(f === 'all' ? C.muted : SYSTEM_META[f]?.color || C.muted)}06` : 'transparent',
+                  }}>
+                  {f === 'all' ? `All (${EVENTS.length})` : `${SYSTEM_META[f]?.label} (${EVENTS.filter(e => e.system === f).length})`}
+                </button>
+              ))}
             </div>
+          </div>
+
+          {/* Month rows */}
+          <div className="space-y-1">
+            {MONTHS.map((month, mi) => {
+              const events = byMonth[mi]
+              const isExpanded = expandedMonth === mi
+              const amazighM = AMAZIGH_MONTHS[mi]
+              return (
+                <div key={month}>
+                  <div className="flex items-center gap-3 cursor-pointer group py-2"
+                    onClick={() => setExpandedMonth(isExpanded ? null : mi)}>
+                    <span className="font-mono text-[12px] font-semibold w-20 shrink-0 group-hover:underline" style={{ color: C.ink }}>{MONTHS_SHORT[mi]}</span>
+                    {/* Event dots on a line */}
+                    <div className="flex-1 h-6 relative flex items-center">
+                      <div className="absolute left-0 right-0 top-1/2 h-px" style={{ background: C.border }} />
+                      {events.map((e, i) => {
+                        const left = `${(e.day / 31) * 100}%`
+                        const sys = SYSTEM_META[e.system]
+                        const width = e.dayEnd ? `${((e.dayEnd - e.day) / 31) * 100}%` : undefined
+                        return width ? (
+                          <div key={i} className="absolute top-1 h-4 rounded-sm" style={{ left, width, background: `${sys.color}15`, borderLeft: `2px solid ${sys.color}` }}>
+                            <span className="font-mono text-[8px] px-1 whitespace-nowrap overflow-hidden" style={{ color: sys.color }}>{e.name}</span>
+                          </div>
+                        ) : (
+                          <div key={i} className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-10" style={{ left, background: sys.color }} title={e.name} />
+                        )
+                      })}
+                    </div>
+                    <span className="font-mono text-[10px] w-6 text-right shrink-0" style={{ color: events.length ? C.text : C.border }}>
+                      {events.length || '–'}
+                    </span>
+                  </div>
+                  {/* Expanded */}
+                  {isExpanded && (
+                    <div className="ml-20 pl-3 border-l-2 mb-3 space-y-2 py-2" style={{ borderColor: C.muted }}>
+                      {/* Amazigh parallel */}
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="font-mono text-[9px] uppercase tracking-wider" style={{ color: C.amazigh }}>Amazigh</span>
+                        <span className="font-mono text-[11px]" style={{ color: C.text }}>
+                          {amazighM.name} (from {amazighM.start}) · {amazighM.season} · {amazighM.activity}
+                        </span>
+                      </div>
+                      {events.length === 0 && (
+                        <p className="font-mono text-[11px]" style={{ color: C.muted }}>No events this month for selected filter.</p>
+                      )}
+                      {events.map((e, i) => {
+                        const sys = SYSTEM_META[e.system]
+                        return (
+                          <div key={i} className="flex items-start gap-2">
+                            <span className="w-2 h-2 rounded-full mt-1 shrink-0" style={{ background: sys.color }} />
+                            <div>
+                              <span className="font-mono text-[12px] font-semibold" style={{ color: sys.color }}>{e.name}</span>
+                              <span className="font-mono text-[10px] ml-2" style={{ color: C.muted }}>
+                                {MONTHS_SHORT[e.month]} {e.day}{e.dayEnd ? `–${e.dayEnd}` : ''}
+                              </span>
+                              {e.note && <p className="font-mono text-[10px]" style={{ color: C.muted }}>{e.note}</p>}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
-        <div className="border-t pt-8" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-6" style={{ color: C.muted }}>Reading Notes</p>
+      {/* READING NOTES */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+        <div className="border-t pt-6" style={{ borderColor: C.border }}>
+          <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <p className="micro-label mb-2" style={{ color: C.islamic }}>The Lunar Drift</p>
+              <p className="micro-label mb-2" style={{ color: C.islamic }}>The Ramadan Drift</p>
               <p className="text-[12px] leading-[1.7]" style={{ color: C.text }}>
-                The Islamic calendar is purely lunar — 354 days, 11 days shorter than
-                the solar year. This means Ramadan, Eid al-Adha, and every Islamic
-                holiday migrates backward through the Gregorian calendar, completing
-                a full cycle every 33 years. A Moroccan born in 1990 has experienced
-                Ramadan in every season. The practical consequence is that no fixed
-                planning is possible: a restaurant that thrives in a summer Ramadan
-                (tourists eat, locals don&apos;t) will struggle in a winter one (shorter
-                fasting hours, but tourism also drops). The government announces each
-                month&apos;s start by physical moon sighting, sometimes just hours in advance.
+                The Islamic calendar is 354 days. Ramadan moves 11 days earlier each Gregorian year,
+                cycling through all seasons in 33 years. A Moroccan born in 1990 has fasted in winter
+                (short, cold days) and summer (16-hour scorching days). The same holiday is never the
+                same experience twice.
               </p>
             </div>
             <div>
-              <p className="micro-label mb-2" style={{ color: C.amazigh }}>The Julian Legacy</p>
+              <p className="micro-label mb-2" style={{ color: C.amazigh }}>Yennayer 2976</p>
               <p className="text-[12px] leading-[1.7]" style={{ color: C.text }}>
-                The Amazigh calendar is a surviving form of the Julian calendar,
-                introduced by Rome 2,000 years ago and never replaced. It runs 13
-                days behind the Gregorian (which reformed away the Julian drift in 1582).
-                This means Yennayer falls on January 13–14 instead of January 1.
-                The month names are Latin — Yennayer from Januarius, Furar from
-                Februarius, Meghres from Martius. The year count (2976 in 2026) was
-                invented in 1980 by Ammar Negadi, pegged to 950 BCE when the Amazigh
-                king Shoshenq I took the Egyptian throne. A political date for a
-                practical calendar.
+                January 13 became a national holiday in 2024 — the first time the Amazigh new year
+                was officially recognized. Year 2976 in the Amazigh count. Families eat couscous with
+                seven vegetables. The date marks the Berber agricultural year, older than both the
+                Islamic and Gregorian systems in North Africa.
               </p>
             </div>
             <div>
-              <p className="micro-label mb-2" style={{ color: C.school }}>La Rentrée</p>
+              <p className="micro-label mb-2" style={{ color: C.school }}>The French Inheritance</p>
               <p className="text-[12px] leading-[1.7]" style={{ color: C.text }}>
-                The school year begins in early September — la rentrée scolaire —
-                and this single date structures more of Moroccan life than any
-                government decree. It sets the rhythm of family travel (July–August
-                is vacation, September is back to school). It creates the tourist
-                seasons (summer = Moroccan domestic tourism, autumn–spring = international).
-                It determines when parents can and cannot leave work. French schools,
-                Spanish schools, American schools, and Moroccan public schools all
-                follow slightly different calendars, adding yet another layer.
-                A Moroccan family with children in a French school lives on French time.
+                Morocco&apos;s school calendar follows the French model: la rentrée in September,
+                vacances d&apos;automne, d&apos;hiver, de printemps. The rhythm of the academic year
+                shapes family travel, hotel occupancy, and domestic tourism as powerfully as any
+                religious calendar.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ CLOSING ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
-        <div className="border-t pt-8 max-w-[640px]" style={{ borderColor: C.border }}>
-          <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: C.ink }}>
-            Ask a Moroccan what year it is and you will get three answers. Ask when
-            the holiday starts and you will get four. The Gregorian calendar pays the
-            bills. The Islamic calendar feeds the soul. The Amazigh calendar reads the
-            soil. The school calendar raises the children. None of them agree with each
-            other. All of them are running simultaneously, in the same family, in the
-            same house, on the same Tuesday afternoon. This is not confusion. This is
-            Morocco&apos;s operating system.
+      {/* CLOSING + SOURCES */}
+      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+          <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
+            Ask a Moroccan what month it is and you might get four answers.
+            It is March, and it is Ramadan, and it is Meghres, and it is
+            the second trimester. Time in Morocco is layered — state, faith,
+            earth, school — and every layer carries different obligations. The
+            overlaps are where the interesting things happen.
           </p>
         </div>
-      </section>
-
-      {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
           <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: C.muted }}>
-            Gregorian national holidays: Official Moroccan government calendar. Islamic dates:
-            approximate Hijri-Gregorian conversions for 1447–1448 AH; exact dates determined by
-            moon sighting and announced by the Ministry of Habous and Islamic Affairs. Amazigh
-            calendar: Wikipedia &quot;Berber calendar&quot;; Life in Morocco (2024); Morocco World News
-            Yennayer 2976 coverage (January 2026); IRCAM. School calendar: Ministry of National
-            Education Ministerial Decision 051.25 (July 2025); Médias24 school calendar 2025–2026;
-            French Embassy school holiday schedule. Ramadan drift positions calculated from standard
-            Hijri-Gregorian offset of 10.875 days per year. Yennayer declared national holiday by
-            Royal decree, May 3, 2023, effective 2024.
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+            National holidays from Moroccan labour code and HCP official calendar. Islamic dates
+            from Umm al-Qura calendar adjusted for Morocco (actual dates depend on moon sighting).
+            Amazigh calendar from IRCAM publications and Berber agricultural ethnography. School
+            calendar from Ministry of National Education 2025–2026 academic schedule. Amazigh month
+            names from Haddadou (2000) and IRCAM Tifinagh standardisation.
           </p>
-          <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
-              © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
-            </p>
-            <p className="font-serif italic text-[12px]" style={{ color: C.islamic }}>
-              © Dancing with Lions
-            </p>
-          </div>
+          <p className="font-mono text-[11px] mt-4" style={{ color: C.amazigh }}>© Dancing with Lions</p>
         </div>
       </section>
     </div>
