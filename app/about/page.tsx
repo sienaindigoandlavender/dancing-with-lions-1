@@ -24,20 +24,28 @@ export default function AboutPage() {
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <div className="max-w-[680px]">
           <p className="font-serif text-[28px] md:text-[36px] leading-[1.35] text-dwl-black italic">
-            In 2030, Morocco will host the World Cup. The world will arrive.
-            We are building the depth so they find more than stadiums.
+            Business intelligence without cultural intelligence
+            is just a spreadsheet.
           </p>
           <p className="text-body text-dwl-body leading-relaxed mt-8">
-            Morocco has thousands of years of civilization. Amazigh, Phoenician, Roman, Arab,
-            Andalusi, Saharan, French, and now global. The infrastructure is being built —
-            stadiums, highways, high-speed rail, luxury hotels.
-            But infrastructure without cultural intelligence is just another Dubai.
+            What made Apple a trillion-dollar company wasn&apos;t the chip — it was
+            the design eye. The insistence that technology without taste is just a box.
+            The same principle applies to doing business in the Maghreb.
+            GDP figures, tourism forecasts, and real estate pricing are available
+            to anyone. What isn&apos;t available is the understanding of what those
+            numbers actually mean — the history, the culture, and the way things
+            work on the ground.
           </p>
           <p className="text-body text-dwl-body leading-relaxed mt-4">
-            Dancing with Lions exists to make sure the story is told with the depth it deserves.
-            Not as a travel brochure. As structured data, interactive visualizations, living
-            archives, and cultural research that journalists, architects, investors, researchers,
-            and AI systems can cite, reference, and build upon.
+            Dancing with Lions publishes both. Economic data and tourism flows sit
+            alongside cultural research, language archives, and the kind of depth
+            that only comes from eleven years inside the country. Amazigh geometry
+            that predates Greek mathematics. Trade routes that have operated for
+            800 years and still determine where money flows today. A Ramadan calendar
+            that reshapes every quarter of the fiscal year.
+          </p>
+          <p className="text-body text-dwl-body leading-relaxed mt-4">
+            That&apos;s not context. That&apos;s the intelligence.
           </p>
         </div>
       </section>

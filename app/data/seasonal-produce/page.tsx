@@ -170,6 +170,86 @@ function ProduceIcon({ name, size = 28 }: { name: string; size?: number }) {
   )
 }
 
+// ═══ SHARE & EMBED COMPONENT ═══
+
+function ShareEmbed() {
+  const [copied, setCopied] = useState<string | null>(null)
+
+  const embedCode = `<iframe src="https://dancingwithlions.com/data/seasonal-produce/embed" width="100%" height="420" style="border:none;border-radius:4px;" title="What Grows When — Morocco Seasonal Produce Calendar" loading="lazy"></iframe>\n<p style="font-size:11px;color:#888;margin-top:4px;">Source: <a href="https://dancingwithlions.com/data/seasonal-produce" style="color:#888;">Dancing with Lions</a></p>`
+
+  const pageUrl = 'https://dancingwithlions.com/data/seasonal-produce'
+  const shareTitle = 'What Grows When — Morocco Seasonal Produce Calendar'
+  const shareText = '32 Moroccan fruits and vegetables mapped across 12 months with Darija names and growing regions.'
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`
+  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`
+  const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`
+  const pinterestUrl = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(pageUrl)}&description=${encodeURIComponent(shareText)}`
+
+  function copyToClipboard(text: string, label: string) {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(label)
+      setTimeout(() => setCopied(null), 2000)
+    })
+  }
+
+  return (
+    <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-12">
+      <div className="border-t border-white/[0.06] pt-8">
+        <p className="micro-label text-[#444] mb-1">Share & Embed</p>
+        <p className="font-serif italic text-[20px] text-white/50 mb-6">
+          Use this visualization on your website or share it
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Social sharing */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-[#444] mb-3">Share</p>
+            <div className="flex gap-3">
+              {[
+                { label: 'X', href: twitterUrl },
+                { label: 'LinkedIn', href: linkedinUrl },
+                { label: 'Facebook', href: fbUrl },
+                { label: 'Pinterest', href: pinterestUrl },
+              ].map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                  className="px-4 py-2 text-[11px] text-white/40 border border-white/10 hover:border-white/30 hover:text-white/70 transition-all">
+                  {s.label}
+                </a>
+              ))}
+              <button
+                onClick={() => copyToClipboard(pageUrl, 'link')}
+                className="px-4 py-2 text-[11px] text-white/40 border border-white/10 hover:border-white/30 hover:text-white/70 transition-all"
+              >
+                {copied === 'link' ? 'Copied' : 'Copy Link'}
+              </button>
+            </div>
+          </div>
+
+          {/* Embed code */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-[#444] mb-3">Embed on your website</p>
+            <div className="relative">
+              <pre className="text-[10px] text-white/25 bg-white/[0.03] p-4 overflow-x-auto leading-relaxed" style={{ scrollbarWidth: 'none' }}>
+                {embedCode}
+              </pre>
+              <button
+                onClick={() => copyToClipboard(embedCode, 'embed')}
+                className="absolute top-2 right-2 px-3 py-1 text-[10px] bg-white/10 text-white/50 hover:bg-white/20 hover:text-white/80 transition-all"
+              >
+                {copied === 'embed' ? 'Copied' : 'Copy'}
+              </button>
+            </div>
+            <p className="text-[9px] text-white/15 mt-2">
+              Free to embed with attribution. The &ldquo;Source: Dancing with Lions&rdquo; credit must remain visible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ═══ PAGE ═══
 
 export default function SeasonalProducePage() {
@@ -436,6 +516,9 @@ export default function SeasonalProducePage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ SHARE & EMBED ═══ */}
+      <ShareEmbed />
 
       {/* ═══ SOURCES ═══ */}
       <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">

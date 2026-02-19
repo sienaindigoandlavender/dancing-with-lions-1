@@ -619,6 +619,43 @@ export default function TourismFlowPage() {
         </div>
       </section>
 
+      {/* ═══ SHARE & EMBED ═══ */}
+      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-12">
+        <div className="border-t border-white/[0.06] pt-8">
+          <p className="micro-label text-[#444] mb-1">Share & Embed</p>
+          <p className="font-serif italic text-[20px] text-white/50 mb-6">
+            Use this visualization on your website or share it
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-[#444] mb-3">Share</p>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { label: 'X', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent('Where 17.4 million tourists go in Morocco — interactive flow visualization')}&url=${encodeURIComponent('https://dancingwithlions.com/data/tourism-flow')}` },
+                  { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://dancingwithlions.com/data/tourism-flow')}` },
+                  { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://dancingwithlions.com/data/tourism-flow')}` },
+                ].map((s) => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                    className="px-4 py-2 text-[11px] text-white/40 border border-white/10 hover:border-white/30 hover:text-white/70 transition-all">
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-[#444] mb-3">Embed on your website</p>
+              <pre className="text-[10px] text-white/25 bg-white/[0.03] p-4 overflow-x-auto leading-relaxed" style={{ scrollbarWidth: 'none' as const }}>
+{`<iframe src="https://dancingwithlions.com/data/tourism-flow/embed" width="100%" height="400" style="border:none;border-radius:4px;" title="Morocco Tourism Flow" loading="lazy"></iframe>
+<p style="font-size:11px;color:#888;margin-top:4px;">Source: <a href="https://dancingwithlions.com/data/tourism-flow" style="color:#888;">Dancing with Lions</a></p>`}
+              </pre>
+              <p className="text-[9px] text-white/15 mt-2">
+                Free to embed with attribution. The &ldquo;Source: Dancing with Lions&rdquo; credit must remain visible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ SOURCES ═══ */}
       <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
         <div className="border-t border-white/[0.06] pt-4">

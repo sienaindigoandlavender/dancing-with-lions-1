@@ -66,7 +66,7 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section className="min-h-[85vh] flex flex-col justify-end px-6 md:px-10 pb-16 max-w-wide mx-auto">
         <div className="animate-fade-up">
-          <p className="micro-label mb-6 delay-1 animate-fade-up">Morocco · The Maghreb · North Africa</p>
+          <p className="micro-label mb-6 delay-1 animate-fade-up">Business Intelligence · Cultural Depth · Morocco</p>
           <h1 className="font-serif text-[clamp(3.5rem,10vw,8rem)] text-dwl-black leading-[0.95] tracking-[-0.01em] delay-2 animate-fade-up">
             Dancing<br />
             <em>with Lions</em>
@@ -74,9 +74,9 @@ export default function HomePage() {
         </div>
         <div className="mt-12 max-w-[520px] delay-3 animate-fade-up">
           <p className="text-body text-dwl-body leading-relaxed">
-            Research, data, and cultural intelligence about Morocco —
-            published as interactive visualizations, structured archives,
-            and living maps. The depth that doesn&apos;t exist anywhere else.
+            When the decision matters, you need more than numbers.
+            Business intelligence and a deep understanding of Morocco&apos;s
+            history, culture, and how things actually work on the ground.
           </p>
         </div>
         <div className="mt-8 flex items-center gap-6 delay-4 animate-fade-up">
@@ -134,17 +134,26 @@ export default function HomePage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* ═══ THE QUOTE / BIG STATEMENT ═══ */}
+      {/* ═══ THE POSITIONING ═══ */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <div className="max-w-[700px]">
           <p className="font-serif text-[28px] md:text-[34px] leading-[1.4] text-dwl-black italic">
-            In 2030, Morocco will co-host the World Cup. 26 million visitors will arrive.
-            The stadiums are being built. The highways are being paved. But when the world asks
-            &ldquo;what is this place?&rdquo; — the answer needs to already exist, and it needs
-            to be extraordinary.
+            What made Apple a trillion-dollar company wasn&apos;t the chip.
+            It was the design eye — the insistence that technology without
+            culture is just a box.
           </p>
-          <p className="text-body text-dwl-body mt-6">
-            That answer is what we build.
+          <p className="text-body text-dwl-body mt-6 leading-relaxed">
+            The same is true for doing business in the Maghreb.
+            A GDP figure is a number. A tourism forecast is a spreadsheet.
+            But understanding why Marrakech commands the premium it does —
+            the 800 years of trade routes underneath the medina, the diaspora
+            that drives half the tourism, the Ramadan calendar that reshapes
+            every quarter, the geometry in the zellige that predates anything
+            in a European textbook — that&apos;s what turns data into decisions.
+          </p>
+          <p className="text-body text-dwl-body mt-4 leading-relaxed">
+            Business intelligence without cultural intelligence is just
+            a spreadsheet. We publish both.
           </p>
         </div>
       </section>
