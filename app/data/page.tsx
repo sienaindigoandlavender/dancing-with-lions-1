@@ -318,6 +318,16 @@ const MODULES = [
     href: '/data/storks-eye-view',
   },
   {
+    id: 'shadow-moucharabieh',
+    category: 'Climate Art',
+    title: 'The Shadow of the Moucharabieh',
+    entries: '3 cities × 12 months × 24 hours × 5 stress levels × 4 decades × 4 cooling methods',
+    status: 'Live',
+    description: 'Traditional architecture as climate data processor. An interactive SVG moucharabieh with 49 star-shaped apertures that contract and expand based on hourly temperature — closing at peak heat, opening at dawn. Three Moroccan climates compared (Mediterranean Tangier, semi-arid Marrakech, desert Ouarzazate), +1.6°C warming trend, and the threshold where centuries-old passive cooling stops working.',
+    fields: ['City', 'Month', 'Hour', 'Temperature', 'Heat Stress', 'Aperture %', 'Sunshine Hours', 'Rainfall', 'Decade', 'Warming Delta'],
+    href: '/data/shadow-moucharabieh',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
