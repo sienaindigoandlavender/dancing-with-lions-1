@@ -168,6 +168,16 @@ const MODULES = [
     href: '/data/alphabet-of-craft',
   },
   {
+    id: 'dynasty-timeline',
+    category: 'Historical Timeline',
+    title: 'The Dynasty Timeline',
+    entries: '7 dynasties × 1,237 years',
+    status: 'Live',
+    description: 'Every ruling dynasty from the Idrisids (789 AD) to the Alaouites (present) on a single horizontal timeline. Architectural illustrations for each era. Capitals tracked. Berber vs. Arab Sharifian origins mapped. 1,200 years of history in one composition.',
+    fields: ['Dynasty', 'Dates', 'Capital', 'Origin', 'Key Ruler', 'Monument', 'Legacy'],
+    href: '/data/dynasty-timeline',
+  },
+  {
     id: 'darija',
     category: 'Language',
     title: 'Darija Structured Lexicon',
