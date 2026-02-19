@@ -673,8 +673,7 @@ export default function ColourIndexPage() {
           <p>Pantone references are nearest visual matches, not official Pantone colour assignments. "Majorelle Blue" is a registered trademark of the Majorelle Garden / Fondation Jardin Majorelle.</p>
         </div>
         <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
-          © Dancing with Lions. All data editorial estimates unless otherwise sourced. This visualization may not be reproduced without visible attribution.<br />
-          Source: Dancing with Lions · dancingwithlions.com
+          © Dancing with Lions · dancingwithlions.com · All data editorial estimates unless otherwise sourced. This visualization may not be reproduced without visible attribution.
         </p>
       </section>
     </div>

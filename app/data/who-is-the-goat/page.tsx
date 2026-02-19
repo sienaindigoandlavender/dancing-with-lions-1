@@ -727,8 +727,7 @@ export default function WhoIsTheGoatPage() {
           <p>Ibn Battuta&apos;s Rihla was rediscovered by French scholars in Algeria in 1829 and first translated into French by Defrémery and Sanguinetti (1853–58). English translation by H.A.R. Gibb for the Hakluyt Society (1958–1994). Marco Polo&apos;s Il Milione survives in approximately 150 manuscript copies across European libraries.</p>
         </div>
         <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
-          © Dancing with Lions. All data from published sources as cited. This visualization may not be reproduced without visible attribution.<br />
-          Source: Dancing with Lions · dancingwithlions.com
+          © Dancing with Lions · dancingwithlions.com · All data from published sources as cited. This visualization may not be reproduced without visible attribution.
         </p>
       </section>
     </div>

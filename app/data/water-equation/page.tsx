@@ -604,8 +604,7 @@ export default function WaterEquationPage() {
           <p>Fill rate data for 2010–2024 are annual averages from Ministry of Equipment and Water. January 2026 figure (61.3%) is a point-in-time measurement reflecting exceptional winter rainfall.</p>
         </div>
         <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
-          © Dancing with Lions. All data from published sources as cited. This visualization may not be reproduced without visible attribution.<br />
-          Source: Dancing with Lions · dancingwithlions.com
+          © Dancing with Lions · dancingwithlions.com · All data from published sources as cited. This visualization may not be reproduced without visible attribution.
         </p>
       </section>
     </div>
