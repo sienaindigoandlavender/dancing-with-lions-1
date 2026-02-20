@@ -213,8 +213,8 @@ export default function MedinaAtlasPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The medina is not a maze — it is a system. The Koutoubia minaret is the
             compass point. The gates are the ports. The souks are organised by trade,
@@ -222,9 +222,9 @@ export default function MedinaAtlasPage() {
             has a logic. You just need to learn the grammar.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Spatial data from UNESCO World Heritage nomination file (1985), Wilbaux (2001)
             &ldquo;La Médina de Marrakech,&rdquo; and ADER-Fès/Marrakech rehabilitation surveys.
             Gate periods from Deverdun (1959) &ldquo;Marrakech.&rdquo; Souk inventory from

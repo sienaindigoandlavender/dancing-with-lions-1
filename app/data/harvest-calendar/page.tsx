@@ -359,7 +359,7 @@ export default function HarvestCalendarPage() {
       </section>
 
       {/* SOURCES */}
-      <section className="border-t border-dwl-border"><div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
         <p className="micro-label mb-4">Sources & Attribution</p>
         <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">Seasonal availability data compiled from Ministère de l'Agriculture, de la Pêche Maritime, du Développement Rural et des Eaux et Forêts; ORMVA regional agricultural development offices; FAO country profiles; USDA GAIN reports (Morocco Grain and Feed Annual 2024); Global Yield Gap Atlas (Morocco); and direct market observation in Marrakech, Fes, and Agadir souks (2020–2026). Darija names verified through field usage. Growing regions based on MAPMDREF agricultural zone classifications. Drought and import data: DEPF (Direction des Études et des Prévisions Financières), ONICL. Export figures: Morocco World News, AgriSource Morocco.</p>
         <p className="text-[11px] text-dwl-muted mt-4">© Dancing with Lions · dancingwithlions.com · Data may not be reproduced without attribution.</p>

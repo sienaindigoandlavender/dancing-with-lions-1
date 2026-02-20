@@ -541,6 +541,15 @@ function RouteRow({ route: r, cityFrom, cityTo, saved, pctSaved, index, parentVi
           {r.note && <p className="font-mono text-[10px] mt-1" style={{ color: C.muted }}>{r.note}</p>}
         </div>
       )}
+      {/* ── FOOTER ── */}
+      <div style={{ backgroundColor: '#1f1f1f', padding: '32px 24px 16px', marginTop: 32 }}>
+        <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
+          © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
+        </p>
+        <p style={{ textAlign: 'center', fontSize: 10, color: 'rgba(255,255,255,0.25)', marginTop: 4 }}>
+          This visualization may not be reproduced without visible attribution.
+        </p>
+      </div>
     </div>
   )
 }

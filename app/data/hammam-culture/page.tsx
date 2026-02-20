@@ -54,7 +54,7 @@ export default function HammamCulturePage() {
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             Hammam<br />Culture
           </h1>
-          <p className="text-[16px] md:text-[18px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[16px] md:text-[18px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Three rooms of ascending heat. Six ritual steps. One of five elements that
             define every neighbourhood in the medina. The hammam is not a spa.
             It is social infrastructure.
@@ -64,7 +64,7 @@ export default function HammamCulturePage() {
             {HERO_STATS.map(s => (
               <div key={s.label}>
                 <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{s.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -112,7 +112,7 @@ export default function HammamCulturePage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Ritual</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Steps</h2>
-          <p className="text-[13px] max-w-[500px] leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[500px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             The order has not changed. Click any step to hold.
           </p>
 
@@ -147,7 +147,7 @@ export default function HammamCulturePage() {
             <h3 className="font-serif italic text-[24px] md:text-[32px] mb-3" style={{ color: '#ffffff' }}>
               {RITUAL[activeStep].name}
             </h3>
-            <p className="text-[13px] max-w-[600px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-[13px] max-w-[600px] leading-relaxed" style={{ color: 'rgba(0,0,0,0.5)' }}>
               {RITUAL[activeStep].detail}
             </p>
           </div>
@@ -213,7 +213,7 @@ export default function HammamCulturePage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>004 — The Neighbourhood</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Five Elements</h2>
-          <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Every neighbourhood in the medina contains these five structures.
             The hammam does not stand alone. It is part of a system.
           </p>
@@ -283,7 +283,7 @@ export default function HammamCulturePage() {
             {KEY_NUMBERS.map(n => (
               <div key={n.unit} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
                 <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: ACCENT }}>{n.value}</p>
-                <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>{n.unit}</p>
+                <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.unit}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
             ))}
@@ -324,7 +324,7 @@ export default function HammamCulturePage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'Wikipedia — Hammam: Roman origins, Umayyad period (661–750), Volubilis Idrisid-era hammam (8th C), Al-Ghazali "Mysteries of Purity," ghusl/wudu requirements, hypocaust heating, Valerie Staats on women\'s hammams, Magda Sibley on mosque-hammam proximity',
@@ -339,13 +339,13 @@ export default function HammamCulturePage() {
               <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
             ))}
           </div>
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: ACCENT }}>Sources: Ethnographic research</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

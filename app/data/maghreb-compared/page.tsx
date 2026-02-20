@@ -453,7 +453,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ SOURCES + COPYRIGHT ═══ */}
-      <section className="bg-dwl-offwhite">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="bg-dwl-offwhite">
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
           <div className="max-w-[640px]">
             <p className="micro-label mb-4">Sources</p>

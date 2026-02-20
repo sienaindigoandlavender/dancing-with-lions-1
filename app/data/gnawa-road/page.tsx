@@ -305,7 +305,7 @@ export default function GnawaRoadPage() {
             )}
 
             {/* Route legend */}
-            <div className="absolute top-4 left-4 p-3 bg-black/70 backdrop-blur-sm rounded-sm">
+            <div className="absolute top-4 left-4 p-3 bg-white/70 backdrop-blur-sm rounded-sm">
               {ROUTES.map((r, i) => (
                 <div key={i} className="flex items-center gap-2 mb-1 last:mb-0">
                   <span className="w-4 h-0 border-t-2 border-dashed" style={{ borderColor: r.color }} />
@@ -444,9 +444,9 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
-        <div className="border-t pt-6" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+        <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: El Hamel, Chouki. <em>Black Morocco: A History of Slavery, Race, and Islam</em>. Cambridge University Press, 2013.
             Becker, Cynthia. <em>Blackness in Morocco: Gnawa Identity through Music and Visual Culture</em>. University of Minnesota Press, 2020.
             Kapchan, Deborah. <em>Traveling Spirit Masters: Moroccan Gnawa Trance and Music in the Global Marketplace</em>. Wesleyan, 2007.
@@ -458,7 +458,7 @@ export default function GnawaRoadPage() {
             Hisham Aidi, &quot;Gnawa Mirror: Race, Music, and the Imperialism of Categories,&quot; <em>IJMES</em>, 2023.
             Trade route coordinates based on historical caravan waypoints (Taghaza, Sijilmasa, Oualata, Araouane).
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: C.muted }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

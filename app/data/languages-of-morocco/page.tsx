@@ -161,8 +161,8 @@ export default function LanguagesPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             Language in Morocco is never neutral. Darija is home. French is money.
             Arabic is God and the state. Amazigh is identity reclaimed.
@@ -171,9 +171,9 @@ export default function LanguagesPage() {
             The polyglossia is not confusion. It is surplus.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Regional Amazigh percentages from HCP RGPH 2024 (7th General Census) and IRCAM
             (Institut Royal de la Culture Amazighe) 2023 estimates. National language speaker
             counts from Ethnologue (27th ed.) and World Bank. French/English penetration from
@@ -209,19 +209,19 @@ function RegionBar({ region: r, index, parentVis }: { region: Region; index: num
         <div className="ml-48 pl-3 mt-1 mb-3 border-l-2 py-2" style={{ borderColor: langColor }}>
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <p className="font-mono text-[9px] uppercase" style={{ color: C.muted }}>Population</p>
+              <p className="font-mono text-[9px] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Population</p>
               <p className="font-mono text-[11px]" style={{ color: C.text }}>{(r.population / 1000).toFixed(1)}M</p>
             </div>
             <div>
-              <p className="font-mono text-[9px] uppercase" style={{ color: C.muted }}>Darija use</p>
+              <p className="font-mono text-[9px] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Darija use</p>
               <p className="font-mono text-[11px]" style={{ color: C.darija }}>{r.darija}%</p>
             </div>
             <div>
-              <p className="font-mono text-[9px] uppercase" style={{ color: C.muted }}>Urban</p>
+              <p className="font-mono text-[9px] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Urban</p>
               <p className="font-mono text-[11px]" style={{ color: C.text }}>{r.urban}%</p>
             </div>
           </div>
-          <p className="font-mono text-[10px] mt-1" style={{ color: C.muted }}>{r.notes}</p>
+          <p className="font-mono text-[10px] mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{r.notes}</p>
         </div>
       )}
     </div>

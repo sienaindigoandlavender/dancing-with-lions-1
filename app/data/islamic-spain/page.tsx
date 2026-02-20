@@ -359,7 +359,7 @@ export default function IslamicSpainPage() {
                 >
                   {stat.value}
                 </span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>
                   {stat.label}
                 </span>
               </div>
@@ -370,7 +370,7 @@ export default function IslamicSpainPage() {
           <div className="mt-16 opacity-0" style={{ animation: 'fadeUp 1s ease 1.1s forwards' }}>
             <div className="flex items-center gap-3">
               <div className="w-[1px] h-8 bg-white/20" />
-              <span className="text-[10px] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.2)' }}>
+              <span className="text-[10px] tracking-[0.12em] uppercase" style={{ color: 'rgba(0,0,0,0.2)' }}>
                 Scroll to begin
               </span>
             </div>
@@ -381,7 +381,7 @@ export default function IslamicSpainPage() {
       {/* ═══════════════════════════════════════════
           ERA NAVIGATION BAR
       ═══════════════════════════════════════════ */}
-      <section className="sticky top-16 z-40 bg-[#0a0a0a]/95 backdrop-blur-sm" style={{ borderBottom: '1px solid #1a1a1a' }}>
+      <section className="sticky top-16 z-40 bg-white/95 backdrop-blur-sm" style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div className="max-w-wide mx-auto px-6 md:px-10">
           <div className="flex items-center gap-1 overflow-x-auto py-3 -mx-2 px-2" style={{ scrollbarWidth: 'none' }}>
             {ERAS.map((era) => (
@@ -421,7 +421,7 @@ export default function IslamicSpainPage() {
 
             {!mapLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading map...</p>
+                <p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>Loading map...</p>
               </div>
             )}
 
@@ -493,7 +493,7 @@ export default function IslamicSpainPage() {
                 <button
                   onClick={resetMap}
                   className="mt-3 text-[10px] tracking-[0.1em] uppercase"
-                  style={{ color: 'rgba(255,255,255,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
+                  style={{ color: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
                 >
                   ← Reset View
                 </button>
@@ -747,7 +747,7 @@ export default function IslamicSpainPage() {
       ═══════════════════════════════════════════ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>
           <div className="space-y-1">
@@ -764,7 +764,7 @@ export default function IslamicSpainPage() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
@@ -780,7 +780,7 @@ export default function IslamicSpainPage() {
             <Link
               href="/data"
               className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity"
-              style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}
+              style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
             >
               ← All Data Modules
             </Link>
