@@ -46,7 +46,7 @@ export default function AnatomyOfARiadPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#D4A373', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 053 — Architectural Intelligence
           </p>
@@ -73,9 +73,9 @@ export default function AnatomyOfARiadPage() {
 
       {/* ═══ ARCHITECTURAL ELEMENTS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — The Elements</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">12 Parts, One Organism</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">12 Parts, One Organism</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-8">Every element in a riad serves at least two purposes — one functional, one spiritual. Nothing is purely decorative. Nothing is accidental.</p>
 
           <div className="flex flex-wrap gap-2 mb-10">
@@ -119,7 +119,7 @@ export default function AnatomyOfARiadPage() {
       </section>
 
       {/* ═══ QUOTE 1 ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[40vh]" style={{ background: '#D4A373' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#D4A373' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 3rem)', color: '#0a0a0a' }}>
             The riad door opens. A dark corridor bends.
@@ -132,9 +132,9 @@ export default function AnatomyOfARiadPage() {
 
       {/* ═══ CLIMATE SYSTEM ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>002 — Passive Climate Engineering</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Systems, Zero Electricity</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Systems, Zero Electricity</h2>
           <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(0,0,0,0.4)' }}>A riad can be 5&ndash;8&deg;C cooler than the street outside. No air conditioning. No fans. Just geometry, water, and thermal mass working together for a thousand years.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
@@ -153,10 +153,10 @@ export default function AnatomyOfARiadPage() {
       </section>
 
       {/* ═══ RIAD VS DAR ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — Riad vs. Dar</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Not Every Courtyard House Is a Riad</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Not Every Courtyard House Is a Riad</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-10">A riad has a garden with four planted quadrants and a fountain. A dar has a courtyard but not necessarily a garden. The distinction matters.</p>
 
           <div className="overflow-x-auto">
@@ -183,7 +183,7 @@ export default function AnatomyOfARiadPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#0a0a0a' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#0a0a0a' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#D4A373' }}>
             In zellige, the artisan works blind — cutting tiles face-down,
@@ -194,10 +194,10 @@ export default function AnatomyOfARiadPage() {
       </section>
 
       {/* ═══ VOCABULARY ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — The Vocabulary</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">Eight Words You Need</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">Eight Words You Need</h2>
 
           <div className="space-y-0">
             {VOCABULARY.map((v, i) => {
@@ -221,8 +221,8 @@ export default function AnatomyOfARiadPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

@@ -265,7 +265,7 @@ export default function BirdAtlasPage() {
   return (
     <div className="pt-16 min-h-screen" style={{ background: '#ffffff' }}>
 
-      <div ref={hero.ref}><section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-16">
+      <div ref={hero.ref}><section className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-16">
         <p className="micro-label mb-4" style={{ opacity: hero.vis ? 1 : 0, transition: 'opacity 0.6s' }}>Module 057 · Living Data</p>
         <h1 className="font-serif text-[clamp(2.8rem,7vw,4.5rem)] text-dwl-black leading-[0.95]" style={{ opacity: hero.vis ? 1 : 0, transform: hero.vis ? 'none' : 'translateY(20px)', transition: 'all 0.8s' }}>
           The Bird <em>Atlas</em>
@@ -291,10 +291,10 @@ export default function BirdAtlasPage() {
         </div>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* MAP */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-2">Interactive Map</p>
         <p className="text-[13px] text-dwl-muted mb-6">Click any site for details. Toggle flyways to see the three migration superhighways. Filter by habitat type.</p>
 
@@ -314,10 +314,10 @@ export default function BirdAtlasPage() {
         <BirdMap sites={IBA_SITES} flyways={FLYWAYS} selected={selected} onSelect={setSelected} activeFilter={activeFilter} />
       </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* FLYWAY DETAILS */}
-      <div ref={flySection.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={flySection.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-8">The Three Superhighways</p>
         <div className="space-y-0">
           {FLYWAYS.map((fw, i) => (
@@ -339,10 +339,10 @@ export default function BirdAtlasPage() {
         </div>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* SITES BY COUNTRY */}
-      <div ref={sitesSection.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={sitesSection.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-8">Preservation Areas by Country</p>
         {countries.map(country => {
           const countrySites = IBA_SITES.filter(s => s.country === country)
@@ -372,7 +372,7 @@ export default function BirdAtlasPage() {
       </section></div>
 
       {/* READING NOTES */}
-      <div ref={notes.ref}><section className="bg-[#f5f5f5]"><div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={notes.ref}><section className="bg-[#f5f5f5]"><div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-8">Reading Notes</p>
         <div className="space-y-10 max-w-[640px]">
           <div style={{ opacity: notes.vis ? 1 : 0, transition: 'opacity 0.6s' }}>
@@ -390,17 +390,17 @@ export default function BirdAtlasPage() {
         </div>
       </div></section></div>
 
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <blockquote className="font-serif text-[clamp(1.3rem,3.5vw,1.8rem)] text-dwl-black leading-[1.4] max-w-[680px]">"509 bird species have been recorded in Morocco. Thirty-four are globally threatened. The country sits on every major flyway between Europe and Africa. What happens to Moroccan wetlands doesn't stay in Morocco — it echoes from Scandinavia to Senegal."</blockquote>
       </section>
 
-      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
         <p className="micro-label mb-4">Sources & Attribution</p>
         <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">Important Bird Areas: BirdLife International DataZone (datazone.birdlife.org). Flyway data: AEWA (Agreement on the Conservation of African-Eurasian Migratory Waterbirds); Migrant Raptor Monitoring (Gibraltar counts). Northern Bald Ibis: IUCN Red List; BirdLife Morocco (GREPOM). Banc d'Arguin: UNESCO World Heritage nomination document; Wetlands International waterbird census. Strait of Gibraltar passage counts: Fundación Migres, Tarifa. Migration Atlas (migrationatlas.org). MaghrebOrnitho (magornitho.org). Fat Birder Algeria guide. Site coordinates verified via eBird hotspot database and Google Earth. All data editorial estimates unless otherwise sourced.</p>
         <p className="text-[11px] text-dwl-muted mt-4">© Dancing with Lions · dancingwithlions.com · Data may not be reproduced without attribution.</p>
       </div></section>
 
-      <div className="border-t border-dwl-border"><div className="max-w-wide mx-auto px-6 md:px-10 py-6">
+      <div className="border-t border-dwl-border"><div className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <Link href="/data" className="text-meta hover:text-dwl-black transition-colors">← All Data Modules</Link>
       </div></div>
     </div>

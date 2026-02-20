@@ -112,7 +112,7 @@ export default function BeforeTheSaharaPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#F59E0B', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 049 — Environmental Intelligence
           </p>
@@ -139,7 +139,7 @@ export default function BeforeTheSaharaPage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="flex gap-2 px-6 md:px-10 pt-6">
             {(['zones', 'oases'] as const).map((layer) => (
               <button key={layer} onClick={() => setMapLayer(layer)} className="text-[10px] uppercase tracking-[0.08em] px-4 py-1.5 transition-all" style={{ background: mapLayer === layer ? '#F59E0B' : 'transparent', color: mapLayer === layer ? '#0a0a0a' : '#777', border: `1px solid ${mapLayer === layer ? '#F59E0B' : '#333'}` }}>
@@ -155,10 +155,10 @@ export default function BeforeTheSaharaPage() {
       </section>
 
       {/* ═══ NDVI CHART ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — Vegetation Signal</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">NDVI: The Land Speaks in Green</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">NDVI: The Land Speaks in Green</h2>
           <p className="text-body text-dwl-body max-w-[620px] mb-12">The Normalized Difference Vegetation Index measures how green the land is from space. Higher values mean more living vegetation. Watch what happens to Morocco&rsquo;s pre-Saharan belt between 2018 and 2022 — and then the 2025 recovery.</p>
 
           <div className="space-y-1.5">
@@ -189,7 +189,7 @@ export default function BeforeTheSaharaPage() {
       </section>
 
       {/* ═══ QUOTE 1 ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[40vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#EF4444' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', color: '#ffffff' }}>
             The oases of Morocco have lost two-thirds of their surface area
@@ -201,9 +201,9 @@ export default function BeforeTheSaharaPage() {
 
       {/* ═══ DESERTIFICATION DRIVERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>002 — Why It&rsquo;s Happening</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Drivers of Collapse</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Drivers of Collapse</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {DESERTIFICATION_DRIVERS.map((d, i) => {
@@ -222,9 +222,9 @@ export default function BeforeTheSaharaPage() {
 
       {/* ═══ OASIS CARDS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — The Oases</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Six Oases on the Edge</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Six Oases on the Edge</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-12">Oases cover 15% of Morocco and are home to 2.2 million people. They are the ecological barrier against the Sahara. When they fall, everything north of them is exposed.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
@@ -249,9 +249,9 @@ export default function BeforeTheSaharaPage() {
 
       {/* ═══ GREEN PROJECTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>004 — Holding the Line</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Green Projects</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Green Projects</h2>
 
           <div className="space-y-0">
             {GREEN_PROJECTS.map((p, i) => {
@@ -279,7 +279,7 @@ export default function BeforeTheSaharaPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#22C55E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
             The Great Green Wall was supposed to be 8,000 km of trees
@@ -290,14 +290,14 @@ export default function BeforeTheSaharaPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">005 — The Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">Morocco&rsquo;s Land at a Glance</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">Morocco&rsquo;s Land at a Glance</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: '#e5e5e5' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="bg-white p-6 md:p-8">
-                <p className="font-serif italic text-[28px] md:text-[36px] text-dwl-black leading-none">{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] text-dwl-black leading-none">{n.value}</p>
                 <p className="text-[12px] text-dwl-gray mt-2 font-medium">{n.label}</p>
                 <p className="text-[11px] text-dwl-muted mt-1">{n.note}</p>
               </div>
@@ -307,8 +307,8 @@ export default function BeforeTheSaharaPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

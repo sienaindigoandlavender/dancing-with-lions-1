@@ -108,7 +108,7 @@ export default function ArganTrianglePage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#22C55E', animation: 'fadeUp 1s ease 0.3s forwards' }}>Data Module 070 — Agricultural &amp; Economic Intelligence</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>The Argan<br />Triangle</h1>
           <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
@@ -139,7 +139,7 @@ export default function ArganTrianglePage() {
         const s = seasons[seasonKey]
         return (
           <section style={{ background: '#0a0a0a' }}>
-            <div className="max-w-wide mx-auto px-6 md:px-10 pt-10">
+            <div className="px-8 md:px-[8%] lg:px-[12%] pt-10">
               <div className="p-5 rounded-sm" style={{ border: '1px solid #22C55E33', background: '#22C55E08' }}>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#22C55E', boxShadow: '0 0 8px #22C55E', animation: 'breathe 2s ease-in-out infinite' }} />
@@ -154,9 +154,9 @@ export default function ArganTrianglePage() {
 
       {/* ═══ ANIMATED EXTRACTION PROCESS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>001 — The Process</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>From Fruit to Oil</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>From Fruit to Oil</h2>
 
           <div className="flex items-center justify-between gap-2 md:gap-4 mb-6">
             {extractionSteps.map((step, i) => (
@@ -188,9 +188,9 @@ export default function ArganTrianglePage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-24 md:pb-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>002 — The Biosphere</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Arganeraie Biosphere Reserve</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Arganeraie Biosphere Reserve</h2>
           <p className="text-[13px] max-w-[600px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>~2.5 million hectares designated by UNESCO in 1998. Morocco&rsquo;s first Biosphere Reserve. Pulsing markers show production zones across the southern High Atlas and Anti-Atlas.</p>
           <div className="flex flex-wrap gap-4 mb-6">
             {[{ label: 'Major production', color: '#22C55E' }, { label: 'Heritage & conservation', color: '#F59E0B' }, { label: 'Processing hub', color: '#9CA3AF' }].map(l => (
@@ -203,9 +203,9 @@ export default function ArganTrianglePage() {
 
       {/* ═══ THE TREE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — The Tree</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-8">Argania spinosa</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-8">Argania spinosa</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10" data-sid="tree" style={{ opacity: visibleSections.has('tree') ? 1 : 0, transform: visibleSections.has('tree') ? 'translateY(0)' : 'translateY(12px)', transition: 'all 0.7s ease' }}>
             <div>
               <p className="text-[14px] text-dwl-body leading-relaxed mb-4">Tashelhit name: <em>argan</em> (ⴰⵔⴳⴰⵏ). A thorny, gnarled tree native to the semi-arid Souss Valley, the Chiadma and Haha regions, and the Anti-Atlas foothills. Grows 8–10 metres high. Crown circumference up to 70 metres. Lives approximately 200 years. Deep roots reach 30 metres into underground aquifers.</p>
@@ -234,7 +234,7 @@ export default function ArganTrianglePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[36vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[36vh]" style={{ background: '#22C55E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#0a0a0a' }}>The argan tree is a true bastion against desertification. It can reach 10 metres in height and live for 200 years.</p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(10,10,10,0.5)' }}>— United Nations, International Day of Argania</p>
@@ -243,9 +243,9 @@ export default function ArganTrianglePage() {
 
       {/* ═══ PRODUCTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>004 — What Argan Becomes</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>The Products</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>The Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#1a1a1a' }}>
             {PRODUCTS.map((p, i) => {
               const vis = visibleSections.has(`prod-${i}`)
@@ -264,9 +264,9 @@ export default function ArganTrianglePage() {
 
       {/* ═══ COOPERATIVES — Animated counters ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">005 — The Women&rsquo;s Economy</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Cooperatives</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Cooperatives</h2>
           <p className="text-[14px] text-dwl-body max-w-[600px] leading-relaxed mb-10">Rural Amazigh women lead the entire extraction process through knowledge transmitted across generations. Cooperatives provide fair wages, literacy training, healthcare access, and community reinvestment. But industrial-scale extraction and multinational sourcing are pushing artisanal producers to the margins.</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px mb-8" style={{ background: '#e5e5e5' }}>
@@ -298,7 +298,7 @@ export default function ArganTrianglePage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#22C55E' }}>Everyone wants their share of the value chain and there is less and less room for women.</p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Jamila Idbourous, President, Union of Women&rsquo;s Cooperatives (The Ecologist, 2025)</p>
@@ -307,9 +307,9 @@ export default function ArganTrianglePage() {
 
       {/* ═══ RECOGNITIONS TIMELINE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">006 — Global Recognition</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-10">Five Designations</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-10">Five Designations</h2>
           <div className="space-y-0">
             {RECOGNITIONS.map((r, i) => {
               const vis = visibleSections.has(`recog-${i}`)
@@ -328,13 +328,13 @@ export default function ArganTrianglePage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>007 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n, i) => (
               <div key={n.label} data-sid={`kn-${i}`} className="p-6 md:p-8" style={{ background: '#0a0a0a', opacity: visibleSections.has(`kn-${i}`) ? 1 : 0, transform: visibleSections.has(`kn-${i}`) ? 'translateY(0)' : 'translateY(6px)', transition: `all 0.5s ease ${i * 80}ms` }}>
-                <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: '#22C55E' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#22C55E' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -344,8 +344,8 @@ export default function ArganTrianglePage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {['United Nations — International Day of Argania: 2021 resolution, 113 co-sponsors, tree biology','UNESCO — Arganeraie Biosphere Reserve (1998): ~2.5M hectares, 8 provinces','UNESCO — Intangible Cultural Heritage (2014): Argan practices inscribed','FAO — GIAHS (2018): Argan agro-sylvo-pastoral system, Ait Souab–Ait Mansour','Wikipedia — Argan oil: 40 kg/litre, UCFA 22 cooperatives, ~300 firms Essaouira','Wikipedia — Sideroxylon spinosum: 8,280 km², 50% loss, Tashelhit vocabulary','Morocco World News: 20M trees, roots 30m, crown 70m, ANDZOA 2010','The Ecologist (Nov 2025): Idbourous quote, cooperative margins, Covid price surge','Springer Human Ecology (2023): UCFA/FIFARGANE/FNFARGNANE unions, 8 provinces','Market.us / IMARC / Persistence: Global market $370M (2024), CAGR 9–12%'].map((s, i) => (

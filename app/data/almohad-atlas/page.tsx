@@ -366,7 +366,7 @@ export default function AlmohadAtlasPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 062 · Architecture & Empire</p>
         <div ref={heroR.ref}>
@@ -406,7 +406,7 @@ export default function AlmohadAtlasPage() {
       </section>
 
       {/* ═══ MAP ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="mb-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.12em]" style={{ color: C.almohad }}>The Empire in Stone</p>
@@ -485,7 +485,7 @@ export default function AlmohadAtlasPage() {
       </section>
 
       {/* ═══ CALIPHS ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={calR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.almohad }}>The Builder-Caliphs</p>
           <div className="grid md:grid-cols-4 gap-4">
@@ -501,7 +501,7 @@ export default function AlmohadAtlasPage() {
       </section>
 
       {/* ═══ SITE LIST BY REGION ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={listR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: C.almohad }}>Complete Inventory</p>
 
@@ -538,7 +538,7 @@ export default function AlmohadAtlasPage() {
       </section>
 
       {/* ═══ ANALYSIS ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.almohad }}>Reading Notes</p>
           <div className="space-y-6 text-[12px] leading-[1.7] max-w-[600px]" style={{ color: C.text }}>
@@ -563,7 +563,7 @@ export default function AlmohadAtlasPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Wikipedia: &quot;Almohad architecture,&quot; &quot;Almohad Caliphate,&quot; &quot;Moorish architecture,&quot; &quot;Kutubiyya Mosque,&quot; &quot;Tinmal Mosque,&quot; &quot;Hassan Tower,&quot; &quot;Giralda,&quot; &quot;Torre del Oro,&quot; &quot;Bab Agnaou,&quot; &quot;Kasbah of the Udayas,&quot; &quot;Alcázar of Seville,&quot; &quot;Walls of Marrakesh.&quot;

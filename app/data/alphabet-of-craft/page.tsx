@@ -471,7 +471,7 @@ export default function AlphabetOfCraftPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 pt-36 pb-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-6">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -492,7 +492,7 @@ export default function AlphabetOfCraftPage() {
       </section>
 
       {/* ═══ CATEGORY KEY ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mb-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mb-6">
         <div className="flex flex-wrap gap-x-5 gap-y-1">
           {CATEGORIES.map(cat => (
             <span key={cat.name} className="text-[11px] flex items-center gap-1.5">
@@ -569,7 +569,7 @@ export default function AlphabetOfCraftPage() {
       </section>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -615,7 +615,7 @@ export default function AlphabetOfCraftPage() {
       </section>
 
       {/* ═══ BY THE NUMBERS ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>By the Numbers</p>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
@@ -643,7 +643,7 @@ export default function AlphabetOfCraftPage() {
       </section>
 
       {/* ═══ CLOSING ═══ */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8 max-w-[640px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: C.ink }}>
             Two point four million Moroccans work with their hands. The zellige cutter
@@ -655,7 +655,7 @@ export default function AlphabetOfCraftPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1400px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>

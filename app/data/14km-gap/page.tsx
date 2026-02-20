@@ -244,7 +244,7 @@ export default function FourteenKmGapPage() {
     <div className="min-h-screen pt-16 bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-20 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-8">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -279,7 +279,7 @@ export default function FourteenKmGapPage() {
       </section>
 
       {/* ═══ CATEGORY FILTER ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <div className="border-t border-b py-3 flex items-center gap-2 overflow-x-auto"
           style={{ borderColor: C.border, scrollbarWidth: 'none' as const }}>
           <span className="text-[10px] uppercase tracking-widest mr-2" style={{ color: C.muted }}>Filter</span>
@@ -298,7 +298,7 @@ export default function FourteenKmGapPage() {
       </section>
 
       {/* ═══ TENSION VISUALIZATION ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-6">
         <TensionViz
           metrics={filteredMetrics}
           hoveredId={hoveredMetric}
@@ -308,7 +308,7 @@ export default function FourteenKmGapPage() {
 
       {/* ═══ HOVERED DETAIL CARD ═══ */}
       {hoveredData && (
-        <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-2">
+        <section className="px-8 md:px-[8%] lg:px-[12%] mt-2">
           <div className="p-4 border" style={{ borderColor: hoveredData.color + '30' }}>
             <div className="flex items-baseline justify-between">
               <p className="text-[13px] font-medium">{hoveredData.label}</p>
@@ -345,7 +345,7 @@ export default function FourteenKmGapPage() {
       )}
 
       {/* ═══ THE STORY ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -382,7 +382,7 @@ export default function FourteenKmGapPage() {
       </section>
 
       {/* ═══ THE METAPHOR ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="max-w-[640px]">
             <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: C.ink }}>
@@ -401,7 +401,7 @@ export default function FourteenKmGapPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>

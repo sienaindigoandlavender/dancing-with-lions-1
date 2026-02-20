@@ -174,7 +174,7 @@ export default function AlAndalusPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-16 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-16 pt-32 relative z-10">
           <p
             className="text-[11px] uppercase tracking-[0.2em] mb-6"
             style={{ color: '#E63946' }}
@@ -358,7 +358,7 @@ export default function AlAndalusPage() {
 
       {/* ═══ THE THESIS ═══ */}
       <section
-        className="py-section flex items-center justify-center min-h-[50vh]"
+        className="py-24 md:py-40 flex items-center justify-center min-h-[50vh]"
         style={{ background: '#E63946' }}
       >
         <div className="max-w-[680px] px-6 md:px-10 text-center">
@@ -372,8 +372,8 @@ export default function AlAndalusPage() {
       </section>
 
       {/* ═══ BY THE NUMBERS ═══ */}
-      <section className="py-section bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="py-24 md:py-40 bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="micro-label mb-8">The Corridor in Numbers</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-dwl-border">
             {[
@@ -394,8 +394,8 @@ export default function AlAndalusPage() {
       </section>
 
       {/* ═══ POINT LIST ═══ */}
-      <section className="py-section" style={{ background: '#fafafa' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="py-24 md:py-40" style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="micro-label mb-8">All {POINTS.length} Cultural Points</p>
           <div className="space-y-0">
             {(Object.keys(LAYER_CONFIG) as LayerType[]).map((layer) => {
@@ -438,8 +438,8 @@ export default function AlAndalusPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>

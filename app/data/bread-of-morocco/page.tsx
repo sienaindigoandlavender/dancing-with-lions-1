@@ -4,110 +4,100 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { BREADS, FERRAN, WHEAT_DEPENDENCY, ETIQUETTE, HISTORY, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
 
-const ACCENT = '#D4A053' // warm wheat gold
-const THREAD_COLORS: Record<string, string> = {
-  origin: '#A3A3A3',
-  grain: '#D4A053',
-  ferran: '#C2703E',
-  modern: '#3B82F6',
-  politics: '#EF4444',
-  dependency: '#F59E0B',
-}
+const ACCENT = '#D4A053'
+const THREAD_COLORS: Record<string, string> = { origin: '#8B7355', colonial: '#3B82F6', modern: '#22C55E' }
 
 export default function BreadOfMoroccoPage() {
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+  const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeBread, setActiveBread] = useState(0)
-  const [expandedEtiquette, setExpandedEtiquette] = useState<number | null>(null)
   const [activeThread, setActiveThread] = useState<string | null>(null)
-  const [showAllWheat, setShowAllWheat] = useState(false)
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-sid'); if (id) setVisibleSections(prev => new Set(prev).add(id)) } })
-    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' })
+      entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-sid'); if (id) setVis(prev => new Set(prev).add(id)) } })
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' })
     document.querySelectorAll('[data-sid]').forEach(el => obs.observe(el))
     return () => obs.disconnect()
   }, [])
 
+  const v = (id: string) => vis.has(id)
   const filteredHistory = activeThread ? HISTORY.filter(h => h.thread === activeThread) : HISTORY
-  const vis = (id: string) => visibleSections.has(id)
-  const visibleWheat = showAllWheat ? WHEAT_DEPENDENCY : WHEAT_DEPENDENCY.slice(0, 6)
 
   return (
-    <main className="min-h-screen bg-white text-[#1C1917]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+    <main className="min-h-screen bg-white text-[#0a0a0a]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]">
-          <svg width="100%" height="100%"><defs><pattern id="grain-dot" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="0.8" fill="#D4A053" /><circle cx="0" cy="0" r="0.4" fill="#D4A053" /><circle cx="16" cy="16" r="0.4" fill="#D4A053" /></pattern></defs><rect width="100%" height="100%" fill="url(#grain-dot)" /></svg>
+      {/* ═══ HERO ═══ */}
+      <section className="relative min-h-[100vh] flex flex-col justify-end overflow-hidden" style={{ background: '#0a0a0a' }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.03]" preserveAspectRatio="xMidYMid slice">
+            {[...Array(5)].map((_, j) => (
+              <circle key={j} cx={600} cy={400} r={120 + j * 80} stroke={ACCENT} strokeWidth="0.5" fill="none" opacity={0.4 - j * 0.06} />
+            ))}
+          </svg>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="mb-6">
-            <Link href="/data" className="text-xs tracking-[0.3em] text-neutral-500 uppercase hover:text-neutral-600 transition-colors">← Data Index</Link>
-          </div>
-          <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT }}>Module 080 · Food &amp; Agricultural Intelligence</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
-            The Bread<br />of Morocco
+        <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 074 · Food Intelligence</p>
+          <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
+            Bread of<br />Morocco
           </h1>
-          <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Khobz, msemen, baghrir, rghaif, harcha. Daily bread variations, communal ovens, wheat dependency.
-            In Darija, bread and livelihood are the same word.
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+            Eight breads. The communal oven. A grain dependency that shapes foreign policy. In Morocco, bread is never cut — it is torn, kissed if dropped, and shared before every meal.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {HERO_STATS.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-light mb-1" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{s.value}</div>
-                <div className="text-[10px] tracking-[0.15em] uppercase text-neutral-500 leading-snug">{s.label}</div>
+          <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
+            {HERO_STATS.map((st, i) => (
+              <div key={i}>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <div className="w-px h-8 bg-gradient-to-b from-transparent to-neutral-600" />
-          <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-600">Scroll</span>
-        </div>
+        <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
       </section>
 
-      {/* ── BREADS ── */}
-      <section data-sid="breads" className="py-24 px-6">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('breads') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Breads</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Eight Breads of a Nation</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">From the daily round loaf to the sand-baked bread of the Sahara. Each one answers a different question: how much time do we have, what flour is in the house, is there an oven nearby.</p>
+      {/* ═══ EIGHT BREADS — Expanding card selector ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>001 — The Breads</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-6">Eight Breads of a Nation</h2>
+          <p className="text-[14px] text-[#737373] max-w-[500px] leading-relaxed mb-16">
+            From the daily round loaf to the sand-baked bread of the Sahara. Each one answers a different question: how much time do we have, what flour is in the house, is there an oven nearby.
+          </p>
 
-          {/* Bread selector — 2 rows of 4 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
+          {/* Two rows of 4 — selector */}
+          <div className="grid grid-cols-4 gap-2 mb-12">
             {BREADS.map((b, i) => (
               <button key={i} onClick={() => setActiveBread(i)}
-                className={`text-left p-3 border transition-all duration-300 ${activeBread === i ? 'border-[#D4A053]/60 bg-[#D4A053]/5' : 'border-neutral-200 hover:border-neutral-300'}`}>
-                <div className="text-sm font-medium">{b.name}</div>
-                <div className="text-xs text-neutral-600 font-arabic mt-0.5" dir="rtl">{b.arabic}</div>
-                <div className="text-[10px] text-neutral-600 mt-1 line-clamp-1">{b.type}</div>
+                className="text-left p-4 transition-all duration-400"
+                style={{ background: activeBread === i ? '#0a0a0a' : '#fafafa', color: activeBread === i ? '#fff' : '#999' }}>
+                <span className="font-serif italic block text-[16px] md:text-[20px]">{b.name}</span>
+                <span className="text-[10px] uppercase tracking-[0.06em] block mt-1 opacity-60">{b.type}</span>
               </button>
             ))}
           </div>
 
-          {/* Active bread detail */}
-          <div className="border border-neutral-200 p-6 md:p-8">
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <div className="flex-1">
-                <div className="flex items-baseline gap-3 mb-1">
-                  <h3 className="text-xl md:text-2xl font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{BREADS[activeBread].name}</h3>
-                  <span className="text-sm text-neutral-600 font-arabic" dir="rtl">{BREADS[activeBread].arabic}</span>
-                </div>
-                <div className="text-xs tracking-[0.15em] uppercase mb-4" style={{ color: ACCENT }}>{BREADS[activeBread].type}</div>
-
-                <div className="space-y-3 text-sm text-neutral-500 leading-relaxed">
-                  <p><span className="text-neutral-500 text-xs uppercase tracking-wider">Method</span><br />{BREADS[activeBread].method}</p>
-                  <p><span className="text-neutral-500 text-xs uppercase tracking-wider">Flour</span><br />{BREADS[activeBread].flour}</p>
-                  <p><span className="text-neutral-500 text-xs uppercase tracking-wider">When</span><br />{BREADS[activeBread].when}</p>
-                  <p className="text-neutral-600 pt-2">{BREADS[activeBread].detail}</p>
+          {/* Active bread — asymmetric */}
+          <div data-sid="breads" className={`transition-all duration-700 ${v('breads') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+              <div className="md:col-span-4">
+                <h3 className="font-serif italic text-[28px] md:text-[36px] text-[#0a0a0a] leading-tight">{BREADS[activeBread].name}</h3>
+                <p className="text-[14px] mt-1" dir="rtl" style={{ color: '#bbb' }}>{BREADS[activeBread].arabic}</p>
+                <div className="mt-6 space-y-4">
+                  {[['Method', BREADS[activeBread].method], ['Flour', BREADS[activeBread].flour], ['When', BREADS[activeBread].when]].map(([label, text]) => (
+                    <div key={label}>
+                      <span className="text-[10px] uppercase tracking-[0.1em] block mb-1" style={{ color: ACCENT }}>{label}</span>
+                      <p className="text-[13px] text-[#525252] leading-relaxed">{text}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="md:w-64 flex-shrink-0">
-                <div className="border border-neutral-200 p-4 bg-[#D4A053]/[0.03]">
-                  <div className="text-[10px] tracking-[0.2em] uppercase text-neutral-600 mb-2">Key Fact</div>
-                  <p className="text-sm leading-relaxed" style={{ color: ACCENT }}>{BREADS[activeBread].keyFact}</p>
+              <div className="md:col-span-5">
+                <p className="text-[15px] text-[#525252] leading-[1.75]">{BREADS[activeBread].detail}</p>
+              </div>
+              <div className="md:col-span-3 flex flex-col justify-end">
+                <div className="border-l-2 pl-6" style={{ borderColor: ACCENT }}>
+                  <p className="text-[14px] leading-relaxed" style={{ color: ACCENT }}>{BREADS[activeBread].keyFact}</p>
                 </div>
               </div>
             </div>
@@ -115,166 +105,153 @@ export default function BreadOfMoroccoPage() {
         </div>
       </section>
 
-      {/* ── THE FERRAN ── */}
-      <section data-sid="ferran" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('ferran') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Communal Oven</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>The Ferran</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">فران — the neighbourhood oven. Where bread is baked, news is exchanged, and every family is known by the marks on their loaf.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* ═══ THE FERRAN — Dark immersive ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Communal Oven</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-16" style={{ color: '#fff' }}>The Ferran</h2>
+          <div data-sid="ferran" className={`transition-all duration-700 ${v('ferran') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
             {FERRAN.map((f, i) => (
-              <div key={i} className="border border-neutral-200 p-5 hover:border-neutral-300 transition-colors">
-                <div className="text-xs tracking-[0.2em] uppercase mb-2" style={{ color: ACCENT }}>{f.aspect}</div>
-                <p className="text-sm text-neutral-500 leading-relaxed">{f.detail}</p>
+              <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-8" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="md:col-span-3">
+                  <span className="font-serif italic text-[18px]" style={{ color: ACCENT }}>{f.aspect}</span>
+                </div>
+                <div className="md:col-span-9">
+                  <p className="text-[14px] leading-[1.75]" style={{ color: 'rgba(255,255,255,0.5)' }}>{f.detail}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── ETIQUETTE ── */}
-      <section data-sid="etiquette" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('etiquette') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Rules</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Bread Etiquette</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">Seven unwritten rules that every Moroccan learns before they learn to read.</p>
+      {/* ═══ PULLQUOTE ═══ */}
+      <section className="flex items-center justify-center min-h-[42vh]" style={{ background: ACCENT }}>
+        <div className="max-w-[720px] px-8 text-center py-20">
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.8rem)', color: '#fff' }}>
+            Bread that falls on the ground is picked up, kissed, and placed somewhere higher. To step on bread is deeply offensive.
+          </p>
+        </div>
+      </section>
 
-          <div className="space-y-2">
-            {ETIQUETTE.map((e, i) => (
-              <div key={i} className="border border-neutral-200 overflow-hidden">
-                <button onClick={() => setExpandedEtiquette(expandedEtiquette === i ? null : i)}
-                  className="w-full text-left p-4 md:p-5 flex items-center justify-between hover:bg-white/[0.01] transition-colors">
-                  <span className="text-base font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{e.rule}</span>
-                  <svg className={`w-4 h-4 text-neutral-600 transition-transform flex-shrink-0 ${expandedEtiquette === i ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                {expandedEtiquette === i && (
-                  <div className="px-4 md:px-5 pb-4 md:pb-5">
-                    <p className="text-sm text-neutral-500 leading-relaxed max-w-3xl">{e.detail}</p>
+      {/* ═══ ETIQUETTE — Sidebar + content ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Rules</p>
+              <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05]">Bread<br />Etiquette</h2>
+            </div>
+            <div className="md:col-span-8" data-sid="etiquette">
+              <div className={`transition-all duration-700 ${v('etiquette') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+                {ETIQUETTE.map((e, i) => (
+                  <div key={i} className="py-6" style={{ borderBottom: '1px solid #e5e5e5' }}>
+                    <h3 className="font-serif italic text-[20px] text-[#0a0a0a] mb-2">{e.rule}</h3>
+                    <p className="text-[14px] text-[#525252] leading-[1.75]">{e.detail}</p>
                   </div>
-                )}
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── WHEAT DEPENDENCY ── */}
-      <section data-sid="wheat" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('wheat') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Dependency</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Wheat: The Structural Vulnerability</h2>
-          <p className="text-sm text-neutral-500 max-w-3xl mb-12 leading-relaxed">
-            Morocco exports $8 billion in agriculture — tomatoes, citrus, berries. Yet it imports 60%+ of the wheat its people eat.
-            Two consecutive drought years have exposed the paradox: a nation that feeds Europe cannot feed itself bread.
-          </p>
-
-          <div className="space-y-3">
-            {visibleWheat.map((w, i) => (
-              <div key={i} className="flex flex-col md:flex-row md:items-start gap-2 md:gap-6 border border-neutral-200 p-4 hover:border-neutral-300 transition-colors">
-                <div className="md:w-56 flex-shrink-0">
-                  <span className="text-xs tracking-[0.15em] uppercase text-neutral-500">{w.metric}</span>
+      {/* ═══ WHEAT DEPENDENCY — Data as drama ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>004 — The Dependency</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Wheat &amp; Power</h2>
+          <div data-sid="wheat" className={`transition-all duration-700 ${v('wheat') ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+              {WHEAT_DEPENDENCY.map((w, i) => (
+                <div key={i} className="flex gap-6 items-start" style={{ paddingTop: i % 2 === 1 ? '32px' : '0' }}>
+                  <div className="flex-1">
+                    <span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: ACCENT }}>{w.metric}</span>
+                    <p className="font-serif italic text-[22px] md:text-[26px] text-[#0a0a0a] leading-tight">{w.value}</p>
+                    <p className="text-[11px] text-[#999] mt-2">{w.source}</p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <span className="text-sm text-neutral-600">{w.value}</span>
-                </div>
-                <div className="md:w-48 flex-shrink-0">
-                  <span className="text-[10px] text-neutral-600">{w.source}</span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-
-          {WHEAT_DEPENDENCY.length > 6 && (
-            <button onClick={() => setShowAllWheat(!showAllWheat)}
-              className="mt-4 text-xs tracking-[0.15em] uppercase hover:text-neutral-600 transition-colors" style={{ color: ACCENT }}>
-              {showAllWheat ? '← Show fewer' : `Show all ${WHEAT_DEPENDENCY.length} data points →`}
-            </button>
-          )}
         </div>
       </section>
 
-      {/* ── TIMELINE ── */}
-      <section data-sid="timeline" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('timeline') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Chronology</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>From Embers to Imports</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-8 leading-relaxed">Bread riots, drought cycles, and the subsidy that holds a nation together.</p>
-
-          <div className="flex flex-wrap gap-2 mb-8">
+      {/* ═══ TIMELINE ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>005 — Chronology</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-6">From Tafarnout<br />to Subsidy</h2>
+          <div className="flex flex-wrap gap-2 mb-12">
             <button onClick={() => setActiveThread(null)}
-              className={`px-3 py-1 text-[10px] tracking-[0.15em] uppercase border transition-colors ${!activeThread ? 'border-neutral-500 text-neutral-700' : 'border-neutral-200 text-neutral-500 hover:border-neutral-300'}`}>
-              All
-            </button>
-            {Object.entries(THREAD_COLORS).map(([thread, colour]) => (
-              <button key={thread} onClick={() => setActiveThread(activeThread === thread ? null : thread)}
-                className={`px-3 py-1 text-[10px] tracking-[0.15em] uppercase border transition-colors ${activeThread === thread ? 'text-neutral-700' : 'text-neutral-500 hover:border-neutral-300'}`}
-                style={{ borderColor: activeThread === thread ? colour : undefined }}>
-                {thread}
-              </button>
+              className="text-[10px] tracking-[0.1em] uppercase px-4 py-2 transition-all"
+              style={{ background: !activeThread ? '#0a0a0a' : 'transparent', color: !activeThread ? '#fff' : '#999', border: `1px solid ${!activeThread ? '#0a0a0a' : '#ddd'}` }}>All</button>
+            {Object.entries(THREAD_COLORS).map(([t, c]) => (
+              <button key={t} onClick={() => setActiveThread(activeThread === t ? null : t)}
+                className="text-[10px] tracking-[0.1em] uppercase px-4 py-2 transition-all"
+                style={{ background: activeThread === t ? '#0a0a0a' : 'transparent', color: activeThread === t ? c : '#999', border: `1px solid ${activeThread === t ? '#0a0a0a' : '#ddd'}` }}>{t}</button>
             ))}
           </div>
+          <div data-sid="timeline" className={`transition-all duration-700 ${v('timeline') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="relative pl-8 md:pl-12">
+              <div className="absolute left-3 md:left-5 top-0 bottom-0 w-px" style={{ background: '#e5e5e5' }} />
+              <div className="space-y-6">
+                {filteredHistory.map((h, i) => (
+                  <div key={i} className="relative">
+                    <div className="absolute -left-[23px] md:-left-[31px] top-[6px] w-[7px] h-[7px] rounded-full" style={{ background: THREAD_COLORS[h.thread] || ACCENT }} />
+                    <span className="text-[11px] block mb-1" style={{ color: THREAD_COLORS[h.thread] || '#999' }}>{h.year}</span>
+                    <p className="text-[14px] text-[#525252] leading-relaxed max-w-[640px]">{h.event}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="space-y-3">
-            {filteredHistory.map((h, i) => (
-              <div key={i} className="flex items-start gap-4 group">
-                <div className="w-20 flex-shrink-0 text-right">
-                  <span className="text-xs text-neutral-500 font-mono">{h.year}</span>
+      {/* ═══ KEY NUMBERS ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>006 — By the Numbers</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Key Numbers</h2>
+          <div data-sid="numbers" className={`transition-all duration-700 ${v('numbers') ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+              {KEY_NUMBERS.map((n, i) => (
+                <div key={i} className="flex gap-6 items-start" style={{ paddingTop: i % 2 === 1 ? '40px' : '0' }}>
+                  <span className="font-serif italic flex-shrink-0" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{n.number}</span>
+                  <p className="text-[13px] text-[#525252] leading-relaxed pt-2">{n.context}</p>
                 </div>
-                <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: THREAD_COLORS[h.thread] || ACCENT }} />
-                <p className="text-sm text-neutral-500 leading-relaxed">{h.event}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── KEY NUMBERS ── */}
-      <section data-sid="numbers" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('numbers') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>By the Numbers</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-12" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Key Numbers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {KEY_NUMBERS.map((n, i) => (
-              <div key={i} className="border border-neutral-200 p-5 hover:border-neutral-300 transition-colors">
-                <div className="text-2xl md:text-3xl font-light mb-2" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{n.number}</div>
-                <p className="text-xs text-neutral-500 leading-relaxed">{n.context}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── BIBLIOGRAPHY ── */}
-      <section data-sid="bib" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 ${vis('bib') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Sources</p>
-          <h2 className="text-2xl md:text-3xl font-light mb-8" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Bibliography</h2>
-          <div className="space-y-4">
+      {/* ═══ SOURCES ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#999' }}>Sources</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
             {BIBLIOGRAPHY.map((b, i) => (
-              <div key={i} className="border-l border-neutral-200 pl-4">
-                <div className="text-sm text-neutral-600 mb-1">{b.source}</div>
-                <div className="text-xs text-neutral-500 leading-relaxed">{b.detail}</div>
+              <div key={i}>
+                <span className="text-[12px] text-[#525252]">{b.source}</span>
+                <p className="text-[11px] text-[#999] leading-relaxed">{b.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-[11px] text-white/50 tracking-[0.15em] uppercase">
-            Module 080 · The Bread of Morocco · © Dancing with Lions
-          </p>
-          <p className="text-[11px] text-white/35 mt-2">
-            Data: USDA FAS, FAO, World Grain, ONICL, Milling MEA
-          </p>
+      {/* ═══ FOOTER ═══ */}
+      <footer>
+        <div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]">
+          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 074 · Bread of Morocco · © Dancing with Lions</p>
+          <p className="text-[11px] mt-2" style={{ color: 'rgba(255,255,255,0.2)' }}>Data: HCP, USDA FAS, ONICL, ONSSA, World Bank</p>
         </div>
-      
-        <div style={{ backgroundColor: '#161616' }} className="mt-12 -mx-6 -mb-16 py-3">
-          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>dancingwithlions.com</p>
+        <div style={{ backgroundColor: '#161616' }} className="py-3">
+          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p>
         </div>
+        <div style={{ backgroundColor: '#0e0e0e' }} className="py-2" />
       </footer>
     </main>
   )
