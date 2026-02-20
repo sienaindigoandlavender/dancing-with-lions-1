@@ -734,4 +734,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['tea', 'atay', 'mint', 'nanah', 'gunpowder', 'green tea', 'China', 'Zhejiang', 'sugar', 'ritual', 'hospitality', 'berrad', 'Crimean War', 'food', 'culture'],
     href: '/data/moroccan-tea',
   },
+  {
+    id: 'french-protectorate',
+    number: '073',
+    title: 'The French Protectorate',
+    category: 'Political & Historical Intelligence',
+    description: '1912–1956. Treaty of Fez, Lyautey, Henri Prost, villes nouvelles, Rif War, Berber Dahir, Istiqlal, Mohammed V exile, independence.',
+    tags: ['protectorate', 'France', 'Lyautey', 'Prost', 'ville nouvelle', 'colonialism', 'independence', 'Istiqlal', 'Mohammed V', 'Rif', 'Abd el-Krim', 'Allal al-Fassi', 'Treaty of Fez', 'Rabat', 'Casablanca', 'medina'],
+    href: '/data/french-protectorate',
+  },
 ]
