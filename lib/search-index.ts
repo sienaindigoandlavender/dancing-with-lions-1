@@ -590,4 +590,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['tagine', 'food', 'cooking', 'lamb', 'chicken', 'fish', 'spice', 'saffron', 'marrakech', 'fes'],
     href: '/data/tagine-atlas',
   },
+  {
+    id: 'phosphate-kingdom',
+    number: '052',
+    title: 'The Phosphate Kingdom',
+    category: 'Industrial Intelligence',
+    description: 'Morocco holds 70% of world phosphate reserves. OCP Group, Khouribga mines, Jorf Lasfar processing, global fertilizer flows. $9.76B revenue.',
+    tags: ['phosphate', 'ocp', 'mining', 'khouribga', 'fertilizer', 'jorf lasfar', 'industry', 'export', 'geology', 'agriculture'],
+    href: '/data/phosphate-kingdom',
+  },
 ]
