@@ -1,10 +1,7 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Data — Dancing with Lions',
-  description: 'Structured intelligence about Morocco and the Maghreb. Real estate, demographics, tourism, language, textiles, and cultural data.',
-}
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
 const MODULES = [
   {
@@ -99,9 +96,78 @@ const MODULES = [
   },
 ]
 
+const PER_PAGE = 10
+
+function PaginationBar({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: {
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+}) {
+  return (
+    <div className="flex items-center justify-between py-4" style={{ borderBottom: '1px solid #e5e5e5' }}>
+      {/* Previous */}
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className="text-[11px] uppercase tracking-[0.08em] font-medium transition-opacity"
+        style={{
+          color: currentPage === 1 ? '#d4d4d4' : '#0a0a0a',
+          cursor: currentPage === 1 ? 'default' : 'pointer',
+        }}
+      >
+        ← Previous
+      </button>
+
+      {/* Page numbers */}
+      <div className="flex items-center gap-1">
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <button
+            key={page}
+            onClick={() => onPageChange(page)}
+            className="w-8 h-8 flex items-center justify-center text-[12px] font-medium tabular-nums transition-all duration-200"
+            style={{
+              background: page === currentPage ? '#0a0a0a' : 'transparent',
+              color: page === currentPage ? '#ffffff' : '#737373',
+            }}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
+
+      {/* Next */}
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className="text-[11px] uppercase tracking-[0.08em] font-medium transition-opacity"
+        style={{
+          color: currentPage === totalPages ? '#d4d4d4' : '#0a0a0a',
+          cursor: currentPage === totalPages ? 'default' : 'pointer',
+        }}
+      >
+        Next →
+      </button>
+    </div>
+  )
+}
+
 export default function DataPage() {
-  const total = MODULES.length
-  const pageNum = (n: number) => `${String(n).padStart(2, '0')} / ${String(total).padStart(2, '0')}`
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.ceil(MODULES.length / PER_PAGE)
+
+  const startIndex = (currentPage - 1) * PER_PAGE
+  const endIndex = startIndex + PER_PAGE
+  const pageModules = MODULES.slice(startIndex, endIndex)
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <div className="pt-16">
@@ -120,18 +186,24 @@ export default function DataPage() {
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        {MODULES.map((mod, i) => {
-          const num = pageNum(i + 1)
+        {/* Pagination — top */}
+        <PaginationBar
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+
+        {/* Module list */}
+        {pageModules.map((mod, i) => {
+          const globalIndex = startIndex + i
           return (
             <div key={mod.id} className="border-b border-dwl-border py-10 md:py-12">
-              {/* Page number — top */}
-              <p className="text-[11px] text-dwl-muted font-medium tabular-nums mb-8">
-                {num}
-              </p>
-
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                 <div className="md:col-span-3">
-                  <p className="text-meta uppercase tracking-[0.08em] text-dwl-gray">{mod.category}</p>
+                  <span className="text-[11px] text-dwl-muted font-medium tabular-nums">
+                    {String(globalIndex + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-meta uppercase tracking-[0.08em] text-dwl-gray mt-2">{mod.category}</p>
                 </div>
                 <div className="md:col-span-9">
                   {'href' in mod && mod.href ? (
@@ -156,14 +228,18 @@ export default function DataPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Page number — bottom */}
-              <p className="text-[11px] text-dwl-muted font-medium tabular-nums mt-8 text-right">
-                {num}
-              </p>
             </div>
           )
         })}
+
+        {/* Pagination — bottom */}
+        <div className="mt-4">
+          <PaginationBar
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </section>
     </div>
   )
