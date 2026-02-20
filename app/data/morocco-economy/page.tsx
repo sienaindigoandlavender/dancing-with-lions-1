@@ -474,7 +474,7 @@ export default function MoroccoEconomyPage() {
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'International Monetary Fund — World Economic Outlook (October 2025)',
               'World Bank — Morocco Country Data',

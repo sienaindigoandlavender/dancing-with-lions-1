@@ -127,7 +127,7 @@ export default function MoroccanTeaPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[36vh]" style={{ background: '#16A34A' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#16A34A' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             The first glass is gentle as life, the second strong
@@ -233,7 +233,7 @@ export default function MoroccanTeaPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[34vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.4rem)', color: '#16A34A' }}>
             Moroccans often say that half of their bodies are green tea.
@@ -294,7 +294,7 @@ export default function MoroccanTeaPage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'Wikipedia — Maghrebi mint tea: gunpowder tea introduction 18th–19th C, Crimean War, spearmint (na\'na\'), three glasses minimum, Sufi boycott',
               'Sefrou Museum Blog — "A History of Moroccan Tea": Zhejiang Province origin, Indian plantations produced black not green, mint hides low-quality tea, French sugar deepening, na\'na\' varieties',
