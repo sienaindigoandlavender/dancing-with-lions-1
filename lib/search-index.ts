@@ -608,4 +608,22 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['riad', 'architecture', 'courtyard', 'zellige', 'tadelakt', 'moucharabieh', 'cedar', 'medina', 'house', 'islamic'],
     href: '/data/anatomy-of-a-riad',
   },
+  {
+    id: 'cannabis-rif',
+    number: '054',
+    title: 'Cannabis & the Rif',
+    category: 'Economic Intelligence',
+    description: 'The Rif Mountains produce 70% of Europe\'s hashish. 400,000+ people in the trade. Law 13-21 legalization. Sultan Hassan I to royal pardons.',
+    tags: ['cannabis', 'rif', 'hashish', 'kif', 'ketama', 'legalization', 'agriculture', 'chefchaouen', 'economy', 'trade'],
+    href: '/data/cannabis-rif',
+  },
+  {
+    id: 'atlantic-coast',
+    number: '059',
+    title: 'The Atlantic Coast',
+    category: 'Coastal Intelligence',
+    description: 'Tangier to Dakhla. 3,500 km of coastline, 12 cities mapped. Fishing ports, wind energy, surf breaks, $1.6B Dakhla port.',
+    tags: ['coast', 'atlantic', 'tangier', 'dakhla', 'fishing', 'wind', 'surf', 'port', 'essaouira', 'agadir'],
+    href: '/data/atlantic-coast',
+  },
 ]
