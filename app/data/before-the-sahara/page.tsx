@@ -2,398 +2,342 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { CLIMATE_ZONES, NDVI_TIMELINE, OASES, GREEN_PROJECTS, HERO_STATS, KEY_NUMBERS, DESERTIFICATION_DRIVERS } from './data'
 
-// ═══════════════════════════════════════════════════
-// BEFORE THE SAHARA — North African Rock Art
-// Module 053 · Dancing with Lions
-// ═══════════════════════════════════════════════════
-
-const C = {
-  ink: '#0a0a0a', text: '#262626', muted: '#737373', border: '#e5e5e5',
-  ochre: '#8B4513', sand: '#C2956B', rock: '#5D4E37',
-  wild: '#6D3A1F',     // Wild Fauna / Bubaline
-  round: '#8E3B6E',    // Round Head
-  pastoral: '#2E6B3E', // Bovidian / Pastoral
-  horse: '#1a3a5c',    // Horse Period
-  camel: '#A0522D',    // Camel Period
-}
-
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
-
-function useReveal() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [vis, setVis] = useState(false)
-  useEffect(() => {
-    const el = ref.current; if (!el) return
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVis(true); obs.disconnect() } }, { threshold: 0.08 })
-    obs.observe(el); return () => obs.disconnect()
-  }, [])
-  return { ref, vis }
-}
-
-// ═══════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════
-
-// Five chronological periods of Saharan rock art
-const PERIODS = [
-  { id: 'wild', name: 'Wild Fauna (Bubaline)', dates: '10,000 – 6,000 BCE', color: C.wild, description: 'The oldest engravings. Large naturalistic animals — elephant, rhinoceros, hippopotamus, giant buffalo (Bubalus antiquus), giraffe, crocodile. Polished "Tazina" style with exquisite detail. Animals depicted at life size or larger. Evidence of a green Sahara with rivers, lakes, and abundant wildlife.', animals: 'Elephant, rhinoceros, hippo, giant buffalo, giraffe, crocodile, lion', technique: 'Deep polished engraving (Tazina style), pecked outlines' },
-  { id: 'round', name: 'Round Head', dates: '8,000 – 6,000 BCE', color: C.round, description: 'Mysterious painted figures with featureless circular heads, often depicted floating or in trance-like postures. Some figures are several metres tall. Possibly ritual or shamanic scenes. The most enigmatic period — Henri Lhote controversially called them "Martians." Found primarily at Tassili n\'Ajjer. Painted in ochre, often monochrome.', animals: 'Few animals; focus on human/mythical figures', technique: 'Painted (ochre), sometimes with white or yellow' },
-  { id: 'pastoral', name: 'Bovidian / Pastoral', dates: '5,500 – 2,000 BCE', color: C.pastoral, description: 'The most abundant period. Depicts the transition to pastoralism — domesticated cattle herds, herders with bows, camp life with women and children, ceremonies and dances. Piebald (spotted) cattle painted in carmine derived from crushed stone mixed with cattle blood. The Sahara is still green but gradually drying.', animals: 'Domesticated cattle (dominant), sheep, goats, dogs', technique: 'Painted (polychrome), some engraving' },
-  { id: 'horse', name: 'Horse', dates: '1,000 BCE – 1 CE', color: C.horse, description: 'The introduction of horses and horse-drawn chariots marks increasing mobility as the Sahara dries. Armed riders, battle scenes, and geometric designs become common. In Morocco, the High Atlas sites (Oukaïmeden, Yagour) feature detailed weapons — halberds, daggers, shields — connecting North Africa to Iberian Bronze Age metallurgy.', animals: 'Horses, riders with chariots', technique: 'Pecked and polished engraving, schematic painting' },
-  { id: 'camel', name: 'Camel', dates: '200 BCE – present', color: C.camel, description: 'The camel replaces the horse as the primary means of traversing the now-arid Sahara. Tifinagh (Berber) inscriptions appear alongside camel caravans and armed figures. The last phase of rock art — still being made by Tuareg communities into the 20th century. The Sahara is fully desert.', animals: 'Camels, some horses and domestic animals', technique: 'Shallow pecking, Tifinagh script, recent paint' },
-]
-
-// Major sites across North Africa
-type Site = {
-  name: string; country: string; lat: number; lng: number; period: string[];
-  engravings: string; description: string; unesco?: boolean; altitude?: string
-}
-
-const SITES: Site[] = [
-  // MOROCCO — High Atlas Zone
-  { name: 'Oukaïmeden', country: 'Morocco', lat: 31.20, lng: -7.86, period: ['horse', 'pastoral'], engravings: '~1,068 depictions across 250 panels', description: 'Alpine valley at 2,630m — the highest rock art site in North Africa. "Meeting Place of the Four Winds." Bronze Age weapons (halberds, daggers) with parallels to Iberian El Argar culture. Elephant friezes at this altitude suggest dramatically different climate. Still used as summer pasture.', altitude: '2,630m' },
-  { name: 'Yagour Plateau', country: 'Morocco', lat: 31.13, lng: -7.68, period: ['horse', 'pastoral'], engravings: '~2,000+ engravings', description: 'Vast high-altitude plateau south of Oukaïmeden. Dense concentrations of weapons, cattle, and anthropomorphic figures. Connected to seasonal transhumance routes still used by Amazigh herders.', altitude: '2,600m' },
-  { name: 'Jbel Rat', country: 'Morocco', lat: 31.05, lng: -7.55, period: ['horse', 'pastoral'], engravings: 'Hundreds of engravings', description: 'Third major High Atlas site. Together with Oukaïmeden and Yagour, forms the core of Moroccan mountain rock art — over 7,000 engravings total in the High Atlas zone.' },
-  // MOROCCO — Draa Valley / Southern
-  { name: 'Foum Chenna', country: 'Morocco', lat: 30.30, lng: -5.73, period: ['horse', 'camel'], engravings: '800+ engravings', description: 'The most significant southern Moroccan site. 11 km west of Tinzouline, Zagora province. Libyco-Berber period: domestic animals (goats, dogs, camels), wild animals (ostriches, mouflons, felines), armed horsemen with shields, combat scenes, ostrich hunting.' },
-  { name: 'Aït Ouazik', country: 'Morocco', lat: 30.70, lng: -5.60, period: ['wild', 'pastoral'], engravings: 'Major concentration', description: 'Near Tazzarine/Zagora. One of the most renowned and well-preserved sites in Morocco. Life-size rhinoceros and oval engravings in the Tazina style — some of the oldest rock art in the country. Remote location requires off-road access.' },
-  { name: 'Tata', country: 'Morocco', lat: 29.75, lng: -7.97, period: ['wild', 'pastoral', 'horse'], engravings: 'Numerous sites', description: 'Cluster of sites along the Jbel Bani foothills and Draa Valley. Full chronological span from earliest Bubaline engravings to Libyco-Berber period. Thousands of rock engravings documenting the evolution from hunters to shepherds to metalworkers.' },
-  { name: 'Es Smara / Saguia El Hamra', country: 'Western Sahara', lat: 26.74, lng: -11.67, period: ['wild', 'horse', 'camel'], engravings: 'Multiple sites', description: 'Desert sites in the disputed Western Sahara. Tazina-style engravings connecting to the broader Saharan tradition. Wild fauna and later camel-period inscriptions. Among the most southwesterly rock art in North Africa.' },
-  // ALGERIA
-  { name: 'Tassili n\'Ajjer', country: 'Algeria', lat: 25.67, lng: 8.00, period: ['wild', 'round', 'pastoral', 'horse', 'camel'], engravings: '15,000+ paintings and engravings', description: 'The greatest open-air museum of prehistoric art on Earth. UNESCO World Heritage Site (1982). 72,000 km² plateau. All five periods represented. Famous Round Head paintings — figures up to 3.5m tall. The "Great God of Sefar." "Crying Cows" of the Bovidian period. Oued Djerat gorge: 30km of engravings.', unesco: true },
-  { name: 'Hoggar / Ahaggar', country: 'Algeria', lat: 23.30, lng: 5.53, period: ['wild', 'pastoral', 'camel'], engravings: 'Thousands of engravings', description: 'Volcanic mountain range in central Sahara. Tuareg homeland. Rock art spans from Wild Fauna period through Camel period. Less well-studied than Tassili but archaeologically significant. Mount Tahat (2,908m) is Algeria\'s highest point.' },
-  { name: 'South Oran', country: 'Algeria', lat: 32.50, lng: -0.30, period: ['wild', 'pastoral'], engravings: 'Numerous engravings', description: 'Northern Algeria rock art, studied since 1863 — the earliest systematic European documentation of North African rock art. Bubaline-style wild fauna engravings.' },
-  // LIBYA
-  { name: 'Tadrart Acacus', country: 'Libya', lat: 24.87, lng: 10.35, period: ['wild', 'round', 'pastoral', 'horse', 'camel'], engravings: 'Thousands of paintings and engravings', description: 'UNESCO World Heritage Site (1985). Borders Tassili n\'Ajjer. 12,000 years of continuous art. Now on UNESCO\'s Danger List (2016) due to conflict. Vandalism and oil exploration threaten the site. The "Fighting Cats" of Messak is one of the most iconic Saharan engravings.', unesco: true },
-  { name: 'Messak Settafet', country: 'Libya', lat: 25.50, lng: 11.50, period: ['wild', 'pastoral'], engravings: 'Tens of thousands of engravings', description: 'Dark sandstone plateau adjacent to Tadrart Acacus. Home to some of the largest and finest engravings in the Sahara — life-size or larger elephants, rhinos, and the extinct giant buffalo. Bubaline/Tazina masterworks. Few paintings; primarily engravings.' },
-  { name: 'Wadi Mathendous', country: 'Libya', lat: 25.90, lng: 11.30, period: ['wild'], engravings: 'Major engravings', description: 'One of the most celebrated engraving sites in North Africa. Life-size crocodile engravings — proof that permanent water once flowed here. Known to Europeans since Heinrich Barth\'s expedition in 1850.' },
-  // EGYPT (fringe)
-  { name: 'Jebel Uweinat', country: 'Egypt/Libya/Sudan', lat: 21.97, lng: 25.28, period: ['wild', 'pastoral'], engravings: 'Paintings and engravings', description: 'Tri-border mountain (Egypt-Libya-Sudan). Rock art includes the famous "Cave of Swimmers" (Wadi Sura) — human figures in swimming postures, evidence of ancient lakes in what is now hyper-arid desert. Inspired the film "The English Patient."' },
-  // TUNISIA
-  { name: 'Saharan Atlas', country: 'Tunisia/Algeria', lat: 34.30, lng: 7.80, period: ['pastoral', 'horse'], engravings: 'Scattered sites', description: 'Northern fringe of rock art distribution. Less dense than Saharan sites but connecting the tradition to Mediterranean North Africa. Evidence of pastoral and horse-period communities.' },
-]
-
-// Key numbers
-const KEY_NUMBERS = [
-  { stat: '300+', label: 'Sites in Morocco alone' },
-  { stat: '15,000+', label: 'Paintings at Tassili n\'Ajjer' },
-  { stat: '12,000', label: 'Years — oldest engravings' },
-  { stat: '5', label: 'Distinct artistic periods' },
-  { stat: '3', label: 'UNESCO World Heritage Sites' },
-  { stat: '2,630m', label: 'Oukaïmeden — highest site in North Africa' },
-]
-
-// ═══════════════════════════════════════════════════
-// MAP COMPONENT
-// ═══════════════════════════════════════════════════
-
-function RockArtMap() {
-  const mapContainer = useRef<HTMLDivElement>(null)
-  const mapRef = useRef<any>(null)
-  const [filter, setFilter] = useState<string | null>(null)
-
-  const filtered = filter ? SITES.filter(s => s.period.includes(filter)) : SITES
-
-  useEffect(() => {
-    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
-    import('mapbox-gl').then((mapboxgl) => {
-      if (!document.querySelector('link[href*="mapbox-gl"]')) {
-        const link = document.createElement('link'); link.rel = 'stylesheet'
-        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
-        document.head.appendChild(link)
-      }
-      mapboxgl.default.accessToken = MAPBOX_TOKEN
-      const map = new mapboxgl.default.Map({
-        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
-        center: [2, 28], zoom: 3.5, minZoom: 2.5, maxZoom: 10,
-      })
-      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
-      map.on('load', () => {
-        SITES.forEach(s => {
-          const mainPeriod = s.period[0]
-          const periodData = PERIODS.find(p => p.id === mainPeriod)
-          const color = periodData?.color || C.rock
-          const el = document.createElement('div')
-          el.style.cssText = `width:${s.unesco ? 16 : 12}px;height:${s.unesco ? 16 : 12}px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);cursor:pointer;`
-          const popup = new mapboxgl.default.Popup({ offset: 12, closeButton: false, maxWidth: '260px' })
-            .setHTML(`<div style="font-family:system-ui;"><strong style="font-size:13px;">${s.name}</strong><br/><span style="font-size:10px;color:#737373;">${s.country}${s.unesco ? ' · UNESCO' : ''}${s.altitude ? ' · ' + s.altitude : ''}</span><br/><span style="font-size:11px;margin-top:4px;display:block;">${s.engravings}</span></div>`)
-          new mapboxgl.default.Marker({ element: el, anchor: 'center' }).setLngLat([s.lng, s.lat]).setPopup(popup).addTo(map)
-        })
-      })
-      mapRef.current = map
-    })
-    return () => { mapRef.current?.remove(); mapRef.current = null }
-  }, [])
-
-  return (
-    <div>
-      <div ref={mapContainer} style={{ width: '100%', height: 420, borderRadius: 0, border: `1px solid ${C.border}` }} />
-      {!MAPBOX_TOKEN && (
-        <p className="text-[11px] p-3" style={{ color: C.muted }}>Map requires NEXT_PUBLIC_MAPBOX_TOKEN environment variable.</p>
-      )}
-      {/* Period filter legend */}
-      <div className="flex flex-wrap gap-2 mt-3">
-        <button onClick={() => setFilter(null)}
-          className="text-[9px] font-mono px-2 py-1 border transition-all"
-          style={{ borderColor: !filter ? C.ink : C.border, color: !filter ? C.ink : C.muted }}>
-          ALL SITES
-        </button>
-        {PERIODS.map(p => (
-          <button key={p.id} onClick={() => setFilter(filter === p.id ? null : p.id)}
-            className="text-[9px] font-mono px-2 py-1 border transition-all flex items-center gap-1"
-            style={{ borderColor: filter === p.id ? p.color : C.border, color: filter === p.id ? p.color : C.muted }}>
-            <span className="w-2 h-2 rounded-full inline-block" style={{ background: p.color }} />
-            {p.name.split('(')[0].trim()}
-          </button>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// ═══════════════════════════════════════════════════
-// PAGE
-// ═══════════════════════════════════════════════════
+let mapboxgl: typeof import('mapbox-gl') | null = null
 
 export default function BeforeTheSaharaPage() {
-  const heroR = useReveal()
-  const keyR = useReveal()
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+
+  const [mapLoaded, setMapLoaded] = useState(false)
+  const [mapLayer, setMapLayer] = useState<'zones' | 'oases'>('zones')
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+
+  // ── Mapbox init ──
+  useEffect(() => {
+    import('mapbox-gl').then((mb) => {
+      mapboxgl = mb
+      if (!mapContainer.current || mapRef.current) return
+      const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+      if (!token) return
+      mb.default.accessToken = token
+      const map = new mb.default.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [-5.5, 31.5],
+        zoom: 5.5,
+        attributionControl: false,
+        logoPosition: 'bottom-right',
+      })
+      map.addControl(new mb.default.NavigationControl({ showCompass: false }), 'bottom-right')
+      map.on('load', () => setMapLoaded(true))
+      mapRef.current = map
+    })
+    return () => { markersRef.current.forEach(m => m.remove()); mapRef.current?.remove() }
+  }, [])
+
+  // ── Markers ──
+  useEffect(() => {
+    if (!mapLoaded || !mapboxgl || !mapRef.current) return
+    markersRef.current.forEach(m => m.remove())
+    markersRef.current = []
+
+    if (mapLayer === 'zones') {
+      CLIMATE_ZONES.forEach((zone) => {
+        const el = document.createElement('div')
+        const size = 50
+        el.style.cssText = `width:${size}px;height:${size}px;border-radius:50%;background:${zone.color}22;border:2px solid ${zone.color};cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:9px;color:${zone.color};font-family:'IBM Plex Mono',monospace;text-align:center;line-height:1.1;padding:4px;`
+        el.textContent = zone.rainfall.split(',')[0]
+        const marker = new mapboxgl!.default.Marker({ element: el })
+          .setLngLat(zone.coords)
+          .setPopup(new mapboxgl!.default.Popup({ offset: 30, maxWidth: '280px', closeButton: false }).setHTML(`
+            <div style="font-family:'IBM Plex Mono',monospace">
+              <div style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#f5f5f5">${zone.name}</div>
+              <div style="font-size:11px;color:${zone.color};margin:4px 0">${zone.rainfall}</div>
+              <div style="font-size:11px;color:#888">${zone.area}</div>
+              <div style="font-size:11px;color:#aaa;margin-top:4px">${zone.vegetation}</div>
+              <div style="font-size:10px;color:#EF4444;margin-top:4px;font-style:italic">${zone.threat}</div>
+            </div>
+          `))
+          .addTo(mapRef.current)
+        markersRef.current.push(marker)
+      })
+    } else {
+      OASES.forEach((oasis) => {
+        const el = document.createElement('div')
+        el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${oasis.color};border:3px solid #0a0a0a;cursor:pointer;box-shadow:0 0 12px ${oasis.color}44;`
+        el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+        el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+        const marker = new mapboxgl!.default.Marker({ element: el })
+          .setLngLat(oasis.coords)
+          .setPopup(new mapboxgl!.default.Popup({ offset: 12, maxWidth: '280px', closeButton: false }).setHTML(`
+            <div style="font-family:'IBM Plex Mono',monospace">
+              <div style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#f5f5f5">${oasis.name}</div>
+              <div style="font-size:12px;color:#888;margin:2px 0">${oasis.nameAr}</div>
+              <div style="font-size:11px;color:${oasis.color};margin:4px 0;text-transform:uppercase;letter-spacing:0.05em">${oasis.status}</div>
+              <div style="font-size:11px;color:#aaa">${oasis.palmCount}</div>
+              <div style="font-size:10px;color:#EF4444;margin-top:4px;font-style:italic">${oasis.threat}</div>
+            </div>
+          `))
+          .addTo(mapRef.current)
+        markersRef.current.push(marker)
+      })
+    }
+  }, [mapLoaded, mapLayer])
+
+  // ── Observers ──
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-sid'); if (id) setVisibleSections(prev => new Set(prev).add(id)) } })
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' })
+    document.querySelectorAll('[data-sid]').forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
+  const maxNDVI = Math.max(...NDVI_TIMELINE.map(d => d.ndvi))
 
   return (
-    <div className="min-h-screen bg-white" style={{ color: C.ink }}>
+    <div className="-mt-16">
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
-        <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
-          ← All Data Modules
-        </Link>
-        <p className="micro-label mb-3" style={{ color: C.muted }}>Module 053 · Archaeological Intelligence</p>
-        <div ref={heroR.ref}>
-          <h1 className="font-serif text-[clamp(2.5rem,7vw,5rem)] leading-[0.9] tracking-[-0.02em] mb-4 transition-all duration-1000"
-            style={{ opacity: heroR.vis ? 1 : 0, transform: heroR.vis ? 'translateY(0)' : 'translateY(20px)' }}>
-            <em>Before the<br />Sahara</em>
-          </h1>
-          <p className="font-serif italic text-[clamp(1rem,2.5vw,1.4rem)] mb-6" style={{ color: C.muted }}>
-            12,000 years of rock art across North Africa. When the desert was green.
+      <section className="relative min-h-[100vh] flex flex-col justify-end overflow-hidden" style={{ background: '#0a0a0a' }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMidYMid slice">
+            {/* Sand dune pattern */}
+            {[0, 1, 2, 3, 4, 5].map(i => (
+              <path key={i} d={`M-100 ${300 + i * 80} Q200 ${250 + i * 80} 400 ${300 + i * 80} T800 ${300 + i * 80} T1300 ${300 + i * 80}`} stroke="#F59E0B" strokeWidth="0.5" fill="none" opacity={0.6 - i * 0.08} />
+            ))}
+          </svg>
+        </div>
+
+        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#F59E0B', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+            Data Module 049 — Environmental Intelligence
           </p>
-          <p className="text-[15px] leading-[1.8] max-w-[620px]" style={{ color: C.text }}>
-            The Sahara was not always a desert. Ten thousand years ago, it was a savanna crossed
-            by rivers and dotted with lakes, where elephants, hippos, and crocodiles lived alongside
-            human communities who hunted, herded, and prayed. They left their record on stone — more
-            than 15,000 paintings and engravings at Tassili n'Ajjer alone, thousands more scattered
-            across Morocco, Libya, and the edges of Egypt and Tunisia. These are not cave paintings
-            hidden underground. They are open-air galleries, etched into sandstone under the sun,
-            documenting the single most dramatic climate shift in recorded human experience: the
-            transformation of a grassland the size of the United States into the largest hot desert
-            on Earth. The art tracks the change — from elephants to cattle to horses to camels —
-            over five distinct periods spanning 12,000 years.
+          <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
+            Before<br />the Sahara
+          </h1>
+          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+            The land between Atlas and sand. Two-thirds of Morocco&rsquo;s oases
+            have vanished in a century. 15 million date palms reduced to 6 million.
+            NDVI vegetation data, climate zones, oasis collapse, and the green
+            projects trying to hold the line.
+          </p>
+
+          <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
+            {HERO_STATS.map((s) => (
+              <div key={s.label}>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#F59E0B', lineHeight: 1 }}>{s.value}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="max-w-wide mx-auto">
+          <div className="flex gap-2 px-6 md:px-10 pt-6">
+            {(['zones', 'oases'] as const).map((layer) => (
+              <button key={layer} onClick={() => setMapLayer(layer)} className="text-[10px] uppercase tracking-[0.08em] px-4 py-1.5 transition-all" style={{ background: mapLayer === layer ? '#F59E0B' : 'transparent', color: mapLayer === layer ? '#0a0a0a' : '#777', border: `1px solid ${mapLayer === layer ? '#F59E0B' : '#333'}` }}>
+                {layer === 'zones' ? 'Climate Zones' : 'Threatened Oases'}
+              </button>
+            ))}
+          </div>
+          <div className="relative" style={{ height: '60vh', borderBottom: '1px solid #1a1a1a' }}>
+            <div ref={mapContainer} className="absolute inset-0" />
+            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading map...</p></div>}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ NDVI CHART ═══ */}
+      <section className="bg-white">
+        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <p className="micro-label mb-4">001 — Vegetation Signal</p>
+          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">NDVI: The Land Speaks in Green</h2>
+          <p className="text-body text-dwl-body max-w-[620px] mb-12">The Normalized Difference Vegetation Index measures how green the land is from space. Higher values mean more living vegetation. Watch what happens to Morocco&rsquo;s pre-Saharan belt between 2018 and 2022 — and then the 2025 recovery.</p>
+
+          <div className="space-y-1.5">
+            {NDVI_TIMELINE.map((d, i) => {
+              const isVisible = visibleSections.has(`ndvi-${i}`)
+              const pct = (d.ndvi / maxNDVI) * 100
+              const isDrought = d.year >= 2018 && d.year <= 2024
+              const isRecovery = d.year >= 2025
+              const barColor = isRecovery ? '#22C55E' : isDrought ? '#EF4444' : '#F59E0B'
+              return (
+                <div key={d.year} data-sid={`ndvi-${i}`} className="flex items-center gap-4 transition-all duration-700" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateX(0)' : 'translateX(-16px)' }}>
+                  <span className="text-[12px] tabular-nums text-dwl-muted w-10 flex-shrink-0">{d.year}</span>
+                  <div className="flex-1 h-7 relative" style={{ background: '#f5f5f5' }}>
+                    <div className="h-full transition-all duration-1000" style={{ width: isVisible ? `${pct}%` : '0%', background: barColor, transitionDelay: `${i * 60}ms` }} />
+                  </div>
+                  <span className="text-[11px] tabular-nums w-9 flex-shrink-0 text-right" style={{ color: barColor }}>{d.ndvi.toFixed(2)}</span>
+                  {d.note && <span className="text-[10px] text-dwl-muted hidden md:block flex-shrink-0 max-w-[250px]">{d.note}</span>}
+                </div>
+              )
+            })}
+          </div>
+          <div className="flex gap-6 mt-6">
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#F59E0B' }} /><span className="text-[10px] text-dwl-muted uppercase">Pre-drought</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#EF4444' }} /><span className="text-[10px] text-dwl-muted uppercase">Drought (2018–2024)</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#22C55E' }} /><span className="text-[10px] text-dwl-muted uppercase">Recovery (2025)</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ QUOTE 1 ═══ */}
+      <section className="py-section flex items-center justify-center min-h-[40vh]" style={{ background: '#EF4444' }}>
+        <div className="max-w-[720px] px-6 md:px-10 text-center">
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', color: '#ffffff' }}>
+            The oases of Morocco have lost two-thirds of their surface area
+            in the past century. Date palms: from 15 million to 6 million.
+            The desert doesn&rsquo;t advance — the green retreats.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══ DESERTIFICATION DRIVERS ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>002 — Why It&rsquo;s Happening</p>
+          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Drivers of Collapse</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
+            {DESERTIFICATION_DRIVERS.map((d, i) => {
+              const isVisible = visibleSections.has(`driver-${i}`)
+              return (
+                <div key={d.driver} data-sid={`driver-${i}`} className="p-8 transition-all duration-700" style={{ background: '#0f0f0f', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
+                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#EF4444' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="font-serif text-[22px] italic mt-2 mb-3" style={{ color: '#f5f5f5' }}>{d.driver}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: '#aaa' }}>{d.detail}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ OASIS CARDS ═══ */}
+      <section className="bg-white">
+        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <p className="micro-label mb-4">003 — The Oases</p>
+          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Six Oases on the Edge</h2>
+          <p className="text-body text-dwl-body max-w-[560px] mb-12">Oases cover 15% of Morocco and are home to 2.2 million people. They are the ecological barrier against the Sahara. When they fall, everything north of them is exposed.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
+            {OASES.map((oasis, i) => {
+              const isVisible = visibleSections.has(`oasis-${i}`)
+              return (
+                <div key={oasis.name} data-sid={`oasis-${i}`} className="bg-white p-8 transition-all duration-700" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full" style={{ background: oasis.color }} />
+                    <span className="text-[10px] uppercase tracking-[0.08em]" style={{ color: oasis.color }}>{oasis.status}</span>
+                  </div>
+                  <h3 className="font-serif text-[24px] italic text-dwl-black leading-[1]">{oasis.name}</h3>
+                  <p className="text-[13px] text-dwl-muted mt-1">{oasis.nameAr}</p>
+                  <p className="text-[12px] text-dwl-gray mt-3">{oasis.palmCount}</p>
+                  <p className="text-[12px] italic mt-3" style={{ color: '#EF4444' }}>{oasis.threat}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ GREEN PROJECTS ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>004 — Holding the Line</p>
+          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Green Projects</h2>
+
+          <div className="space-y-0">
+            {GREEN_PROJECTS.map((p, i) => {
+              const isVisible = visibleSections.has(`green-${i}`)
+              return (
+                <div key={p.name} data-sid={`green-${i}`} className="py-8 transition-all duration-700" style={{ borderTop: '1px solid #1a1a1a', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10">
+                    <div className="md:col-span-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-3 h-3 rounded-full" style={{ background: p.color }} />
+                        <span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: p.color }}>{p.status}</span>
+                      </div>
+                      <h3 className="font-serif text-[22px] italic" style={{ color: '#f5f5f5' }}>{p.name}</h3>
+                      <p className="text-[11px] mt-1" style={{ color: '#666' }}>{p.scope}</p>
+                    </div>
+                    <div className="md:col-span-8">
+                      <p className="text-[15px] leading-relaxed" style={{ color: '#ccc' }}>{p.detail}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ QUOTE 2 ═══ */}
+      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#22C55E' }}>
+        <div className="max-w-[720px] px-6 md:px-10 text-center">
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
+            The Great Green Wall was supposed to be 8,000 km of trees
+            across Africa. It became something smarter — a mosaic of land
+            use practices. Not a wall. A way of living with the edge.
           </p>
         </div>
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
-        <div ref={keyR.ref} className="grid grid-cols-3 md:grid-cols-6 gap-4">
-          {KEY_NUMBERS.map((k, i) => (
-            <div key={k.label} className="border-t pt-2 transition-all duration-700"
-              style={{ borderColor: C.ochre, opacity: keyR.vis ? 1 : 0, transitionDelay: `${i * 60}ms` }}>
-              <p className="font-serif text-[clamp(1rem,2.5vw,1.4rem)] leading-none" style={{ color: C.ochre }}>{k.stat}</p>
-              <p className="text-[9px] font-mono mt-1" style={{ color: C.muted }}>{k.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
-
-      {/* ═══ I. THE FIVE PERIODS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
-        <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Five Periods</h2>
-        <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
-          Saharan rock art is classified into five chronological periods based on style, subject
-          matter, and climate. The sequence tracks a world drying out.
-        </p>
-        <div className="space-y-4">
-          {PERIODS.map((p, i) => {
-            const rv = useReveal()
-            return (
-              <div key={p.id} ref={rv.ref} className="border-l-4 pl-5 py-3 transition-all duration-500"
-                style={{ borderColor: p.color, opacity: rv.vis ? 1 : 0, transform: rv.vis ? 'translateX(0)' : 'translateX(-10px)', transitionDelay: `${i * 80}ms` }}>
-                <div className="flex items-baseline gap-3 mb-1">
-                  <p className="font-serif text-[17px]">{p.name}</p>
-                  <span className="text-[10px] font-mono" style={{ color: p.color }}>{p.dates}</span>
-                </div>
-                <p className="text-[12px] leading-relaxed mb-2" style={{ color: C.text }}>{p.description}</p>
-                <div className="flex gap-6 text-[10px] font-mono" style={{ color: C.muted }}>
-                  <span><strong>Animals:</strong> {p.animals}</span>
-                </div>
-                <p className="text-[10px] font-mono mt-1" style={{ color: C.muted }}><strong>Technique:</strong> {p.technique}</p>
+      <section className="bg-white">
+        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <p className="micro-label mb-4">005 — The Numbers</p>
+          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">Morocco&rsquo;s Land at a Glance</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: '#e5e5e5' }}>
+            {KEY_NUMBERS.map((n) => (
+              <div key={n.label} className="bg-white p-6 md:p-8">
+                <p className="font-serif italic text-[28px] md:text-[36px] text-dwl-black leading-none">{n.value}</p>
+                <p className="text-[12px] text-dwl-gray mt-2 font-medium">{n.label}</p>
+                <p className="text-[11px] text-dwl-muted mt-1">{n.note}</p>
               </div>
-            )
-          })}
-        </div>
-        {/* Visual timeline bar */}
-        <div className="mt-8 flex h-6 w-full overflow-hidden border" style={{ borderColor: C.border }}>
-          {PERIODS.map(p => (
-            <div key={p.id} className="h-full flex items-center justify-center" style={{ flex: 1, background: p.color }}>
-              <span className="text-white text-[7px] font-mono hidden md:block">{p.name.split(' ')[0]}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-between text-[8px] font-mono mt-1" style={{ color: C.muted }}>
-          <span>10,000 BCE</span><span>6,000 BCE</span><span>2,000 BCE</span><span>0 CE</span><span>Present</span>
-        </div>
-      </section>
-
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
-
-      {/* ═══ II. THE MAP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
-        <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Sites</h2>
-        <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
-          Major rock art sites across North Africa. Colour indicates the earliest period present
-          at each site. Click any marker for detail. UNESCO World Heritage Sites are shown larger.
-        </p>
-        <RockArtMap />
-      </section>
-
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
-
-      {/* ═══ III. SITE CARDS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
-        <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Archive</h2>
-        <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
-          {SITES.length} documented sites across four countries. Each card shows the periods
-          present, number of engravings, and what makes the site significant.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SITES.map((s, i) => {
-            const rv = useReveal()
-            const mainColor = PERIODS.find(p => p.id === s.period[0])?.color || C.rock
-            return (
-              <div key={s.name} ref={rv.ref} className="border p-4 transition-all duration-500"
-                style={{ borderColor: C.border, opacity: rv.vis ? 1 : 0, transform: rv.vis ? 'translateY(0)' : 'translateY(8px)', transitionDelay: `${(i % 6) * 40}ms` }}>
-                <div className="flex items-start justify-between mb-1">
-                  <div>
-                    <p className="font-serif text-[15px] leading-tight">{s.name}</p>
-                    <p className="text-[9px] font-mono" style={{ color: C.muted }}>
-                      {s.country}{s.unesco ? ' · UNESCO' : ''}{s.altitude ? ' · ' + s.altitude : ''}
-                    </p>
-                  </div>
-                  <div className="flex gap-0.5 shrink-0 ml-2">
-                    {s.period.map(pid => {
-                      const pc = PERIODS.find(p => p.id === pid)?.color || C.rock
-                      return <div key={pid} className="w-2 h-2 rounded-full" style={{ background: pc }} />
-                    })}
-                  </div>
-                </div>
-                <p className="text-[10px] font-mono mb-1.5" style={{ color: mainColor }}>{s.engravings}</p>
-                <p className="text-[11px] leading-relaxed" style={{ color: C.text }}>{s.description}</p>
-              </div>
-            )
-          })}
-        </div>
-      </section>
-
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
-
-      {/* ═══ IV. THE CLIMATE STORY ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
-        <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Climate Story</h2>
-        <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.text }}>
-          Rock art is a climate record. The animals depicted tell you what lived there, and
-          therefore what the landscape looked like. Read the art, and you read the weather.
-        </p>
-        <div className="space-y-3">
-          {[
-            { period: '10,000 BCE', climate: 'African Humid Period begins. Sahara receives monsoon rains. Rivers flow, lakes form (Lake Mega-Chad, Lake Mega-Fezzan). Elephant, hippo, crocodile inhabit what is now desert.', art: 'Bubaline engravings: life-size wild fauna. Proof of a green Sahara.', color: C.wild },
-            { period: '7,000 BCE', climate: 'Peak humidity. The "Green Sahara" — vegetation extends across the entire Saharan region. Human communities thrive as hunter-gatherers.', art: 'Round Head paintings: large ritual/shamanic figures. Dense habitation at Tassili shelters.', color: C.round },
-            { period: '5,500 BCE', climate: 'Gradual aridification begins. Pastoralism emerges as grasslands shrink. Communities transition from hunting to herding.', art: 'Bovidian period: domesticated cattle, herding scenes, camp life. The most abundant rock art period.', color: C.pastoral },
-            { period: '3,500 BCE', climate: 'Rapid desertification. Rivers dry up. Lakes shrink. Human populations migrate to Nile Valley, Atlas Mountains, and Mediterranean coast.', art: 'Fewer paintings. Cattle disappear from the record. Evidence of competition for remaining resources.', color: C.pastoral },
-            { period: '1,000 BCE', climate: 'Sahara essentially desert. Mobility becomes survival. Horses and chariots enable long-distance travel across arid terrain.', art: 'Horse Period: riders, chariots, weapons. In Morocco, Bronze Age metalwork depicted at high-altitude sites.', color: C.horse },
-            { period: '200 BCE – present', climate: 'Full desert. Only the camel allows habitation. Tuareg, Sahrawi, and other nomadic peoples traverse the sand sea.', art: 'Camel Period: caravans, Tifinagh script, armed riders. Still being made into the 20th century.', color: C.camel },
-          ].map((t, i) => {
-            const rv = useReveal()
-            return (
-              <div key={i} ref={rv.ref} className="flex gap-4 items-start transition-all duration-500"
-                style={{ opacity: rv.vis ? 1 : 0, transform: rv.vis ? 'translateX(0)' : 'translateX(-8px)' }}>
-                <div className="shrink-0 w-[80px] text-right">
-                  <span className="text-[10px] font-mono font-bold" style={{ color: t.color }}>{t.period}</span>
-                </div>
-                <div className="w-3 h-3 rounded-full mt-0.5 shrink-0" style={{ background: t.color }} />
-                <div className="flex-1 border-l pl-4" style={{ borderColor: C.border }}>
-                  <p className="text-[11px] leading-relaxed mb-1" style={{ color: C.text }}><strong>Climate:</strong> {t.climate}</p>
-                  <p className="text-[11px] leading-relaxed" style={{ color: C.muted }}><strong>Art:</strong> {t.art}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </section>
-
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
-
-      {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <p className="font-serif text-[18px] mb-2">Elephants at 2,630 Metres</p>
-            <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
-              Oukaïmeden, today a ski resort south of Marrakech, contains engravings of elephants
-              at 2,630m altitude. This is the only evidence of elephants at such elevation in North
-              Africa. It means the climate was warm enough for megafauna to graze at altitudes that
-              now receive heavy snow. The site also features Bronze Age weapons — halberds and daggers
-              with direct parallels to the El Argar culture of southern Spain, evidence of trans-Mediterranean
-              contact 4,000 years ago. The name means "Meeting Place of the Four Winds."
-            </p>
-          </div>
-          <div>
-            <p className="font-serif text-[18px] mb-2">The Cave of Swimmers</p>
-            <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
-              At Jebel Uweinat, where Egypt, Libya, and Sudan meet, painted figures appear to
-              be swimming. Today, the area receives virtually zero rainfall. The paintings are
-              evidence of a landscape so different from the present that it contained permanent
-              lakes deep enough to swim in. The site was discovered by László Almásy in 1933
-              and later inspired the Michael Ondaatje novel and the film "The English Patient."
-              It is one of the most poignant images in all rock art — humans in water, in a
-              place where no water has fallen in thousands of years.
-            </p>
-          </div>
-          <div>
-            <p className="font-serif text-[18px] mb-2">Heritage Under Threat</p>
-            <p className="text-[13px] leading-relaxed" style={{ color: C.text }}>
-              In 2014, Libya's Tadrart Acacus was reported being destroyed with sledgehammers.
-              Oil exploration sends seismic shockwaves through the rock. Tourists and locals
-              carve names next to 10,000-year-old engravings. The site has been on UNESCO's
-              Danger List since 2016. In Morocco, many southern sites remain unprotected, with
-              no fencing or surveillance. The Trust for African Rock Art (TARA) in Nairobi is
-              one of the few organisations systematically documenting what remains before it
-              is lost.
-            </p>
+            ))}
           </div>
         </div>
       </section>
-
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-4" style={{ color: C.muted }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
-          <p><strong>Morocco:</strong> British Museum African Rock Art Archive (africanrockart.britishmuseum.org), "Morocco" country page: 300+ documented sites, two main zones. Oukaïmeden: 250 rock art sites, ~1,068 depictions (Collado Giraldo 2014, Rodrigue 1999, Malhomme 1959/1961). Foum Chenna: 800+ schematic engravings (Abioui et al. 2019). Draa Valley described as the most significant concentration in Morocco (southeast-morocco.com). Four-period classification: Searight 2013, "Morocco's Rock Art: Age and Meaning," <em>Arts</em> 2(1), MDPI. Tazina style engravings at Aït Ouazik (wildmorocco.com). High Atlas Bronze Age weapon parallels to El Argar: Chenorkian, Lull et al. 2005.</p>
-          <p><strong>Algeria:</strong> Tassili n'Ajjer: UNESCO World Heritage listing (1982). 15,000+ paintings and engravings. Five-period chronology per UNESCO and David Coulson (TARA). Round Head period, "Great God of Sefar," and "Crying Cows" per National Geographic (2024) and Bradshaw Foundation. Lhote, H. (1958), <em>À la découverte des fresques du Tassili</em>. 72,000 km² area.</p>
-          <p><strong>Libya:</strong> Tadrart Acacus: UNESCO World Heritage listing (1985), Danger List (2016). Messak Settafet: tens of thousands of engravings (British Museum archive). Wadi Mathendous: Heinrich Barth expedition (1850). Vandalism reports: Bourget/Al-Hachi (2014); di Lernia et al. (2010). "Fighting Cats" engraving at Messak. Archaeological sequence: di Lernia & Gallinaro (2010), <em>Antiquity</em>.</p>
-          <p><strong>Climate:</strong> African Humid Period / Green Sahara: widely documented. Aridification timeline synthesised from UNESCO chronologies and Tassili n'Ajjer research. Cave of Swimmers: Almásy discovery (1933), Jebel Uweinat.</p>
+      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
+        <div className="max-w-wide mx-auto px-6 md:px-10">
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <div className="space-y-1">
+            {[
+              'IPCC Special Report on Climate Change and Land — Chapter 3: Desertification',
+              'MDPI Land (2025) — Estimating the Economic Cost of Land Degradation in Morocco',
+              'Nature Scientific Reports (2023) — Detecting desertification in the ancient oases of southern Morocco',
+              'Geographical (2025) — The lost oases of Morocco (Ministry of Agriculture data)',
+              'UNCCD & Morocco PANLCD (National Action Plan to Combat Desertification, 2001–present)',
+              'ANDZOA — Oasis Zone Development Agency (2022 data)',
+              'NASA Earth Observatory (2024) — Sahara greening event, MODIS NDVI',
+              'FAO Action Against Desertification — Great Green Wall implementation reports',
+              'Springer Geoenvironmental Disasters (2019) — Drought and desertification in Draa Valley',
+              'ScienceDirect (2022) — LULC monitoring, Ternata oasis 1991–2021',
+              'UNFCCC (Morocco submission) — Loss and damage in oasis zones',
+            ].map((s, i) => (
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+            ))}
+          </div>
+          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+            <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#F59E0B' }}>Source: Dancing with Lions</p>
+          </div>
+          <div className="mt-6">
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+              ← All Data Modules
+            </Link>
+          </div>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
-          © Dancing with Lions · dancingwithlions.com · Rock art chronologies are approximate and subject to ongoing revision. Direct dating of most engravings remains impossible. This visualisation may not be reproduced without visible attribution.
-        </p>
       </section>
     </div>
   )
