@@ -23,7 +23,7 @@ export const DESERT_TYPES: DesertType[] = [
     coverage: '~25% of the Sahara. The part everyone imagines. The part that is the minority.',
     detail: 'A vast area of wind-blown sand where dunes cover more than 20% of the surface. Technically, an erg must exceed 125 km² to qualify — smaller areas are "dune fields." Individual dunes in ergs exceed 500m in width or length. Sand depths range from centimetres (Selima Sand Sheet, Egypt) to 21–43m in the Sahara. Dunes are constantly migrating, reshaping, and burying. The sand itself is a geological product: wind sorts sediment, carrying away fine dust and silt, leaving heavier grains to accumulate in basins downwind of dry riverbeds, floodplains, and lake beds. 85% of all Earth\'s mobile sand is found in ergs exceeding 32,000 km². The largest erg on Earth is the Rub\' al Khali (Empty Quarter) in Arabia.',
     morocco: 'Two famous ergs: Erg Chebbi (near Merzouga) — 28km north-south × 5–7km east-west, dunes to 150–160m, ~200 km². Erg Chegaga (near M\'Hamid) — 40km expanse, dunes to 120m, more remote and wild. Also: Erg Lihoudi, Tinfou Dunes. All are on the far western edge of the Sahara, along the Algerian border.',
-    keyFact: 'Only ~25% of the Sahara is sand. The erg — the dune sea — is the minority landscape, not the majority',
+    keyFact: '~25% of the Sahara is sand. The erg is the minority landscape',
   },
   {
     name: 'Reg',
@@ -32,8 +32,8 @@ export const DESERT_TYPES: DesertType[] = [
     type: 'Gravel plain / stony desert',
     coverage: '~50% of desert surfaces worldwide. The dominant desert landscape.',
     detail: 'Vast, flat expanses of compacted earth covered with closely packed, interlocking angular or rounded rock fragments — pebbles and cobbles. Formed by deflation: wind strips away fine sand and silt, leaving behind a pavement of larger stones too heavy to move. Rain and thermal expansion crack rocks; wind takes the fragments it can carry and leaves the rest. The surface appears solid, almost paved. Vehicles can drive across reg at speed. The landscape is stark, monotonous, and extends to every horizon. Reg forms the "other 75%" — the desert nobody photographs, nobody dreams about, and almost everybody crosses without knowing its name.',
-    morocco: 'The vast plains between Ouarzazate and Merzouga. The territory south of the Anti-Atlas. The hammada du Drâa. Every road trip to the desert crosses reg — the flat, stony, apparently featureless landscape that fills hours of driving between the mountains and the dunes.',
-    keyFact: 'The desert you actually cross to reach the dunes. Flat, stony, vast, and invisible in every tourist photo',
+    morocco: 'The vast plains between Ouarzazate and Merzouga. The territory south of the Anti-Atlas. The hammada du Drâa. The flat, stony landscape that fills hours of driving between the mountains and the dunes.',
+    keyFact: 'The landscape between cities and dunes. Flat, stony, featureless in tourist photos',
   },
   {
     name: 'Hammada',
@@ -43,7 +43,7 @@ export const DESERT_TYPES: DesertType[] = [
     coverage: 'The majority of the Sahara is hammada. The skeleton of the desert.',
     detail: 'High, barren, hard rocky plateaus where most sand has been removed by deflation — wind erosion that strips away all loose material. What remains is basalt, limestone, or sandstone bedrock, polished by millennia of abrasion. Hammada differs from reg: reg is a gravel plain (stones on flat ground); hammada is an elevated plateau of exposed bedrock. Hammada is the Sahara\'s skeleton — the geological infrastructure revealed when everything softer has been blown away. Temperatures swing wildly: the rock absorbs heat by day and radiates it at night. Some hammadas show evidence of ancient rivers and lakes — fossils, water-carved canyons — that predate the Sahara\'s desertification 5,400 years ago.',
     morocco: 'The Hammada du Drâa stretches across southeastern Morocco. The landscape surrounding Erg Chebbi is "pancake-flat, grey hammada" (Lonely Planet). The Hamada du Guir extends east toward Algeria. These plateaus form the geological foundation on which Morocco\'s Saharan margin sits.',
-    keyFact: 'The Sahara is mainly hammada — not sand. The rock plateau that predates the desert by millions of years',
+    keyFact: 'Hammada predates the desert by millions of years. The Sahara is mainly rock, not sand',
   },
   {
     name: 'Oued',
@@ -53,7 +53,7 @@ export const DESERT_TYPES: DesertType[] = [
     coverage: 'The hidden river network. Dry for months or years, then flash-flood torrents.',
     detail: 'A valley carved by water that flows only intermittently — after rare rainfall, or seasonally fed by Atlas Mountain snowmelt. Most of the year, an oued is a dry gravel bed. But the valley form proves water was here. And will return. Flash floods in oueds are among the most dangerous natural events in the Sahara — walls of water arrive without warning in bone-dry valleys. Oueds are the desert\'s memory of rain. They mark routes for nomadic migration, host the only vegetation (acacia, tamarisk, date palm), and determine where oases form. The French colonial transliteration "oued" (from Arabic "wadi") is standard in Morocco. Every river name in Morocco is an oued.',
     morocco: 'Oued Drâa — Morocco\'s longest river (1,100km), flowing from the Atlas to (occasionally) the Atlantic, sustaining the Drâa Valley palm oases. Oued Ziz — feeds the Tafilalet oasis near Erfoud/Rissani. Oued Dadès — carves the Dadès Gorge. Oued Rheris — seasonal flow through the pre-Saharan south. These oueds made civilisation possible at the desert\'s edge.',
-    keyFact: 'The ghost of rain. Dry for years, then a wall of water. The river that shaped the valley and then vanished',
+    keyFact: 'Dry for years, then a wall of water',
   },
 ]
 

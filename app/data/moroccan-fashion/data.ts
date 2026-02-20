@@ -29,11 +29,11 @@ export interface EmbroideryStyle {
 }
 
 export const EMBROIDERY_STYLES: EmbroideryStyle[] = [
-  { name: 'Tarz El Fassi', arabic: 'الطرز الفاسي', city: 'Fez', character: 'Monochromatic, geometric, reversible. Both sides identical. The most restrained and refined. Blue or white thread on white fabric. Mathematical precision.' },
-  { name: 'Tarz El Tetouani', arabic: 'الطرز التطواني', city: 'Tetouan', character: 'Multicolour, floral, dramatic. Andalusian influence unmistakable. Bold colour combinations. Visible, theatrical, expressive. The most ornate of the three schools.' },
-  { name: 'Tarz El Rbati', arabic: 'الطرز الرباطي', city: 'Rabat', character: 'Modern, elegant, geometric but less rigid than Fassi. Restrained colour palette. The courtly style. Historically the capital\'s fashion — diplomatic, measured, beautiful.' },
+  { name: 'Tarz El Fassi', arabic: 'الطرز الفاسي', city: 'Fez', character: 'Monochromatic, geometric, reversible. Both sides identical. Blue or white thread on white fabric. Mathematical precision.' },
+  { name: 'Tarz El Tetouani', arabic: 'الطرز التطواني', city: 'Tetouan', character: 'Multicolour, floral, dramatic. Andalusian influence unmistakable. Bold colour combinations. Visible, theatrical, expressive. ' },
+  { name: 'Tarz El Rbati', arabic: 'الطرز الرباطي', city: 'Rabat', character: 'Modern, elegant, geometric but less rigid than Fassi. Restrained colour palette. Historically the capital\'s fashion — diplomatic, measured, beautiful.' },
   { name: 'Tarz l\'Ghorza', arabic: 'الطرز الغرزة', city: 'Various', character: 'Cross-stitch embroidery. Foundation technique. Each region adds its own vocabulary of patterns and motifs.' },
-  { name: 'Tarz l\'Fetla', arabic: 'الطرز الفتلة', city: 'Various', character: 'Gold and silver thread embroidery. The luxury technique. Used for bridal caftans. Metallic threads catch candlelight at ceremonies.' },
+  { name: 'Tarz l\'Fetla', arabic: 'الطرز الفتلة', city: 'Various', character: 'Gold and silver thread embroidery. Used for bridal caftans. Metallic threads catch candlelight at ceremonies.' },
 ]
 
 export interface CraftComponent {
@@ -43,9 +43,9 @@ export interface CraftComponent {
 }
 
 export const CRAFT_COMPONENTS: CraftComponent[] = [
-  { name: 'Sfifa', arabic: 'سفيفة', detail: 'Decorative silk or gold braid trim running down the caftan\'s front. Hand-braided. Ranges from pure gold to silver to multicoloured combinations. When light strikes sfifa — candlelight at a wedding, morning sun in a courtyard — it shimmers. Intentional enchantment.' },
+  { name: 'Sfifa', arabic: 'سفيفة', detail: 'Decorative silk or gold braid trim running down the caftan\'s front. Hand-braided. Ranges from pure gold to silver to multicoloured combinations.  Intentional enchantment.' },
   { name: 'Aakad', arabic: 'لعقاد', detail: 'Cherry-shaped handmade buttons and buttonholes (aayoun). Run vertically down the caftan\'s front closure. Among the most labour-intensive components. Each button hand-knotted. Irregular buttons signal authenticity — machine-made versions look too perfect.' },
-  { name: 'Mdamma', arabic: 'مضمة', detail: 'Wide ornate belt worn with the caftan. Historically significant in dowries. Gold or silver thread. The accessory that defines the silhouette — cinching the caftan at the waist transforms it from robe to gown.' },
+  { name: 'Mdamma', arabic: 'مضمة', detail: 'Wide ornate belt worn with the caftan. Historically significant in dowries. Gold or silver thread. Cinching the caftan at the waist transforms it from robe to gown.' },
   { name: 'Chmar', arabic: 'شمار', detail: 'Traditional jewel piece used to roll up caftan sleeves. Functional and decorative. Featured in Casablanca brand\'s FW23 Paris show — designed by Dihyan\'s Youssra Nichane. The detail that caught Naomi Campbell\'s eye.' },
 ]
 
