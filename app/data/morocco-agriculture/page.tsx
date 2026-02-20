@@ -515,7 +515,7 @@ export default function AgricultureRadialChart() {
           fontStyle: 'italic',
           color: '#C62828',
         }}>
-          © Dancing with Lions
+          Source: Dancing with Lions
         </p>
       </div>
     </div>

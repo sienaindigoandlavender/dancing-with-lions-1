@@ -477,7 +477,7 @@ export default function MaghrebComparedPage() {
                 This visualization may not be reproduced without visible attribution.
               </p>
               <p className="font-serif text-[16px] text-dwl-black italic mt-2">
-                © Dancing with Lions
+                Source: Dancing with Lions
               </p>
             </div>
 
