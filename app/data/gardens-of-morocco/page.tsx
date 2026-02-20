@@ -1,12 +1,42 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { GARDENS, ISLAMIC_GARDEN_PRINCIPLES, WATER_SYSTEMS, HISTORY, HERO_STATS, KEY_NUMBERS, THREAD_COLORS, BIBLIOGRAPHY } from './data'
+import { GARDENS, ISLAMIC_GARDEN_PRINCIPLES, WATER_SYSTEMS, HISTORY, HERO_STATS, KEY_NUMBERS, THREAD_COLORS, BIBLIOGRAPHY, MAP_POINTS } from './data'
 
 const ACCENT = '#16A34A'
 
 export default function GardensPage() {
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function GardenMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-7.0, 32.8], zoom: 5.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 14, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 12, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
   const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeGarden, setActiveGarden] = useState(0)
   const [activeThread, setActiveThread] = useState<string | null>(null)
@@ -114,6 +144,12 @@ export default function GardensPage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#16A34A' }}>The Gardens — Mapped</p>
+        <GardenMap />
+      </div></section>
 
       {/* ═══ ISLAMIC GARDEN PRINCIPLES ═══ */}
       <section style={{ background: '#0a0a0a' }}>

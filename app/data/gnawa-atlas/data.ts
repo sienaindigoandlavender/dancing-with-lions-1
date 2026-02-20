@@ -178,3 +178,13 @@ export const BIBLIOGRAPHY = [
   { source: 'Mohammed Ennaji / Afropop Worldwide', detail: 'Historian interview. Gnawa origins in Guinea/West Africa. Integration patterns. 19th century documentation. Southern Morocco "slave parties" tradition' },
   { source: 'Dar Gnawa', detail: 'Guembri construction and symbolism. Maalem biographies (Guinia, Baqbou, Boussou, El Kasri, Hakmoun). Manufacturing process documentation' },
 ]
+
+export const MAP_POINTS = [
+  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, label: 'Marsaoui school', detail: 'Guinia dynasty. Atlantic coast style. Guembri dominance.', color: '#7C3AED' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, label: 'Marrakchi school', detail: 'Baqbou lineage. Urban, percussive. Djemaa el-Fna origins.', color: '#7C3AED' },
+  { name: 'Tangier', lat: 35.7595, lng: -5.8340, label: 'Northern school', detail: 'El Gourd, Stitou. Shamali influences. Jazz adjacency.', color: '#7C3AED' },
+  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, label: 'Urban base', detail: 'Boussou family. Ceremony over performance.', color: '#7C3AED' },
+  { name: 'Rabat / Salé', lat: 34.0209, lng: -6.8416, label: 'Gnaoua Blues', detail: 'Bekkas, El Kasri. Bridge between styles.', color: '#7C3AED' },
+  { name: 'Khamlia', lat: 31.0833, lng: -4.0000, label: 'Desert Gnawa', detail: 'Sub-Saharan origins preserved. Khamlia village near Erg Chebbi.', color: '#7C3AED' },
+  { name: 'Agadir', lat: 30.4278, lng: -9.5981, label: 'Southern coast', detail: 'Soussi Gnawa. Berber-influenced traditions.', color: '#7C3AED' },
+]

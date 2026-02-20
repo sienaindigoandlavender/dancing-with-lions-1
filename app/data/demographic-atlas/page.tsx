@@ -280,6 +280,47 @@ function FertilityChart() {
 }
 
 // ═══ MAIN PAGE ═══
+
+const DEMOGRAPHIC_ATLAS_MAP_POINTS = [
+  { name: 'Casablanca-Settat', lat: 33.57, lng: -7.59, pop: '7.4M', density: 'Highest', color: '#2D3A6E' },
+  { name: 'Rabat-Salé-Kénitra', lat: 34.02, lng: -6.84, pop: '4.9M', density: 'High', color: '#3B5998' },
+  { name: 'Marrakech-Safi', lat: 31.63, lng: -8.01, pop: '4.7M', density: 'Medium', color: '#4A7C8B' },
+  { name: 'Fès-Meknès', lat: 34.03, lng: -5.00, pop: '4.4M', density: 'Medium', color: '#4A7C8B' },
+  { name: 'Tanger-Tétouan-Al Hoceïma', lat: 35.76, lng: -5.83, pop: '3.8M', density: 'Medium', color: '#4A7C8B' },
+  { name: 'Souss-Massa', lat: 30.43, lng: -9.60, pop: '2.9M', density: 'Medium', color: '#6B8BA4' },
+  { name: 'Drâa-Tafilalet', lat: 31.93, lng: -5.53, pop: '1.7M', density: 'Low', color: '#8B7355' },
+  { name: 'Dakhla-Oued Ed-Dahab', lat: 23.68, lng: -15.96, pop: '0.2M', density: 'Lowest', color: '#C17F28' },
+]
+const MAPBOX_TOKEN_DEMOGRAPHIC_ATLAS = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function DemographicatlasMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN_DEMOGRAPHIC_ATLAS || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN_DEMOGRAPHIC_ATLAS!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6.5, 32], zoom: 5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        DEMOGRAPHIC_ATLAS_MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.pop} — ${p.density} density</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function DemographicAtlasPage() {
   const heroR = useReveal()
   const numsR = useReveal()
@@ -606,7 +647,14 @@ export default function DemographicAtlasPage() {
         </div>
       </section>
 
-      {/* CLOSING */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Population Density — Mapped</p>
+        <DemographicatlasMap />
+      </div></section>
+
+{/* CLOSING */}
       <section className="px-8 md:px-[8%] lg:px-[12%] mt-4">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>

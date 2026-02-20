@@ -149,3 +149,13 @@ export const HERO_STATS = [
   { value: '52', label: 'Years Bowles lived in Tangier' },
   { value: '4', label: 'Literary eras' },
 ]
+
+export const MAP_POINTS = [
+  { name: 'Tangier', lat: 35.7595, lng: -5.8340, detail: 'Bowles, Burroughs, Choukri, Mrabet. The Interzone.', color: '#F59E0B' },
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Ibn Battuta. Al-Qarawiyyin scholars. Ben Jelloun born here.', color: '#3B82F6' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Canetti, Orwell. Djemaa el-Fna as literary landscape.', color: '#EF4444' },
+  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, detail: 'Orson Welles, Hendrix myth. Wind & writers.', color: '#8B5CF6' },
+  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, detail: 'Driss Chraïbi. Urban modernity. Laroui.', color: '#737373' },
+  { name: 'Safi', lat: 32.2994, lng: -9.2372, detail: 'Khatibi birthplace. Atlantic intellectual tradition.', color: '#14B8A6' },
+  { name: 'El Jadida', lat: 33.2561, lng: -8.5007, detail: 'Portuguese heritage. Laroui\'s The Year of the Elephant.', color: '#14B8A6' },
+]

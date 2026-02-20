@@ -229,6 +229,42 @@ function CompBar({ label, values, unit, maxV }: { label: string; values: { name:
   )
 }
 
+const PEAK_MAP_POINTS = [
+  { name: 'Jbel Toubkal', lat: 31.0597, lng: -7.9153, elev: '4,167m', color: C.toubkal },
+  { name: 'Jbel Saghro', lat: 31.2500, lng: -5.8333, elev: '2,712m', color: C.saghro },
+  { name: 'Kilimanjaro', lat: -3.0674, lng: 37.3556, elev: '5,895m', color: C.kili },
+  { name: 'Everest', lat: 27.9881, lng: 86.9250, elev: '8,849m', color: C.everest },
+]
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function PeakMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/outdoors-v12', center: [30, 15], zoom: 2.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        PEAK_MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:16px;height:16px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.9);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 12px ${p.color}66;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.5)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1500 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '200px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 2px;color:#333">${p.name}</p><p style="font-size:13px;color:${p.color};margin:0">${p.elev}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '420px', background: '#f5f5f5' }} />
+}
+
 // ═══ PAGE ═══
 export default function FourPeaksPage() {
   const heroR = useReveal()
@@ -261,6 +297,11 @@ export default function FourPeaksPage() {
           expedition. Everest is a two-month campaign that kills people. The chart below draws
           them to scale.
         </p>
+      </section>
+
+      {/* MAP */}
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
+        <PeakMap />
       </section>
 
       {/* ELEVATION PROFILE */}

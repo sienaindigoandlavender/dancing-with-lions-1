@@ -1,13 +1,42 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { INSTRUMENTS, SEVEN_COLOURS, MAALEMS, LILA_PHASES, HISTORY, HERO_STATS, KEY_NUMBERS, REGIONAL_STYLES, KEY_VOCABULARY, BIBLIOGRAPHY } from './data'
+import { INSTRUMENTS, SEVEN_COLOURS, MAALEMS, LILA_PHASES, HISTORY, HERO_STATS, KEY_NUMBERS, REGIONAL_STYLES, KEY_VOCABULARY, BIBLIOGRAPHY, MAP_POINTS } from './data'
 
 const ACCENT = '#8B2FC9'
 const THREAD_COLORS: Record<string, string> = {
   origin: '#8B7355', formation: '#8B2FC9', modern: '#3B82F6',
   global: '#22C55E', festival: '#E8A94E', recognition: '#EF4444',
+}
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function GnawaMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6.5, 32.5], zoom: 5.2, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 12, closeButton: false, maxWidth: '240px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:${p.color};margin:0 0 2px">${p.label}</p><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '520px', background: '#0a0a0a' }} />
 }
 
 export default function GnawaAtlasPage() {
@@ -237,6 +266,13 @@ export default function GnawaAtlasPage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ MAP — Gnawa Geography ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7C3AED' }}>006 — Geography</p>
+        <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#fff' }}>The Schools</h2>
+        <GnawaMap />
+      </div></section>
 
       {/* ═══ REGIONAL STYLES — Wide horizontal cards ═══ */}
       <section className="bg-white">

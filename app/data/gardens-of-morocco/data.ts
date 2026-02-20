@@ -226,3 +226,10 @@ export const BIBLIOGRAPHY = [
   { source: 'Mohammed VI Foundation for Environmental Protection', detail: 'Jnan Sbil rehabilitation project (2006–2010). 3,000 plant species conserved. Hydraulic system restoration. Princess Lalla Hasnaa patronage' },
   { source: 'Visit Marrakech / El Faïz, Mohammed', detail: '"The Garden Strategy of the Almohad Sultans." 45km khettara network. Three-tier oasis agriculture. Almohad urban planning philosophy' },
 ]
+
+export const MAP_POINTS = [
+  { name: 'Agdal Gardens', lat: 31.6135, lng: -7.9879, detail: 'Almohad, 1157. 405 hectares. Royal irrigation.', color: '#16A34A' },
+  { name: 'Menara Gardens', lat: 31.6227, lng: -8.0225, detail: 'Almohad, 12th C. Iconic pavilion. Olive groves.', color: '#16A34A' },
+  { name: 'Jardin Majorelle', lat: 31.6419, lng: -8.0032, detail: 'Majorelle 1923, YSL 1980. Cobalt blue.', color: '#2563EB' },
+  { name: 'Jnan Sbil', lat: 34.0597, lng: -4.9878, detail: 'Fez, 18th C. Royal park. Open since 2011.', color: '#16A34A' },
+]
