@@ -472,12 +472,12 @@ export default function MaghrebComparedPage() {
             <div className="mt-8 pt-6 border-t border-dwl-border">
               <p className="text-[11px] text-dwl-black font-medium">
                 &copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
               </p>
               <p className="text-[11px] text-dwl-gray mt-1">
-                This visualization may not be reproduced without visible attribution.
               </p>
               <p className="font-serif text-[16px] text-dwl-black italic mt-2">
-                Source: Dancing with Lions
+                Sources: World Bank, IMF, HCP
               </p>
             </div>
 

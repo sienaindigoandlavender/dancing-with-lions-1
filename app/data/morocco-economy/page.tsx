@@ -491,12 +491,12 @@ export default function MoroccoEconomyPage() {
           <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             </p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
-              This visualization may not be reproduced without visible attribution.
             </p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#E63946' }}>
-              Source: Dancing with Lions
+              Sources: World Bank, IMF, HCP Morocco
             </p>
           </div>
 

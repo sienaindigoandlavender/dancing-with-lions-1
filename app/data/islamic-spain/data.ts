@@ -1,5 +1,5 @@
 // Islamic Spain — 781 Years of Al-Andalus
-// Source: Dancing with Lions research
+// Sources: Historical records, UNESCO research
 // Synthesized from: Britannica, World History Encyclopedia, Met Museum,
 // Richard Bulliet conversion model, Colmeiro, Lévi-Provençal
 

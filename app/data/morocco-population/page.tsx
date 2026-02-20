@@ -735,7 +735,7 @@ function Sources() {
             &copy; {new Date().getFullYear()} Dancing with Lions
           </p>
           <p className="font-serif text-[18px] italic mt-2" style={{ color: '#48BFE3' }}>
-            Source: Dancing with Lions
+            Sources: HCP Morocco, 2024 Census
           </p>
         </div>
 

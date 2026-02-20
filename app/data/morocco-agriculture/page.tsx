@@ -507,7 +507,6 @@ export default function AgricultureRadialChart() {
         gap: '8px',
       }}>
         <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.2)' }}>
-          © {new Date().getFullYear()} Dancing with Lions · This visualization may not be reproduced without attribution
         </p>
         <p style={{
           fontFamily: "'Georgia', 'Times New Roman', serif",
@@ -515,7 +514,7 @@ export default function AgricultureRadialChart() {
           fontStyle: 'italic',
           color: '#C62828',
         }}>
-          Source: Dancing with Lions
+          Sources: FAO, Ministry of Agriculture Morocco
         </p>
       </div>
     </div>
