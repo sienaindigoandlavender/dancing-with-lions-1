@@ -108,7 +108,7 @@ export const POINTS: CulturalPoint[] = [
     city: 'Rabat',
     country: 'morocco',
     period: '12th c.',
-    description: 'Unfinished Almohad minaret. Would have been the tallest in the world. 348 columns of an unfinished mosque. Third sister to the Giralda and Koutoubia.',
+    description: 'Unfinished Almohad minaret. Intended as the tallest in the world. 348 columns of an unfinished mosque. Third sister to the Giralda and Koutoubia.',
     connection: 'Third triplet minaret with Giralda and Koutoubia',
   },
   {
@@ -132,7 +132,7 @@ export const POINTS: CulturalPoint[] = [
     city: 'Fes',
     country: 'morocco',
     period: '9th c.',
-    description: 'Founded 859 CE. Oldest continuously operating university in the world. Horseshoe arches, ribbed domes, courtyard plan — the architectural mother of the tradition.',
+    description: 'Founded 859 CE. Oldest continuously operating university in the world. Horseshoe arches, ribbed domes, courtyard plan — the architectural source of the tradition.',
     connection: 'Founded by Andalusi refugees from Kairouan. The name "Qarawiyyin" = "from Kairouan"',
   },
   {
@@ -294,7 +294,7 @@ export const POINTS: CulturalPoint[] = [
     city: 'Madrid',
     country: 'spain',
     description: '"Ojalá" — "hopefully" in Spanish. Directly from Arabic "inshallah" (إن شاء الله). One of ~4,000 Arabic-origin words in Spanish.',
-    connection: 'Spanish ojalá = Arabic inshallah. The most used Arabic word in daily Spanish.',
+    connection: 'Spanish ojalá = Arabic inshallah. The most common Arabic word in daily Spanish.',
   },
   {
     id: 'azulejo',

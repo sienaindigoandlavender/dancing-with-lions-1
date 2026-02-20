@@ -44,7 +44,7 @@ export const CITIES: CoastalCity[] = [
   {
     id: 'el-jadida', name: 'El Jadida', coords: [-8.5007, 33.2316], km: 450,
     character: 'The Portuguese cistern.',
-    detail: 'Portuguese city of Mazagan — UNESCO World Heritage. The underground cistern is the most photographed ruin in Morocco. Offshore wind peaks here at 9 m/s. Jorf Lasfar — world\'s largest phosphate fertilizer complex — is 20 km south.',
+    detail: 'Portuguese city of Mazagan — UNESCO World Heritage. The underground cistern draws more cameras than any ruin in Morocco. Offshore wind peaks here at 9 m/s. Jorf Lasfar — world\'s largest phosphate fertilizer complex — is 20 km south.',
     tags: ['heritage', 'wind', 'industry'], color: '#3B82F6',
   },
   {

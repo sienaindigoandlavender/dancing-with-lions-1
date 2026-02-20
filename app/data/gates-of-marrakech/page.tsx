@@ -50,8 +50,8 @@ const GATES: Gate[] = [
   {
     name: 'Bab Debbagh', arabic: 'باب الدباغ', meaning: 'Gate of the Tanners',
     era: 'almoravid', lat: 31.6355, lng: -7.9770, facing: 'Northeast',
-    story: 'The most architecturally complex gate in the city. Named for the tanneries that have operated here since the Almoravid period — nearly 900 years. The passage bends five times in an almost S-shaped path through two open-air courts and one covered chamber. Designed to make breach impossible.',
-    architecture: 'Five successive turns. Two open-air courtyards. One vaulted interior chamber. The most elaborate defensive gate design in Marrakech. Still smells of the tanneries.',
+    story: 'The most complex gate in the city. Named for the tanneries that have operated here since the Almoravid period — nearly 900 years. The passage bends five times in an almost S-shaped path through two open-air courts and one covered chamber. Designed to make breach impossible.',
+    architecture: 'Five successive turns. Two open-air courtyards. One vaulted interior chamber. The most layered defensive gate in Marrakech. Still smells of the tanneries.',
     status: 'Standing. Major tourist landmark.', zone: 'medina',
   },
   {
@@ -78,7 +78,7 @@ const GATES: Gate[] = [
   {
     name: 'Bab Doukkala', arabic: 'باب دكالة', meaning: 'Gate of the Doukkala (Atlantic plains tribe)',
     era: 'almohad', lat: 31.6350, lng: -8.0050, facing: 'West',
-    story: 'One of the most impressive gates. Named for the Doukkala and Chaouia plains — caravans from the Atlantic coast entered through here. Two massive flanking towers with a corridor between them. The Bab Doukkala Mosque is just inside. In 2005, the Place des Sept Saints monument was erected outside — seven towers commemorating the Seven Saints, standing without signage.',
+    story: ' Named for the Doukkala and Chaouia plains — caravans from the Atlantic coast entered through here. Two massive flanking towers with a corridor between them. The Bab Doukkala Mosque is just inside. In 2005, the Place des Sept Saints monument was erected outside — seven towers commemorating the Seven Saints, standing without signage.',
     architecture: 'Two large square towers. Wide passage. One of the best-preserved defensive gate complexes. The bus station nearby makes it the first gate many visitors see.',
     status: 'Standing. Major entry point. Seven Saints monument outside.', zone: 'medina',
   },
@@ -99,7 +99,7 @@ const GATES: Gate[] = [
   {
     name: 'Bab el-Jedid', arabic: 'باب الجديد', meaning: 'The New Gate',
     era: 'modern', lat: 31.6230, lng: -8.0050, facing: 'West-southwest',
-    story: 'The most heavily trafficked gate today. Located between the legendary La Mamounia hotel and the Hivernage district. "Jedid" means "new" — it was cut through the walls later to ease modern traffic flow. The gateway between the old city and the French-built new town.',
+    story: 'The busiest gate today. Located between the legendary La Mamounia hotel and the Hivernage district. "Jedid" means "new" — it was cut through the walls later to ease modern traffic flow. The gateway between the old city and the French-built new town.',
     architecture: 'Modern opening. Wide enough for vehicle traffic. Functional rather than defensive.',
     status: 'Standing. Busiest gate in the city.', zone: 'medina',
   },

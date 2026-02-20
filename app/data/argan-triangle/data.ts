@@ -82,5 +82,5 @@ export const KEY_NUMBERS = [
   { value: '50%', label: 'Forest lost in 100 years', note: 'Density dropped from 100 to 30 trees/hectare. Charcoal, overgrazing, urbanisation, drought.' },
   { value: '1:1', label: 'Cosmetic-to-culinary split', note: 'Cosmetics & personal care: ~66% of market. Culinary: growing segment. Pharmaceuticals emerging.' },
   { value: '688', label: 'Women\'s cooperatives', note: 'Of 1,014 total. Women lead the entire extraction process. Fair wages, literacy training, community reinvestment.' },
-  { value: 'May 10', label: 'International Argan Day', note: 'UN resolution 2021. Proposed by Morocco. 113 co-sponsors. The only UN day dedicated to a tree.' },
+  { value: 'May 10', label: 'International Argan Day', note: 'UN resolution 2021. Proposed by Morocco. 113 co-sponsors. The only UN day for a single tree.' },
 ]

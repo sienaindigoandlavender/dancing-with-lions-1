@@ -42,7 +42,7 @@ export const WRITERS: Writer[] = [
     moroccoConnection: 'Born in the Rif. Migrated to Tangier. Learned to read at 21.',
     keyWork: 'For Bread Alone', keyWorkYear: '1973',
     otherWorks: ['Streetwise (1996)', 'In Tangier (portraits of Genet, Williams, Bowles)'],
-    detail: 'The most important Moroccan literary voice of the 20th century. Born in poverty in the Rif during famine. His father killed his brother. Migrated to Tangier as a child. Illiterate until 21, when he enrolled in primary school. Became a schoolteacher, then a writer. For Bread Alone — dictated to Bowles in Spanish, translated into English — was banned in Morocco and across the Arab world for its unflinching depiction of poverty, sex, and survival. French edition translated by Tahar Ben Jelloun became a bestseller in France.',
+    detail: 'Born in poverty in the Rif during famine. His father killed his brother. Migrated to Tangier as a child. Illiterate until 21, when he enrolled in primary school. Became a schoolteacher, then a writer. For Bread Alone — dictated to Bowles in Spanish, translated into English — was banned in Morocco and across the Arab world for its unflinching depiction of poverty, sex, and survival. French edition translated by Tahar Ben Jelloun became a bestseller in France.',
     location: 'Tangier / Rif', era: 'moroccan-voices', color: '#F59E0B',
   },
   {
@@ -58,7 +58,7 @@ export const WRITERS: Writer[] = [
     moroccoConnection: 'Visited Marrakech in 1954. Wrote The Voices of Marrakesh.',
     keyWork: 'The Voices of Marrakesh', keyWorkYear: '1967',
     otherWorks: ['Crowds and Power (1960)', 'Auto-da-Fé (1935)'],
-    detail: 'Nobel Prize winner (1981). Spent only a few weeks in Marrakech in 1954 but produced one of the most penetrating books ever written about Morocco. Fourteen short episodes — the souks, the Djemaa el-Fna, the mellah, the blind beggars, the storytellers. Written in German, published 13 years after the visit. A masterclass in the essay form. No orientalist gaze — Canetti writes with humility about what he cannot understand.',
+    detail: 'Nobel Prize winner (1981). Spent only a few weeks in Marrakech in 1954 but produced one of the sharpest books on Morocco. Fourteen short episodes — the souks, the Djemaa el-Fna, the mellah, the blind beggars, the storytellers. Written in German, published 13 years after the visit. A masterclass in the essay form. No orientalist gaze — Canetti writes with humility about what he cannot understand.',
     location: 'Marrakech', era: 'interzone', color: '#A855F7',
   },
   {

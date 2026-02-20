@@ -54,7 +54,7 @@ const SITES: Site[] = [
   {
     name: 'Kutubiyya Minaret', city: 'Marrakech', region: 'morocco', category: 'minaret',
     lat: 31.6240, lng: -7.9935, date: 'Before 1195', caliph: 'Abu Yusuf Ya\'qub al-Mansur',
-    story: 'The most influential minaret in the western Islamic world. 77 metres tall including the finial, built in red sandstone from the Gueliz quarries. Square shaft, ratio of height to width approximately 5:1 — the Almohad formula. Interior ramp (not stairs) wide enough for a horseman to ride to the top. Four copper orbs crown the summit — most Moroccan minarets have three. Opposite faces have alternate decorative patterns. The blueprint for the Giralda in Seville and the Hassan Tower in Rabat.',
+    story: 'The model for minarets across the western Islamic world. 77 metres tall including the finial, built in red sandstone from the Gueliz quarries. Square shaft, ratio of height to width approximately 5:1 — the Almohad formula. Interior ramp (not stairs) wide enough for a horseman to ride to the top. Four copper orbs crown the summit — most Moroccan minarets have three. Opposite faces have alternate decorative patterns. The blueprint for the Giralda in Seville and the Hassan Tower in Rabat.',
     status: 'Standing. Symbol of Marrakech.', significance: 3,
   },
   {

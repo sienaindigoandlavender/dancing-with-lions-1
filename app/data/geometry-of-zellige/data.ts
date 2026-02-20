@@ -27,7 +27,7 @@ export const STAR_PATTERNS: StarPattern[] = [
   {
     id: 'eight', points: 8, name: 'Eight-Pointed Star', nameAr: 'نجمة ثمانية',
     foldSymmetry: 4, construction: 'Two squares, one rotated 45° relative to the other, inscribed in a circle',
-    detail: 'The most iconic Islamic star pattern. Two interlocking squares create the octagram — the khatam or "seal." Produces 4-fold rotational symmetry. The gaps between stars form crosses and smaller squares. The 8-pointed star is the single most common motif in Moroccan zellige, found on virtually every significant building.',
+    detail: 'Two interlocking squares create the octagram — the khatam or "seal." Produces 4-fold rotational symmetry. The gaps between stars form crosses and smaller squares. The 8-pointed star is the single most common motif in Moroccan zellige, found on virtually every significant building.',
     whereFound: 'Everywhere. Hassan II Mosque, Alhambra, Ben Youssef Madrasa', color: '#3B82F6',
   },
   {
@@ -39,7 +39,7 @@ export const STAR_PATTERNS: StarPattern[] = [
   {
     id: 'twelve', points: 12, name: 'Twelve-Pointed Star', nameAr: 'نجمة اثنا عشرية',
     foldSymmetry: 6, construction: 'Three squares at 30° intervals, or four equilateral triangles at 30° intervals',
-    detail: 'The most complex star common in Moroccan zellige. Based on the 12-fold division of the circle — the same geometry governing clock faces and the zodiac. Produces intricate surrounding polygons: hexagons, squares, and triangles interlock in patterns of remarkable density. The key generative motif for some of the most elaborate Marinid-era compositions.',
+    detail: 'The most complex star in Moroccan zellige. Based on the 12-fold division of the circle — the same geometry governing clock faces and the zodiac. Produces intricate surrounding polygons: hexagons, squares, and triangles interlock in patterns of remarkable density. The key generative motif for some of the most elaborate Marinid-era compositions.',
     whereFound: 'Al-Attarine Madrasa (Fes), Bahia Palace (Marrakech)', color: '#F59E0B',
   },
   {
@@ -82,7 +82,7 @@ export const WALLPAPER_GROUPS: WallpaperGroup[] = [
   { notation: 'pgg', orbifold: '22x', rotationOrder: '2', description: 'Two perpendicular glide reflections plus 180° rotations. No pure reflections.', inZellige: true },
   { notation: 'cmm', orbifold: '2*22', rotationOrder: '2', description: 'Mirror lines in two directions with 180° rotation centers. Centred cell.', inZellige: true },
   { notation: 'p4', orbifold: '442', rotationOrder: '4', description: '90° rotations. Square lattice. No reflections. The geometry behind the 8-pointed star.', inZellige: true },
-  { notation: 'p4m', orbifold: '*442', rotationOrder: '4', description: '90° rotations with mirror lines. The most common symmetry group in Moroccan zellige.', inZellige: true },
+  { notation: 'p4m', orbifold: '*442', rotationOrder: '4', description: '90° rotations with mirror lines. Common in Moroccan zellige.', inZellige: true },
   { notation: 'p4g', orbifold: '4*2', rotationOrder: '4', description: '90° rotations with glide reflections but no mirrors through rotation centers.', inZellige: true },
   { notation: 'p3', orbifold: '333', rotationOrder: '3', description: '120° rotations only. Hexagonal lattice. No reflections. Relatively uncommon in zellige.', inZellige: false },
   { notation: 'p3m1', orbifold: '*333', rotationOrder: '3', description: '120° rotations with mirror lines through all rotation centers.', inZellige: true },
@@ -107,8 +107,8 @@ export const CONSTRUCTION: ConstructionStep[] = [
 ]
 
 export const COLOR_SYMBOLISM = [
-  { color: 'Blue', hex: '#2563EB', meaning: 'Sky and water. The most valued color in zellige. Derived from cobalt oxide. Symbolizes infinity and the divine.' },
-  { color: 'Green', hex: '#16A34A', meaning: 'Paradise. The color of Islam. Derived from copper oxide. Found in sacred spaces — mosques, madrasas, zawiyas.' },
+  { color: 'Blue', hex: '#2563EB', meaning: 'Sky and water.  Derived from cobalt oxide. Symbolizes infinity and the divine.' },
+  { color: 'Green', hex: '#16A34A', meaning: 'Paradise. The color of Islam. Derived from copper oxide. Found in mosques, madrasas, zawiyas.' },
   { color: 'White', hex: '#f5f5f5', meaning: 'Purity. The ground color. Made from tin oxide glaze over terracotta. The negative space that defines the pattern.' },
   { color: 'Black', hex: '#1a1a1a', meaning: 'Outline and definition. Manganese oxide. Used for borders and to separate color fields. The calligraphy of the tile.' },
   { color: 'Yellow', hex: '#EAB308', meaning: 'Sun and gold. Iron oxide or antimony. Common in Moroccan zellige, less so in eastern Islamic tilework. Warmth.' },

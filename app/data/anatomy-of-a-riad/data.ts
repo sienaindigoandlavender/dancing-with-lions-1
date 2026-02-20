@@ -72,7 +72,7 @@ export const ELEMENTS: ArchitecturalElement[] = [
     id: 'tadelakt', name: 'Tadelakt', nameAr: 'تادلاكت',
     category: 'material',
     description: 'Waterproof lime plaster polished with river stones and sealed with black olive oil soap. Silky, marble-like.',
-    detail: 'The most distinctive surface in a riad. Made from lime plaster mixed with regional mineral pigments, applied by hand, then polished with flat river stones until it gleams. Sealed with black soap (savon noir) made from olive oil. The result is waterproof, slightly glossy, and develops a patina over decades. Used in bathrooms, hammams, and feature walls. Each application is unique — no two surfaces are identical.',
+    detail: ' Made from lime plaster mixed with regional mineral pigments, applied by hand, then polished with flat river stones until it gleams. Sealed with black soap (savon noir) made from olive oil. The result is waterproof, slightly glossy, and develops a patina over decades. Used in bathrooms, hammams, and feature walls. Each application is unique — no two surfaces are identical.',
     color: '#D4A373',
   },
   {
@@ -93,7 +93,7 @@ export const ELEMENTS: ArchitecturalElement[] = [
     id: 'gebs', name: 'Gebs (Carved Stucco)', nameAr: 'الجبص',
     category: 'craft',
     description: 'Intricate plaster carving — Islamic calligraphy, arabesques, muqarnas. Applied wet, carved before it sets.',
-    detail: 'Applied as wet plaster to walls and ceilings, then carved by hand before it hardens. Floral arabesques, geometric interlace, and Quranic calligraphy. The most elaborate gebs is found in Fes — entire rooms carved floor to ceiling. The craft allows no erasure: one wrong cut and the panel must be redone. Often painted white or left natural, sometimes highlighted with color.',
+    detail: 'Applied as wet plaster to walls and ceilings, then carved by hand before it hardens. Floral arabesques, geometric interlace, and Quranic calligraphy. The most elaborate gebs is in Fes — entire rooms carved floor to ceiling. The craft allows no erasure: one wrong cut and the panel must be redone. Often painted white or left natural, sometimes highlighted with color.',
     color: '#EF4444',
   },
   {

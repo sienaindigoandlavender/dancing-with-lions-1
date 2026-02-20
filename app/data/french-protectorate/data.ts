@@ -89,7 +89,7 @@ export interface BibliographyEntry {
 
 export const BIBLIOGRAPHY: BibliographyEntry[] = [
   { author: 'Abu-Lughod, Janet', title: 'Rabat: Urban Apartheid in Morocco', year: '1980', detail: 'Princeton. The foundational study of French colonial urban planning as spatial segregation. Traces how Lyautey and Prost\'s dual-city model created the physical infrastructure of inequality that persists today.' },
-  { author: 'Pennell, C. R.', title: 'Morocco Since 1830: A History', year: '2000', detail: 'Hurst & Co. The most comprehensive English-language history of modern Morocco. From the pre-colonial period through independence to Hassan II.' },
+  { author: 'Pennell, C. R.', title: 'Morocco Since 1830: A History', year: '2000', detail: 'Hurst & Co. Comprehensive English-language history of modern Morocco. From the pre-colonial period through independence to Hassan II.' },
   { author: 'Gershovich, Moshe', title: 'French Military Rule in Morocco: Colonialism and Its Consequences', year: '2000', detail: 'Routledge. Military dimensions of the protectorate — how armed force underpinned the administrative veneer.' },
   { author: 'Segalla, Spencer', title: 'The Moroccan Soul: French Education, Colonial Ethnology, and Muslim Resistance, 1912–1956', year: '2009', detail: 'Nebraska. How France used education and ethnography as instruments of colonial control — and how Moroccans resisted.' },
   { author: 'Laroui, Abdallah', title: 'The History of the Maghrib: An Interpretive Essay', year: '1977', detail: 'Princeton. The Moroccan historian\'s defining work. "The more those at the top borrowed, the more those at the bottom were impoverished."' },

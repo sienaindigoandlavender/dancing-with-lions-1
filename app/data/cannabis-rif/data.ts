@@ -58,7 +58,7 @@ export const GEOGRAPHY: GeographyFact[] = [
   { id: 'rif', title: 'The Rif Mountains', detail: 'Rugged mountain range in northern Morocco, running parallel to the Mediterranean coast. Poor soil, harsh climate — hot dry summers, cold wet winters. Cannabis is one of the few viable crops in the higher elevations. The terrain\'s inaccessibility has historically shielded cultivation from enforcement.' },
   { id: 'ketama', title: 'Ketama — The Epicenter', detail: 'Small rural town in Al Hoceima province. The original heartland authorized by Sultan Hassan I in 1890. Still the symbolic center of cannabis culture. Hub for cannabis tourism despite its illegality. The name is synonymous with Moroccan hashish worldwide.' },
   { id: 'chefchaouen', title: 'Chefchaouen Province', detail: 'The famous Blue City. One of three provinces where legal cultivation is now authorized under Law 13-21. Bab Berred, nearby, is where many cooperatives are forming to sell legal cannabis products.' },
-  { id: 'alhoceima', title: 'Al Hoceima Province', detail: 'Coastal province at the heart of the Rif. One of three authorized for legal cultivation. Also an epicenter of anti-government sentiment — the 2016–17 Hirak Rif protests originated here.' },
+  { id: 'alhoceima', title: 'Al Hoceima Province', detail: 'Coastal Rif province. One of three authorized for legal cultivation. Also an epicenter of anti-government sentiment — the 2016–17 Hirak Rif protests originated here.' },
   { id: 'taounate', title: 'Taounate Province', detail: 'Third authorized province. Southern edge of the Rif. The expansion of cultivation beyond the traditional Ketama zone into provinces like Taounate was a major driver of the 2003 peak.' },
   { id: 'route', title: 'The Route to Europe', detail: 'The Strait of Gibraltar — 14 km of water between Morocco and Spain. The primary trafficking corridor. Hashish moves through Spain and into the Netherlands, France, and beyond. Morocco\'s proximity to Europe is both its market advantage and its enforcement challenge.' },
 ]
@@ -83,7 +83,7 @@ export const VOCABULARY = [
   { term: 'Sebsi', termAr: 'سبسي', meaning: 'Traditional long-stemmed pipe with a small clay bowl (chqouf). Used to smoke kif. Still found throughout the Rif and Jbala regions.' },
   { term: 'Majoun', termAr: 'معجون', meaning: 'Traditional edible. A candy or jam made from cannabis, honey, chocolate, and nuts. Ingested rather than smoked. Predates modern edibles by centuries.' },
   { term: 'Chira', termAr: 'شيرة', meaning: 'Moroccan slang for hashish resin. The pressed and heated product made from kif trichomes.' },
-  { term: 'Maalem', termAr: 'معلم', meaning: 'In this context, the master hash-maker. The person who oversees the sieving process and grades the quality of each extraction.' },
+  { term: 'Maalem', termAr: 'معلم', meaning: 'the master hash-maker. The person who oversees the sieving process and grades the quality of each extraction.' },
 ]
 
 export const HERO_STATS = [

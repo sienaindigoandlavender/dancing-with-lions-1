@@ -17,7 +17,7 @@ export interface Studio {
 }
 
 export const STUDIOS: Studio[] = [
-  { name: 'Atlas Corporation Studios', lat: 30.9417, lng: -6.9667, founded: '1983', detail: 'Founded by Mohamed Belghmi. Largest film studio in the world by area (~31,000 m² / 20 hectares). Sets: Roman Colosseum (Gladiator), Egyptian temples (Asterix & Obelix: Mission Cleopatra), Jerusalem (Kingdom of Heaven), Pentos (Game of Thrones). Open for public guided tours.', color: '#EF4444' },
+  { name: 'Atlas Corporation Studios', lat: 30.9417, lng: -6.9667, founded: '1983', detail: 'Founded by Mohamed Belghmi. Largest film studio by area (~31,000 m² / 20 hectares). Sets: Roman Colosseum (Gladiator), Egyptian temples (Asterix & Obelix: Mission Cleopatra), Jerusalem (Kingdom of Heaven), Pentos (Game of Thrones). Open for public guided tours.', color: '#EF4444' },
   { name: 'CLA Studios', lat: 30.938, lng: -6.970, founded: '2004', detail: 'Managed by Amine Tazi alongside Atlas. Used for Game of Thrones (Essos desert scenes), Prison Break (S4–S5), The Wheel of Time (S2). Can mobilise the Royal Moroccan Army as extras. 20-hectare production complex.', color: '#3B82F6' },
   { name: 'Cinema Museum', lat: 30.919, lng: -6.893, founded: '2007', detail: 'Housed in a former Italian production company space. Opposite the Taourirt Kasbah. Props, costumes, history. Occasionally used for shooting.', color: '#F59E0B' },
 ]
@@ -99,7 +99,7 @@ export const HERO_STATS = [
 ]
 
 export const KEY_NUMBERS = [
-  { value: '31,000 m²', label: 'Atlas Studios area', note: 'Largest film studio in the world by land. "Not clear where studio ends and desert begins."' },
+  { value: '31,000 m²', label: 'Atlas Studios area', note: 'Largest by land area. "Not clear where studio ends and desert begins."' },
   { value: '5', label: 'Ridley Scott films', note: 'Gladiator, Black Hawk Down, Kingdom of Heaven, Body of Lies, Gladiator II. Morocco\'s most frequent auteur.' },
   { value: '41%', label: 'Tourism surge (2017)', note: 'Ouarzazate arrivals surged 41% Jan–Jul 2017 vs prior year. Film-induced tourism.' },
   { value: '$75M', label: 'Infrastructure plan', note: 'MAD 820M government investment 2023–2026. Hotel reopenings adding ~1,800 beds.' },

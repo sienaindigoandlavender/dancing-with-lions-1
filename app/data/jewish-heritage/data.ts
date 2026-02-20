@@ -45,7 +45,7 @@ export interface Synagogue {
 }
 
 export const SYNAGOGUES: Synagogue[] = [
-  { name: 'Slat al-Fassiyin', city: 'Fez', detail: 'Said to be the oldest synagogue in the Fez mellah, dating to the 14th century. Housed the rituals of the Toshavim — indigenous Moroccan Jews. Used as a carpet workshop and boxing gym after the community left. Restored 2013.' },
+  { name: 'Slat al-Fassiyin', city: 'Fez', detail: 'Possibly the oldest synagogue in the Fez mellah, dating to the 14th century. Housed the rituals of the Toshavim — indigenous Moroccan Jews. Used as a carpet workshop and boxing gym after the community left. Restored 2013.' },
   { name: 'Aben Danan', city: 'Fez', detail: '17th century. Dedicated to the Megorashim — Spanish exiles. Hidden behind a tiny unmarked door. Restored with UNESCO support in 1999. Now cared for by Muslim guardians. Open to visitors.' },
   { name: 'Lazama (Slat al-Azama)', city: 'Marrakech', detail: 'Built 1492 by Jews fleeing Spain. Interior courtyard in Moroccan architectural style. Stars of David on doorposts. One of the few remaining active synagogues — one Jewish family maintains it.' },
   { name: 'Chaim Pinto', city: 'Essaouira', detail: 'Named after the revered rabbi (1748–1845). Overlooks the Atlantic Ocean. Part of the pilgrimage circuit. Restored.' },
@@ -77,7 +77,7 @@ export const HISTORY: HistoryEvent[] = [
   { year: '2011', event: 'New constitution recognises "Hebraic influences" as an enriching part of Moroccan identity. First Arab country to constitutionally acknowledge Jewish heritage.', thread: 'preservation' },
   { year: '2020', event: 'Bayt Dakira (House of Memory) opens in Essaouira. Morocco normalises relations with Israel (Abraham Accords). 50,000+ Israelis visit Morocco annually.', thread: 'preservation' },
   { year: '2021', event: 'Mohammed VI launches initiative to restore hundreds of Jewish sites: synagogues, cemeteries, mellahs. Original street names reinstated. 110 synagogues restored. 200+ cemeteries renovated.', thread: 'preservation' },
-  { year: '2025', event: 'Jewish population ~1,000. Josef Sebag, last Jew of Essaouira, dies. The community that numbered 265,000 in 1948 reduced to its smallest form. Morocco remains the Arab country with the most Jews.', thread: 'preservation' },
+  { year: '2025', event: 'Jewish population ~1,000. Josef Sebag, last Jew of Essaouira, dies. The community that numbered 265,000 in 1948 reduced to its smallest form. Morocco retains the largest Jewish community in the Arab world.', thread: 'preservation' },
 ]
 
 export const HERO_STATS = [
@@ -106,8 +106,8 @@ export interface BibliographyEntry {
 export const BIBLIOGRAPHY: BibliographyEntry[] = [
   { author: 'Zafrani, Haim', title: 'Two Thousand Years of Jewish Life in Morocco', year: '2005', detail: 'Ktav House. The definitive work. Zafrani — a Moroccan-born scholar — traces Jewish presence from pre-Islamic antiquity through the great departure. Music, liturgy, law, language, daily life. He also retrieved the 1941 telegram in which Mohammed V refused to distinguish between Jewish and Muslim subjects.' },
   { author: 'Gottreich, Emily Benichou', title: 'The Mellah of Marrakesh: Jewish and Muslim Space in Morocco\'s Red City', year: '2007', detail: 'Indiana University Press. Spatial history of the Marrakech mellah. How the physical quarter shaped social relations, economic networks, and identity for both communities across centuries.' },
-  { author: 'Bin-Nun, Yigal', title: 'Psychosis or Willingness: The Mass Emigration of Moroccan Jews to Israel', year: '2013', detail: 'The most thorough academic study of Operation Yachin and Cadima. Documents the Mossad operations, the secret negotiations with Hassan II, the financial agreements, and the voices of those who left and those who stayed.' },
+  { author: 'Bin-Nun, Yigal', title: 'Psychosis or Willingness: The Mass Emigration of Moroccan Jews to Israel', year: '2013', detail: 'Academic study of Operation Yachin and Cadima. Documents the Mossad operations, the secret negotiations with Hassan II, the financial agreements, and the voices of those who left and those who stayed.' },
   { author: 'Boum, Aomar & Park, Thomas K.', title: 'Historical Dictionary of Morocco', year: '2016', detail: 'Scarecrow Press. Comprehensive reference including entries on every major mellah, the Alliance Israélite Universelle, dhimmi status, and the post-independence transformation of Jewish communities.' },
-  { author: 'Hachkar, Kamal (dir.)', title: 'Tinghir-Jerusalem: Les Échos du Mellah', year: '2013', detail: 'Documentary. Follows the fate of the Jewish community of Tinghir who left for Israel in the 1950s and 60s. Returns to both places. Deeply moving — the mellah\'s silence speaks as loudly as the testimonies.' },
+  { author: 'Hachkar, Kamal (dir.)', title: 'Tinghir-Jerusalem: Les Échos du Mellah', year: '2013', detail: 'Documentary. Follows the fate of the Jewish community of Tinghir who left for Israel in the 1950s and 60s. Returns to both places. The mellah\'s silence speaks as loudly as the testimonies.' },
   { author: 'Schroeter, Daniel J.', title: 'The Sultan\'s Jew: Morocco and the Sephardi World', year: '2002', detail: 'Stanford University Press. Examines the role of Jewish merchants as intermediaries between Morocco and Europe, particularly in Essaouira. The "tujjar al-sultan" — merchants of the king — who connected continents.' },
 ]

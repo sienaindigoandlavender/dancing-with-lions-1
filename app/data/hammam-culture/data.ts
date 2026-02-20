@@ -42,9 +42,9 @@ export interface Product {
 
 export const PRODUCTS: Product[] = [
   { name: 'Savon Beldi (Black Soap)', arabic: 'صابون بلدي', origin: 'Atlantic coast olive groves', detail: 'Thick paste of olive oil and macerated black olives. Sometimes infused with eucalyptus. Softens skin, lifts impurities, prepares for exfoliation. Rich in vitamin E. Used on the whole body including face. Functions as cleanser, moisturiser, and therapy.' },
-  { name: 'Kessa Glove', arabic: 'كيس', origin: 'Woven crepe fabric', detail: 'Rough-textured exfoliating mitt worn on the hand. The tool of the kessala. Firm circular strokes remove dead skin cells, unclog pores, stimulate blood flow. The most physically transformative moment of the hammam.' },
+  { name: 'Kessa Glove', arabic: 'كيس', origin: 'Woven crepe fabric', detail: 'Rough-textured exfoliating mitt worn on the hand. The tool of the kessala. Firm circular strokes remove dead skin cells, unclog pores, stimulate blood flow. The most transformative moment of the hammam.' },
   { name: 'Ghassoul Clay', arabic: 'غاسول', origin: 'Middle Atlas, Moulouya Valley', detail: 'Saponiferous clay mined since the 8th century. Rich in magnesium, iron, potassium, silica. Mixed with water, rose petals, cloves, chamomile. Applied to body and hair. Absorbs impurities, tightens pores, regulates sebum. The only commercially viable deposit in the world.' },
-  { name: 'Argan Oil', arabic: 'زيت أركان', origin: 'Argan Triangle, Souss-Massa', detail: 'Cold-pressed from unroasted argan kernels. Rich in vitamin E, essential fatty acids. Applied after the scrub to lock in moisture. Soothing, anti-ageing, deeply hydrating. Often mixed with rose water and orange blossom.' },
+  { name: 'Argan Oil', arabic: 'زيت أركان', origin: 'Argan Triangle, Souss-Massa', detail: 'Cold-pressed from unroasted argan kernels. Rich in vitamin E, essential fatty acids. Applied after the scrub to lock in moisture. Soothing, anti-ageing, hydrating. Often mixed with rose water and orange blossom.' },
   { name: 'Rose Water', arabic: 'ماء الورد', origin: 'Kelaat M\'Gouna, Dadès Valley', detail: 'Distilled from Damascena roses. Used as a skin tonic after rinsing. Calms the skin, closes pores, adds fragrance. The Dadès Valley Rose Festival (May) celebrates the harvest.' },
   { name: 'Henna', arabic: 'حنّة', origin: 'Grown across Morocco', detail: 'Applied to hair and hands in some hammam traditions, especially pre-wedding rituals. Conditions hair, stains skin with intricate patterns. The bridal hammam is incomplete without it.' },
 ]
@@ -56,7 +56,7 @@ export interface NeighborhoodElement {
 
 export const FIVE_ELEMENTS: NeighborhoodElement[] = [
   { name: 'Mosque', role: 'Prayer and spiritual centre. The hammam exists in its orbit — built nearby to facilitate ablutions before Friday prayer.' },
-  { name: 'Hammam', role: 'Communal bathing, social gathering, ritual purification. The only public space where women could historically gather freely.' },
+  { name: 'Hammam', role: 'Communal bathing, social gathering, ritual purification. Historically the only public space where women gathered freely.' },
   { name: 'Fountain (Saqaya)', role: 'Public water supply. Running water — essential for both wudu (minor ablution) and daily needs.' },
   { name: 'Madrasa', role: 'Religious school. Education and Quranic study. Part of the civic infrastructure of every neighbourhood.' },
   { name: 'Communal Bakery (Ferran)', role: 'Neighbourhood bread oven. Families bring dough to be baked. The farnatchi who tends the hammam furnace often tends this fire too.' },
@@ -73,8 +73,8 @@ export const HISTORY: HistoryEvent[] = [
   { year: 'c. 8th C', event: 'Earliest Islamic hammam in Morocco', detail: 'Ruins at Volubilis — a former Roman colony — contain the oldest known Islamic hammam in Morocco. Built during the Idrisid period (788–974). Roman structure adapted for Islamic needs: no pools, running water only.' },
   { year: '11th C', event: 'Al-Ghazali codifies hammam conduct', detail: 'Abu Hamid al-Ghazali writes "The Mysteries of Purity" in his Ihya Ulum al-Din. Details proper technique for ghusl (full-body ablution). Frames the hammam as primarily male; women enter only after childbirth or illness. Moroccan practice diverged from this restriction.' },
   { year: '12th–13th C', event: 'Almohad and Marinid expansion', detail: 'Hammams multiply across Fez, Marrakech, Meknès, Rabat. Magda Sibley (University of Leeds) finds that Islamic architecture specialists consider the hammam second in importance only to the mosque in the medina.' },
-  { year: '1562', event: 'Mouassine Hammam, Marrakech', detail: 'Built by Sultan Abdellah al-Ghalib under the Saadian dynasty. Part of the Mouassine complex — mosque, fountain, madrasa, hammam. Still operational. The oldest continuously running hammam in Marrakech.' },
-  { year: '19th C', event: 'Hammam as women\'s institution', detail: 'With the hammam as one of the only public spaces women could freely visit, it becomes a centre of female social life. Mothers scout future wives for their sons. Pre-wedding and post-birth rituals consolidate here.' },
+  { year: '1562', event: 'Mouassine Hammam, Marrakech', detail: 'Built by Sultan Abdellah al-Ghalib under the Saadian dynasty. Part of the Mouassine complex — mosque, fountain, madrasa, hammam. Still operational. The oldest operating hammam in Marrakech.' },
+  { year: '19th C', event: 'Hammam as women\'s institution', detail: 'One of the only public spaces women could visit freely. A centre of female social life. Mothers scout future wives for their sons. Pre-wedding and post-birth rituals consolidate here.' },
   { year: '20th C', event: 'Neighbourhood hammams persist', detail: 'Even as indoor plumbing reaches wealthier homes, public hammams remain essential for medina residents. Thursday and Friday remain the busiest days. Entry costs 10–40 dirhams.' },
   { year: 'Present', event: 'Morocco leads the world', detail: 'Morocco has the highest number of public bathhouses of any country. Neighbourhood hammams coexist with luxury spa hammams in riads and hotels — Royal Mansour, La Mamounia, Les Bains de Marrakech. The ritual is the same. Only the price changes.' },
 ]
