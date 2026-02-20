@@ -815,4 +815,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['bread', 'khobz', 'msemen', 'baghrir', 'rghaif', 'harcha', 'batbout', 'tafarnout', 'krachel', 'ferran', 'oven', 'communal', 'wheat', 'flour', 'semolina', 'barley', 'import', 'subsidy', 'drought', 'food security', 'ONICL', 'bakery', 'breakfast', 'Ramadan', 'griddle', 'flatbread', 'Berber', 'Amazigh', 'sacred', 'etiquette'],
     href: '/data/bread-of-morocco',
   },
+  {
+    id: 'oldest-universities',
+    number: '081',
+    title: 'The World\'s Oldest Universities',
+    category: 'Educational & Cultural Intelligence',
+    description: 'Al-Qarawiyyin (859 CE). Founded by Fatima al-Fihri. Ben Youssef Madrasa. 229 years before Bologna, 237 before Oxford. 4,000+ manuscripts. The debate.',
+    tags: ['Al-Qarawiyyin', 'university', 'oldest', 'Fatima al-Fihri', 'Fez', 'madrasa', 'Ben Youssef', 'Marrakech', 'Ibn Yusuf', 'Bologna', 'Oxford', 'Marinid', 'Saadian', 'Maimonides', 'Ibn Khaldun', 'Ibn Rushd', 'Averroes', 'Leo Africanus', 'Al-Idrisi', 'Pope Sylvester', 'Gerbert', 'library', 'manuscript', 'Quran', 'Muqaddimah', 'ijazah', 'degree', 'Aziza Chaouni', 'Kairouan', 'education', 'Islamic Golden Age', 'Guinness', 'UNESCO'],
+    href: '/data/oldest-universities',
+  },
 ]
