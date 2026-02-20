@@ -761,4 +761,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['date palm', 'oasis', 'Draa', 'Ziz', 'Tafilalet', 'Mejhoul', 'Medjool', 'Boufeggous', 'Najda', 'Bayoud', 'Fusarium', 'khettara', 'irrigation', 'desert', 'ecology', 'agriculture', 'climate'],
     href: '/data/date-palm-oases',
   },
+  {
+    id: 'tanneries',
+    number: '076',
+    title: 'The Tanneries',
+    category: 'Craft & Industrial Heritage',
+    description: 'Fez Chouara. 900 years of leather. 1,200 basins, pigeon dung, natural dyes. Process, labour, chromium, Aziza Chaouni, the 86 that became 3.',
+    tags: ['tannery', 'Chouara', 'Fez', 'Fes', 'leather', 'dye', 'indigo', 'poppy', 'saffron', 'henna', 'babouche', 'craft', 'chromium', 'pollution', 'medina', 'guild'],
+    href: '/data/tanneries',
+  },
 ]
