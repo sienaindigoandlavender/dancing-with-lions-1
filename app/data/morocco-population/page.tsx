@@ -149,7 +149,7 @@ function Hero() {
         <p
           className="text-[18px] md:text-[22px] max-w-[500px] mt-8 leading-relaxed"
           style={{
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(0,0,0,0.6)',
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(20px)',
             transition: 'all 0.8s ease 0.8s',
@@ -166,7 +166,7 @@ function Hero() {
             transition: 'opacity 1s ease 1.2s',
           }}
         >
-          <p className="text-[11px] uppercase tracking-[0.15em]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[11px] uppercase tracking-[0.15em]" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Scroll to explore ↓
           </p>
         </div>
@@ -454,7 +454,7 @@ function BubbleChart() {
           return (
             <div className="mt-6 flex items-baseline gap-6 flex-wrap" style={{ color: '#ffffff' }}>
               <span className="font-serif text-[28px] italic">{h.capital}</span>
-              <span className="text-[13px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <span className="text-[13px]" style={{ color: 'rgba(0,0,0,0.5)' }}>
                 {(h.population / 1000).toFixed(1)}M people · {h.density}/km² · {h.growth}% growth/yr
               </span>
             </div>
@@ -632,7 +632,7 @@ function BigFact() {
         <p
           className="text-[14px] mt-8"
           style={{
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(0,0,0,0.6)',
             opacity: visible ? 1 : 0,
             transition: 'opacity 0.8s ease 0.8s',
           }}
@@ -723,15 +723,15 @@ function Sources() {
   return (
     <section style={{ background: '#0a0a0a' }} className="py-section-sm">
       <div className="max-w-wide mx-auto px-6 md:px-10">
-        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
           Source
         </p>
-        <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[12px]" style={{ color: 'rgba(0,0,0,0.4)' }}>
           Haut-Commissariat au Plan (HCP), Recensement Général de la Population et de l&apos;Habitat 2024
         </p>
 
-        <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-          <p className="text-[12px] font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>
+        <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
+          <p className="text-[12px] font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>
             &copy; {new Date().getFullYear()} Dancing with Lions
           </p>
           <p className="font-serif text-[18px] italic mt-2" style={{ color: '#48BFE3' }}>
@@ -743,7 +743,7 @@ function Sources() {
           <Link
             href="/data"
             className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity"
-            style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}
+            style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
           >
             ← All Data Modules
           </Link>

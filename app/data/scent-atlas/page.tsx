@@ -597,12 +597,12 @@ export default function ScentAtlasPage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-4" style={{ color: C.muted }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Damask Rose: Kelaat M&apos;Gouna municipal data; Morocco Rose Festival documentation; Rose Valley cooperative production figures. Orange Blossom: Marrakech Perfume Museum (Abderrazzak Benchaâbane); Fes-Meknès regional agriculture reports. Atlas Cedar: Ifrane National Park; High Commission for Water and Forests. Saffron: Taliouine PDO documentation; Haut Commissariat au Plan. Tannery: UNESCO Fes Medina heritage documentation. Mint: FAO Morocco agriculture data. Argan: Souss-Massa cooperative network. Chemistry and molecular data: PubChem, essential oil literature. Seasonal intensity curves are editorial estimates based on harvest calendars, bloom periods, and regional climate data.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
           © Dancing with Lions · dancingwithlions.com · Seasonal intensity curves are editorial estimates. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

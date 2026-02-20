@@ -434,8 +434,8 @@ export default function AgricultureRadialChart() {
               onMouseLeave={() => setHovered(null)}
             >
               <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: crop.color }} />
-              <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.5)' }}>{crop.name}</span>
-              <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)' }}>{crop.unit}</span>
+              <span style={{ fontSize: '10px', color: 'rgba(0,0,0,0.5)' }}>{crop.name}</span>
+              <span style={{ fontSize: '10px', color: 'rgba(0,0,0,0.25)' }}>{crop.unit}</span>
             </div>
           ))}
         </div>
@@ -453,7 +453,7 @@ export default function AgricultureRadialChart() {
             <p style={{ fontSize: '13px', color: arcs[hovered].iconColor, margin: '0 0 4px' }}>
               {arcs[hovered].note}
             </p>
-            <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.3)' }}>
+            <p style={{ fontSize: '10px', color: 'rgba(0,0,0,0.3)' }}>
               {((arcs[hovered].value / TOTAL) * 100).toFixed(1)}% of total agri-food exports
             </p>
           </div>
@@ -463,7 +463,7 @@ export default function AgricultureRadialChart() {
               fontFamily: "'Georgia', 'Times New Roman', serif",
               fontSize: '16px',
               fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.4)',
+              color: 'rgba(0,0,0,0.4)',
               margin: 0,
             }}>
               Hover each arc to explore
@@ -491,7 +491,7 @@ export default function AgricultureRadialChart() {
         }}>
           Morocco is the world&apos;s third-fastest-growing fruit and vegetable exporter. It feeds Europe from 14 km away.
         </p>
-        <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: '10px' }}>
+        <p style={{ fontSize: '10px', color: 'rgba(0,0,0,0.4)', textAlign: 'center', marginTop: '10px' }}>
           Source: EastFruit / FAO · Data: 2022–2024
         </p>
       </div>
@@ -499,20 +499,22 @@ export default function AgricultureRadialChart() {
       {/* Footer */}
       <div style={{
         width: '100%',
-        padding: '16px 24px',
+        backgroundColor: '#1f1f1f',
+        padding: '48px 24px 16px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap' as const,
         gap: '8px',
       }}>
-        <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.2)' }}>
+        <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.25)' }}>
+          © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
         </p>
         <p style={{
           fontFamily: "'Georgia', 'Times New Roman', serif",
           fontSize: '12px',
           fontStyle: 'italic',
-          color: '#C62828',
+          color: 'rgba(255,255,255,0.4)',
         }}>
           Sources: FAO, Ministry of Agriculture Morocco
         </p>

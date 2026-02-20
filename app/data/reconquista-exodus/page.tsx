@@ -548,9 +548,9 @@ export default function ReconquistaPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
-        <div className="border-t pt-6" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+        <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Harvey, L.P. <em>Muslims in Spain, 1500–1614</em>. University of Chicago Press, 2005.
             Gerber, Jane S. <em>The Jews of Spain: A History of the Sephardic Experience</em>. Free Press, 1992.
             García-Arenal, Mercedes and Gerard Wiegers (eds.). <em>The Expulsion of the Moriscos from Spain: A Mediterranean Diaspora</em>. Brill, 2014.
@@ -563,7 +563,7 @@ export default function ReconquistaPage() {
             Al-Andalus y la Historia: &quot;The Expulsion of the Moriscos.&quot;
             Coordinates via Google Earth and OpenStreetMap.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: C.muted }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

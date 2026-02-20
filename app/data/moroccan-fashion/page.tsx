@@ -49,7 +49,7 @@ export default function MoroccanFashionPage() {
   const vis = (id: string) => visibleSections.has(id)
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#e5e5e5]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+    <main className="min-h-screen bg-white text-[#1C1917]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
 
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
@@ -123,7 +123,7 @@ export default function MoroccanFashionPage() {
             {CRAFT_COMPONENTS.map((c, i) => (
               <div key={i} className="p-6 border border-[#1a1a1a] hover:border-[#333] transition-all duration-500" style={{ opacity: vis('craft') ? 1 : 0, transform: vis('craft') ? 'none' : 'translateY(16px)', transitionDelay: `${i * 0.1}s` }}>
                 <div className="flex items-baseline gap-3 mb-3">
-                  <span className="text-[14px] font-bold text-[#e5e5e5]">{c.name}</span>
+                  <span className="text-[14px] font-bold text-[#1C1917]">{c.name}</span>
                   <span className="text-[13px] text-[#444]" dir="rtl">{c.arabic}</span>
                 </div>
                 <p className="text-[12px] text-[#888] leading-relaxed">{c.detail}</p>
@@ -160,7 +160,7 @@ export default function MoroccanFashionPage() {
           </div>
 
           {/* Progress bar */}
-          <div className="mt-4 h-[2px] bg-[#1a1a1a] overflow-hidden">
+          <div className="mt-4 h-[2px] bg-white overflow-hidden">
             <div style={{ width: '100%', height: '100%', background: ACCENT, animation: isEmbPaused ? 'none' : 'progress-bar 4.5s linear infinite', transformOrigin: 'left' }} />
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function MoroccanFashionPage() {
             {DESIGNERS.map((d, i) => (
               <div key={i} className="p-5 border border-[#1a1a1a] hover:border-[#333] transition-all duration-500 group" style={{ opacity: vis('designers') ? 1 : 0, transform: vis('designers') ? 'none' : 'translateY(16px)', transitionDelay: `${i * 0.08}s` }}>
                 <div className="flex items-start justify-between mb-2">
-                  <span className="text-[13px] font-bold text-[#e5e5e5] group-hover:text-white transition-colors">{d.name}</span>
+                  <span className="text-[13px] font-bold text-[#1C1917] group-hover:text-[#1C1917] transition-colors">{d.name}</span>
                   <span className="text-[10px] text-[#555]">{d.base}</span>
                 </div>
                 <p className="text-[11px] text-[#888] leading-relaxed mb-3">{d.note}</p>
@@ -229,7 +229,7 @@ export default function MoroccanFashionPage() {
           </div>
           <div className="space-y-1">
             {filteredHistory.map((h, i) => (
-              <div key={i} className="flex gap-4 p-4 hover:bg-[#111] transition-all duration-300" style={{ borderLeft: `2px solid ${THREAD_COLORS[h.thread]}`, opacity: vis('timeline') ? 1 : 0, transform: vis('timeline') ? 'none' : 'translateY(12px)', transition: 'all 0.5s ease', transitionDelay: `${i * 0.06}s` }}>
+              <div key={i} className="flex gap-4 p-4 hover:bg-white transition-all duration-300" style={{ borderLeft: `2px solid ${THREAD_COLORS[h.thread]}`, opacity: vis('timeline') ? 1 : 0, transform: vis('timeline') ? 'none' : 'translateY(12px)', transition: 'all 0.5s ease', transitionDelay: `${i * 0.06}s` }}>
                 <div className="text-[12px] font-bold text-[#888] min-w-[90px] flex-shrink-0">{h.year}</div>
                 <div className="text-[12px] text-[#999] leading-relaxed">{h.event}</div>
               </div>
@@ -263,7 +263,7 @@ export default function MoroccanFashionPage() {
           <div className="space-y-6">
             {BIBLIOGRAPHY.map((b, i) => (
               <div key={i} className="border-l border-[#222] pl-4" style={{ opacity: vis('biblio') ? 1 : 0, transform: vis('biblio') ? 'none' : 'translateY(12px)', transition: 'all 0.5s ease', transitionDelay: `${i * 0.08}s` }}>
-                <div className="text-[13px] text-[#e5e5e5] mb-1">{b.author} — <em style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{b.title}</em> ({b.year})</div>
+                <div className="text-[13px] text-[#1C1917] mb-1">{b.author} — <em style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{b.title}</em> ({b.year})</div>
                 <p className="text-[11px] text-[#666] leading-relaxed">{b.detail}</p>
               </div>
             ))}
@@ -272,7 +272,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── SOURCES ── */}
-      <section className="py-16 px-6 border-t border-[#111]">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-6 border-t border-[#111]">
         <div className="max-w-4xl mx-auto">
           <p className="text-[10px] text-[#444] leading-relaxed">
             Sources: UNESCO ICH (ich.unesco.org), Morocco World News, Wikipedia (Kaftan, Moroccan kaftan, Djellaba, Babouch), ICESCO, AMITH, Kohan Textile Journal, Oxford Business Group, Equal Times, Morocco Now, Adjoaa, Shoelifer, Business of Fashion, Whitewall, Africanews. Industry data: AMDIE, IFC/World Bank (2021–2022). Historical documentation: Las Cantigas de Santa Maria (El Escorial), al-Jazna&apos;i census. Designer milestones verified via LVMH Prize, Fashion Trust Arabia, Paris Fashion Week official schedules.

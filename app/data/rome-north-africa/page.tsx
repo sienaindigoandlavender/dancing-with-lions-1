@@ -369,14 +369,14 @@ export default function RomeNorthAfricaPage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: C.muted }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p><strong>Provinces:</strong> Wikipedia, "Africa (Roman province)," "Roman colonies in North Africa," "Byzantine North Africa." Britannica, "Africa, Proconsular Roman province." UNRV.com, "Africa." Oxford Reference, "Roman Africa." Province dates and structure per standard Roman administrative history. Military: 28,000 troops (one legion plus auxiliaries), UNRV and factsanddetails.com. Grain: 1 million tons annual production, one-quarter exported — widely cited. 180 cities in Tunisia: factsanddetails.com citing standard scholarship.</p>
           <p><strong>Sites:</strong> UNESCO World Heritage listings: Carthage (1979), Dougga (1997), El Jem (1979), Timgad (1982), Djemila (1982), Tipaza (1982), Volubilis (1997), Leptis Magna (1982), Sabratha (1982), Cyrene (1982). African World Heritage Sites (africanworldheritagesites.org). Site descriptions synthesised from UNESCO, Britannica, and heritage-key.com "Top 10 Roman Sites in North Africa." Bulla Regia underground villas: widely documented. El Jem amphitheatre: 35,000 capacity, 3rd largest, freestanding.</p>
           <p><strong>Figures:</strong> Septimius Severus: first African emperor, Punic accent per Historia Augusta. Juba II: married Cleopatra Selene per Plutarch. Augustine: Confessions, "cauldron of unholy loves" (Book 3). Apuleius: The Golden Ass, only complete Latin novel. Masinissa: Livy, Polybius. Purple cloak murder: Suetonius, Life of Caligula; Cassius Dio. Tabula Banasitana: Roman citizenship grant to Berber family, archaeological find at Banasa.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
           © Dancing with Lions · dancingwithlions.com · Population figures are scholarly estimates with wide ranges. This visualisation may not be reproduced without visible attribution.
         </p>
       </section>

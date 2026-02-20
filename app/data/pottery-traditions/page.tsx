@@ -167,7 +167,7 @@ export default function PotteryTraditionsPage() {
             {REGIONS.map((r) => (
               <div key={r.id} className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ background: r.color }} />
-                <span className="text-[11px] tracking-[0.06em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>{r.name}</span>
+                <span className="text-[11px] tracking-[0.06em] uppercase" style={{ color: 'rgba(0,0,0,0.4)' }}>{r.name}</span>
               </div>
             ))}
           </div>
@@ -177,7 +177,7 @@ export default function PotteryTraditionsPage() {
             {HERO_STATS.map((stat) => (
               <div key={stat.label}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#DC2626', lineHeight: 1 }}>{stat.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{stat.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{stat.label}</span>
               </div>
             ))}
           </div>
@@ -192,7 +192,7 @@ export default function PotteryTraditionsPage() {
 
             {!mapLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading map...</p>
+                <p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>Loading map...</p>
               </div>
             )}
 
@@ -213,7 +213,7 @@ export default function PotteryTraditionsPage() {
                 </button>
               ))}
               {selectedRegion && (
-                <button onClick={resetMap} className="mt-2 text-[10px] tracking-[0.08em] uppercase" style={{ color: 'rgba(255,255,255,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+                <button onClick={resetMap} className="mt-2 text-[10px] tracking-[0.08em] uppercase" style={{ color: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
                   ← Reset View
                 </button>
               )}
@@ -392,7 +392,7 @@ export default function PotteryTraditionsPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'UNESCO Intangible Cultural Heritage — Zellige nomination documentation',
@@ -407,14 +407,14 @@ export default function PotteryTraditionsPage() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#DC2626' }}>Sources: Ethnographic field research</p>
           </div>
 
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

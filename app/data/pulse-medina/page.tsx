@@ -497,7 +497,7 @@ export default function PulseOfMedinaPage() {
       </section>
 
       {/* SOURCES */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1400px] mx-auto px-6 md:px-10 py-12">
         <div className="border-t pt-4" style={{ borderColor: '#2A2520' }}>
           <p className="text-[10px] tracking-[3px] uppercase mb-2" style={{ color: '#6B6050' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: '#4A4030' }}>

@@ -124,7 +124,7 @@ export default function MoroccoEconomyPage() {
           </h1>
           <p
             className="font-serif italic mb-6"
-            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'rgba(255,255,255,0.3)' }}
+            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'rgba(0,0,0,0.3)' }}
           >
             in one page
           </p>
@@ -134,7 +134,7 @@ export default function MoroccoEconomyPage() {
           >
             GDP, exports, FDI, tourism, remittances, key sectors. Updated annually. Data from IMF, World Bank, HCP, Office des Changes.
           </p>
-          <p className="text-[11px] mt-8" style={{ color: 'rgba(255,255,255,0.2)' }}>
+          <p className="text-[11px] mt-8" style={{ color: 'rgba(0,0,0,0.2)' }}>
             Last updated: January 2026 · Data year: 2024/2025
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function MoroccoEconomyPage() {
         style={{ background: '#0a0a0a' }}
       >
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[10px] uppercase tracking-[0.15em] mb-2" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[10px] uppercase tracking-[0.15em] mb-2" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Money Flowing In
           </p>
           <p className="font-serif text-[32px] md:text-[42px] italic leading-tight mb-10" style={{ color: '#ffffff' }}>
@@ -232,7 +232,7 @@ export default function MoroccoEconomyPage() {
                 <div className="flex items-baseline justify-between mb-2">
                   <p className="text-[14px] font-medium" style={{ color: '#ffffff' }}>{flow.label}</p>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                    <span className="text-[11px]" style={{ color: 'rgba(0,0,0,0.3)' }}>
                       {flow.value} MAD bn
                     </span>
                     <span className="font-serif text-[22px] italic" style={{ color: flow.color }}>
@@ -250,14 +250,14 @@ export default function MoroccoEconomyPage() {
                     }}
                   />
                 </div>
-                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                <p className="text-[11px] mt-1" style={{ color: 'rgba(0,0,0,0.25)' }}>
                   {flow.note}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="text-[11px] mt-8" style={{ color: 'rgba(255,255,255,0.2)' }}>
+          <p className="text-[11px] mt-8" style={{ color: 'rgba(0,0,0,0.2)' }}>
             All 2024 full-year data. MAD = Moroccan Dirham. Source: Office des Changes, Ministry of Tourism, OCP
           </p>
         </div>
@@ -283,7 +283,7 @@ export default function MoroccoEconomyPage() {
                   transitionDelay: `${i * 80}ms`,
                 }}
               >
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-black/40 flex flex-col items-center justify-center p-2">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-white/40 flex flex-col items-center justify-center p-2">
                   <span className="text-white text-[13px] font-medium text-center leading-tight">{s.name}</span>
                   <span className="text-white/70 text-[11px]">{s.share}% · {s.value} MAD bn</span>
                   {s.growth && <span className="text-white/50 text-[10px]">{s.growth}</span>}
@@ -329,7 +329,7 @@ export default function MoroccoEconomyPage() {
           >
             Morocco holds 75% of the world&apos;s phosphate reserves. That&apos;s not a sector. That&apos;s a geological monopoly.
           </p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(0,0,0,0.5)' }}>
             OCP Group · State-owned · World&apos;s largest phosphate exporter
           </p>
         </div>
@@ -471,7 +471,7 @@ export default function MoroccoEconomyPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>
           <div className="space-y-1">
@@ -488,7 +488,7 @@ export default function MoroccoEconomyPage() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
@@ -504,7 +504,7 @@ export default function MoroccoEconomyPage() {
             <Link
               href="/data"
               className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity"
-              style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}
+              style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
             >
               ← All Data Modules
             </Link>
