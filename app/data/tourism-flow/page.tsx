@@ -273,11 +273,11 @@ export default function TourismFlowPage() {
   }
 
   return (
-    <div className="bg-[#0a0a0a] text-white min-h-screen pt-16">
+    <div className="bg-white text-white min-h-screen pt-16">
 
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} className="max-w-[1100px] mx-auto px-6 md:px-10 pt-20 pb-12">
-        <Link href="/data" className="micro-label text-[#555] hover:text-white/60 transition-colors inline-block mb-6">
+        <Link href="/data" className="micro-label text-[#555] hover:text-[#1C1917]/60 transition-colors inline-block mb-6">
           ← All Data Modules
         </Link>
         <p className="micro-label text-[#555] mb-2">Module 007 · Tourism Intelligence</p>
@@ -636,7 +636,7 @@ export default function TourismFlowPage() {
                   { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://dancingwithlions.com/data/tourism-flow')}` },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="px-4 py-2 text-[11px] text-white/40 border border-white/10 hover:border-white/30 hover:text-white/70 transition-all">
+                    className="px-4 py-2 text-[11px] text-white/40 border border-white/10 hover:border-white/30 hover:text-[#1C1917]/70 transition-all">
                     {s.label}
                   </a>
                 ))}
@@ -657,7 +657,7 @@ export default function TourismFlowPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
         <div className="border-t border-white/[0.06] pt-4">
           <p className="micro-label text-[#333] mb-2">Sources & Methodology</p>
           <p className="text-[11px] text-white/20 leading-[1.6] max-w-[700px]">

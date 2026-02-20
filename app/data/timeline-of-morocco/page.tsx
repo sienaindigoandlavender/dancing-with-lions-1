@@ -318,8 +318,8 @@ export default function TimelineOfMoroccoPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             315,000 years. Eight dynasties. Three colonial powers. One independence.
             The bones at Jebel Irhoud have modern faces and ancient braincases —
@@ -331,9 +331,9 @@ export default function TimelineOfMoroccoPage() {
           </p>
         </div>
 
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Jebel Irhoud (315,000 years): Hublin et al., Nature 546 (2017); Max Planck Institute;
             Scientific American; Smithsonian NMNH. Taforalt beads (~82,000 years): Bouzouggar et al.,
             PNAS (2007). Phoenician settlements: UNESCO Lixus documentation; Encyclopaedia Britannica.

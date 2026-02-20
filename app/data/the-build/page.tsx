@@ -584,10 +584,10 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Highway: Autoroutes du Maroc (ADM) annual reports 2004–2025; Ministry of Equipment &amp; Water.
             Railway: Office National des Chemins de Fer (ONCF); $9.6B rail plan (2025).
             Airport capacity: Office National des Aéroports (ONDA); Mohammed V Terminal 3 project.
@@ -602,7 +602,7 @@ export default function TheBuildPage() {
             MASEN 10.5 GW renewable roadmap, and IMF GDP forecasts.
           </p>
           <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
+            <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.rail }}>

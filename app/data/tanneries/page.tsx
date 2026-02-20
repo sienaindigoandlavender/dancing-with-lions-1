@@ -104,7 +104,7 @@ export default function TanneriesPage() {
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             The<br />Tanneries
           </h1>
-          <p className="text-[16px] md:text-[18px] max-w-[540px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[16px] md:text-[18px] max-w-[540px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Fez. Chouara. 1,200 stone basins. Pigeon dung, quicklime,
             poppy, indigo. No machinery. No shortcuts. The same hands,
             the same method, for nine hundred years.
@@ -114,7 +114,7 @@ export default function TanneriesPage() {
             {HERO_STATS.map(s => (
               <div key={s.label}>
                 <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{s.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -126,7 +126,7 @@ export default function TanneriesPage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>001 — The Process</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Steps. Thirty Days.</h2>
-          <p className="text-[13px] max-w-[520px] leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[520px] leading-relaxed mb-8" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Every hide passes through the same sequence. Click any step to hold.
           </p>
 
@@ -158,8 +158,8 @@ export default function TanneriesPage() {
               <span className="font-serif italic text-[48px] md:text-[64px] leading-none" style={{ color: ACCENT }}>{String(activeStep + 1).padStart(2, '0')}</span>
               <div>
                 <h3 className="text-[20px] md:text-[24px] font-medium" style={{ color: '#ffffff' }}>{PROCESS_STEPS[activeStep].name}</h3>
-                <p className="text-[11px] uppercase tracking-[0.08em] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>{PROCESS_STEPS[activeStep].duration}</p>
-                <p className="text-[13px] leading-relaxed mt-3 max-w-[600px]" style={{ color: 'rgba(255,255,255,0.5)' }}>{PROCESS_STEPS[activeStep].detail}</p>
+                <p className="text-[11px] uppercase tracking-[0.08em] mt-1" style={{ color: 'rgba(0,0,0,0.3)' }}>{PROCESS_STEPS[activeStep].duration}</p>
+                <p className="text-[13px] leading-relaxed mt-3 max-w-[600px]" style={{ color: 'rgba(0,0,0,0.5)' }}>{PROCESS_STEPS[activeStep].detail}</p>
               </div>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default function TanneriesPage() {
             The men stand thigh-deep in colour, agitating the hides
             by hand. Human washing machines. The work never stops.
           </p>
-          <p className="text-[11px] uppercase tracking-[0.12em] mt-6" style={{ color: 'rgba(255,255,255,0.3)' }}>200 men work at Chouara. Some began as apprentices at 13.</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mt-6" style={{ color: 'rgba(0,0,0,0.3)' }}>200 men work at Chouara. Some began as apprentices at 13.</p>
         </div>
       </section>
 
@@ -212,7 +212,7 @@ export default function TanneriesPage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Three Survivors</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>86 Became 3</h2>
-          <p className="text-[13px] max-w-[520px] leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[520px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             The Almohads counted 86 tanning workshops. The Marinids counted 100.
             Today three survive, operating as cooperatives.
           </p>
@@ -331,7 +331,7 @@ export default function TanneriesPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'Wikipedia — Chouara Tannery: founded 9th C (local tradition) / 11th C (historical record), Fes el Bali near Saffarin Madrasa, three tanneries (Chouara, Sidi Moussa, Ain Azliten), al-Jazna\'i 86 workshops Almohad era, ~100 Marinid era, Ain Azliten 18th C, chromium since 19th C, Aziza Chaouni rehabilitation project, dyes: poppy red / indigo blue / henna orange, leather exported to Baghdad',
@@ -346,13 +346,13 @@ export default function TanneriesPage() {
               <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
             ))}
           </div>
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: ACCENT }}>Sources: Historical records, UNESCO</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

@@ -890,7 +890,7 @@ export default function FreePeoplePage() {
       </section>
 
       {/* ─── SOURCES ─── */}
-      <section className="border-t border-dwl-border">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border">
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
           <p className="micro-label mb-4">Sources & Attribution</p>
           <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">

@@ -597,13 +597,13 @@ export default function WaterEquationPage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
-        <p className="micro-label mb-4" style={{ color: C.muted }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Dam capacity and fill rates: Morocco Ministry of Equipment and Water daily reports (2024–2026); World Bank Morocco CCDR Background Note: Water Scarcity and Droughts (2023). Aquifer depletion: Hssaisoune et al. (2020), &ldquo;Moroccan Groundwater Resources and Evolution with Global Climate Changes,&rdquo; Geosciences 10(2):81; Fanack Water country profile. Desalination: Morocco World News; Aquatech Trade; IDA Water. Basin data: Hespress, North Africa Post, Morocco World News (Dec 2025 – Feb 2026). National Water Plan: U.S. Commercial Service Morocco Water report; Frontiers in Sustainable Food Systems (2025). Siltation projections: World Bank Morocco CCDR (2023).</p>
           <p>Fill rate data for 2010–2024 are annual averages from Ministry of Equipment and Water. January 2026 figure (61.3%) is a point-in-time measurement reflecting exceptional winter rainfall.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
           © Dancing with Lions · dancingwithlions.com · All data from published sources as cited. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

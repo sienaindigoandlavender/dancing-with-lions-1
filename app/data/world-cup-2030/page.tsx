@@ -602,7 +602,7 @@ export default function WorldCup2030Page() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
         <div className="border-t pt-4" style={{ borderColor: '#e5e5e5' }}>
           <p className="micro-label mb-2" style={{ color: '#737373' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: '#737373' }}>

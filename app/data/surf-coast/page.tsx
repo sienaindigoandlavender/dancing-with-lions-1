@@ -108,7 +108,7 @@ export default function SurfCoastPage() {
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             Morocco&rsquo;s<br />Surf Coast
           </h1>
-          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Anchor Point, Killer Point, The Bay at Imsouane, Sidi Kaouki, Safi.
             Fifteen breaks mapped from Safi to Essaouira — swell direction, tide windows,
             ride length, and the economics of a 50,000-guest-per-year surf boom.
@@ -118,7 +118,7 @@ export default function SurfCoastPage() {
             {HERO_STATS.map((s) => (
               <div key={s.label}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#3B82F6', lineHeight: 1 }}>{s.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -128,7 +128,7 @@ export default function SurfCoastPage() {
             {Object.entries(SPOT_LEVELS).map(([level, data]) => (
               <div key={level} className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ background: data.color }} />
-                <span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.4)' }}>{level} ({data.count})</span>
+                <span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(0,0,0,0.4)' }}>{level} ({data.count})</span>
               </div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export default function SurfCoastPage() {
 
           <div className="relative" style={{ height: '65vh', borderBottom: '1px solid #1a1a1a' }}>
             <div ref={mapContainer} className="absolute inset-0" />
-            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading map...</p></div>}
+            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>Loading map...</p></div>}
 
             {/* Selected spot overlay */}
             {selectedSpot && (
@@ -176,7 +176,7 @@ export default function SurfCoastPage() {
                   <p className="text-[10px]" style={{ color: '#555' }}>WIND <span style={{ color: '#aaa' }}>{selectedSpot.bestWind}</span></p>
                 </div>
                 <p className="text-[11px] mt-3 italic leading-relaxed" style={{ color: '#999' }}>{selectedSpot.note}</p>
-                <button onClick={() => { setSelectedSpot(null); mapRef.current?.flyTo({ center: [-9.65, 31.0], zoom: 7, duration: 1000 }) }} className="text-[10px] uppercase tracking-[0.08em] mt-3 block" style={{ color: 'rgba(255,255,255,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← All spots</button>
+                <button onClick={() => { setSelectedSpot(null); mapRef.current?.flyTo({ center: [-9.65, 31.0], zoom: 7, duration: 1000 }) }} className="text-[10px] uppercase tracking-[0.08em] mt-3 block" style={{ color: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← All spots</button>
               </div>
             )}
           </div>
@@ -285,7 +285,7 @@ export default function SurfCoastPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'Surfline — Morocco Travel Zone and Anchor Point forecast data',
@@ -301,13 +301,13 @@ export default function SurfCoastPage() {
               <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
             ))}
           </div>
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#3B82F6' }}>Sources: WSL, Magicseaweed, field research</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

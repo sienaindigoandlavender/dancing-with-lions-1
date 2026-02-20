@@ -370,8 +370,8 @@ export default function TheLongRisePage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             4.28 million in 2000. 20 million in 2025. The line doesn&apos;t care about bombings
             or pandemics or financial crises — it absorbs them and keeps climbing. Each shock
@@ -381,9 +381,9 @@ export default function TheLongRisePage() {
             come to will still be the place that made them want to come.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Arrivals 2000–2023: WorldData.info, sourced from UN World Tourism Organization (UNWTO)
             and World Bank. 2024 (17.4M): Morocco Ministry of Tourism via Morocco World News (Jan 2025),
             UN Tourism, Arab Weekly. 2025 (~20M): Ministry of Tourism (18M by Nov 2025, per Travel and

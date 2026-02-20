@@ -767,7 +767,7 @@ export default function WildlifeAtlasPage() {
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── SOURCES ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
         <p className="micro-label mb-4">Sources &amp; Methodology</p>
         <p className="text-[13px] text-dwl-gray leading-relaxed max-w-[640px]">
           Species data from IUCN Red List assessments and Wikipedia species profiles. Barbary lion research:

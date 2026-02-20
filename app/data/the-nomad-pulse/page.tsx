@@ -541,8 +541,8 @@ export default function NomadPulsePage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             A fishing village becomes a co-living corridor in five years. The 5G tower goes
             up next to the minaret. The surf break doesn&apos;t need bandwidth but the person
@@ -552,9 +552,9 @@ export default function NomadPulsePage() {
             Morocco. Morocco was always in the right place. The world just finally noticed.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Internet penetration (92.2%, 35.5M users): DataReportal Digital 2026: Morocco; Morocco
             World News (Nov 2025); Hespress. Mobile connections (57.1M, 148%): DataReportal 2026.
             Broadband mobile (87.7%): DataReportal 2026, citing GSMA Intelligence. 5G rollout

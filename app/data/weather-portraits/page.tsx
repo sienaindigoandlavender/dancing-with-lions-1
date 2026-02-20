@@ -337,7 +337,7 @@ export default function WeatherPortraitsPage() {
       </section>
 
       {/* ─── SOURCES ─── */}
-      <section className="border-t border-dwl-border"><div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
         <p className="micro-label mb-4">Sources & Attribution</p>
         <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">Temperature and rainfall averages: Climates to Travel (WMO 1991–2020 normals); climate-data.org (1991–2021); Weather Spark. Record temperatures: Ifrane −23.9°C (11 Feb 1935): Wikipedia/Ifrane; Current Results Africa extremes. Marrakech 49.6°C (17 Jul 2012): Weather Underground (Christopher C. Burt). Agadir-Inezgane 50.4°C (11 Aug 2023): Morocco World News; disputed/unverified. Köppen classifications: Wikipedia/Climate of Morocco. Sunshine hours: worlddata.info; weather-and-climate.com. Warming trend (+1.6°C 1990–2024): worlddata.info (German Weather Service archives). Climate zones: Encyclopedia of the Environment (Hanchane Mohamed, 2025). Live weather: Open-Meteo API (open-meteo.com). Satellite imagery: NASA Global Imagery Browse Services (GIBS), MODIS Terra Corrected Reflectance. All data editorial estimates unless otherwise sourced.</p>
         <p className="text-[11px] text-dwl-muted mt-4">© Dancing with Lions · dancingwithlions.com · Data may not be reproduced without attribution.</p>

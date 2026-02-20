@@ -460,10 +460,10 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             MAD 380B ($41B) budget: AGBI (Oct 2025). Sector breakdown: WeeTracker (Oct 2025).
             LGV travel times: Morocco World News (Dec 2024, Apr 2025). AFCON economics:
             Morocco World News (Jan 2026), Mezzour quote. GDP projections: HCP regional
@@ -472,7 +472,7 @@ export default function WorldCupBlueprintPage() {
             All figures approximate; government budgets shift between announcement and execution.
           </p>
           <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
+            <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions
             </p>
             <p className="font-mono text-[11px]" style={{ color: C.growth }}>

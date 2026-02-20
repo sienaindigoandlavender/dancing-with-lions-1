@@ -498,8 +498,8 @@ export default function StorksEyeViewPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The storks do not care about UNESCO designations. They care about
             altitude, wind, and food. That their nests happen to crown the most
@@ -510,9 +510,9 @@ export default function StorksEyeViewPage() {
             each building on what the last one left behind.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Morocco breeding pairs (2,931): GREPOM BirdLife Morocco 2014 census, in Journal of
             Coastal Conservation (2020). 8th International White Stork Census (2024): NABU/BirdLife
             International, preliminary results (O. Himmi, Mohammed V University Rabat). Rabat nest
@@ -554,7 +554,7 @@ function SiteRow({ site: s, index, parentVis, maxNests }: {
         <span className="font-mono text-[11px] font-bold w-12 text-right shrink-0" style={{ color: C.stork }}>
           {s.nests}
         </span>
-        <span className="font-mono text-[9px] w-16 text-right shrink-0" style={{ color: C.muted }}>{s.city}</span>
+        <span className="font-mono text-[9px] w-16 text-right shrink-0" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.city}</span>
       </div>
       {expanded && (
         <div className="ml-44 pl-3 border-l-2 py-2 mb-2" style={{ borderColor: C.stork }}>
@@ -565,7 +565,7 @@ function SiteRow({ site: s, index, parentVis, maxNests }: {
               { l: 'Season', v: s.period },
             ].map(f => (
               <div key={f.l}>
-                <p className="font-mono text-[9px] uppercase" style={{ color: C.muted }}>{f.l}</p>
+                <p className="font-mono text-[9px] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>{f.l}</p>
                 <p className="font-mono text-[11px]" style={{ color: C.text }}>{f.v}</p>
               </div>
             ))}

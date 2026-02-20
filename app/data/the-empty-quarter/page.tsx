@@ -564,8 +564,8 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── CLOSING + SOURCES ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-10">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-10">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The Sahara is not a barrier. It is a corridor. For thousands of years, trade routes
             crossed it carrying gold, salt, ivory, and enslaved people. The Tuareg controlled
@@ -575,9 +575,9 @@ export default function EmptyQuarterPage() {
             exacts a price.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Area (9.2M km²), countries, terrain types: Wikipedia &ldquo;Sahara&rdquo;; Britannica
             &ldquo;Sahara.&rdquo; Terrain percentages (25% erg, majority hamada): Wikipedia; Britannica;
             Geographical.co.uk. Emi Koussi (3,415m): Britannica; DesertUSA. Qattara Depression
