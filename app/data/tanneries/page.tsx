@@ -197,7 +197,7 @@ export default function TanneriesPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[28vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[640px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3.5vw, 2.2rem)', color: '#ffffff' }}>
             The men stand thigh-deep in colour, agitating the hides
@@ -332,7 +332,7 @@ export default function TanneriesPage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'Wikipedia — Chouara Tannery: founded 9th C (local tradition) / 11th C (historical record), Fes el Bali near Saffarin Madrasa, three tanneries (Chouara, Sidi Moussa, Ain Azliten), al-Jazna\'i 86 workshops Almohad era, ~100 Marinid era, Ain Azliten 18th C, chromium since 19th C, Aziza Chaouni rehabilitation project, dyes: poppy red / indigo blue / henna orange, leather exported to Baghdad',
               'Morocco World News: 500 master craftsmen, 1,200 basins at Chouara, 30,000 artisans in medina of 90,000 inhabitants, process lasts ~30 days, three-step process (lime + pigeon dung + dye), restoration programme + "real leather" quality mark',

@@ -221,7 +221,7 @@ export default function TransSaharanTradePage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#F59E0B' }}>
             In some regions, a slab of salt was worth its equivalent in gold.
@@ -253,7 +253,7 @@ export default function TransSaharanTradePage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'Wikipedia — Trans-Saharan trade: Routes (Taghaza Trail, Audaghost Trail, Tripoli–Chad), Sijilmasa, Almoravid dinars, salt-gold ratio, Ibn Battuta records',
               'Wikipedia — Trans-Saharan slave trade: 600 enslaved women (Ibn Battuta 1353), Saadian sugar plantations, 7,000+ enslaved via Morocco 10th–19th C',

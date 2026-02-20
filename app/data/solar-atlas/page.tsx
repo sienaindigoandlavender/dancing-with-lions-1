@@ -308,7 +308,7 @@ export default function SolarAtlasPage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'Wikipedia — Ouarzazate Solar Power Station: Noor I–IV specs, 580 MW total, ACWA Power, molten salt storage',
               'Wikipedia — Solar Power in Morocco: MASEN, 2,000 MW target, Spain-Morocco interconnection 900 MW',
