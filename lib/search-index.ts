@@ -833,4 +833,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['desert', 'Sahara', 'erg', 'reg', 'hammada', 'hamada', 'oued', 'wadi', 'sand', 'dunes', 'gravel', 'bedrock', 'plateau', 'Erg Chebbi', 'Merzouga', 'Erg Chegaga', 'M\'Hamid', 'Tinfou', 'Zagora', 'Drâa', 'Tafilalet', 'oasis', 'geomorphology', 'deflation', 'aeolian', 'Green Sahara', 'climate', 'desertification', 'arid'],
     href: '/data/not-all-desert-is-sand',
   },
+  {
+    id: 'gnawa-atlas',
+    number: '083',
+    title: 'The Gnawa Atlas',
+    category: 'Musical & Spiritual Intelligence',
+    description: 'Maalem lineages. Lila ceremony. Guembri construction. Seven spirit colours. Qraqeb. UNESCO 2019. From West African slavery to Morocco\'s most powerful spiritual music.',
+    tags: ['Gnawa', 'Gnaoua', 'maalem', 'guembri', 'sintir', 'hajhouj', 'qraqeb', 'krakebs', 'lila', 'derdeba', 'trance', 'jedba', 'mluk', 'spirits', 'jinn', 'seven colours', 'Mahmoud Guinia', 'Essaouira', 'Marrakech', 'UNESCO', 'intangible heritage', 'Sufi', 'brotherhood', 'taifa', 'slavery', 'West Africa', 'Bambara', 'Hausa', 'Bilal', 'moqaddma', 'festival', 'Pharoah Sanders', 'Randy Weston', 'Hassan Hakmoun', 'Hamid El Kasri', 'Baqbou', 'blues', 'jazz', 'pentatonic', 'camel skin', 'goat gut'],
+    href: '/data/gnawa-atlas',
+  },
 ]
