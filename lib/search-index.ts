@@ -698,4 +698,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['olive', 'oil', 'agriculture', 'Picholine', 'Meknes', 'Fez', 'Marrakech', 'Beni Mellal', 'export', 'cooperatives', 'drought', 'production', 'trade'],
     href: '/data/olive-oil-economy',
   },
+  {
+    id: 'imperial-cities',
+    number: '068',
+    title: 'The Four Imperial Cities',
+    category: 'Political & Cultural Intelligence',
+    description: 'Fez, Marrakech, Meknès, Rabat. Each dynasty chose its capital. Seven dynasties, four cities, 1,233 years of power shifts mapped.',
+    tags: ['imperial', 'cities', 'Fez', 'Marrakech', 'Meknes', 'Rabat', 'dynasty', 'Idrisid', 'Almoravid', 'Almohad', 'Marinid', 'Saadian', 'Alaouite', 'capital', 'history', 'monuments', 'UNESCO'],
+    href: '/data/imperial-cities',
+  },
 ]
