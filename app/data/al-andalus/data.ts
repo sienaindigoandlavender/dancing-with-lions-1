@@ -1,5 +1,5 @@
 // Al-Andalus Corridor — Cultural DNA Dataset
-// Source: Dancing with Lions research, synthesized from academic sources
+// © Dancing with Lions research, synthesized from academic sources
 // Each point is a documented cultural landmark or connection
 
 export type LayerType = 'architecture' | 'music' | 'food' | 'language'
