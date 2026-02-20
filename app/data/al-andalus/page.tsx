@@ -443,7 +443,7 @@ export default function AlAndalusPage() {
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'Bloom, Jonathan M. & Blair, Sheila S. — The Grove Encyclopedia of Islamic Art and Architecture',
               'Dodds, Jerrilynn D. — Al-Andalus: The Art of Islamic Spain',

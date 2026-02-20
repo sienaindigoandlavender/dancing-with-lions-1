@@ -206,8 +206,8 @@ export default function ArganTrianglePage() {
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — The Tree</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-8">Argania spinosa</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10" data-sid="tree" style={{ opacity: visibleSections.has('tree') ? 1 : 0, transform: visibleSections.has('tree') ? 'translateY(0)' : 'translateY(12px)', transition: 'all 0.7s ease' }}>
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10" data-sid="tree" style={{ opacity: visibleSections.has('tree') ? 1 : 0, transform: visibleSections.has('tree') ? 'translateY(0)' : 'translateY(12px)', transition: 'all 0.7s ease' }}>
+            <div className="md:col-span-7">
               <p className="text-[14px] text-dwl-body leading-relaxed mb-4">Tashelhit name: <em>argan</em> (ⴰⵔⴳⴰⵏ). A thorny, gnarled tree native to the semi-arid Souss Valley, the Chiadma and Haha regions, and the Anti-Atlas foothills. Grows 8–10 metres high. Crown circumference up to 70 metres. Lives approximately 200 years. Deep roots reach 30 metres into underground aquifers.</p>
               <p className="text-[14px] text-dwl-body leading-relaxed mb-4">Each tree produces ~8 kg of fruit per year. The fruit is olive-shaped, bitter, containing 1–3 oil-rich kernels. Forty kilograms of dried fruit produces just one litre of oil. Attempts to cultivate argan in the US, Israel, and Mexico have largely failed.</p>
               <p className="text-[14px] text-dwl-body leading-relaxed">Morocco&rsquo;s second-largest forest resource after holm oak. A bastion against desertification: stabilises soil, shelters wildlife, prevents Saharan expansion. Goats famously climb argan trees to feed on fruit — their droppings leave shells intact while returning nutrients to the forest floor.</p>
@@ -234,7 +234,7 @@ export default function ArganTrianglePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[36vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#22C55E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#0a0a0a' }}>The argan tree is a true bastion against desertification. It can reach 10 metres in height and live for 200 years.</p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(10,10,10,0.5)' }}>— United Nations, International Day of Argania</p>
@@ -298,7 +298,7 @@ export default function ArganTrianglePage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#22C55E' }}>Everyone wants their share of the value chain and there is less and less room for women.</p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Jamila Idbourous, President, Union of Women&rsquo;s Cooperatives (The Ecologist, 2025)</p>
@@ -333,7 +333,7 @@ export default function ArganTrianglePage() {
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n, i) => (
-              <div key={n.label} data-sid={`kn-${i}`} className="p-6 md:p-8" style={{ background: '#0a0a0a', opacity: visibleSections.has(`kn-${i}`) ? 1 : 0, transform: visibleSections.has(`kn-${i}`) ? 'translateY(0)' : 'translateY(6px)', transition: `all 0.5s ease ${i * 80}ms` }}>
+              <div key={n.label} data-sid={`kn-${i}`} className="p-6 md:p-8" style={{ paddingTop: i % 2 === 1 ? '24px' : '0',  background: '#0a0a0a', opacity: visibleSections.has(`kn-${i}`) ? 1 : 0, transform: visibleSections.has(`kn-${i}`) ? 'translateY(0)' : 'translateY(6px)', transition: `all 0.5s ease ${i * 80}ms` }}>
                 <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#22C55E' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
@@ -347,7 +347,7 @@ export default function ArganTrianglePage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {['United Nations — International Day of Argania: 2021 resolution, 113 co-sponsors, tree biology','UNESCO — Arganeraie Biosphere Reserve (1998): ~2.5M hectares, 8 provinces','UNESCO — Intangible Cultural Heritage (2014): Argan practices inscribed','FAO — GIAHS (2018): Argan agro-sylvo-pastoral system, Ait Souab–Ait Mansour','Wikipedia — Argan oil: 40 kg/litre, UCFA 22 cooperatives, ~300 firms Essaouira','Wikipedia — Sideroxylon spinosum: 8,280 km², 50% loss, Tashelhit vocabulary','Morocco World News: 20M trees, roots 30m, crown 70m, ANDZOA 2010','The Ecologist (Nov 2025): Idbourous quote, cooperative margins, Covid price surge','Springer Human Ecology (2023): UCFA/FIFARGANE/FNFARGNANE unions, 8 provinces','Market.us / IMARC / Persistence: Global market $370M (2024), CAGR 9–12%'].map((s, i) => (
               <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
             ))}
