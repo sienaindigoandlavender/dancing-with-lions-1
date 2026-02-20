@@ -312,7 +312,7 @@ export default function MarriageEconomyPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -338,7 +338,7 @@ export default function MarriageEconomyPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { n: '150K', l: 'MAD average wedding cost', c: C.gold },
@@ -359,10 +359,10 @@ export default function MarriageEconomyPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ I. THE TREEMAP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">Where the Money Goes</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -372,10 +372,10 @@ export default function MarriageEconomyPage() {
         <Treemap />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ II. REGIONAL COSTS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">What It Costs, Where</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -384,10 +384,10 @@ export default function MarriageEconomyPage() {
         <RegionalBars />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ III. SEVEN OUTFITS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">Seven Outfits, One Night</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -409,10 +409,10 @@ export default function MarriageEconomyPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ IV. GIFT ECONOMY ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Gift Economy</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -446,10 +446,10 @@ export default function MarriageEconomyPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ V. SUPPLY CHAIN ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section V</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Supply Chain</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -459,10 +459,10 @@ export default function MarriageEconomyPage() {
         <SupplyChain />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ VI. WEDDING SEASON ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section VI</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">When Morocco Marries</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -472,10 +472,10 @@ export default function MarriageEconomyPage() {
         <SeasonChart />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -508,10 +508,10 @@ export default function MarriageEconomyPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Cost data: MAwebzine (2025), PlanetJawal (2023), Bewildered in Morocco (2025), Movocco (2024), Friendly Morocco (2025). Regional variations: editorial estimates based on aggregated vendor pricing and local reporting. Bridal traditions: Middle East Eye, The Knot, Unique Travel Morocco. Amazigh jewellery: Wikipedia (Jewellery of the Berber cultures), The Metropolitan Museum of Art (Berber Jewelry), Little Moroccan Things, Morocco Travel Blog. Tiznit silver: Morocco World News, iwziwn.com (2025). Wedding season: HCP (Haut-Commissariat au Plan) marriage registration data. Supply chain sourcing: editorial mapping based on vendor origin data and cultural documentation.</p>

@@ -73,7 +73,7 @@ export default function MusicalTraditionsPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#7C3AED', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 066 — Cultural &amp; Sound Intelligence
           </p>
@@ -100,9 +100,9 @@ export default function MusicalTraditionsPage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7C3AED' }}>001 — The Sound Map</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Where the Music Lives</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Where the Music Lives</h2>
           <div className="flex flex-wrap gap-4 mb-6">
             {TRADITIONS.map(t => (
               <div key={t.id} className="flex items-center gap-2">
@@ -116,10 +116,10 @@ export default function MusicalTraditionsPage() {
       </section>
 
       {/* ═══ FIVE TRADITIONS ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — Five Lineages</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">The Traditions</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">The Traditions</h2>
 
           <div className="space-y-0">
             {TRADITIONS.map((t) => {
@@ -201,7 +201,7 @@ export default function MusicalTraditionsPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[38vh]" style={{ background: '#7C3AED' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#7C3AED' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             Our goal is to bring this music to the world.
@@ -212,9 +212,9 @@ export default function MusicalTraditionsPage() {
 
       {/* ═══ INSTRUMENTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7C3AED' }}>003 — The Instruments</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Eight Voices</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Eight Voices</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: '#1a1a1a' }}>
             {INSTRUMENTS.map((inst, i) => {
@@ -236,13 +236,13 @@ export default function MusicalTraditionsPage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="bg-white p-6 md:p-8">
-                <p className="font-serif italic text-[28px] md:text-[36px] text-dwl-black leading-none">{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] text-dwl-black leading-none">{n.value}</p>
                 <p className="text-[12px] text-dwl-gray mt-2 font-medium">{n.label}</p>
                 <p className="text-[11px] text-dwl-muted mt-1">{n.note}</p>
               </div>
@@ -252,7 +252,7 @@ export default function MusicalTraditionsPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#0a0a0a' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#0a0a0a' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3.5vw, 2.3rem)', color: '#D4A373' }}>
             Despite the language barrier, we manage to get along
@@ -263,8 +263,8 @@ export default function MusicalTraditionsPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

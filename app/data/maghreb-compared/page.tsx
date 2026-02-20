@@ -129,7 +129,7 @@ function ProportionalBars({
         {data.map((d, i) => (
           <div key={d.name} className="flex items-center gap-4">
             <div className="w-[80px] md:w-[100px] shrink-0 text-right">
-              <span className="font-serif text-[24px] md:text-[32px] text-dwl-black italic leading-none">
+              <span className="font-serif text-[28px] md:text-[36px] text-dwl-black italic leading-none">
                 {typeof d.value === 'number' && d.value < 1
                   ? d.value.toFixed(1)
                   : d.value % 1 === 0
@@ -183,7 +183,7 @@ function DotMatrix({
           return (
             <div key={d.name} className="flex items-center gap-4">
               <div className="w-[80px] md:w-[100px] shrink-0 text-right">
-                <span className="font-serif text-[24px] md:text-[32px] text-dwl-black italic leading-none">
+                <span className="font-serif text-[28px] md:text-[36px] text-dwl-black italic leading-none">
                   {d.value}
                 </span>
                 <span className="text-[11px] text-dwl-muted ml-1">%</span>
@@ -259,7 +259,7 @@ export default function MaghrebComparedPage() {
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-8">
         <p className="micro-label mb-4">Data Module 001</p>
         <h1 className="font-serif text-[clamp(2.5rem,7vw,5.5rem)] text-dwl-black leading-[0.95]">
           The Maghreb<br /><em>Compared</em>
@@ -270,10 +270,10 @@ export default function MaghrebComparedPage() {
         </p>
       </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ═══ HEADLINE NUMBERS ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-4">
         <p className="micro-label mb-2">Combined Maghreb</p>
         <div className="flex flex-wrap items-baseline gap-x-12 gap-y-4">
           <div>
@@ -288,7 +288,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ POPULATION ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <ProportionalBars
           label="Population"
           unit="M"
@@ -299,7 +299,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ GDP ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <ProportionalBars
           label="GDP (nominal)"
           unit="$B"
@@ -310,7 +310,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ GDP PER CAPITA ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <ProportionalBars
           label="GDP per capita"
           unit="$"
@@ -320,7 +320,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ GDP GROWTH + INFLATION + UNEMPLOYMENT ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <StatGrid
           label="GDP Growth"
           stats={countries.map(c => ({
@@ -345,7 +345,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ TOURIST ARRIVALS ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <ProportionalBars
           label="Tourist Arrivals"
           unit="M"
@@ -356,7 +356,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ TOURISM % GDP ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <StatGrid
           label="Tourism as % of GDP"
           stats={countries.map(c => ({
@@ -367,7 +367,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ INTERNET PENETRATION ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <DotMatrix
           label="Internet Users"
           data={countries.map(c => ({ name: c.name, value: c.internet, color: c.color }))}
@@ -376,7 +376,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ URBANIZATION ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <DotMatrix
           label="Urbanization"
           data={countries.map(c => ({ name: c.name, value: c.urbanization, color: c.color }))}
@@ -385,7 +385,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ MEDIAN AGE ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <StatGrid
           label="Median Age"
           stats={countries.map(c => ({
@@ -397,7 +397,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ HDI ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <StatGrid
           label="Human Development Index"
           stats={countries.map(c => ({
@@ -409,7 +409,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ REMITTANCES ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <ProportionalBars
           label="Remittances"
           unit="% GDP"
@@ -420,7 +420,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ FDI ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <StatGrid
           label="Foreign Direct Investment (% of GDP)"
           stats={countries.map(c => ({
@@ -431,7 +431,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ CO2 ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <StatGrid
           label="CO₂ Emissions per Capita"
           stats={countries.map(c => ({
@@ -442,7 +442,7 @@ export default function MaghrebComparedPage() {
       </section>
 
       {/* ═══ WOMEN IN PARLIAMENT ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 mb-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mb-24 md:mb-40">
         <StatGrid
           label="Women in Parliament"
           stats={countries.map(c => ({
@@ -454,7 +454,7 @@ export default function MaghrebComparedPage() {
 
       {/* ═══ SOURCES + COPYRIGHT ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="bg-dwl-offwhite">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
           <div className="max-w-[640px]">
             <p className="micro-label mb-4">Sources</p>
             <div className="space-y-1">

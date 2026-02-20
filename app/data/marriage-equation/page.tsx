@@ -346,7 +346,7 @@ export default function MarriageEquationPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -371,7 +371,7 @@ export default function MarriageEquationPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { n: '249K', l: 'Marriages registered (2024)', c: C.marriage },
@@ -392,10 +392,10 @@ export default function MarriageEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ I. THE DIVERGENCE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Divergence</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -406,10 +406,10 @@ export default function MarriageEquationPage() {
         <TrendChart />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ II. AGE AT FIRST MARRIAGE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Delay</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -420,10 +420,10 @@ export default function MarriageEquationPage() {
         <AgeChart />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ III. THE RATIO + CHILD MARRIAGE + CONSENSUS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Numbers Behind the Numbers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
@@ -433,10 +433,10 @@ export default function MarriageEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ IV. STRUCTURAL SHIFT ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Structural Shift</h2>
         <p className="text-[13px] mb-8 max-w-[500px]" style={{ color: C.muted }}>
@@ -450,10 +450,10 @@ export default function MarriageEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ V. THE MOUDAWANA ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section V</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Moudawana</h2>
         <p className="text-[13px] mb-8 max-w-[500px]" style={{ color: C.muted }}>
@@ -479,10 +479,10 @@ export default function MarriageEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -516,10 +516,10 @@ export default function MarriageEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Marriage & divorce data: HCP (Haut-Commissariat au Plan), "Les Femmes Marocaines en Chiffres" (2023, 2024). Statista (Number of Marriages in Morocco 2018–2022; Number of Divorces 2004–2021). 2024 marriage figure (249,089): Justice Minister Abdellatif Ouahbi, December 2024 parliamentary session (Barlaman Today). Age at first marriage: HCP/Statista (Average age at first marriage 2004–2018); Morocco World News (2019). Child marriage: HCP (2024), Barlaman Today (Oct 2025); Morocco World News (Dec 2025); Wilson Center; Girls Not Brides. Divorce ratio (50:100): CSPJ via Morocco World News (June 2023). Consensual divorce: HCP via Hespress (Oct 2025). Women-led households: HCP via Barlaman Today (Oct 2025). Moudawana: Carnegie Endowment (2025), Centre for Public Impact, TIMEP, EuroMed Rights, Fund for Global Human Rights, NYU, National Council on U.S.-Arab Relations, Spheres of Influence. Marriage trend estimates (pre-2018): editorial interpolation based on HCP reporting and Statista anchors. Individual year figures before 2018 are approximations from trend reporting, not precise counts.</p>

@@ -112,7 +112,7 @@ export default function MoroccoEconomyPage() {
         className="relative min-h-[70vh] flex items-end overflow-hidden"
         style={{ background: 'linear-gradient(160deg, #0a0a0a 0%, #1B1B3A 50%, #0a0a0a 100%)' }}
       >
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-16 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-16 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6" style={{ color: '#E63946' }}>
             Data Module 004
           </p>
@@ -141,8 +141,8 @@ export default function MoroccoEconomyPage() {
       </section>
 
       {/* ═══ 2. KEY FACTS GRID ═══ */}
-      <section ref={facts.ref} className="py-section bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section ref={facts.ref} className="py-24 md:py-40 bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="micro-label mb-8">The Snapshot</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-dwl-border">
             {KEY_FACTS.map((fact, i) => (
@@ -155,7 +155,7 @@ export default function MoroccoEconomyPage() {
                 }}
               >
                 <p className="text-[10px] uppercase tracking-[0.1em] text-dwl-muted mb-2">{fact.label}</p>
-                <p className="font-serif text-[28px] md:text-[36px] text-dwl-black italic leading-none">
+                <p className="font-serif text-[32px] md:text-[44px] text-dwl-black italic leading-none">
                   {fact.value}
                 </p>
                 <p className="text-[11px] text-dwl-gray mt-1">{fact.sub}</p>
@@ -166,8 +166,8 @@ export default function MoroccoEconomyPage() {
       </section>
 
       {/* ═══ 3. GDP TREND ═══ */}
-      <section ref={gdp.ref} style={{ background: '#fafafa' }} className="py-section">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section ref={gdp.ref} style={{ background: '#fafafa' }} className="py-24 md:py-40">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="micro-label mb-2">GDP Nominal · USD Billions</p>
           <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-tight mb-10">
             $17B → $183B in seven years
@@ -215,10 +215,10 @@ export default function MoroccoEconomyPage() {
       {/* ═══ 4. MONEY FLOWS ═══ */}
       <section
         ref={flows.ref}
-        className="py-section"
+        className="py-24 md:py-40"
         style={{ background: '#0a0a0a' }}
       >
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[10px] uppercase tracking-[0.15em] mb-2" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Money Flowing In
           </p>
@@ -264,8 +264,8 @@ export default function MoroccoEconomyPage() {
       </section>
 
       {/* ═══ 5. EXPORTS TREEMAP ═══ */}
-      <section ref={exports.ref} className="py-section bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section ref={exports.ref} className="py-24 md:py-40 bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="micro-label mb-2">Export Sectors · % of Total</p>
           <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-tight mb-10">
             Automotive overtook phosphates in 2014. It never looked back.
@@ -319,7 +319,7 @@ export default function MoroccoEconomyPage() {
 
       {/* ═══ BIG FACT ═══ */}
       <section
-        className="py-section flex items-center justify-center min-h-[40vh]"
+        className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]"
         style={{ background: '#E63946' }}
       >
         <div className="max-w-[720px] px-6 md:px-10 text-center">
@@ -336,8 +336,8 @@ export default function MoroccoEconomyPage() {
       </section>
 
       {/* ═══ 6. FDI SOURCES ═══ */}
-      <section ref={fdi.ref} className="py-section" style={{ background: '#fafafa' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section ref={fdi.ref} className="py-24 md:py-40" style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {/* FDI by country */}
             <div>
@@ -405,8 +405,8 @@ export default function MoroccoEconomyPage() {
       </section>
 
       {/* ═══ 7. GDP BY SECTOR ═══ */}
-      <section ref={sectors.ref} className="py-section bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section ref={sectors.ref} className="py-24 md:py-40 bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="micro-label mb-2">GDP Composition by Sector</p>
           <p className="font-serif text-[28px] md:text-[32px] text-dwl-black italic leading-tight mb-10">
             Services dominate. Agriculture still employs 23%.
@@ -469,8 +469,8 @@ export default function MoroccoEconomyPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>

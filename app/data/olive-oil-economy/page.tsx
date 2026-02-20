@@ -81,7 +81,7 @@ export default function OliveOilEconomyPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#22C55E', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 067 — Agricultural &amp; Trade Intelligence
           </p>
@@ -108,9 +108,9 @@ export default function OliveOilEconomyPage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>001 — The Olive Belt</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Producing Regions</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Producing Regions</h2>
           <p className="text-[13px] max-w-[600px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Marker size reflects relative production volume. Click to explore each region&rsquo;s terroir, mill infrastructure, and flavour profile.
           </p>
@@ -129,10 +129,10 @@ export default function OliveOilEconomyPage() {
       </section>
 
       {/* ═══ REGIONS DETAIL ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — Terroir</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">Every Region, a Different Oil</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">Every Region, a Different Oil</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
             {REGIONS.map((r, i) => {
@@ -155,9 +155,9 @@ export default function OliveOilEconomyPage() {
 
       {/* ═══ VARIETIES ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>003 — The Cultivars</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Six Varieties</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Six Varieties</h2>
 
           <div className="space-y-0">
             {VARIETIES.map((v, i) => {
@@ -181,7 +181,7 @@ export default function OliveOilEconomyPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[38vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#22C55E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#0a0a0a' }}>
             Morocco is poised to swiftly reclaim, and even exceed, its record
@@ -193,9 +193,9 @@ export default function OliveOilEconomyPage() {
 
       {/* ═══ PRODUCTION TABLE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — Harvest &amp; Yield</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Production Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Production Data</h2>
           <p className="text-[13px] text-dwl-muted max-w-[540px] leading-relaxed mb-10">
             Six consecutive drought years collapsed output by 55%. The 2025 recovery — if realised — would represent the largest single-year rebound in Moroccan olive history.
           </p>
@@ -234,9 +234,9 @@ export default function OliveOilEconomyPage() {
 
       {/* ═══ EXPORT MARKETS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>005 — Where It Goes</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Export Markets</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Export Markets</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#1a1a1a' }}>
             {EXPORT_MARKETS.map((m, i) => {
@@ -274,7 +274,7 @@ export default function OliveOilEconomyPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#22C55E' }}>
             The interplay of Atlantic Ocean influence, Atlas Mountain elevation,
@@ -286,14 +286,14 @@ export default function OliveOilEconomyPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">006 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="bg-white p-6 md:p-8">
-                <p className="font-serif italic text-[28px] md:text-[36px] text-dwl-black leading-none">{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] text-dwl-black leading-none">{n.value}</p>
                 <p className="text-[12px] text-dwl-gray mt-2 font-medium">{n.label}</p>
                 <p className="text-[11px] text-dwl-muted mt-1">{n.note}</p>
               </div>
@@ -303,8 +303,8 @@ export default function OliveOilEconomyPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

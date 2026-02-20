@@ -60,7 +60,7 @@ export default function LanguagesPage() {
 
   return (
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="micro-label mb-3" style={{ color: C.muted }}>Linguistic Cartography</p>
         <div ref={heroR.ref}>
@@ -82,7 +82,7 @@ export default function LanguagesPage() {
       </section>
 
       {/* LANGUAGE OVERVIEW BARS */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={barR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="micro-label mb-1" style={{ color: C.darija }}>Language Landscape</p>
           <p className="font-mono text-[11px] mb-4" style={{ color: C.muted }}>
@@ -112,7 +112,7 @@ export default function LanguagesPage() {
       </section>
 
       {/* REGIONAL AMAZIGH MAP (as sorted bars) */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={regR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="micro-label mb-1" style={{ color: C.tamazight }}>Amazigh by Region</p>
           <p className="font-mono text-[11px] mb-4" style={{ color: C.muted }}>
@@ -128,7 +128,7 @@ export default function LanguagesPage() {
       </section>
 
       {/* THREE AMAZIGH LANGUAGES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="micro-label mb-4" style={{ color: C.muted }}>The Three Amazigh Languages</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -161,7 +161,7 @@ export default function LanguagesPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             Language in Morocco is never neutral. Darija is home. French is money.

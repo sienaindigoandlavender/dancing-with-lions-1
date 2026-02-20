@@ -120,7 +120,7 @@ function Hero() {
         ))}
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10 relative z-10">
+      <div className="px-8 md:px-[8%] lg:px-[12%] relative z-10">
         <p
           className="text-[11px] uppercase tracking-[0.2em] mb-8"
           style={{
@@ -237,8 +237,8 @@ function Treemap() {
   const hoveredData = hovered ? R.find(r => r.id === hovered) : null
 
   return (
-    <section ref={ref} className="py-section bg-white">
-      <div className="max-w-wide mx-auto px-6 md:px-10">
+    <section ref={ref} className="py-24 md:py-40 bg-white">
+      <div className="px-8 md:px-[8%] lg:px-[12%]">
         <p className="micro-label mb-2">Population by Region</p>
         <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-8">
           Where the weight falls
@@ -354,8 +354,8 @@ function BubbleChart() {
   const padding = 60
 
   return (
-    <section ref={ref} style={{ background: '#0a0a0a' }} className="py-section">
-      <div className="max-w-wide mx-auto px-6 md:px-10">
+    <section ref={ref} style={{ background: '#0a0a0a' }} className="py-24 md:py-40">
+      <div className="px-8 md:px-[8%] lg:px-[12%]">
         <p className="text-[11px] uppercase tracking-[0.2em] mb-2" style={{ color: '#48BFE3' }}>
           Population vs Density
         </p>
@@ -474,8 +474,8 @@ function GrowthBars() {
   const maxGrowth = sorted[0].growth
 
   return (
-    <section ref={ref} className="py-section bg-white">
-      <div className="max-w-wide mx-auto px-6 md:px-10">
+    <section ref={ref} className="py-24 md:py-40 bg-white">
+      <div className="px-8 md:px-[8%] lg:px-[12%]">
         <p className="micro-label mb-2">Annual Growth Rate 2014–2024</p>
         <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-10">
           Who&apos;s growing fastest
@@ -548,8 +548,8 @@ function WaffleChart() {
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null)
 
   return (
-    <section ref={ref} style={{ background: '#fafafa' }} className="py-section">
-      <div className="max-w-wide mx-auto px-6 md:px-10">
+    <section ref={ref} style={{ background: '#fafafa' }} className="py-24 md:py-40">
+      <div className="px-8 md:px-[8%] lg:px-[12%]">
         <p className="micro-label mb-2">One Square ≈ {UNIT.toLocaleString()} People</p>
         <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-8">
           The whole country in {squares.length} blocks
@@ -613,7 +613,7 @@ function BigFact() {
   return (
     <section
       ref={ref}
-      className="py-section flex items-center justify-center min-h-[60vh]"
+      className="py-24 md:py-40 flex items-center justify-center min-h-[60vh]"
       style={{ background: '#E63946' }}
     >
       <div className="max-w-[700px] px-6 md:px-10 text-center">
@@ -652,8 +652,8 @@ function DensitySpectrum() {
   const sorted = [...R].sort((a, b) => a.density - b.density)
 
   return (
-    <section ref={ref} className="py-section bg-white">
-      <div className="max-w-wide mx-auto px-6 md:px-10">
+    <section ref={ref} className="py-24 md:py-40 bg-white">
+      <div className="px-8 md:px-[8%] lg:px-[12%]">
         <p className="micro-label mb-2">Density Spectrum</p>
         <p className="font-serif text-[32px] md:text-[42px] text-dwl-black italic leading-[1.1] mb-10">
           From empty desert to packed city
@@ -721,8 +721,8 @@ function DensitySpectrum() {
 // ═══════════════════════════════════════════
 function Sources() {
   return (
-    <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-      <div className="max-w-wide mx-auto px-6 md:px-10">
+    <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+      <div className="px-8 md:px-[8%] lg:px-[12%]">
         <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
           Source
         </p>

@@ -56,7 +56,7 @@ export default function MoroccanFashionPage() {
         <div className="absolute inset-0 opacity-[0.03]">
           <svg width="100%" height="100%"><defs><pattern id="thread-weave" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M0 12h24M12 0v24" stroke="#fff" strokeWidth="0.3" /><circle cx="12" cy="12" r="1" fill="#fff" opacity="0.4" /></pattern></defs><rect width="100%" height="100%" fill="url(#thread-weave)" /></svg>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] text-center">
           <div className="mb-6">
             <span style={{ fontSize: '11px', letterSpacing: '0.12em', color: ACCENT }} className="uppercase">Module 078 — Cultural & Design Intelligence</span>
           </div>
@@ -78,7 +78,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── THE GARMENTS ── */}
-      <section data-sid="garments" className="py-24 px-6">
+      <section data-sid="garments" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="max-w-6xl mx-auto" style={{ opacity: vis('garments') ? 1 : 0, transform: vis('garments') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Six Garments</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-4">The Vocabulary</h2>
@@ -105,7 +105,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── QUOTE BREAK: THE CAFTAN ── */}
-      <section className="py-20 px-6" style={{ background: '#111' }}>
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32" style={{ background: '#111' }}>
         <div className="max-w-3xl mx-auto text-center">
           <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(18px, 3vw, 26px)', lineHeight: 1.7, color: '#ccc' }}>
             &ldquo;The caftan concerns the entire Moroccan society across different localities. It is the essential costume for occasions marking the life of Moroccan Arabs, Amazighs, and Jews.&rdquo;
@@ -115,7 +115,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── CRAFT COMPONENTS ── */}
-      <section data-sid="craft" className="py-24 px-6">
+      <section data-sid="craft" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="max-w-6xl mx-auto" style={{ opacity: vis('craft') ? 1 : 0, transform: vis('craft') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Anatomy of a Caftan</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-12">The Components</h2>
@@ -134,7 +134,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── EMBROIDERY SCHOOLS — Auto-advancing cycle ── */}
-      <section data-sid="embroidery" className="py-24 px-6" style={{ background: '#080808' }}>
+      <section data-sid="embroidery" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40" style={{ background: '#080808' }}>
         <div className="max-w-5xl mx-auto" style={{ opacity: vis('embroidery') ? 1 : 0, transform: vis('embroidery') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Three Schools + Two Techniques</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-4">Regional Embroidery</h2>
@@ -167,7 +167,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── CONTEMPORARY DESIGNERS ── */}
-      <section data-sid="designers" className="py-24 px-6">
+      <section data-sid="designers" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="max-w-6xl mx-auto" style={{ opacity: vis('designers') ? 1 : 0, transform: vis('designers') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Contemporary Voices</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-4">The Designers</h2>
@@ -188,7 +188,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── QUOTE BREAK: CHARAF TAJER ── */}
-      <section className="py-20 px-6" style={{ background: ACCENT + '0a' }}>
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32" style={{ background: ACCENT + '0a' }}>
         <div className="max-w-3xl mx-auto text-center">
           <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(18px, 3vw, 24px)', lineHeight: 1.7, color: '#ccc' }}>
             &ldquo;My Moroccan heritage is more related to the colours and a kind of hospitality. The aesthetic is definitely Paris. The word Casablanca evokes a certain poetry, a certain type of travel, a certain time.&rdquo;
@@ -198,7 +198,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── INDUSTRY DATA ── */}
-      <section data-sid="industry" className="py-24 px-6">
+      <section data-sid="industry" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="max-w-5xl mx-auto" style={{ opacity: vis('industry') ? 1 : 0, transform: vis('industry') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>The Industry</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-12">Scale & Structure</h2>
@@ -215,7 +215,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── TIMELINE ── */}
-      <section data-sid="timeline" className="py-24 px-6" style={{ background: '#080808' }}>
+      <section data-sid="timeline" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40" style={{ background: '#080808' }}>
         <div className="max-w-5xl mx-auto" style={{ opacity: vis('timeline') ? 1 : 0, transform: vis('timeline') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Timeline</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-4">Eight Centuries of Dress</h2>
@@ -239,7 +239,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── KEY NUMBERS ── */}
-      <section data-sid="numbers" className="py-24 px-6">
+      <section data-sid="numbers" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="max-w-5xl mx-auto" style={{ opacity: vis('numbers') ? 1 : 0, transform: vis('numbers') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Key Numbers</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(28px, 4vw, 36px)' }} className="mb-12">The Data</h2>
@@ -256,7 +256,7 @@ export default function MoroccanFashionPage() {
       </section>
 
       {/* ── BIBLIOGRAPHY ── */}
-      <section data-sid="biblio" className="py-24 px-6" style={{ background: '#080808' }}>
+      <section data-sid="biblio" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40" style={{ background: '#080808' }}>
         <div className="max-w-4xl mx-auto" style={{ opacity: vis('biblio') ? 1 : 0, transform: vis('biblio') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
           <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Bibliography</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(24px, 3vw, 32px)' }} className="mb-10">Further Reading</h2>

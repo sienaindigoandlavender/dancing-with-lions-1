@@ -94,7 +94,7 @@ export default function MoroccanCalendarPage() {
 
   return (
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="micro-label mb-3" style={{ color: C.muted }}>Temporal Cartography</p>
         <div ref={heroR.ref}>
@@ -130,7 +130,7 @@ export default function MoroccanCalendarPage() {
       </section>
 
       {/* FILTER + MONTHLY TIMELINE */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <div className="flex items-baseline justify-between flex-wrap gap-4 mb-6">
             <div>
@@ -221,7 +221,7 @@ export default function MoroccanCalendarPage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -257,7 +257,7 @@ export default function MoroccanCalendarPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             Ask a Moroccan what month it is and you might get four answers.

@@ -34,7 +34,7 @@ export default function LiteraryMoroccoPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#D4A373', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 062 — Cultural Intelligence
           </p>
@@ -61,7 +61,7 @@ export default function LiteraryMoroccoPage() {
 
       {/* ═══ ERAS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-8">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-8">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-6" style={{ color: '#D4A373' }}>001 — Four Eras</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: '#1a1a1a' }}>
             {ERAS.map((e) => (
@@ -76,10 +76,10 @@ export default function LiteraryMoroccoPage() {
       </section>
 
       {/* ═══ WRITERS ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — The Writers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-8">Twelve Voices</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-8">Twelve Voices</h2>
 
           <div className="flex flex-wrap gap-2 mb-10">
             {[{ key: 'all' as EraFilter, label: 'All', color: '#888' }, ...ERAS.map(e => ({ key: e.key as EraFilter, label: e.label.split('(')[0].trim(), color: e.color }))].map(e => (
@@ -129,7 +129,7 @@ export default function LiteraryMoroccoPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[38vh]" style={{ background: '#D4A373' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#D4A373' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             &ldquo;Paul Bowles loves Morocco,
@@ -141,9 +141,9 @@ export default function LiteraryMoroccoPage() {
 
       {/* ═══ LOCATIONS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>003 — The Places</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Literary Geography</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Literary Geography</h2>
           <p className="text-[16px] max-w-[560px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>Hotels, cafés, bookshops, cemeteries. The physical spaces where Morocco\'s literary history happened.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#1a1a1a' }}>
@@ -162,7 +162,7 @@ export default function LiteraryMoroccoPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#3B82F6' }}>
             Tangier&rsquo;s literary history is unlike
@@ -174,8 +174,8 @@ export default function LiteraryMoroccoPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

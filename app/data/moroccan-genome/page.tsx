@@ -262,7 +262,7 @@ export default function MoroccanGenomePage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -291,7 +291,7 @@ export default function MoroccanGenomePage() {
       </section>
 
       {/* ═══ KEY FINDINGS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div ref={keyR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {KEY_FINDINGS.map((k, i) => (
             <div key={k.label} className="border-t pt-3 transition-all duration-700"
@@ -304,10 +304,10 @@ export default function MoroccanGenomePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ I. AUTOSOMAL ADMIXTURE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Admixture</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -318,10 +318,10 @@ export default function MoroccanGenomePage() {
         <AdmixtureBar data={ADMIXTURE} title="MOROCCAN AUTOSOMAL ANCESTRY (MOROCCAN GENOME PROJECT, 2025)" />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ II. Y-CHROMOSOME ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Father Line</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -332,10 +332,10 @@ export default function MoroccanGenomePage() {
         <HaploBar data={Y_HAPLO} title="Y-CHROMOSOME HAPLOGROUPS (MGP 2025, 109 MALES)" />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ III. E-M81 THE BERBER MARKER ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Berber Marker</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -348,10 +348,10 @@ export default function MoroccanGenomePage() {
         <EM81Chart />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ IV. MATERNAL LINE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Mother Line</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -362,10 +362,10 @@ export default function MoroccanGenomePage() {
         <AdmixtureBar data={MT_HAPLO.map(d => ({ label: d.hg, pct: d.pct, color: d.color, note: d.note }))} title="MITOCHONDRIAL DNA HAPLOGROUPS (SYNTHESIS OF MULTIPLE STUDIES)" />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ V. TIMELINE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section V</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">300,000 Years</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -397,10 +397,10 @@ export default function MoroccanGenomePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ VI. THE IDENTITY QUESTION ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section VI</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Identity Question</h2>
         <p className="text-[13px] mb-10 max-w-[540px]" style={{ color: C.text }}>
@@ -548,10 +548,10 @@ export default function MoroccanGenomePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ VII. THE INVISIBLE GROUPS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section VII</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Invisible Groups</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.text }}>
@@ -572,10 +572,10 @@ export default function MoroccanGenomePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -652,10 +652,10 @@ export default function MoroccanGenomePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p><strong>Genetics:</strong> Moroccan Genome Project Phase 1 (2025), <em>Communications Biology</em>. 109 whole genomes. Ancestry: 51.2% North African, 10.9% European, 10.7% Middle Eastern, 6.8% West African. Y-haplogroups: E1b1b1 36.6%, F 19.5%, G2 17.1%. E-M81 frequency: Reguig et al. (2014), <em>Human Biology</em>, 295 Berber men. E-M81 TMRCA: Solé-Morata et al. (2017), <em>Scientific Reports</em>. Demographic model: Serradell et al. (2024), <em>Genome Biology</em>. Taforalt ancient DNA: Loosdrecht et al. (2018), <em>Science</em>. mtDNA synthesis: Frigi et al. (2010); Coudray et al. (2009). Arab/Berber genetic similarity: Arauna et al. (2017), <em>Molecular Biology and Evolution</em>.</p>

@@ -81,7 +81,7 @@ export default function DataPage() {
 
   return (
     <div className="pt-16">
-      <section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-24 md:pt-40 pb-16">
         <p className="micro-label mb-4">Data Modules</p>
         <h1 className="font-serif text-[clamp(3rem,8vw,5rem)] text-dwl-black leading-[0.95]">
           The <em>Intelligence</em>
@@ -93,9 +93,9 @@ export default function DataPage() {
         </p>
       </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         {/* Pagination — top */}
         <PaginationBar
           currentPage={currentPage}
