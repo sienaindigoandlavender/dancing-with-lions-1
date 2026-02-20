@@ -851,4 +851,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['garden', 'gardens', 'Majorelle', 'Agdal', 'Menara', 'Jnan Sbil', 'Marrakech', 'Fez', 'Islamic garden', 'chahar bagh', 'four-fold', 'khettara', 'qanat', 'seguia', 'noria', 'water', 'irrigation', 'reservoir', 'sahrij', 'Almohad', 'Saadian', 'Alaouite', 'Yves Saint Laurent', 'Jacques Majorelle', 'Majorelle Blue', 'cobalt', 'UNESCO', 'olive', 'orchard', 'pavilion', 'menzeh', 'Atlas Mountains', 'paradise', 'jannah', 'geometry', 'hydraulic', 'Berber Museum', 'Pierre Bergé', 'bamboo', 'zellige', 'fountain'],
     href: '/data/gardens-of-morocco',
   },
+  {
+    id: 'migration-routes',
+    number: '085',
+    title: 'Migration Routes Through Morocco',
+    category: 'Human Mobility Intelligence',
+    description: 'Sub-Saharan migration, Spain crossings, transit cities, EU externalisation, SNIA regularisation. Ceuta, Melilla, Strait of Gibraltar, Atlantic route. Harraga. 10,457 dead or missing in 2024.',
+    tags: ['migration', 'migrants', 'refugees', 'asylum', 'sub-Saharan', 'Africa', 'Spain', 'Europe', 'Ceuta', 'Melilla', 'Strait of Gibraltar', 'Canary Islands', 'Atlantic route', 'Western Mediterranean', 'Sahara', 'transit', 'Oujda', 'Nador', 'Tangier', 'Rabat', 'Casablanca', 'Laâyoune', 'smuggling', 'trafficking', 'khettara', 'SNIA', 'regularisation', 'EU', 'Frontex', 'IOM', 'UNHCR', 'Melilla massacre', 'border', 'fence', 'cayucos', 'Mohammed VI', 'policy', 'enforcement', 'human rights', 'Ca-minando Fronteras', 'deaths', 'drowning', 'Senegal', 'Mali', 'Western Sahara'],
+    href: '/data/migration-routes',
+  },
 ]
