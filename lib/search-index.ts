@@ -644,4 +644,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['zellige', 'geometry', 'mathematics', 'symmetry', 'tessellation', 'star', 'islamic', 'pattern', 'craft', 'tilework'],
     href: '/data/geometry-of-zellige',
   },
+  {
+    id: 'literary-morocco',
+    number: '062',
+    title: 'Literary Morocco',
+    category: 'Cultural Intelligence',
+    description: 'Writers who lived, wrote, or set stories in Morocco. Bowles, Burroughs, Choukri, Canetti, Mrabet, Genet, Eberhardt, Ben Jelloun.',
+    tags: ['literature', 'writers', 'Bowles', 'Burroughs', 'Choukri', 'Canetti', 'Mrabet', 'Tangier', 'Interzone', 'Beat', 'books'],
+    href: '/data/literary-morocco',
+  },
 ]
