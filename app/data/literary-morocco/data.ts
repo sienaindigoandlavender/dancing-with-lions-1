@@ -27,7 +27,7 @@ export const WRITERS: Writer[] = [
     keyWork: 'The Sheltering Sky', keyWorkYear: '1949',
     otherWorks: ['Let It Come Down (1952)', 'The Spider\'s House (1955)', 'Points in Time (1982)'],
     detail: 'The gravitational center of literary Tangier. Arrived on Gertrude Stein\'s advice in 1931. Settled permanently in 1947 at the Immeuble Itesa. Composer turned novelist. Translated Moroccan oral storytellers (Choukri, Mrabet, Layachi) into English. Recorded 60 hours of Moroccan folk music for the Library of Congress. His apartment became a pilgrimage site. Every major writer of the mid-century passed through his door.',
-    location: 'Tangier', era: 'interzone', color: '#3B82F6',
+    location: 'Tangier', era: 'interzone', color: '#2D5F8A',
   },
   {
     id: 'burroughs', name: 'William S. Burroughs', years: '1914–1997', nationality: 'American',
@@ -35,7 +35,7 @@ export const WRITERS: Writer[] = [
     keyWork: 'Naked Lunch', keyWorkYear: '1959',
     otherWorks: ['Interzone (1989, Tangier material)', 'Letters 1945–59'],
     detail: 'Arrived in 1953 after reading Bowles\'s fiction. Rented a room at the Hotel Muniria above a brothel. Drugs were cheap, sex was available, and nobody cared. Typed pages covered his floor with dirty footprints on them. Kerouac and Ginsberg arrived in 1957 to help assemble the manuscript. Burroughs reinvented Tangier\'s International Zone as "Interzone" — a liminal nowhere-space that became one of the most influential concepts in postwar literature.',
-    location: 'Tangier', era: 'interzone', color: '#EF4444',
+    location: 'Tangier', era: 'interzone', color: '#A0452E',
   },
   {
     id: 'choukri', name: 'Mohamed Choukri', years: '1935–2003', nationality: 'Moroccan',
@@ -51,7 +51,7 @@ export const WRITERS: Writer[] = [
     keyWork: 'Love with a Few Hairs', keyWorkYear: '1967',
     otherWorks: ['The Lemon (1969)', 'Look and Move On (1976)', 'The Boy Who Set the Fire (1974)'],
     detail: 'Illiterate fisherman, hustler, and golf caddie who became one of Morocco\'s most translated authors without ever writing a word. He told his stories in Darija to Paul Bowles, who translated and edited them into English. His tales capture Tangier street life with dark humor and supernatural elements — jinn, sorcery, desire, betrayal. His work represents some of the only Moroccan literature composed in Darija rather than fusha or French.',
-    location: 'Tangier', era: 'moroccan-voices', color: '#22C55E',
+    location: 'Tangier', era: 'moroccan-voices', color: '#5C7C3E',
   },
   {
     id: 'canetti', name: 'Elias Canetti', years: '1905–1994', nationality: 'Bulgarian-British',
@@ -59,7 +59,7 @@ export const WRITERS: Writer[] = [
     keyWork: 'The Voices of Marrakesh', keyWorkYear: '1967',
     otherWorks: ['Crowds and Power (1960)', 'Auto-da-Fé (1935)'],
     detail: 'Nobel Prize winner (1981). Spent only a few weeks in Marrakech in 1954 but produced one of the sharpest books on Morocco. Fourteen short episodes — the souks, the Djemaa el-Fna, the mellah, the blind beggars, the storytellers. Written in German, published 13 years after the visit. A masterclass in the essay form. No orientalist gaze — Canetti writes with humility about what he cannot understand.',
-    location: 'Marrakech', era: 'interzone', color: '#A855F7',
+    location: 'Marrakech', era: 'interzone', color: '#7B506F',
   },
   {
     id: 'gysin', name: 'Brion Gysin', years: '1916–1986', nationality: 'British-Canadian',
@@ -107,7 +107,7 @@ export const WRITERS: Writer[] = [
     keyWork: 'Window at Tangier', keyWorkYear: '1912',
     otherWorks: ['Zorah on the Terrace (1912)', 'Moroccan Garden (1912)', 'Entrance to the Casbah (1912)'],
     detail: 'Not a writer but essential to Morocco\'s creative mythology. Stayed at the Hotel Villa de France in Tangier. The light changed his palette permanently. His Moroccan paintings are among his most important — luminous, flat, saturated with color. "Morocco helped me make the necessary transition," he said. Room 35 at the Villa de France is now the Matisse Room.',
-    location: 'Tangier', era: 'pre-interzone', color: '#F97316',
+    location: 'Tangier', era: 'pre-interzone', color: '#C17F28',
   },
   {
     id: 'ibn-battuta', name: 'Ibn Battuta', years: '1304–1368', nationality: 'Moroccan',
@@ -138,9 +138,9 @@ export const LOCATIONS: LiteraryLocation[] = [
 
 export const ERAS = [
   { key: 'pre-interzone', label: 'Pre-Interzone (before 1924)', color: '#D4A373', detail: 'Before the International Zone. Ibn Battuta, Eberhardt, Wharton, Matisse. Morocco as expedition.' },
-  { key: 'interzone', label: 'The Interzone (1924–1960)', color: '#3B82F6', detail: 'Tangier as International Zone. Bowles, Burroughs, Gysin, Genet, Canetti. Freedom, drugs, espionage, literature.' },
+  { key: 'interzone', label: 'The Interzone (1924–1960)', color: '#2D5F8A', detail: 'Tangier as International Zone. Bowles, Burroughs, Gysin, Genet, Canetti. Freedom, drugs, espionage, literature.' },
   { key: 'moroccan-voices', label: 'Moroccan Voices (1960s–1990s)', color: '#F59E0B', detail: 'Choukri, Mrabet, Layachi. Moroccan writers tell their own stories. Often through Bowles\'s translations.' },
-  { key: 'modern', label: 'Modern (1980s–present)', color: '#22C55E', detail: 'Ben Jelloun, Laila Lalami, Fouad Laroui. Moroccan literature in French, Arabic, and English. Global recognition.' },
+  { key: 'modern', label: 'Modern (1980s–present)', color: '#5C7C3E', detail: 'Ben Jelloun, Laila Lalami, Fouad Laroui. Moroccan literature in French, Arabic, and English. Global recognition.' },
 ]
 
 export const HERO_STATS = [
@@ -152,10 +152,10 @@ export const HERO_STATS = [
 
 export const MAP_POINTS = [
   { name: 'Tangier', lat: 35.7595, lng: -5.8340, detail: 'Bowles, Burroughs, Choukri, Mrabet. The Interzone.', color: '#F59E0B' },
-  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Ibn Battuta. Al-Qarawiyyin scholars. Ben Jelloun born here.', color: '#3B82F6' },
-  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Canetti, Orwell. Djemaa el-Fna as literary landscape.', color: '#EF4444' },
-  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, detail: 'Orson Welles, Hendrix myth. Wind & writers.', color: '#8B5CF6' },
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Ibn Battuta. Al-Qarawiyyin scholars. Ben Jelloun born here.', color: '#2D5F8A' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Canetti, Orwell. Djemaa el-Fna as literary landscape.', color: '#A0452E' },
+  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, detail: 'Orson Welles, Hendrix myth. Wind & writers.', color: '#5D3A5E' },
   { name: 'Casablanca', lat: 33.5731, lng: -7.5898, detail: 'Driss Chraïbi. Urban modernity. Laroui.', color: '#737373' },
-  { name: 'Safi', lat: 32.2994, lng: -9.2372, detail: 'Khatibi birthplace. Atlantic intellectual tradition.', color: '#14B8A6' },
-  { name: 'El Jadida', lat: 33.2561, lng: -8.5007, detail: 'Portuguese heritage. Laroui\'s The Year of the Elephant.', color: '#14B8A6' },
+  { name: 'Safi', lat: 32.2994, lng: -9.2372, detail: 'Khatibi birthplace. Atlantic intellectual tradition.', color: '#4A7C6F' },
+  { name: 'El Jadida', lat: 33.2561, lng: -8.5007, detail: 'Portuguese heritage. Laroui\'s The Year of the Elephant.', color: '#4A7C6F' },
 ]

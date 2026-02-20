@@ -45,16 +45,16 @@ export default function GeometryZelligePage() {
             {/* Geometric grid: circles and intersecting lines */}
             {Array.from({ length: 5 }, (_, i) => (
               <g key={i}>
-                <circle cx={300 + i * 150} cy={400} r={70} fill="none" stroke="#3B82F6" strokeWidth="0.3" />
-                <circle cx={375 + i * 150} cy={330} r={70} fill="none" stroke="#3B82F6" strokeWidth="0.3" />
-                <circle cx={375 + i * 150} cy={470} r={70} fill="none" stroke="#3B82F6" strokeWidth="0.3" />
+                <circle cx={300 + i * 150} cy={400} r={70} fill="none" stroke="#2D5F8A" strokeWidth="0.3" />
+                <circle cx={375 + i * 150} cy={330} r={70} fill="none" stroke="#2D5F8A" strokeWidth="0.3" />
+                <circle cx={375 + i * 150} cy={470} r={70} fill="none" stroke="#2D5F8A" strokeWidth="0.3" />
               </g>
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#3B82F6', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#2D5F8A', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 061 — Mathematical Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -70,7 +70,7 @@ export default function GeometryZelligePage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#3B82F6', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#2D5F8A', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -117,7 +117,7 @@ export default function GeometryZelligePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#3B82F6' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#2D5F8A' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             The circle symbolizes unity.
@@ -160,7 +160,7 @@ export default function GeometryZelligePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#e5e5e5' }}>
             {SYMMETRY_TYPES.map((s, i) => {
               const isVisible = visibleSections.has(`sym-${i}`)
-              const colors = ['#3B82F6', '#22C55E', '#F59E0B', '#A855F7']
+              const colors = ['#2D5F8A', '#5C7C3E', '#F59E0B', '#7B506F']
               return (
                 <div key={s.name} data-sid={`sym-${i}`} className="bg-white p-8 transition-all duration-700" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
                   <div className="w-3 h-3 rounded-full mb-3" style={{ background: colors[i] }} />
@@ -177,7 +177,7 @@ export default function GeometryZelligePage() {
       {/* ═══ 17 WALLPAPER GROUPS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A855F7' }}>004 — The 17 Wallpaper Groups</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7B506F' }}>004 — The 17 Wallpaper Groups</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Every Possible Symmetry</h2>
           <p className="text-[16px] max-w-[640px] leading-relaxed mb-4" style={{ color: 'rgba(0,0,0,0.4)' }}>
             In 1891, Russian crystallographer Evgraf Fedorov proved there are exactly 17 distinct ways
@@ -192,11 +192,11 @@ export default function GeometryZelligePage() {
           <div className="flex gap-3 mb-8">
             <button onClick={() => setShowAllGroups(false)}
               className="px-4 py-2 text-[11px] uppercase tracking-[0.06em] rounded-full border transition-all"
-              style={{ borderColor: !showAllGroups ? '#A855F7' : '#333', color: !showAllGroups ? '#A855F7' : '#666', background: !showAllGroups ? 'rgba(168,85,247,0.1)' : 'transparent' }}
+              style={{ borderColor: !showAllGroups ? '#7B506F' : '#333', color: !showAllGroups ? '#7B506F' : '#666', background: !showAllGroups ? 'rgba(168,85,247,0.1)' : 'transparent' }}
             >Found in Zellige ({WALLPAPER_GROUPS.filter(g => g.inZellige).length})</button>
             <button onClick={() => setShowAllGroups(true)}
               className="px-4 py-2 text-[11px] uppercase tracking-[0.06em] rounded-full border transition-all"
-              style={{ borderColor: showAllGroups ? '#A855F7' : '#333', color: showAllGroups ? '#A855F7' : '#666', background: showAllGroups ? 'rgba(168,85,247,0.1)' : 'transparent' }}
+              style={{ borderColor: showAllGroups ? '#7B506F' : '#333', color: showAllGroups ? '#7B506F' : '#666', background: showAllGroups ? 'rgba(168,85,247,0.1)' : 'transparent' }}
             >All 17 Groups</button>
           </div>
 
@@ -212,11 +212,11 @@ export default function GeometryZelligePage() {
               <tbody>
                 {displayedGroups.map((g) => (
                   <tr key={g.notation} style={{ borderBottom: '1px solid #1a1a1a' }}>
-                    <td className="py-3 pr-4 font-mono text-[14px] font-bold" style={{ color: '#A855F7' }}>{g.notation}</td>
+                    <td className="py-3 pr-4 font-mono text-[14px] font-bold" style={{ color: '#7B506F' }}>{g.notation}</td>
                     <td className="py-3 pr-4 font-mono text-[13px]" style={{ color: '#888' }}>{g.orbifold}</td>
                     <td className="py-3 pr-4 text-[13px]" style={{ color: '#f5f5f5' }}>{g.rotationOrder}-fold</td>
                     <td className="py-3 pr-4 text-[12px]" style={{ color: '#aaa' }}>{g.description}</td>
-                    <td className="py-3 text-[12px]" style={{ color: g.inZellige ? '#22C55E' : '#444' }}>{g.inZellige ? '✓' : '—'}</td>
+                    <td className="py-3 text-[12px]" style={{ color: g.inZellige ? '#5C7C3E' : '#444' }}>{g.inZellige ? '✓' : '—'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -298,7 +298,7 @@ export default function GeometryZelligePage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#3B82F6' }}>Sources: Architectural documentation</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D5F8A' }}>Sources: Architectural documentation</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

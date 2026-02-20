@@ -186,6 +186,45 @@ function IsochroneMap({ era }: { era: EraKey }) {
 }
 
 // ═══ MAIN PAGE ═══
+
+const HIGH_SPEED_HORIZON_PTS = [
+  { name: 'Tangier', lat: 35.7595, lng: -5.8340, detail: 'Al Boraq northern terminus. 320 km/h.', color: '#A0452E' },
+  { name: 'Kenitra', lat: 34.2610, lng: -6.5802, detail: 'Al Boraq stop. Junction point.', color: '#A0452E' },
+  { name: 'Rabat', lat: 34.0209, lng: -6.8416, detail: 'Rabat Agdal station. Capital hub.', color: '#A0452E' },
+  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, detail: 'Casa Voyageurs. National hub.', color: '#A0452E' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Future TGV extension. Phase 2.', color: '#8B7355' },
+  { name: 'Agadir', lat: 30.4278, lng: -9.5981, detail: 'Future TGV extension. Phase 3.', color: '#8B7355' },
+]
+const MBT_HIGH_SPEED_HORIZON = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function HighSpeedHorizonMap() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_HIGH_SPEED_HORIZON || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_HIGH_SPEED_HORIZON!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6.5, 33], zoom: 5.8, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        HIGH_SPEED_HORIZON_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function HighSpeedHorizonPage() {
   const heroR = useReveal()
   const numsR = useReveal()
@@ -457,7 +496,14 @@ export default function HighSpeedHorizonPage() {
         </div>
       </section>
 
-      {/* CLOSING + SOURCES */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>Rail Network</p>
+        <HighSpeedHorizonMap />
+      </div></section>
+
+{/* CLOSING + SOURCES */}
       <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>

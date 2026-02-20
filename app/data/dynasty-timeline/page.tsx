@@ -35,6 +35,44 @@ const DYNASTIES = [
 const MIN_YEAR = 700
 const MAX_YEAR = 2050
 
+
+const DYNASTY_TIMELINE_PTS = [
+  { name: 'Fez (Idrisids)', lat: 34.0181, lng: -5.0078, detail: 'Founded 789. First Moroccan dynasty capital.', color: '#C8A415' },
+  { name: 'Marrakech (Almoravids)', lat: 31.6295, lng: -7.9811, detail: 'Founded 1062. Red city. Berber empire.', color: '#A0452E' },
+  { name: 'Rabat (Almohads)', lat: 34.0209, lng: -6.8416, detail: 'Hassan Tower. Almohad imperial vision.', color: '#2D5F8A' },
+  { name: 'Meknes (Alaouites)', lat: 33.8935, lng: -5.5547, detail: 'Moulay Ismail. 1672. Versailles of Morocco.', color: '#5C7C3E' },
+  { name: 'Sijilmasa', lat: 31.2833, lng: -4.2833, detail: 'Trans-Saharan trade capital. Gold route origin.', color: '#D4A373' },
+]
+const MBT_DYNASTY_TIMELINE = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function DynastyTimelineMap() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_DYNASTY_TIMELINE || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_DYNASTY_TIMELINE!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6, 33], zoom: 5.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        DYNASTY_TIMELINE_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function DynastyTimelinePage() {
   const heroR = useReveal()
 
@@ -113,7 +151,14 @@ export default function DynastyTimelinePage() {
         </div>
       </section>
 
-      {/* CLOSING + SOURCES */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#C8A415' }}>Dynasty Capitals</p>
+        <DynastyTimelineMap />
+      </div></section>
+
+{/* CLOSING + SOURCES */}
       <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>

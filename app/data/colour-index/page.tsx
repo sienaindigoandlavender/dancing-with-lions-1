@@ -141,7 +141,7 @@ const COLOURS: MoroccanColour[] = [
   {
     name: 'Zellige Cobalt',
     arabic: 'زرقة',
-    hex: '#1E3A8A',
+    hex: '#1E3A5F',
     pantone: '2758 C',
     category: 'craft',
     source: 'Cobalt oxide (CoO) in zellige glaze',

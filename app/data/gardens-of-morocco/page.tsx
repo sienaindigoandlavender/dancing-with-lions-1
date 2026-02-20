@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { GARDENS, ISLAMIC_GARDEN_PRINCIPLES, WATER_SYSTEMS, HISTORY, HERO_STATS, KEY_NUMBERS, THREAD_COLORS, BIBLIOGRAPHY, MAP_POINTS } from './data'
 
-const ACCENT = '#16A34A'
+const ACCENT = '#2D6E4F'
 
 export default function GardensPage() {
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
@@ -147,7 +147,7 @@ function GardenMap() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#16A34A' }}>The Gardens — Mapped</p>
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D6E4F' }}>The Gardens — Mapped</p>
         <GardenMap />
       </div></section>
 

@@ -7,10 +7,10 @@ import { MELLAHS, EMIGRATION_WAVES, SYNAGOGUES, HISTORY, HERO_STATS, KEY_NUMBERS
 const ACCENT = '#6366F1'
 const THREAD_COLORS: Record<string, string> = {
   ancient: '#F59E0B',
-  medieval: '#3B82F6',
-  colonial: '#A855F7',
-  departure: '#EF4444',
-  preservation: '#22C55E',
+  medieval: '#2D5F8A',
+  colonial: '#7B506F',
+  departure: '#A0452E',
+  preservation: '#5C7C3E',
 }
 
 export default function JewishHeritagePage() {

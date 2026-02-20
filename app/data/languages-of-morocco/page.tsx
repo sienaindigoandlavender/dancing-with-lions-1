@@ -53,6 +53,44 @@ const LANGUAGES = [
   { name: 'English', speakers: '~3M (L2)', pct: 8, color: C.english, desc: 'Growing. Tech, tourism. Younger generation. Replacing French?' },
 ]
 
+
+const LANGUAGES_OF_MOROCCO_PTS = [
+  { name: 'Tashelhit Zone', lat: 30.4, lng: -8.5, detail: 'Souss, Anti-Atlas. Largest Amazigh variant. ~8M speakers.', color: '#A0452E' },
+  { name: 'Tamazight Zone', lat: 32.3, lng: -5.8, detail: 'Central Atlas. ~5M speakers.', color: '#2D5F8A' },
+  { name: 'Tarifit Zone', lat: 35.0, lng: -3.5, detail: 'Rif mountains. ~4M speakers.', color: '#5C7C3E' },
+  { name: 'Hassaniya Zone', lat: 25.0, lng: -13.0, detail: 'Saharan Arabic dialect. Southern provinces.', color: '#C8A415' },
+  { name: 'Casablanca (Darija hub)', lat: 33.57, lng: -7.59, detail: 'Moroccan Arabic dominant. Urban mixing.', color: '#8B7355' },
+]
+const MBT_LANGUAGES_OF_MOROCCO = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function LanguagesOfMoroccoMap() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_LANGUAGES_OF_MOROCCO || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_LANGUAGES_OF_MOROCCO!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6, 31], zoom: 5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        LANGUAGES_OF_MOROCCO_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function LanguagesPage() {
   const heroR = useReveal()
   const barR = useReveal()
@@ -160,7 +198,14 @@ export default function LanguagesPage() {
         </div>
       </section>
 
-      {/* CLOSING + SOURCES */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D5F8A' }}>Language Zones</p>
+        <LanguagesOfMoroccoMap />
+      </div></section>
+
+{/* CLOSING + SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>

@@ -227,6 +227,45 @@ function RevenueChart() {
 }
 
 // ═══ MAIN PAGE ═══
+
+const CHAMELEON_COUNTRY_PTS = [
+  { name: 'Souss-Massa NP', lat: 30.05, lng: -9.53, detail: 'Northern bald ibis. Last wild colony.', color: '#5C7C3E' },
+  { name: 'Toubkal NP', lat: 31.06, lng: -7.92, detail: 'Barbary macaque. High Atlas endemic.', color: '#2D6E4F' },
+  { name: 'Merja Zerga', lat: 34.86, lng: -6.30, detail: 'Wetland. Flamingos, spoonbills. RAMSAR site.', color: '#2D5F8A' },
+  { name: 'Dakhla Bay', lat: 23.72, lng: -15.93, detail: 'Monk seal habitat. Desert meets Atlantic.', color: '#1A5276' },
+  { name: 'Ifrane / Cedar Forest', lat: 33.53, lng: -5.11, detail: 'Barbary macaque. Atlas cedar. Endangered.', color: '#5C7C3E' },
+  { name: 'Khenifiss NP', lat: 28.05, lng: -12.28, detail: 'Saharan wetland. Monk seal. Migratory birds.', color: '#4A7C6F' },
+]
+const MBT_CHAMELEON_COUNTRY = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function ChameleonCountryMap() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_CHAMELEON_COUNTRY || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_CHAMELEON_COUNTRY!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-7, 31], zoom: 5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        CHAMELEON_COUNTRY_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function ChameleonCountryPage() {
   const [activeFilter, setActiveFilter] = useState<string | null>(null)
   const filtered = activeFilter
@@ -481,7 +520,14 @@ export default function ChameleonCountryPage() {
         </div>
       </section>
 
-      {/* SOURCES */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>Biodiversity Hotspots</p>
+        <ChameleonCountryMap />
+      </div></section>
+
+{/* SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>

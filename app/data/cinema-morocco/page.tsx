@@ -142,7 +142,7 @@ export default function CinemaMoroccoPage() {
         <div className="absolute top-0 left-0 right-0 overflow-hidden" style={{ height: '3px' }}>
           <div style={{ display: 'flex', width: '200%', animation: 'film-strip 8s linear infinite' }}>
             {Array.from({ length: 60 }, (_, i) => (
-              <div key={i} style={{ width: '20px', height: '3px', background: i % 2 === 0 ? '#EF4444' : 'transparent', flexShrink: 0 }} />
+              <div key={i} style={{ width: '20px', height: '3px', background: i % 2 === 0 ? '#A0452E' : 'transparent', flexShrink: 0 }} />
             ))}
           </div>
         </div>
@@ -151,16 +151,16 @@ export default function CinemaMoroccoPage() {
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.03]" preserveAspectRatio="xMidYMid slice">
             {/* Film reel perforations */}
             {Array.from({ length: 40 }, (_, i) => (
-              <rect key={i} x={30 * i} y={380} width="8" height="12" rx="1" fill="#EF4444" />
+              <rect key={i} x={30 * i} y={380} width="8" height="12" rx="1" fill="#A0452E" />
             ))}
             {Array.from({ length: 40 }, (_, i) => (
-              <rect key={`b-${i}`} x={30 * i} y={410} width="8" height="12" rx="1" fill="#EF4444" />
+              <rect key={`b-${i}`} x={30 * i} y={410} width="8" height="12" rx="1" fill="#A0452E" />
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#EF4444', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#A0452E', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 071 — Cultural &amp; Economic Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -175,19 +175,19 @@ export default function CinemaMoroccoPage() {
           {/* Animated counters */}
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             <div ref={counter1962.ref}>
-              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#EF4444', lineHeight: 1 }}>{counter1962.val}</span>
+              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#A0452E', lineHeight: 1 }}>{counter1962.val}</span>
               <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>First production</span>
             </div>
             <div ref={counterFilms.ref}>
-              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#EF4444', lineHeight: 1 }}>{counterFilms.val}+</span>
+              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#A0452E', lineHeight: 1 }}>{counterFilms.val}+</span>
               <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>Blockbusters filmed</span>
             </div>
             <div ref={counterRebate.ref}>
-              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#EF4444', lineHeight: 1 }}>{counterRebate.val}%</span>
+              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#A0452E', lineHeight: 1 }}>{counterRebate.val}%</span>
               <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>Cash rebate</span>
             </div>
             <div ref={counterDecades.ref}>
-              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#EF4444', lineHeight: 1 }}>{counterDecades.val}</span>
+              <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#A0452E', lineHeight: 1 }}>{counterDecades.val}</span>
               <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>Decades of cinema</span>
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function CinemaMoroccoPage() {
       {/* ═══ MAP — FILMING LOCATIONS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>001 — The Map</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>001 — The Map</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Where Morocco Becomes the World</h2>
           <p className="text-[13px] max-w-[580px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Morocco has doubled as ancient Rome, Biblical Jerusalem, feudal Japan, modern Mogadishu,
@@ -234,7 +234,7 @@ export default function CinemaMoroccoPage() {
                       <div
                         className="absolute inset-y-0 left-0 rounded-sm flex items-center"
                         style={{
-                          background: isActive ? '#EF4444' : '#0a0a0a',
+                          background: isActive ? '#A0452E' : '#0a0a0a',
                           width: isVisible ? `${barWidth}%` : '0%',
                           transition: `width 1.2s cubic-bezier(0.16,1,0.3,1) ${di * 0.15}s, background 0.3s ease`,
                           transformOrigin: 'left',
@@ -262,7 +262,7 @@ export default function CinemaMoroccoPage() {
                           transition: `all 0.4s ease ${pi * 0.08}s`,
                         }}>
                           <div className="flex items-baseline gap-3">
-                            <span className="text-[11px] font-mono" style={{ color: '#EF4444' }}>{p.year}</span>
+                            <span className="text-[11px] font-mono" style={{ color: '#A0452E' }}>{p.year}</span>
                             <span className="text-[13px] font-medium text-dwl-black">{p.title}</span>
                             <span className="text-[10px]" style={{ color: '#999' }}>{p.type}</span>
                           </div>
@@ -282,7 +282,7 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#A0452E' }}>
         <div className="max-w-[700px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             These same dunes, casbahs and mountain lakes now stand in for
@@ -296,7 +296,7 @@ export default function CinemaMoroccoPage() {
       {/* ═══ GAME OF THRONES — MOROCCO = ESSOS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>003 — Morocco Is Essos</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>003 — Morocco Is Essos</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Game of Thrones in Morocco</h2>
           <p className="text-[13px] max-w-[550px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Prominent in Season 3. Essaouira&rsquo;s ramparts became Astapor.
@@ -315,10 +315,10 @@ export default function CinemaMoroccoPage() {
                   transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
                 }}>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-sm" style={{ background: '#EF444420', color: '#EF4444' }}>{g.season}</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-sm" style={{ background: '#A0452E20', color: '#A0452E' }}>{g.season}</span>
                   </div>
                   <h3 className="text-[15px] font-medium mb-1" style={{ color: '#f5f5f5' }}>{g.location}</h3>
-                  <p className="text-[12px] font-serif italic mb-2" style={{ color: '#EF4444' }}>→ {g.fictional}</p>
+                  <p className="text-[12px] font-serif italic mb-2" style={{ color: '#A0452E' }}>→ {g.fictional}</p>
                   <p className="text-[11px]" style={{ color: '#888' }}>{g.scenes}</p>
                 </div>
               )
@@ -346,7 +346,7 @@ export default function CinemaMoroccoPage() {
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(6px)',
                 }}>
-                  <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#EF4444' }}>{inc.value}</p>
+                  <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#A0452E' }}>{inc.value}</p>
                   <p className="text-[12px] text-dwl-gray mt-2 font-medium">{inc.label}</p>
                   <p className="text-[11px] text-dwl-muted mt-1">{inc.detail}</p>
                 </div>
@@ -359,7 +359,7 @@ export default function CinemaMoroccoPage() {
       {/* ═══ DARK QUOTE ═══ */}
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[700px] px-6 md:px-10 text-center">
-          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#EF4444' }}>
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#A0452E' }}>
             Clear mountain air funnels down from the High Atlas.
             It rarely clouds over, let alone rains.
           </p>
@@ -370,12 +370,12 @@ export default function CinemaMoroccoPage() {
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>005 — Key Numbers</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>005 — Key Numbers</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
-                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#EF4444' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#A0452E' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -407,7 +407,7 @@ export default function CinemaMoroccoPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#EF4444' }}>Sources: CCM Morocco</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#A0452E' }}>Sources: CCM Morocco</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

@@ -17,8 +17,8 @@ export interface Studio {
 }
 
 export const STUDIOS: Studio[] = [
-  { name: 'Atlas Corporation Studios', lat: 30.9417, lng: -6.9667, founded: '1983', detail: 'Founded by Mohamed Belghmi. Largest film studio by area (~31,000 m² / 20 hectares). Sets: Roman Colosseum (Gladiator), Egyptian temples (Asterix & Obelix: Mission Cleopatra), Jerusalem (Kingdom of Heaven), Pentos (Game of Thrones). Open for public guided tours.', color: '#EF4444' },
-  { name: 'CLA Studios', lat: 30.938, lng: -6.970, founded: '2004', detail: 'Managed by Amine Tazi alongside Atlas. Used for Game of Thrones (Essos desert scenes), Prison Break (S4–S5), The Wheel of Time (S2). Can mobilise the Royal Moroccan Army as extras. 20-hectare production complex.', color: '#3B82F6' },
+  { name: 'Atlas Corporation Studios', lat: 30.9417, lng: -6.9667, founded: '1983', detail: 'Founded by Mohamed Belghmi. Largest film studio by area (~31,000 m² / 20 hectares). Sets: Roman Colosseum (Gladiator), Egyptian temples (Asterix & Obelix: Mission Cleopatra), Jerusalem (Kingdom of Heaven), Pentos (Game of Thrones). Open for public guided tours.', color: '#A0452E' },
+  { name: 'CLA Studios', lat: 30.938, lng: -6.970, founded: '2004', detail: 'Managed by Amine Tazi alongside Atlas. Used for Game of Thrones (Essos desert scenes), Prison Break (S4–S5), The Wheel of Time (S2). Can mobilise the Royal Moroccan Army as extras. 20-hectare production complex.', color: '#2D5F8A' },
   { name: 'Cinema Museum', lat: 30.919, lng: -6.893, founded: '2007', detail: 'Housed in a former Italian production company space. Opposite the Taourirt Kasbah. Props, costumes, history. Occasionally used for shooting.', color: '#F59E0B' },
 ]
 
@@ -33,13 +33,13 @@ export interface FilmingLocation {
 }
 
 export const FILMING_LOCATIONS: FilmingLocation[] = [
-  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, fictional: 'Astapor (GoT)', production: 'Game of Thrones S3 / Othello (1952)', detail: 'Ramparts = Walk of Punishment. "Dracarys!" scene. Orson Welles filmed Othello here — Palme d\'Or 1952.', color: '#EF4444' },
+  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, fictional: 'Astapor (GoT)', production: 'Game of Thrones S3 / Othello (1952)', detail: 'Ramparts = Walk of Punishment. "Dracarys!" scene. Orson Welles filmed Othello here — Palme d\'Or 1952.', color: '#A0452E' },
   { name: 'Aït Benhaddou', lat: 31.0471, lng: -7.1319, fictional: 'Yunkai (GoT)', production: 'GoT S3 / Gladiator / Lawrence of Arabia', detail: 'UNESCO ksar. "MHYSA!" scene. Used in 20+ films since 1962. Mud-brick architecture.', color: '#F59E0B' },
-  { name: 'Ouarzazate & Studios', lat: 30.9417, lng: -6.9667, fictional: 'Pentos / Meereen (GoT)', production: 'GoT / Gladiator / Kingdom of Heaven', detail: 'Atlas + CLA Studios. Colosseum set, Jerusalem set, Ka\'bah replica. 3,000 soldiers as extras.', color: '#EF4444' },
-  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, fictional: '—', production: 'John Wick 3 / MI: Rogue Nation', detail: 'Medina rooftops and souks for chase sequences. Riad interiors for fight scenes.', color: '#A855F7' },
-  { name: 'Erfoud / Merzouga', lat: 31.4314, lng: -4.2286, fictional: '—', production: 'The Mummy / Prince of Persia', detail: 'Erg Chebbi dunes as ancient Egypt, Persia. Hamunaptra scenes.', color: '#F97316' },
-  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, fictional: '—', production: 'MI: Rogue Nation', detail: 'Tom Cruise car chase. Irony: the 1942 film Casablanca was shot entirely in Hollywood.', color: '#22C55E' },
-  { name: 'Tangier', lat: 35.7595, lng: -5.834, fictional: '"Mombasa"', production: 'Inception / The Bourne Ultimatum', detail: 'Nolan\'s Inception used Tangier medina for the Mombasa chase. Bourne Ultimatum rooftop sequence.', color: '#3B82F6' },
+  { name: 'Ouarzazate & Studios', lat: 30.9417, lng: -6.9667, fictional: 'Pentos / Meereen (GoT)', production: 'GoT / Gladiator / Kingdom of Heaven', detail: 'Atlas + CLA Studios. Colosseum set, Jerusalem set, Ka\'bah replica. 3,000 soldiers as extras.', color: '#A0452E' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, fictional: '—', production: 'John Wick 3 / MI: Rogue Nation', detail: 'Medina rooftops and souks for chase sequences. Riad interiors for fight scenes.', color: '#7B506F' },
+  { name: 'Erfoud / Merzouga', lat: 31.4314, lng: -4.2286, fictional: '—', production: 'The Mummy / Prince of Persia', detail: 'Erg Chebbi dunes as ancient Egypt, Persia. Hamunaptra scenes.', color: '#C17F28' },
+  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, fictional: '—', production: 'MI: Rogue Nation', detail: 'Tom Cruise car chase. Irony: the 1942 film Casablanca was shot entirely in Hollywood.', color: '#5C7C3E' },
+  { name: 'Tangier', lat: 35.7595, lng: -5.834, fictional: '"Mombasa"', production: 'Inception / The Bourne Ultimatum', detail: 'Nolan\'s Inception used Tangier medina for the Mombasa chase. Bourne Ultimatum rooftop sequence.', color: '#2D5F8A' },
 ]
 
 export interface Production {

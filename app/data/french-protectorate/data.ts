@@ -57,11 +57,11 @@ export interface VilleNouvelle {
 }
 
 export const VILLES_NOUVELLES: VilleNouvelle[] = [
-  { city: 'Rabat', lat: 33.9716, lng: -6.8498, detail: 'New capital from 1912. Lyautey chose it over Fez: coastal, accessible to France, easier to control. Hassan Tower area. Administrative centre of the protectorate.', color: '#3B82F6' },
-  { city: 'Casablanca', lat: 33.5731, lng: -7.5898, detail: 'Economic engine. Population 12,000 (1912) → 110,934 (1921). Prost\'s European quartier. Habous "new medina." Medina density 1,290/hectare vs 50/hectare European. Bidonvilles emerged.', color: '#EF4444' },
+  { city: 'Rabat', lat: 33.9716, lng: -6.8498, detail: 'New capital from 1912. Lyautey chose it over Fez: coastal, accessible to France, easier to control. Hassan Tower area. Administrative centre of the protectorate.', color: '#2D5F8A' },
+  { city: 'Casablanca', lat: 33.5731, lng: -7.5898, detail: 'Economic engine. Population 12,000 (1912) → 110,934 (1921). Prost\'s European quartier. Habous "new medina." Medina density 1,290/hectare vs 50/hectare European. Bidonvilles emerged.', color: '#A0452E' },
   { city: 'Fez', lat: 34.0331, lng: -5.0003, detail: 'Ancient capital, preserved as cultural showcase. Medina frozen while ville nouvelle grew outside the walls. Nationalists organised here. Istiqlal founded here.', color: '#F59E0B' },
-  { city: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Guéliz district — the French ville nouvelle. Laid out by Prost. Wide avenues, cafés, administrative buildings. The medina remained separate.', color: '#A855F7' },
-  { city: 'Meknès', lat: 33.8731, lng: -5.5407, detail: 'Imperial city with new European district. French garrison town. Agricultural hinterland controlled for settler farming.', color: '#22C55E' },
+  { city: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Guéliz district — the French ville nouvelle. Laid out by Prost. Wide avenues, cafés, administrative buildings. The medina remained separate.', color: '#7B506F' },
+  { city: 'Meknès', lat: 33.8731, lng: -5.5407, detail: 'Imperial city with new European district. French garrison town. Agricultural hinterland controlled for settler farming.', color: '#5C7C3E' },
 ]
 
 export const HERO_STATS = [

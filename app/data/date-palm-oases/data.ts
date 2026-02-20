@@ -13,10 +13,10 @@ export interface OasisValley {
 }
 
 export const VALLEYS: OasisValley[] = [
-  { name: 'Draa Valley', lat: 30.33, lng: -5.84, detail: 'Morocco\'s longest river (1,100 km). The valley stretches 200 km from Ouarzazate to Zagora. Over 4.5 million date palms. Bayoud disease first discovered here in 1870, north of Zagora. Ternata, Fezouata, and Ktaoua oases. Kasbahs of Tamnougalt and Aït Benhaddou nearby. Ancient caravan route to Timbuktu.', color: '#22C55E', stat: '4.5M+ palms' },
-  { name: 'Ziz Valley', lat: 31.93, lng: -4.43, detail: 'Cuts south from the High Atlas through the Ziz Gorges to Erfoud and Rissani. Palm groves extend over 50 km along the river. Source Bleue de Meski — the springwater pool at the oasis meeting point. Er Rachidia is the administrative gateway. Cinematic — the landscape that made Erfoud a film location.', color: '#3B82F6', stat: '50 km palmery' },
+  { name: 'Draa Valley', lat: 30.33, lng: -5.84, detail: 'Morocco\'s longest river (1,100 km). The valley stretches 200 km from Ouarzazate to Zagora. Over 4.5 million date palms. Bayoud disease first discovered here in 1870, north of Zagora. Ternata, Fezouata, and Ktaoua oases. Kasbahs of Tamnougalt and Aït Benhaddou nearby. Ancient caravan route to Timbuktu.', color: '#5C7C3E', stat: '4.5M+ palms' },
+  { name: 'Ziz Valley', lat: 31.93, lng: -4.43, detail: 'Cuts south from the High Atlas through the Ziz Gorges to Erfoud and Rissani. Palm groves extend over 50 km along the river. Source Bleue de Meski — the springwater pool at the oasis meeting point. Er Rachidia is the administrative gateway. Cinematic — the landscape that made Erfoud a film location.', color: '#2D5F8A', stat: '50 km palmery' },
   { name: 'Tafilalet', lat: 31.28, lng: -4.27, detail: 'Largest oasis in Morocco. Cradle of the Alaouite dynasty that rules Morocco today. South of Erfoud: Rissani, Arab Sebah de Ziz, Safla, Aoufous, Jerf. Historically the most important territory south of the Atlas. Draa-Tafilalet region contains 80% of Morocco\'s date palms and produces 90% of national date output.', color: '#F59E0B', stat: '80% of national palms' },
-  { name: 'Tata-Bani', lat: 29.75, lng: -7.97, detail: 'Western oasis belt between the Anti-Atlas and the Sahara. Smaller but significant — part of the 90% trio with Draa and Tafilalet. Less visited. Traditional Amazigh communities. Emerging agri-tourism.', color: '#A855F7', stat: 'Western belt' },
+  { name: 'Tata-Bani', lat: 29.75, lng: -7.97, detail: 'Western oasis belt between the Anti-Atlas and the Sahara. Smaller but significant — part of the 90% trio with Draa and Tafilalet. Less visited. Traditional Amazigh communities. Emerging agri-tourism.', color: '#7B506F', stat: 'Western belt' },
 ]
 
 export interface DateVariety {

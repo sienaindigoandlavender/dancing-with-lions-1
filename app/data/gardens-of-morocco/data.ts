@@ -212,8 +212,8 @@ export const THREAD_COLORS: Record<string, string> = {
   water: '#1E88E5',
   restoration: '#E8A94E',
   modern: '#8B2FC9',
-  public: '#22C55E',
-  recognition: '#EF4444',
+  public: '#5C7C3E',
+  recognition: '#A0452E',
 }
 
 export const BIBLIOGRAPHY = [
@@ -228,8 +228,8 @@ export const BIBLIOGRAPHY = [
 ]
 
 export const MAP_POINTS = [
-  { name: 'Agdal Gardens', lat: 31.6135, lng: -7.9879, detail: 'Almohad, 1157. 405 hectares. Royal irrigation.', color: '#16A34A' },
-  { name: 'Menara Gardens', lat: 31.6227, lng: -8.0225, detail: 'Almohad, 12th C. Iconic pavilion. Olive groves.', color: '#16A34A' },
-  { name: 'Jardin Majorelle', lat: 31.6419, lng: -8.0032, detail: 'Majorelle 1923, YSL 1980. Cobalt blue.', color: '#2563EB' },
-  { name: 'Jnan Sbil', lat: 34.0597, lng: -4.9878, detail: 'Fez, 18th C. Royal park. Open since 2011.', color: '#16A34A' },
+  { name: 'Agdal Gardens', lat: 31.6135, lng: -7.9879, detail: 'Almohad, 1157. 405 hectares. Royal irrigation.', color: '#2D6E4F' },
+  { name: 'Menara Gardens', lat: 31.6227, lng: -8.0225, detail: 'Almohad, 12th C. Iconic pavilion. Olive groves.', color: '#2D6E4F' },
+  { name: 'Jardin Majorelle', lat: 31.6419, lng: -8.0032, detail: 'Majorelle 1923, YSL 1980. Cobalt blue.', color: '#1A5276' },
+  { name: 'Jnan Sbil', lat: 34.0597, lng: -4.9878, detail: 'Fez, 18th C. Royal park. Open since 2011.', color: '#2D6E4F' },
 ]

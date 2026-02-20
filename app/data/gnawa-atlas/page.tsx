@@ -6,8 +6,8 @@ import { INSTRUMENTS, SEVEN_COLOURS, MAALEMS, LILA_PHASES, HISTORY, HERO_STATS, 
 
 const ACCENT = '#8B2FC9'
 const THREAD_COLORS: Record<string, string> = {
-  origin: '#8B7355', formation: '#8B2FC9', modern: '#3B82F6',
-  global: '#22C55E', festival: '#E8A94E', recognition: '#EF4444',
+  origin: '#8B7355', formation: '#8B2FC9', modern: '#2D5F8A',
+  global: '#5C7C3E', festival: '#E8A94E', recognition: '#A0452E',
 }
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
@@ -158,7 +158,7 @@ export default function GnawaAtlasPage() {
                 className="transition-all duration-500 relative overflow-hidden"
                 style={{ flex: activeColour === i ? 4 : 1, height: '120px', background: c.hex === '#F5F5F5' ? '#ddd' : c.hex === '#1a1a1a' ? '#333' : c.hex, minWidth: '32px' }}>
                 {activeColour === i && (
-                  <span className="absolute bottom-3 left-4 text-[11px] font-medium" style={{ color: ['#F5F5F5','#FCBF49','#22C55E'].includes(c.hex) ? '#0a0a0a' : '#fff' }}>{c.name}</span>
+                  <span className="absolute bottom-3 left-4 text-[11px] font-medium" style={{ color: ['#F5F5F5','#FCBF49','#5C7C3E'].includes(c.hex) ? '#0a0a0a' : '#fff' }}>{c.name}</span>
                 )}
               </button>
             ))}
@@ -269,7 +269,7 @@ export default function GnawaAtlasPage() {
 
       {/* ═══ MAP — Gnawa Geography ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7C3AED' }}>006 — Geography</p>
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#6A4C93' }}>006 — Geography</p>
         <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#fff' }}>The Schools</h2>
         <GnawaMap />
       </div></section>

@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { VALLEYS, VARIETIES, THREE_TIERS, THREATS, WATER_SYSTEMS, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
 
-const ACCENT = '#22C55E'
+const ACCENT = '#5C7C3E'
 const SEVERITY: Record<string, { width: string; color: string }> = {
-  'Catastrophic': { width: '100%', color: '#EF4444' },
-  'Existential': { width: '90%', color: '#F97316' },
+  'Catastrophic': { width: '100%', color: '#A0452E' },
+  'Existential': { width: '90%', color: '#C17F28' },
   'Structural': { width: '75%', color: '#F59E0B' },
   'Generational': { width: '60%', color: '#EAB308' },
 }
@@ -172,7 +172,7 @@ export default function DatePalmOasesPage() {
                       <h3 className="text-[15px] font-medium" style={{ color: '#ffffff' }}>{v.name}</h3>
                       <p className="text-[12px] font-mono mt-0.5" style={{ color: '#666' }}>{v.arabic}</p>
                     </div>
-                    <span className="text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 rounded-sm" style={{ background: '#22C55E15', color: ACCENT }}>{v.quality}</span>
+                    <span className="text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 rounded-sm" style={{ background: '#5C7C3E15', color: ACCENT }}>{v.quality}</span>
                   </div>
                   <p className="text-[12px] leading-relaxed mt-3" style={{ color: 'rgba(255,255,255,0.45)' }}>{v.detail}</p>
                 </div>

@@ -22,19 +22,19 @@ export const STAR_PATTERNS: StarPattern[] = [
     id: 'six', points: 6, name: 'Six-Pointed Star', nameAr: 'نجمة سداسية',
     foldSymmetry: 6, construction: 'Two overlapping equilateral triangles inscribed in a circle',
     detail: 'The simplest star in zellige. Formed by overlapping two equilateral triangles — the same geometry as the Star of David, but predating that association in Islamic art. Based on the hexagonal grid, which is one of three regular tessellations. Each star generates six surrounding hexagons. Common in early Moroccan tilework.',
-    whereFound: 'Bou Inania Madrasa (Fes), Saadian Tombs (Marrakech)', color: '#22C55E',
+    whereFound: 'Bou Inania Madrasa (Fes), Saadian Tombs (Marrakech)', color: '#5C7C3E',
   },
   {
     id: 'eight', points: 8, name: 'Eight-Pointed Star', nameAr: 'نجمة ثمانية',
     foldSymmetry: 4, construction: 'Two squares, one rotated 45° relative to the other, inscribed in a circle',
     detail: 'Two interlocking squares create the octagram — the khatam or "seal." Produces 4-fold rotational symmetry. The gaps between stars form crosses and smaller squares. The 8-pointed star is the single most common motif in Moroccan zellige, found on virtually every significant building.',
-    whereFound: 'Everywhere. Hassan II Mosque, Alhambra, Ben Youssef Madrasa', color: '#3B82F6',
+    whereFound: 'Everywhere. Hassan II Mosque, Alhambra, Ben Youssef Madrasa', color: '#2D5F8A',
   },
   {
     id: 'ten', points: 10, name: 'Ten-Pointed Star', nameAr: 'نجمة عشرية',
     foldSymmetry: 5, construction: 'Two regular pentagons, one rotated 36° relative to the other, inscribed in a circle',
     detail: 'Introduces 5-fold symmetry — which cannot tile the plane periodically. This is the gateway to quasi-periodic patterns. In 2007, physicists discovered that 15th-century Iranian girih tiles formed Penrose-like non-repeating patterns with 5-fold rotational symmetry — 500 years before Roger Penrose described them in 1973. Ten-pointed stars are less common in Moroccan zellige than in Persian tilework.',
-    whereFound: 'Darj wa ktaf motifs, advanced Marinid compositions', color: '#A855F7',
+    whereFound: 'Darj wa ktaf motifs, advanced Marinid compositions', color: '#7B506F',
   },
   {
     id: 'twelve', points: 12, name: 'Twelve-Pointed Star', nameAr: 'نجمة اثنا عشرية',
@@ -46,7 +46,7 @@ export const STAR_PATTERNS: StarPattern[] = [
     id: 'sixteen', points: 16, name: 'Sixteen-Pointed Star', nameAr: 'نجمة ستة عشرية',
     foldSymmetry: 4, construction: 'Four squares at 22.5° intervals inscribed in a circle',
     detail: 'The apex of complexity in zellige. 16-point stars emerged in the 16th century, at the height of Saadian power. The surrounding fill shapes become so small and numerous that a single panel can contain hundreds of hand-cut pieces. These are the showpieces — commissioned by sultans, executed over months. Extremely rare.',
-    whereFound: 'Saadian Tombs (Marrakech), select royal commissions', color: '#EF4444',
+    whereFound: 'Saadian Tombs (Marrakech), select royal commissions', color: '#A0452E',
   },
 ]
 
@@ -107,8 +107,8 @@ export const CONSTRUCTION: ConstructionStep[] = [
 ]
 
 export const COLOR_SYMBOLISM = [
-  { color: 'Blue', hex: '#2563EB', meaning: 'Sky and water.  Derived from cobalt oxide. Symbolizes infinity and the divine.' },
-  { color: 'Green', hex: '#16A34A', meaning: 'Paradise. The color of Islam. Derived from copper oxide. Found in mosques, madrasas, zawiyas.' },
+  { color: 'Blue', hex: '#1A5276', meaning: 'Sky and water.  Derived from cobalt oxide. Symbolizes infinity and the divine.' },
+  { color: 'Green', hex: '#2D6E4F', meaning: 'Paradise. The color of Islam. Derived from copper oxide. Found in mosques, madrasas, zawiyas.' },
   { color: 'White', hex: '#f5f5f5', meaning: 'Purity. The ground color. Made from tin oxide glaze over terracotta. The negative space that defines the pattern.' },
   { color: 'Black', hex: '#1a1a1a', meaning: 'Outline and definition. Manganese oxide. Used for borders and to separate color fields. The calligraphy of the tile.' },
   { color: 'Yellow', hex: '#EAB308', meaning: 'Sun and gold. Iron oxide or antimony. Common in Moroccan zellige, less so in eastern Islamic tilework. Warmth.' },

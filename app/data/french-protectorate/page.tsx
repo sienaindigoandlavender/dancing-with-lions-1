@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { TIMELINE, KEY_FIGURES, VILLES_NOUVELLES, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
 
 const CAT_COLORS: Record<string, string> = {
-  conquest: '#EF4444',
-  administration: '#3B82F6',
+  conquest: '#A0452E',
+  administration: '#2D5F8A',
   resistance: '#F59E0B',
-  independence: '#22C55E',
+  independence: '#5C7C3E',
 }
 
 export default function FrenchProtectoratePage() {
@@ -68,16 +68,16 @@ export default function FrenchProtectoratePage() {
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.03]" preserveAspectRatio="xMidYMid slice">
             {/* Grid lines — ville nouvelle grid imposed on land */}
             {Array.from({ length: 20 }, (_, i) => (
-              <line key={`h-${i}`} x1="0" y1={i * 40} x2="1200" y2={i * 40} stroke="#3B82F6" strokeWidth="0.3" />
+              <line key={`h-${i}`} x1="0" y1={i * 40} x2="1200" y2={i * 40} stroke="#2D5F8A" strokeWidth="0.3" />
             ))}
             {Array.from({ length: 30 }, (_, i) => (
-              <line key={`v-${i}`} x1={i * 40} y1="0" x2={i * 40} y2="800" stroke="#3B82F6" strokeWidth="0.3" />
+              <line key={`v-${i}`} x1={i * 40} y1="0" x2={i * 40} y2="800" stroke="#2D5F8A" strokeWidth="0.3" />
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#3B82F6', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#2D5F8A', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 073 — Political &amp; Historical Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -92,7 +92,7 @@ export default function FrenchProtectoratePage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#3B82F6', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#2D5F8A', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -154,7 +154,7 @@ export default function FrenchProtectoratePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#3B82F6' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#2D5F8A' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#ffffff' }}>
             The more those at the top borrowed, the more
@@ -167,7 +167,7 @@ export default function FrenchProtectoratePage() {
       {/* ═══ MAP — VILLES NOUVELLES ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>002 — The Dual City</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D5F8A' }}>002 — The Dual City</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Villes Nouvelles</h2>
           <p className="text-[13px] max-w-[540px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Prost designed European districts alongside existing medinas.
@@ -196,7 +196,7 @@ export default function FrenchProtectoratePage() {
                 }}>
                   <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-10">
                     <div>
-                      <span className="text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 rounded-sm" style={{ background: f.side === 'french' ? '#3B82F620' : '#F59E0B20', color: f.side === 'french' ? '#3B82F6' : '#F59E0B' }}>
+                      <span className="text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 rounded-sm" style={{ background: f.side === 'french' ? '#2D5F8A20' : '#F59E0B20', color: f.side === 'french' ? '#2D5F8A' : '#F59E0B' }}>
                         {f.side === 'french' ? 'French administration' : 'Moroccan resistance'}
                       </span>
                       <h3 className="text-[16px] font-medium text-dwl-black mt-2">{f.name}</h3>
@@ -226,12 +226,12 @@ export default function FrenchProtectoratePage() {
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>004 — Key Numbers</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D5F8A' }}>004 — Key Numbers</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
-                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#3B82F6' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#2D5F8A' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -293,7 +293,7 @@ export default function FrenchProtectoratePage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#3B82F6' }}>Sources: Historical archives</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D5F8A' }}>Sources: Historical archives</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
