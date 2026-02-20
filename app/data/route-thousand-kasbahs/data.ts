@@ -61,7 +61,7 @@ export const KASBAHS: Kasbah[] = [
     location: 'Agdz, Drâa Valley',
     built: '16th C — one of the oldest surviving kasbahs',
     status: 'Partially restored. Two kasbahs: Tamnougalt and the Kasbah des Caïds. Guesthouse conversion',
-    detail: 'Gateway to the Drâa Valley. The Kasbah des Caïds is considered one of the oldest Berber fortifications in Morocco. Situated on the critical route between Marrakech and Timbuktu. Multiple films shot here. The village\'s position allowed control of the valley\'s southern entrance. Jewish quarter once occupied part of the complex — one of many examples of mixed communities within ksour.',
+    detail: 'Gateway to the Drâa Valley. The Kasbah des Caïds is considered one of the older Berber fortifications in Morocco. Situated on the critical route between Marrakech and Timbuktu. Multiple films shot here. The village\'s position allowed control of the valley\'s southern entrance. Jewish quarter once occupied part of the complex — one of many examples of mixed communities within ksour.',
     keyFact: 'Gateway to the 200km Drâa Valley — 55 villages, each with its own ksar',
     coords: { lat: 30.6917, lng: -6.8819 },
   },
@@ -88,10 +88,10 @@ export interface ArchitecturalElement {
 export const ARCHITECTURE: ArchitecturalElement[] = [
   { name: 'Tighremt', amazigh: 'ⵜⵉⵖⵔⵎⵜ', arabic: 'قصبة', function: 'Fortified family mansion', detail: 'The kasbah proper. Square plan, corner towers, multiple storeys (up to six). Built for wealthy families. Decorated upper floors signal status. The word the Amazigh use instead of "kasbah."' },
   { name: 'Ksar (pl. Ksour)', amazigh: 'ⵉⵖⵔⵎ', arabic: 'قصر', function: 'Fortified village', detail: 'Walled settlement containing multiple dwellings, granaries, mosque, public spaces. Defensive walls with corner towers and baffle gates. The communal version of the tighremt.' },
-  { name: 'Agadir', amazigh: 'ⴰⴳⴰⴷⵉⵔ', arabic: 'أكادير', function: 'Fortified communal granary', detail: 'Perched on hilltops above ksour. Stores grain, oil, valuables. Each family has a locked chamber. The last line of defence — if the village falls, the food supply survives. Gives the modern city of Agadir its name.' },
+  { name: 'Agadir', amazigh: 'ⴰⴳⴰⴷⵉⵔ', arabic: 'أكادير', function: 'Fortified communal granary', detail: 'Perched on hilltops above ksour. Stores grain, oil, valuables. Each family has a locked chamber. If the village falls, the food supply survives. Gives the modern city of Agadir its name.' },
   { name: 'Pisé / Tabiya', amazigh: '—', arabic: 'طابية', function: 'Rammed earth wall construction', detail: 'Earth, straw, and pebbles compressed in wooden formwork (al-luh). Courses of ~80cm height. Walls 1 metre thick at base, tapering to 50cm on upper floors. Lime-free. Wooden beams and palm trunks for lintels and roofs. Requires constant maintenance — abandoned structures begin crumbling within decades.' },
-  { name: 'Adobe', amazigh: '—', arabic: 'لبن', function: 'Sun-dried mud brick', detail: 'Lighter than pisé. Used on upper floors and for decorative elements. Geometric motifs carved into wet earth — triangles, diamonds, Amazigh symbols. The material that makes the towers beautiful.' },
-  { name: 'Tataoui', amazigh: '—', arabic: 'ططاوي', function: 'Reed and wood ceiling', detail: 'Reeds laid across wooden beams, creating patterned ceilings. Found in the finest rooms of kasbahs. Painted with colourful motifs in wealthier households. A signature element of the Glaoui palaces.' },
+  { name: 'Adobe', amazigh: '—', arabic: 'لبن', function: 'Sun-dried mud brick', detail: 'Lighter than pisé. Used on upper floors and for decorative elements. Geometric motifs carved into wet earth — triangles, diamonds, Amazigh symbols. ' },
+  { name: 'Tataoui', amazigh: '—', arabic: 'ططاوي', function: 'Reed and wood ceiling', detail: 'Reeds laid across wooden beams, creating patterned ceilings. Found in principal rooms of kasbahs. Painted with colourful motifs in wealthier households. Characteristic of Glaoui palaces.' },
 ]
 
 export interface HistoryEvent {

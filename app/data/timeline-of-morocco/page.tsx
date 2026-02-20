@@ -32,7 +32,7 @@ const EVENTS: TimelineEvent[] = [
     detail: 'Fossils of at least five individuals — skulls, jaws, teeth, limb bones — discovered 100 km west of Marrakech. Dated to 315,000 ± 34,000 years ago by thermoluminescence. Modern face, elongated braincase. Pushes the origin of our species back 100,000 years. Published in Nature, 2017, by Jean-Jacques Hublin (Max Planck) and Abdelouahed Ben-Ncer (INSAP, Rabat). Morocco shifts from "backwater" to centre of human origins.',
     landmark: 'Jebel Irhoud cave, nr. Safi' },
   { year: '~82,000 BCE', label: 'Grotte des Pigeons: Earliest jewellery', era: 'Prehistory', color: C.bone,
-    detail: 'Perforated Nassarius shell beads found at Taforalt (eastern Morocco). Among the oldest known personal ornaments in the world — evidence of symbolic thinking and social identity among early humans.',
+    detail: 'Perforated Nassarius shell beads found at Taforalt (eastern Morocco). Among the oldest known personal ornaments — evidence of symbolic thinking and social identity among early humans.',
     landmark: 'Taforalt, Berkane Province' },
   { year: '~15,000 BCE', label: 'Iberomaurusian culture', era: 'Prehistory', color: C.bone,
     detail: 'Hunter-gatherer culture spanning the Maghreb. Stone microliths, complex burial practices. The Iberomaurusians may be ancestors of modern Amazigh (Berber) populations. Genetic studies show deep continuity in North Africa.' },

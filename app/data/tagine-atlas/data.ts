@@ -40,7 +40,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     protein: 'Chicken (thighs, drumsticks)',
     signature: 'Tangy-briny — preserved lemon and cracked green olives in golden saffron sauce',
     spices: ['saffron', 'turmeric', 'garlic', 'ginger', 'preserved lemon'],
-    description: 'The most iconic tagine in Morocco. Preserved lemon — a distinctly Moroccan ingredient, salt-cured for months — adds a tangy, fermented depth that fresh citrus cannot replicate. Cracked green olives bring brine. The sauce turns gold from saffron and turmeric. Fes claims the most refined version; Casablanca serves it everywhere.',
+    description: 'Preserved lemon — a distinctly Moroccan ingredient, salt-cured for months — adds a tangy, fermented depth that fresh citrus cannot replicate. Cracked green olives bring brine. The sauce turns gold from saffron and turmeric. Fes claims the most refined version; Casablanca serves it everywhere.',
     color: '#22C55E',
   },
   {
@@ -76,7 +76,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     protein: 'Lamb, goat, or chicken (depends on family livestock)',
     signature: 'Stripped-down — fewer ingredients, longer cook, clean flavors. No sugar, no dried fruit.',
     spices: ['cumin', 'coriander', 'preserved lemon', 'olive oil', 'garlic'],
-    description: 'Mountain food at its most honest. Starts with onions, preserved lemon, and olive oil. Carrots, potatoes, beans do the heavy lifting. The long cook draws depth from modest ingredients. Built for cold nights at 1,800 meters. The charred bottom of a well-used clay tagine — scraped onto the last mouthfuls of Berber bread — is the best part.',
+    description: 'Starts with onions, preserved lemon, and olive oil. Carrots, potatoes, beans do the heavy lifting. The long cook draws depth from modest ingredients. Built for cold nights at 1,800 meters. The charred bottom of a well-used clay tagine — scraped onto the last mouthfuls of Berber bread — is the best part.',
     color: '#78716C',
   },
   {
@@ -88,7 +88,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     protein: 'Lamb (mutton)',
     signature: 'Sweet-rich — honey, raisins, almonds, ras el hanout. The Eid celebration dish.',
     spices: ['ras el hanout', 'cinnamon', 'nutmeg', 'honey', 'raisins'],
-    description: 'Deeply associated with Eid al-Adha, when every family prepares lamb. Mrouzia is the most intensely spiced tagine — ras el hanout (the "head of the shop" blend of 20–30 spices) is the engine. Honey, raisins, and almonds create a sweetness that borders on confectionery. Prepared for generations during the Feast of Sacrifice.',
+    description: 'Associated with Eid al-Adha, when every family prepares lamb. Mrouzia is the most spiced tagine — ras el hanout (the "head of the shop" blend of 20–30 spices) is the engine. Honey, raisins, and almonds create a sweetness that borders on confectionery. Prepared for generations during the Feast of Sacrifice.',
     color: '#A855F7',
   },
   {
@@ -152,7 +152,7 @@ export const SPICE_PANTRY: SpicePantry[] = [
   { name: 'Ras el Hanout', nameAr: 'رأس الحانوت', role: 'Master blend', note: '"Head of the shop." 20–30 spices — no fixed recipe. Each spice merchant\'s reputation rests on their blend. Cinnamon, cardamom, nutmeg, clove, turmeric, peppercorns, and often rosebuds.' },
   { name: 'Saffron', nameAr: 'الزعفران', role: 'Color, depth', note: 'Grown in Taliouine (Anti-Atlas). Morocco is the 4th largest producer. Crushed threads soaked in warm water, added for golden color and floral earthiness.' },
   { name: 'Preserved Lemon', nameAr: 'الحامض المرقد', role: 'Tangy salt', note: 'Lemons salt-cured for months. The rind softens, the juice intensifies. A distinctly Moroccan ingredient — adds depth that fresh citrus cannot.' },
-  { name: 'Cumin', nameAr: 'الكمون', role: 'Foundation', note: 'The most-used spice in Moroccan cooking. Present in almost every tagine. Earthy, warm, and essential — the bass note of the kitchen.' },
+  { name: 'Cumin', nameAr: 'الكمون', role: 'Foundation', note: 'Present in almost every tagine. Earthy and warm.' },
   { name: 'Ginger', nameAr: 'سكنجبير', role: 'Warmth', note: 'Ground ginger is a constant in Moroccan spice blends. Adds a quiet, persistent warmth without the heat of chili.' },
   { name: 'Cinnamon', nameAr: 'القرفة', role: 'Sweet warmth', note: 'Used in sweet-savory dishes. The bridge between meat and fruit in Marrakech-style tagines. Ceylon cinnamon preferred.' },
   { name: 'Chermoula', nameAr: 'الشرمولة', role: 'Marinade', note: 'Not a single spice but a paste: cilantro, parsley, garlic, cumin, paprika, lemon juice, olive oil. The soul of every coastal fish tagine.' },
@@ -184,7 +184,7 @@ export const CULTURAL_RULES: CulturalRule[] = [
   { rule: 'Tagine is not couscous', explanation: 'Tagine and couscous are separate dishes, not complementary. Serving tagine over couscous is a tourist adaptation. Couscous is traditionally served on Fridays.' },
   { rule: 'Slow is non-negotiable', explanation: 'A proper tagine simmers for 1.5–3 hours. The charred bottom (the "fond") is prized, not discarded. Rushed tagines score dramatically lower in flavor complexity.' },
   { rule: 'The lid stays on', explanation: 'Opening the lid releases steam and disrupts the self-basting cycle. The cook checks by lifting the lid briefly, never removing it. Patience is a skill.' },
-  { rule: 'Guest gets the best cut', explanation: 'The host serves guests first, pushing tender meat and the most flavorful pieces toward them. Refusing food is culturally awkward. Accept, eat, praise.' },
+  { rule: 'Guest gets the best cut', explanation: 'The host serves guests first, pushing tender meat and the best pieces toward them. Refusing food is culturally awkward. Accept, eat, praise.' },
 ]
 
 export const HERO_STATS = [

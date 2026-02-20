@@ -26,7 +26,7 @@ export interface NaturalDye {
 }
 
 export const DYES: NaturalDye[] = [
-  { color: 'Red', hex: '#DC2626', source: 'Poppy flower', note: 'Deep crimson. The most vivid of the vats. Used for bags, poufs, decorative leather.' },
+  { color: 'Red', hex: '#DC2626', source: 'Poppy flower', note: 'Deep crimson.  Used for bags, poufs, decorative leather.' },
   { color: 'Blue', hex: '#2563EB', source: 'Indigo', note: 'Imported historically from sub-Saharan trade routes. Deep and resistant to fading.' },
   { color: 'Yellow', hex: '#EAB308', source: 'Saffron / Turmeric', note: 'Saffron for premium yellow. Turmeric as the affordable alternative. Golden tones.' },
   { color: 'Orange', hex: '#EA580C', source: 'Henna', note: 'The warm orange that defines Moroccan leather. Same plant used for body art.' },
@@ -46,7 +46,7 @@ export interface Tannery {
 
 export const THREE_TANNERIES: Tannery[] = [
   { name: 'Chouara', lat: 34.0640, lng: -4.9730, detail: 'Dar Dbagh al-Chouara — "the tanning house." Largest and oldest. Over 1,200 basins. 500 master craftsmen. Located on the Oued Fes near Saffarin Madrasa. Local tradition dates it to the 9th century under Idris II. Historical documentation confirms 11th century. The one tourists photograph.', specialty: 'All leather types', status: 'Active — largest' },
-  { name: 'Sidi Moussa', lat: 34.0626, lng: -4.9815, detail: 'Also called Guerniz Tannery. Southwest of the Zawiya of Moulay Idris II, near Nejjarine Museum. Historically specialised in cow skins. One of the oldest alongside Chouara. Renovated in 2015. Quieter, less touristic.', specialty: 'Cow leather', status: 'Active — renovated 2015' },
+  { name: 'Sidi Moussa', lat: 34.0626, lng: -4.9815, detail: 'Also called Guerniz Tannery. Southwest of the Zawiya of Moulay Idris II, near Nejjarine Museum. Historically specialised in cow skins. One of the oldest in Fez. Renovated in 2015. Quieter, less touristic.', specialty: 'Cow leather', status: 'Active — renovated 2015' },
   { name: 'Ain Azliten', lat: 34.0672, lng: -4.9870, detail: 'Northern medina. Created at the end of the 18th century — the youngest of the three. Known for babouche production. Intricate embroidery and designs. The artisan\'s tannery.', specialty: 'Babouches', status: 'Active — specialised' },
 ]
 
@@ -76,8 +76,8 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
-  { name: 'Babouches', arabic: 'بلغة', detail: 'Pointed-toe leather slippers. The iconic Moroccan footwear. Canary-gold from pomegranate rinds is the classic. Ain Azliten tannery specialises in these. Worn daily by millions. Exported worldwide.' },
-  { name: 'Bags & Satchels', arabic: 'شكارة', detail: 'Handbags, shoulder bags, satchels, messenger bags. Goatskin absorbs dye deeply — the saturated colours that define "Moroccan leather." International brands source from Fez cooperatives.' },
+  { name: 'Babouches', arabic: 'بلغة', detail: 'Pointed-toe leather slippers. Canary-gold from pomegranate rinds is the classic. Ain Azliten tannery specialises in these. Worn daily by millions. Exported worldwide.' },
+  { name: 'Bags & Satchels', arabic: 'شكارة', detail: 'Handbags, shoulder bags, satchels, messenger bags. Goatskin absorbs dye deeply — the saturated colours of Moroccan leather. International brands source from Fez cooperatives.' },
   { name: 'Poufs', arabic: 'بوف', detail: 'Round leather floor cushions, hand-stitched. Sold stuffed or flat (buyer fills at home). Available in every dye colour. The product that launched Moroccan leather into Western interior design.' },
   { name: 'Jackets & Coats', arabic: 'جاكيطة', detail: 'Leather outerwear. Tailored in medina workshops from tannery leather. Goatskin for flexibility. Cowhide for structure. The quality varies enormously — provenance matters.' },
   { name: 'Bookbindings', arabic: 'تجليد', detail: 'Morocco leather has been the premium choice for European bookbinding since the 16th century. Goatskin\'s visible grain and durability allow hand-tooled patterns, gold stamping, and jewels. Antiquarian Morocco leather bindings remain the most sought-after.' },

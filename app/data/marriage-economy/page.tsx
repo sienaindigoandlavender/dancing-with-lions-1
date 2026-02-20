@@ -70,7 +70,7 @@ const GIFT_TRADITIONS = [
     group: 'Fassi', region: 'Fes',
     mahr: '20,000–200,000 MAD', gifts: 'Labssa Fassia (silk + pearl outfit), extensive gold, taifours (decorative trays of sweets, cloth, perfume)',
     who: 'Groom pays mahr + provides bride\'s 7 outfits. Bride\'s family hosts the henna. Costs often shared.',
-    note: 'Fassi weddings are the most expensive per capita. The taifour tradition is a public display of generosity.',
+    note: 'Fassi weddings are the most expensive. The taifour tradition is a public display of generosity.',
   },
   {
     group: 'Amazigh (Souss)', region: 'Agadir, Tiznit, Anti-Atlas',
@@ -88,7 +88,7 @@ const GIFT_TRADITIONS = [
     group: 'Sahrawi', region: 'Laayoune, Dakhla, Tan-Tan',
     mahr: '3,000–15,000 MAD', gifts: 'Melhfa (draped dress), silver tribal jewellery, camel (traditionally)',
     who: 'Extended family pools resources. Celebrations in large tents. Community affair.',
-    note: 'Saharan weddings are the most communal. Tea ceremony served three times, each with a different meaning.',
+    note: 'Saharan weddings are communal. Tea ceremony served three times, each with a different meaning.',
   },
 ]
 

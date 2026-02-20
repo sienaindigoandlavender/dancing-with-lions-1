@@ -218,12 +218,12 @@ export default function RouteThousandKasbahsPage() {
           <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Dynasty</p>
           <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>The Lord of the Atlas</h2>
           <p className="text-sm text-neutral-500 max-w-3xl mb-12 leading-relaxed">
-            No story of the kasbahs can avoid the Glaoui. Thami El Glaoui (1879–1956) — Pasha of Marrakech, ally of France, host to Churchill and Chaplin, one of the richest men in the world, and ultimately a traitor who died broken. His kasbahs are the finest and the most haunted on the route.
+            No story of the kasbahs can avoid the Glaoui. Thami El Glaoui (1879–1956) — Pasha of Marrakech, ally of France, host to Churchill and Chaplin, one of the richest men in the world, and ultimately a traitor who died broken. His kasbahs line the route.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { label: 'Rise', detail: '1893: Glaoui brothers rescue Sultan Moulay Hassan from an Atlas blizzard. Rewarded with a Krupp cannon and feudal titles. They use the cannon to crush rival warlords. By 1912, Thami is Pasha of Marrakech — the most powerful man in the south.' },
+              { label: 'Rise', detail: '1893: Glaoui brothers rescue Sultan Moulay Hassan from an Atlas blizzard. Rewarded with a Krupp cannon and feudal titles. They crush rival warlords. By 1912, Thami is Pasha of Marrakech.' },
               { label: 'Power', detail: 'Controlled the salt, olive, and saffron trades. Kasbah Telouet sat on caravan routes — every merchant paid tribute. Hosted Winston Churchill (who painted at his palace), Charlie Chaplin, Colette, Maurice Ravel. Attended Elizabeth II\'s coronation as Churchill\'s personal guest. Built Dar El Bacha in Marrakech.' },
               { label: 'Betrayal', detail: '1953: Conspired with France to exile Sultan Mohammed V to Madagascar. Declared a puppet imam. Miscalculated — insurrection followed. "He simply failed to realise that feudal government was no longer acceptable," his son Abdessadeq later wrote.' },
               { label: 'Fall', detail: '1955: Mohammed V returns in triumph. El Glaoui prostrates himself, kissing the ground at the Sultan\'s feet. French press photographs the humiliation. All Glaoui properties seized. January 23, 1956 — Thami dies during evening prayers. His kasbahs have been crumbling since.' },
