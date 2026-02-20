@@ -401,10 +401,10 @@ export default function FourteenKmGapPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             GDP and GDP per capita (PPP): IMF World Economic Outlook, April 2025.
             Demographic indicators: CIA World Factbook 2024; HCP Morocco 2024 census;
             INE Spain. Health data: WHO Global Health Observatory. Tourism: UNWTO 2024.
@@ -413,7 +413,7 @@ export default function FourteenKmGapPage() {
             Minimum wage: Morocco SMIG per decree (2024); Spain BOE (2024).
           </p>
           <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
+            <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
               © {new Date().getFullYear()} Dancing with Lions. This visualization may not be reproduced without written permission and visible attribution.
             </p>
             <p className="font-serif italic text-[12px]" style={{ color: C.emerald }}>

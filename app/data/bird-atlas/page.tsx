@@ -394,7 +394,7 @@ export default function BirdAtlasPage() {
         <blockquote className="font-serif text-[clamp(1.3rem,3.5vw,1.8rem)] text-dwl-black leading-[1.4] max-w-[680px]">"509 bird species have been recorded in Morocco. Thirty-four are globally threatened. The country sits on every major flyway between Europe and Africa. What happens to Moroccan wetlands doesn't stay in Morocco — it echoes from Scandinavia to Senegal."</blockquote>
       </section>
 
-      <section className="border-t border-dwl-border"><div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
         <p className="micro-label mb-4">Sources & Attribution</p>
         <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">Important Bird Areas: BirdLife International DataZone (datazone.birdlife.org). Flyway data: AEWA (Agreement on the Conservation of African-Eurasian Migratory Waterbirds); Migrant Raptor Monitoring (Gibraltar counts). Northern Bald Ibis: IUCN Red List; BirdLife Morocco (GREPOM). Banc d'Arguin: UNESCO World Heritage nomination document; Wetlands International waterbird census. Strait of Gibraltar passage counts: Fundación Migres, Tarifa. Migration Atlas (migrationatlas.org). MaghrebOrnitho (magornitho.org). Fat Birder Algeria guide. Site coordinates verified via eBird hotspot database and Google Earth. All data editorial estimates unless otherwise sourced.</p>
         <p className="text-[11px] text-dwl-muted mt-4">© Dancing with Lions · dancingwithlions.com · Data may not be reproduced without attribution.</p>

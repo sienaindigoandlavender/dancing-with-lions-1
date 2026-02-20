@@ -32,7 +32,7 @@ export default function AmazighIdentityPage() {
   const script = TIFINAGH_EVOLUTION[activeScript]
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#e5e5e5]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+    <main className="min-h-screen bg-white text-[#1C1917]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
 
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
@@ -44,7 +44,7 @@ export default function AmazighIdentityPage() {
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="mb-6">
-            <Link href="/data" className="text-xs tracking-[0.3em] text-neutral-500 uppercase hover:text-neutral-300 transition-colors">← Data Index</Link>
+            <Link href="/data" className="text-xs tracking-[0.3em] text-neutral-500 uppercase hover:text-neutral-600 transition-colors">← Data Index</Link>
           </div>
           <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT }}>Module 011 · Cultural &amp; Linguistic Intelligence</p>
 
@@ -54,7 +54,7 @@ export default function AmazighIdentityPage() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
             Amazigh Identity Map
           </h1>
-          <p className="text-base md:text-lg text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
             ⵉⵎⴰⵣⵉⵖⵏ — the free people. Three languages, three ancient confederations, one 3,000-year-old script.
             From 45% of Morocco at independence to 24.8% in 2024. The mathematics of erasure — and the persistence that defies it.
           </p>
@@ -82,7 +82,7 @@ export default function AmazighIdentityPage() {
           <div className="flex gap-2 mb-8 flex-wrap">
             {THREE_LANGUAGES.map((l, i) => (
               <button key={i} onClick={() => setActiveLang(i)}
-                className={`px-5 py-2.5 text-xs tracking-widest uppercase transition-all border ${activeLang === i ? 'text-white border-current' : 'text-neutral-500 border-neutral-800 hover:border-neutral-600'}`}
+                className={`px-5 py-2.5 text-xs tracking-widest uppercase transition-all border ${activeLang === i ? 'text-white border-current' : 'text-neutral-500 border-neutral-200 hover:border-neutral-400'}`}
                 style={activeLang === i ? { borderColor: LANG_COLORS[i], color: LANG_COLORS[i] } : {}}>
                 {l.name}
                 <span className="ml-2 opacity-60">{l.percentage2024}%</span>
@@ -91,7 +91,7 @@ export default function AmazighIdentityPage() {
           </div>
 
           {/* Language detail panel */}
-          <div className="border border-neutral-800 p-8">
+          <div className="border border-neutral-200 p-8">
             <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
               <div>
                 <h3 className="text-2xl font-light mb-1" style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: LANG_COLORS[activeLang] }}>{lang.name}</h3>
@@ -113,24 +113,24 @@ export default function AmazighIdentityPage() {
                 <p className="text-sm leading-relaxed">{lang.confederationOrigin}</p>
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-neutral-300 mb-6">{lang.description}</p>
+            <p className="text-sm leading-relaxed text-neutral-600 mb-6">{lang.description}</p>
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Linguistic Features</p>
-                <p className="text-sm leading-relaxed text-neutral-400">{lang.keyFeatures}</p>
+                <p className="text-sm leading-relaxed text-neutral-500">{lang.keyFeatures}</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Urban/Rural Distribution</p>
-                <p className="text-sm leading-relaxed text-neutral-400">{lang.urbanRural}</p>
+                <p className="text-sm leading-relaxed text-neutral-500">{lang.urbanRural}</p>
               </div>
             </div>
             <div className="flex gap-2 flex-wrap mb-4">
               {lang.majorCities.map((c, i) => (
-                <span key={i} className="px-3 py-1 text-xs border border-neutral-800 text-neutral-400">{c}</span>
+                <span key={i} className="px-3 py-1 text-xs border border-neutral-200 text-neutral-500">{c}</span>
               ))}
             </div>
             {/* Census comparison mini bar */}
-            <div className="mt-4 pt-4 border-t border-neutral-800">
+            <div className="mt-4 pt-4 border-t border-neutral-200">
               <p className="text-xs text-neutral-500 mb-2">Census trajectory</p>
               <div className="flex items-center gap-4 text-xs">
                 <span className="text-neutral-500">1960: ~{lang.percentage1960}%</span>
@@ -152,7 +152,7 @@ export default function AmazighIdentityPage() {
           {showMinor && (
             <div className="mt-6 space-y-4">
               {MINOR_LANGUAGES.map((ml, i) => (
-                <div key={i} className="border border-neutral-800 p-6">
+                <div key={i} className="border border-neutral-200 p-6">
                   <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
                     <h4 className="text-sm font-medium">{ml.name}</h4>
                     <span className={`px-2 py-0.5 text-[10px] uppercase tracking-widest border ${ml.status.includes('Critically') ? 'border-red-800 text-red-400' : ml.status.includes('Nearly') ? 'border-red-900 text-red-500' : 'border-yellow-800 text-yellow-500'}`}>
@@ -160,7 +160,7 @@ export default function AmazighIdentityPage() {
                     </span>
                   </div>
                   <p className="text-xs text-neutral-500 mb-2">{ml.region} · {ml.estimatedSpeakers} speakers</p>
-                  <p className="text-sm text-neutral-400 leading-relaxed">{ml.note}</p>
+                  <p className="text-sm text-neutral-500 leading-relaxed">{ml.note}</p>
                 </div>
               ))}
             </div>
@@ -184,7 +184,7 @@ export default function AmazighIdentityPage() {
               <div key={i} className="group">
                 <div className="flex items-center gap-4 mb-1">
                   <span className="text-xs text-neutral-500 w-14 text-right">{cd.label}</span>
-                  <div className="flex-1 relative h-8 bg-neutral-900/50 overflow-hidden">
+                  <div className="flex-1 relative h-8 bg-neutral-50 overflow-hidden">
                     <div className="absolute inset-y-0 left-0 flex transition-all duration-1000" style={{ width: `${cd.total * 2}%` }}>
                       {cd.tashelhit ? (
                         <>
@@ -196,7 +196,7 @@ export default function AmazighIdentityPage() {
                         <div className="w-full" style={{ backgroundColor: ACCENT, opacity: 0.6 }} />
                       )}
                     </div>
-                    <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-neutral-400">{cd.total}%</span>
+                    <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-neutral-500">{cd.total}%</span>
                   </div>
                 </div>
                 <p className="text-[10px] text-neutral-600 ml-[4.5rem]">{cd.note}</p>
@@ -227,7 +227,7 @@ export default function AmazighIdentityPage() {
           <div className="flex gap-2 mb-8 flex-wrap">
             {THREE_CONFEDERATIONS.map((c, i) => (
               <button key={i} onClick={() => setActiveConfed(i)}
-                className={`px-5 py-2.5 text-xs tracking-widest uppercase transition-all border ${activeConfed === i ? 'text-white border-current' : 'text-neutral-500 border-neutral-800 hover:border-neutral-600'}`}
+                className={`px-5 py-2.5 text-xs tracking-widest uppercase transition-all border ${activeConfed === i ? 'text-white border-current' : 'text-neutral-500 border-neutral-200 hover:border-neutral-400'}`}
                 style={activeConfed === i ? { borderColor: CONFED_COLORS[i], color: CONFED_COLORS[i] } : {}}>
                 {c.name}
                 <span className="ml-2 opacity-40">{c.arabic}</span>
@@ -236,7 +236,7 @@ export default function AmazighIdentityPage() {
           </div>
 
           {/* Confederation detail */}
-          <div className="border border-neutral-800 p-8">
+          <div className="border border-neutral-200 p-8">
             <h3 className="text-2xl font-light mb-1" style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: CONFED_COLORS[activeConfed] }}>{confed.name}</h3>
             <p className="text-lg opacity-40 mb-4">{confed.arabic}</p>
 
@@ -247,22 +247,22 @@ export default function AmazighIdentityPage() {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Today&apos;s Descendants</p>
-                <p className="text-sm leading-relaxed text-neutral-400">{confed.descendants}</p>
+                <p className="text-sm leading-relaxed text-neutral-500">{confed.descendants}</p>
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed text-neutral-300 mb-6">{confed.character}</p>
+            <p className="text-sm leading-relaxed text-neutral-600 mb-6">{confed.character}</p>
 
             <div className="mb-6">
               <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Dynasties Built</p>
               {confed.dynastiesBuilt.map((d, i) => (
-                <p key={i} className="text-sm text-neutral-400 mb-1">• {d}</p>
+                <p key={i} className="text-sm text-neutral-500 mb-1">• {d}</p>
               ))}
             </div>
 
             <div className="flex gap-2 flex-wrap">
               {confed.keyTribes.map((t, i) => (
-                <span key={i} className="px-3 py-1 text-xs border border-neutral-800 text-neutral-500">{t}</span>
+                <span key={i} className="px-3 py-1 text-xs border border-neutral-200 text-neutral-500">{t}</span>
               ))}
             </div>
           </div>
@@ -283,25 +283,25 @@ export default function AmazighIdentityPage() {
           <div className="flex gap-2 mb-8 flex-wrap">
             {TIFINAGH_EVOLUTION.map((t, i) => (
               <button key={i} onClick={() => setActiveScript(i)}
-                className={`px-4 py-2 text-xs tracking-widest transition-all border ${activeScript === i ? 'text-white border-amber-600' : 'text-neutral-500 border-neutral-800 hover:border-neutral-600'}`}
+                className={`px-4 py-2 text-xs tracking-widest transition-all border ${activeScript === i ? 'text-white border-amber-600' : 'text-neutral-500 border-neutral-200 hover:border-neutral-400'}`}
                 style={activeScript === i ? { borderColor: ACCENT, color: ACCENT } : {}}>
                 {t.name.split('(')[0].trim()}
               </button>
             ))}
           </div>
 
-          <div className="border border-neutral-800 p-8">
+          <div className="border border-neutral-200 p-8">
             <h3 className="text-xl font-light mb-1" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{script.name}</h3>
             <p className="text-sm mb-4" style={{ color: ACCENT }}>{script.period}</p>
-            <p className="text-sm leading-relaxed text-neutral-300 mb-6">{script.description}</p>
+            <p className="text-sm leading-relaxed text-neutral-600 mb-6">{script.description}</p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Geography</p>
-                <p className="text-sm text-neutral-400">{script.geography}</p>
+                <p className="text-sm text-neutral-500">{script.geography}</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Key Fact</p>
-                <p className="text-sm text-neutral-400 italic">{script.keyFact}</p>
+                <p className="text-sm text-neutral-500 italic">{script.keyFact}</p>
               </div>
             </div>
           </div>
@@ -314,11 +314,11 @@ export default function AmazighIdentityPage() {
                 <button key={i}
                   onMouseEnter={() => setHoveredLetter(i)}
                   onMouseLeave={() => setHoveredLetter(null)}
-                  className="aspect-square flex items-center justify-center text-2xl md:text-3xl border border-neutral-800 hover:border-neutral-600 transition-all relative"
+                  className="aspect-square flex items-center justify-center text-2xl md:text-3xl border border-neutral-200 hover:border-neutral-400 transition-all relative"
                   style={hoveredLetter === i ? { borderColor: ACCENT, color: ACCENT } : { color: '#888' }}>
                   {ch.letter}
                   {hoveredLetter === i && (
-                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-neutral-900 border border-neutral-700 px-2 py-1 text-[10px] text-neutral-300 whitespace-nowrap z-10">
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#fafafa] border border-neutral-300 px-2 py-1 text-[10px] text-neutral-600 whitespace-nowrap z-10">
                       {ch.name} /{ch.latin}/{ch.note ? ` — ${ch.note}` : ''}
                     </div>
                   )}
@@ -341,12 +341,12 @@ export default function AmazighIdentityPage() {
           {/* Thread filters */}
           <div className="flex gap-2 mb-8 flex-wrap">
             <button onClick={() => setActiveThread(null)}
-              className={`px-3 py-1.5 text-xs tracking-widest uppercase border transition-all ${!activeThread ? 'text-white border-white' : 'text-neutral-500 border-neutral-800 hover:border-neutral-600'}`}>
+              className={`px-3 py-1.5 text-xs tracking-widest uppercase border transition-all ${!activeThread ? 'text-white border-white' : 'text-neutral-500 border-neutral-200 hover:border-neutral-400'}`}>
               All
             </button>
             {Object.entries(THREAD_META).map(([key, meta]) => (
               <button key={key} onClick={() => setActiveThread(activeThread === key ? null : key)}
-                className={`px-3 py-1.5 text-xs tracking-widest uppercase border transition-all ${activeThread === key ? 'text-white' : 'text-neutral-500 border-neutral-800 hover:border-neutral-600'}`}
+                className={`px-3 py-1.5 text-xs tracking-widest uppercase border transition-all ${activeThread === key ? 'text-white' : 'text-neutral-500 border-neutral-200 hover:border-neutral-400'}`}
                 style={activeThread === key ? { borderColor: meta.color, color: meta.color } : {}}>
                 {meta.label}
               </button>
@@ -357,7 +357,7 @@ export default function AmazighIdentityPage() {
             {filteredHistory.map((h, i) => {
               const meta = THREAD_META[h.thread]
               return (
-                <div key={i} className="flex gap-6 py-4 border-b border-neutral-800/50 group">
+                <div key={i} className="flex gap-6 py-4 border-b border-neutral-200 group">
                   <div className="w-20 shrink-0 text-right">
                     <p className="text-xs text-neutral-500">{h.year}</p>
                   </div>
@@ -367,7 +367,7 @@ export default function AmazighIdentityPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="text-[10px] uppercase tracking-widest px-1.5 py-0.5 border inline-block mb-2" style={{ borderColor: meta.color, color: meta.color, opacity: 0.7 }}>{meta.label}</span>
-                    <p className="text-sm leading-relaxed text-neutral-300">{h.event}</p>
+                    <p className="text-sm leading-relaxed text-neutral-600">{h.event}</p>
                   </div>
                 </div>
               )
@@ -383,9 +383,9 @@ export default function AmazighIdentityPage() {
           <h2 className="text-3xl md:text-4xl font-light mb-10" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Key Numbers</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {KEY_NUMBERS.map((kn, i) => (
-              <div key={i} className="border border-neutral-800 p-6">
+              <div key={i} className="border border-neutral-200 p-6">
                 <p className="text-2xl font-light mb-2" style={{ color: ACCENT }}>{kn.value}</p>
-                <p className="text-sm text-neutral-400 leading-relaxed">{kn.context}</p>
+                <p className="text-sm text-neutral-500 leading-relaxed">{kn.context}</p>
               </div>
             ))}
           </div>
@@ -402,7 +402,7 @@ export default function AmazighIdentityPage() {
               <div key={b.id} className="flex gap-4 text-sm">
                 <span className="text-neutral-600 w-6 shrink-0 text-right">{b.id}.</span>
                 <div>
-                  <span className="text-neutral-300">{b.source}.</span>
+                  <span className="text-neutral-600">{b.source}.</span>
                   <span className="text-neutral-500 ml-1">{b.detail}</span>
                 </div>
               </div>
@@ -412,9 +412,13 @@ export default function AmazighIdentityPage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-16 px-6 text-center">
-        <p className="text-xs text-neutral-600 mb-2">Module 011 · Amazigh Identity Map</p>
-        <p className="text-xs text-neutral-700">© Dancing with Lions · dancingwithlions.com</p>
+      <footer style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-6">
+        <p className="text-[11px] text-white/50 mb-2">Module 011 · Amazigh Identity Map</p>
+        <p className="text-[11px] text-white/35">© Dancing with Lions · dancingwithlions.com</p>
+      
+        <div style={{ backgroundColor: '#161616' }} className="mt-12 -mx-6 -mb-16 py-3">
+          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>dancingwithlions.com</p>
+        </div>
       </footer>
     </main>
   )

@@ -119,7 +119,7 @@ export default function BeforeTheSaharaPage() {
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             Before<br />the Sahara
           </h1>
-          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             The land between Atlas and sand. Two-thirds of Morocco&rsquo;s oases
             have vanished in a century. 15 million date palms reduced to 6 million.
             NDVI vegetation data, climate zones, oasis collapse, and the green
@@ -130,7 +130,7 @@ export default function BeforeTheSaharaPage() {
             {HERO_STATS.map((s) => (
               <div key={s.label}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#F59E0B', lineHeight: 1 }}>{s.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -149,7 +149,7 @@ export default function BeforeTheSaharaPage() {
           </div>
           <div className="relative" style={{ height: '60vh', borderBottom: '1px solid #1a1a1a' }}>
             <div ref={mapContainer} className="absolute inset-0" />
-            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading map...</p></div>}
+            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>Loading map...</p></div>}
           </div>
         </div>
       </section>
@@ -309,7 +309,7 @@ export default function BeforeTheSaharaPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'IPCC Special Report on Climate Change and Land — Chapter 3: Desertification',
@@ -327,13 +327,13 @@ export default function BeforeTheSaharaPage() {
               <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
             ))}
           </div>
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#F59E0B' }}>Sources: UNESCO, geological surveys</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

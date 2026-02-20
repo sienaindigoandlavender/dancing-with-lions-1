@@ -183,7 +183,7 @@ export default function AutomotiveIndustryPage() {
             Morocco&rsquo;s Automotive<br />Revolution
           </h1>
 
-          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             From a single state-owned plant in 1959 to Africa&rsquo;s #1 car producer.
             Renault Tangier, Stellantis Kenitra, 270+ suppliers, $17 billion in exports,
             and the EU&rsquo;s largest automotive exporter by value — 14 km from Spain.
@@ -194,7 +194,7 @@ export default function AutomotiveIndustryPage() {
             {HERO_STATS.map((s) => (
               <div key={s.label}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#FACC15', lineHeight: 1 }}>{s.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -214,7 +214,7 @@ export default function AutomotiveIndustryPage() {
         <div className="max-w-wide mx-auto">
           <div className="relative" style={{ height: '65vh', borderBottom: '1px solid #1a1a1a' }}>
             <div ref={mapContainer} className="absolute inset-0" />
-            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading map...</p></div>}
+            {!mapLoaded && <div className="absolute inset-0 flex items-center justify-center"><p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>Loading map...</p></div>}
 
             {/* Quick-fly buttons */}
             <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
@@ -253,7 +253,7 @@ export default function AutomotiveIndustryPage() {
                   ))}
                 </div>
                 <p className="text-[11px] mt-3 italic" style={{ color: selectedPlant.color }}>{selectedPlant.note}</p>
-                <button onClick={() => { setSelectedPlant(null); mapRef.current?.flyTo({ center: [-6.2, 34.2], zoom: 5.8, duration: 1000 }) }} className="text-[10px] uppercase tracking-[0.08em] mt-3" style={{ color: 'rgba(255,255,255,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← Reset</button>
+                <button onClick={() => { setSelectedPlant(null); mapRef.current?.flyTo({ center: [-6.2, 34.2], zoom: 5.8, duration: 1000 }) }} className="text-[10px] uppercase tracking-[0.08em] mt-3" style={{ color: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← Reset</button>
               </div>
             )}
           </div>
@@ -407,7 +407,7 @@ export default function AutomotiveIndustryPage() {
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>
             EV & Battery Investments
           </h2>
-          <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Morocco is positioning as a critical EV supply chain node — lithium batteries,
             hydrogen prototypes, and the first electric vehicles produced on African soil.
           </p>
@@ -465,7 +465,7 @@ export default function AutomotiveIndustryPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'AMDIE — Moroccan Agency for Investment and Export Development',
@@ -481,14 +481,14 @@ export default function AutomotiveIndustryPage() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#FACC15' }}>Sources: AMICA, Ministry of Industry Morocco</p>
           </div>
 
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

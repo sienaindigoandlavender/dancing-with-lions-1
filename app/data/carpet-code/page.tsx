@@ -461,12 +461,12 @@ export default function CarpetCodePage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="micro-label mb-4" style={{ color: C.muted }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Symbol meanings and regional attributions compiled from: The Advocacy Project, "Traditional Motifs in Amazigh Weaving" (Aïn Leuh cooperative fieldwork). Mina Abouzahra, "Symbolism" and "Regions and Types" (minaabouzahra.com). Tribaliste Magazine, "Patterns and signs in Berber crafts" (2020). iwziwn.com, "Symbolism and Spirituality in Moroccan Amazigh Weaving" (2025). Mimouna Rugs, "Berber Symbols: Decoding the Patterns and Meanings" (2025). Laetitia Demay, "Berber Symbols: Meaning and Secrets of Amazigh Patterns" (2025). Nomad33, "The Symbols of the Berber Carpet" (2022). Berber Creations, "Symbolic Meanings in Moroccan Berber Rugs" (2023). Kenza & Co, "Berber/Amazigh Symbols Meaning." Afrikesh, "Berber Carpets of Morocco the Symbols Origin and Meaning" (2024). Bruno Barbatti, <em>Berber Carpets of Morocco: The Symbols, Origin and Meaning</em> (referenced via Amazigh World News and Advocacy Project). Regional style data from Mina Abouzahra's tribal classification. SVG renderings are editorial interpretations of geometric motifs described across sources — they represent the structural logic of each symbol, not exact reproductions of specific rugs.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
           © Dancing with Lions · dancingwithlions.com · Symbol interpretations vary by tribe, region, and individual weaver. Meanings are not fixed. This guide represents documented consensus across sources, not definitive readings.
         </p>
       </section>

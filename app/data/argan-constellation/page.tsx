@@ -632,10 +632,10 @@ export default function ArganConstellationPage() {
       </section>
 
       {/* SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Labour hours: &ldquo;20 hours of expert labor&rdquo; per litre (GI case study,
             IPR Trends 2024); &ldquo;up to 20 hours by hand&rdquo; (Morocco Explore Tours);
             &ldquo;about 40 hours&rdquo; (Moroccan Elixir); &ldquo;around 10 hours&rdquo;
@@ -653,7 +653,7 @@ export default function ArganConstellationPage() {
             pre-1990 figures approximate.
           </p>
           <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
+            <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions
             </p>
             <p className="font-mono text-[11px]" style={{ color: C.leaf }}>

@@ -434,9 +434,9 @@ export default function AfricaRisingPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
-        <div className="border-t pt-6" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+        <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: IMF World Economic Outlook Database (GDP nominal rankings, 2005–2025).
             UN Tourism / UNWTO World Tourism Barometer (international arrivals, 2005–2024).
             UNCTAD World Investment Report (FDI inflows by country, 2005–2024).
@@ -449,7 +449,7 @@ export default function AfricaRisingPage() {
             Afreximbank: Africa in Figures 2024.
             Wikipedia: &quot;Economy of Morocco,&quot; &quot;List of African countries by GDP.&quot;
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: C.muted }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

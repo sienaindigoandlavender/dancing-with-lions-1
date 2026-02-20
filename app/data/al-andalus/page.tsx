@@ -189,7 +189,7 @@ export default function AlAndalusPage() {
           </h1>
           <p
             className="text-[18px] md:text-[20px] max-w-[560px] leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.5)' }}
+            style={{ color: 'rgba(0,0,0,0.5)' }}
           >
             One continuous cultural bridge from Seville to Fes. Architecture, music, food, language — four layers of shared DNA.
             Toggle each layer. Explore each point.
@@ -204,7 +204,7 @@ export default function AlAndalusPage() {
                   className="flex items-center gap-2"
                 >
                   <div className="w-3 h-3 rounded-full" style={{ backgroundColor: cfg.color }} />
-                  <span className="text-[12px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <span className="text-[12px]" style={{ color: 'rgba(0,0,0,0.5)' }}>
                     {cfg.label}
                   </span>
                 </div>
@@ -215,14 +215,14 @@ export default function AlAndalusPage() {
       </section>
 
       {/* ═══ MAP + CONTROLS ═══ */}
-      <section className="relative bg-[#0a0a0a]">
+      <section className="relative bg-white">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh]">
             {/* Sidebar */}
             <div className="lg:col-span-4 p-6 md:p-10 relative z-10">
               {/* Layer toggles */}
               <div className="mb-8">
-                <p className="text-[10px] uppercase tracking-[0.15em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                <p className="text-[10px] uppercase tracking-[0.15em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
                   Toggle Layers
                 </p>
                 <div className="space-y-2">
@@ -287,12 +287,12 @@ export default function AlAndalusPage() {
                   </h2>
 
                   {selectedPoint.period && (
-                    <p className="text-[12px] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                    <p className="text-[12px] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
                       {selectedPoint.period}
                     </p>
                   )}
 
-                  <p className="text-[14px] leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  <p className="text-[14px] leading-relaxed mb-4" style={{ color: 'rgba(0,0,0,0.6)' }}>
                     {selectedPoint.description}
                   </p>
 
@@ -316,20 +316,20 @@ export default function AlAndalusPage() {
                   <button
                     onClick={resetView}
                     className="mt-6 text-[11px] uppercase tracking-[0.1em] pb-1"
-                    style={{ color: 'rgba(255,255,255,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
+                    style={{ color: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
                   >
                     ← Reset View
                   </button>
                 </div>
               ) : (
                 <div>
-                  <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                  <p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>
                     Click a point on the map
                   </p>
-                  <p className="font-serif text-[20px] italic mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <p className="font-serif text-[20px] italic mt-1" style={{ color: 'rgba(0,0,0,0.5)' }}>
                     to explore the connection
                   </p>
-                  <p className="text-[12px] mt-6" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                  <p className="text-[12px] mt-6" style={{ color: 'rgba(0,0,0,0.2)' }}>
                     {POINTS.filter(p => activeLayers.has(p.layer)).length} points visible across{' '}
                     {activeLayers.size} layer{activeLayers.size !== 1 ? 's' : ''}
                   </p>
@@ -346,7 +346,7 @@ export default function AlAndalusPage() {
               />
               {!mapLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                  <p className="text-[13px]" style={{ color: 'rgba(0,0,0,0.3)' }}>
                     Loading map...
                   </p>
                 </div>
@@ -440,7 +440,7 @@ export default function AlAndalusPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>
           <div className="space-y-1">
@@ -455,7 +455,7 @@ export default function AlAndalusPage() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
@@ -471,7 +471,7 @@ export default function AlAndalusPage() {
             <Link
               href="/data"
               className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity"
-              style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}
+              style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
             >
               ← All Data Modules
             </Link>
