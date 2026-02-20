@@ -1,12 +1,43 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { DESERT_TYPES, SAHARA_FACTS, MOROCCAN_ERGS, HISTORY, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
+import { DESERT_TYPES, SAHARA_FACTS, MOROCCAN_ERGS, HISTORY, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY , MAP_POINTS } from './data'
 
 const ACCENT = '#F59E0B'
 const TYPE_COLORS = ['#D4A373', '#A1887F', '#F59E0B', '#3B82F6']
 const THREAD_COLORS: Record<string, string> = { geology: '#A1887F', climate: '#3B82F6', human: '#22C55E' }
+
+
+const MAPBOX_TK_D = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function DesertMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TK_D || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TK_D!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-5, 30], zoom: 6, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_POINTS.forEach((p: typeof MAP_POINTS[0]) => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
 
 export default function DesertPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())
@@ -138,7 +169,14 @@ export default function DesertPage() {
         </div>
       </section>
 
-      {/* ═══ SAHARA IN NUMBERS ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#F59E0B' }}>Desert Types — Mapped</p>
+        <DesertMap />
+      </div></section>
+
+{/* ═══ SAHARA IN NUMBERS ═══ */}
       <section style={{ background: ACCENT }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-16" style={{ color: '#fff' }}>Sahara in Numbers</h2>

@@ -162,3 +162,22 @@ export const BIBLIOGRAPHY = [
   { source: 'UNHCR Morocco (April 2025)', detail: '9,094 refugees, 9,784 asylum seekers. Syria, Guinea, Senegal, Sudan, Côte d\'Ivoire. Six-city Protection Working Groups' },
   { source: 'Wikipedia: Migrants\' African Routes', detail: 'Route mapping. Mortality data. 2024 Atlantic route record. Caminando Fronteras data' },
 ]
+
+export const MAP_POINTS = [
+  { name: 'Oujda', lat: 34.6814, lng: -1.9086, type: 'transit', detail: 'Eastern border entry from Algeria. First stop for sub-Saharan migrants.' },
+  { name: 'Nador', lat: 35.1740, lng: -2.9287, type: 'transit', detail: 'Near Melilla fence. Attempt point for Spanish enclave.' },
+  { name: 'Tangier', lat: 35.7595, lng: -5.8340, type: 'transit', detail: 'Strait crossing point. 14km to Spain.' },
+  { name: 'Tetouan / Fnideq', lat: 35.5889, lng: -5.3626, type: 'transit', detail: 'Ceuta border. Daily crossing attempts.' },
+  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, type: 'transit', detail: 'Largest city. Hub for informal employment.' },
+  { name: 'Rabat', lat: 34.0209, lng: -6.8416, type: 'transit', detail: 'UNHCR presence. Regularization offices.' },
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, type: 'transit', detail: 'Eastern corridor waypoint.' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, type: 'transit', detail: 'Southern arrival point from Saharan routes.' },
+  { name: 'Laayoune', lat: 27.1536, lng: -13.2033, type: 'transit', detail: 'Saharan route waypoint. Fishing boat departures.' },
+  { name: 'Dakhla', lat: 23.6848, lng: -15.9580, type: 'transit', detail: 'Southernmost departure point. Atlantic route to Canaries.' },
+]
+
+export const MAP_ROUTES = [
+  { name: 'Western Mediterranean', coords: [[-5.83, 35.76], [-5.35, 36.14]] as [number, number][], color: '#EF4444' },
+  { name: 'Atlantic to Canaries', coords: [[-15.96, 23.68], [-13.20, 27.15], [-15.42, 28.12]] as [number, number][], color: '#F59E0B' },
+  { name: 'Eastern Overland', coords: [[-1.91, 34.68], [-2.93, 35.17], [-5.83, 35.76]] as [number, number][], color: '#3B82F6' },
+]

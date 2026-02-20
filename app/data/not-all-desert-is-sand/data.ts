@@ -131,3 +131,13 @@ export const BIBLIOGRAPHY = [
   { source: 'Lonely Planet', detail: 'Erg Chebbi: "rose-gold dunes rise dramatically above pancake-flat, grey hamada." Shape-shifting over 28km' },
   { source: 'Desert Stories (Morocco)', detail: 'Erg, reg, hamada terrain types. Morocco-specific desert landscape descriptions and travel guidance' },
 ]
+
+export const MAP_POINTS = [
+  { name: 'Erg Chebbi', lat: 31.1417, lng: -3.9667, detail: 'Iconic dunes. 22km long, 5km wide. Up to 150m high. Near Merzouga.', color: '#F59E0B' },
+  { name: 'Erg Chegaga', lat: 29.8000, lng: -6.2833, detail: 'Remote grand erg. 40km long. Wilder, less visited. Near Mhamid.', color: '#F59E0B' },
+  { name: 'Hammada du Draa', lat: 30.5, lng: -5.5, detail: 'Stone desert. Flat rock pavement. Largest hammada in Morocco.', color: '#8B7355' },
+  { name: 'Reg (Tanezrouft)', lat: 27.0, lng: -3.0, detail: 'Gravel plain. Land of Thirst. Most desolate landscape on Earth.', color: '#A0522D' },
+  { name: 'Draa Valley (Oued)', lat: 30.2, lng: -5.8, detail: 'Longest river in Morocco. 1,100km. Seasonal flow. Palm oases.', color: '#2563EB' },
+  { name: 'Zagora', lat: 30.3300, lng: -5.8400, detail: 'Gateway to the Sahara. Timbuktu 52 days sign.', color: '#737373' },
+  { name: 'Mhamid el Ghizlane', lat: 29.8281, lng: -5.7222, detail: 'Last town before the desert. End of the road.', color: '#737373' },
+]

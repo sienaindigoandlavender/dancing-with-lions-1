@@ -1,10 +1,43 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { ROUTES, TRANSIT_CITIES, POLICY_TIMELINE, HERO_STATS, KEY_NUMBERS, KEY_CONCEPTS, TYPE_COLORS, BIBLIOGRAPHY } from './data'
+import { ROUTES, TRANSIT_CITIES, POLICY_TIMELINE, HERO_STATS, KEY_NUMBERS, KEY_CONCEPTS, TYPE_COLORS, BIBLIOGRAPHY, MAP_POINTS, MAP_ROUTES } from './data'
 
 const ACCENT = '#EF4444'
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function MigrationMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-8, 30], zoom: 4.2, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_ROUTES.forEach((r, i) => {
+          map.addSource(`route-${i}`, { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: r.coords } } })
+          map.addLayer({ id: `route-line-${i}`, type: 'line', source: `route-${i}`, paint: { 'line-color': r.color, 'line-width': 2.5, 'line-dasharray': [4, 3], 'line-opacity': 0.7 } })
+        })
+        MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:12px;height:12px;border-radius:50%;background:#EF4444;border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.5)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 12, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:14px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '520px', background: '#0a0a0a' }} />
+}
 
 export default function MigrationRoutesPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())
@@ -55,6 +88,12 @@ export default function MigrationRoutesPage() {
         </div>
         <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
       </section>
+
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>The Routes — Mapped</p>
+        <MigrationMap />
+      </div></section>
 
       {/* ═══ FOUR ROUTES ═══ */}
       <section className="bg-white">

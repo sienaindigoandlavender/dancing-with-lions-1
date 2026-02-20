@@ -78,6 +78,45 @@ const LANDMARKS = [
 
 type Category = 'gates' | 'souks' | 'landmarks'
 
+
+const MEDINA_ATLAS_MAP_POINTS = [
+  { name: 'Fez el Bali', lat: 34.0622, lng: -4.9737, detail: 'Largest car-free urban area. 9,400 alleys. Founded 789.', color: '#722F37' },
+  { name: 'Marrakech Medina', lat: 31.6310, lng: -7.9891, detail: 'Djemaa el-Fna. 600 hectares. Almoravid, 1070.', color: '#B8705A' },
+  { name: 'Meknès Medina', lat: 33.8935, lng: -5.5547, detail: 'Moulay Ismaïl\'s capital. 40km of walls.', color: '#5C4033' },
+  { name: 'Tétouan Medina', lat: 35.5715, lng: -5.3684, detail: 'Andalusian character. White walls. Spanish influence.', color: '#4A6741' },
+  { name: 'Essaouira Medina', lat: 31.5125, lng: -9.7700, detail: 'Mogador. Portuguese-Moroccan. Wind city.', color: '#1A5276' },
+  { name: 'Chefchaouen', lat: 35.1688, lng: -5.2636, detail: 'The blue city. Rif mountain medina. Founded 1471.', color: '#3B82F6' },
+]
+const MAPBOX_TOKEN_MEDINA_ATLAS = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function MedinaatlasMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN_MEDINA_ATLAS || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN_MEDINA_ATLAS!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6.0, 33], zoom: 5.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MEDINA_ATLAS_MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function MedinaAtlasPage() {
   const heroR = useReveal()
   const numsR = useReveal()
@@ -212,7 +251,14 @@ export default function MedinaAtlasPage() {
         </div>
       </section>
 
-      {/* CLOSING + SOURCES */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>The Medinas — Mapped</p>
+        <MedinaatlasMap />
+      </div></section>
+
+{/* CLOSING + SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
