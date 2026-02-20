@@ -521,7 +521,7 @@ export default function ColourIndexPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -550,7 +550,7 @@ export default function ColourIndexPage() {
       </section>
 
       {/* ═══ CHROMATIC STRIP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mb-8">
         <div className="flex h-12 md:h-16">
           {COLOURS.filter(c => c.featured).map(c => (
             <div key={c.hex} className="flex-1 transition-all duration-300 hover:flex-[2] cursor-pointer"
@@ -566,7 +566,7 @@ export default function ColourIndexPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {KEY_NUMBERS.map((k, i) => (
             <div key={k.l} className="border-t pt-3 transition-all duration-700"
@@ -584,10 +584,10 @@ export default function ColourIndexPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ FILTER TABS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-4">
         <div className="flex flex-wrap gap-2">
           {categories.map(cat => {
             const label = cat === 'all' ? `All (${COLOURS.length})`
@@ -611,7 +611,7 @@ export default function ColourIndexPage() {
       </section>
 
       {/* ═══ SWATCH GARDEN ═══ */}
-      <section ref={swatchR.ref} className="max-w-[1200px] mx-auto px-6 md:px-10 pb-section">
+      <section ref={swatchR.ref} className="px-8 md:px-[8%] lg:px-[12%] pb-section">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtered.map((colour, i) => (
             <ColourSwatch
@@ -625,10 +625,10 @@ export default function ColourIndexPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-6" style={{ color: C.muted }}>Reading Notes</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -662,10 +662,10 @@ export default function ColourIndexPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources &amp; Methodology</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Hex values are editorial approximations sampled from documentary photography, architectural surveys, and material specimens — not Pantone-certified measurements.</p>

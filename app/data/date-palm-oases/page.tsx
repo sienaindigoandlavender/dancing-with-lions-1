@@ -76,7 +76,7 @@ export default function DatePalmOasesPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 075 — Ecological &amp; Agricultural Intelligence
           </p>
@@ -101,9 +101,9 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ MAP — OASIS VALLEYS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>001 — The Geography</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Four Oasis Regions</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Four Oasis Regions</h2>
           <p className="text-[13px] max-w-[520px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             South of the Atlas. Long ribbons of palm groves along desert rivers.
             These were the caravan routes to Timbuktu. The oases are measured
@@ -115,9 +115,9 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ THREE-TIER ECOLOGY ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — The Ecology</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Three Tiers</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Three Tiers</h2>
           <p className="text-[14px] text-dwl-body max-w-[540px] leading-relaxed mb-10">
             The palm is not just a crop. It is the architecture.
             Remove the canopy and the layers below collapse.
@@ -135,7 +135,7 @@ export default function DatePalmOasesPage() {
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : `translateY(${(i + 1) * 8}px)`,
                 }}>
-                  <div className="max-w-wide mx-auto px-6 md:px-10 flex items-center gap-6 md:gap-10 w-full">
+                  <div className="px-8 md:px-[8%] lg:px-[12%] flex items-center gap-6 md:gap-10 w-full">
                     <div className="min-w-[180px]">
                       <p className="text-[10px] uppercase tracking-[0.08em]" style={{ color: ACCENT }}>Tier {i + 1}</p>
                       <p className="text-[14px] font-medium text-dwl-black mt-0.5">{t.layer}</p>
@@ -151,9 +151,9 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ VARIETIES ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Cultivars</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Varieties</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Varieties</h2>
           <p className="text-[13px] max-w-[500px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             453 cultivars recorded. These six define the landscape.
           </p>
@@ -183,7 +183,7 @@ export default function DatePalmOasesPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[32vh]" style={{ background: ACCENT }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[32vh]" style={{ background: ACCENT }}>
         <div className="max-w-[640px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3.5vw, 2.2rem)', color: '#ffffff' }}>
             The Bayoud did not just kill trees. It destroyed
@@ -195,9 +195,9 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ THREATS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — The Threats</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-10">Four Pressures</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-10">Four Pressures</h2>
 
           <div className="space-y-0">
             {THREATS.map((t, i) => {
@@ -231,9 +231,9 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ WATER SYSTEMS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>005 — The Water</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Four Systems</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Four Systems</h2>
           <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             The oasis exists because of water. How it arrives determines
             everything — who farms, who eats, who stays.
@@ -260,13 +260,13 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">006 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
             {KEY_NUMBERS.map(n => (
               <div key={n.unit} className="p-6 md:p-8 bg-white">
-                <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: ACCENT }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: ACCENT }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium text-dwl-black">{n.unit}</p>
                 <p className="text-[11px] mt-1 text-dwl-gray">{n.note}</p>
               </div>
@@ -277,9 +277,9 @@ export default function DatePalmOasesPage() {
 
       {/* ═══ BIBLIOGRAPHY ═══ */}
       <section style={{ background: '#fafafa' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">007 — Bibliography</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
           <p className="text-[14px] text-dwl-body max-w-[480px] leading-relaxed mb-10">
             Six works. Agronomy, ecology, hydrology, pathology.
           </p>
@@ -306,8 +306,8 @@ export default function DatePalmOasesPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

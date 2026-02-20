@@ -159,7 +159,7 @@ export default function CinemaMoroccoPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#EF4444', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 071 — Cultural &amp; Economic Intelligence
           </p>
@@ -196,9 +196,9 @@ export default function CinemaMoroccoPage() {
 
       {/* ═══ MAP — FILMING LOCATIONS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>001 — The Map</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Where Morocco Becomes the World</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Where Morocco Becomes the World</h2>
           <p className="text-[13px] max-w-[580px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Morocco has doubled as ancient Rome, Biblical Jerusalem, feudal Japan, modern Mogadishu,
             fantasy Essos, and Tolkien&rsquo;s deserts. Click any location.
@@ -208,10 +208,10 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ ANIMATED TIMELINE — PRODUCTIONS BY DECADE ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — The Filmography</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Six Decades of Production</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Six Decades of Production</h2>
           <p className="text-[14px] text-dwl-body max-w-[550px] leading-relaxed mb-10">
             From David Lean in 1962 to Ridley Scott returning in 2024. Each bar is a production.
             Click a decade to explore.
@@ -282,7 +282,7 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[36vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[36vh]" style={{ background: '#EF4444' }}>
         <div className="max-w-[700px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             These same dunes, casbahs and mountain lakes now stand in for
@@ -295,9 +295,9 @@ export default function CinemaMoroccoPage() {
 
       {/* ═══ GAME OF THRONES — MOROCCO = ESSOS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>003 — Morocco Is Essos</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Game of Thrones in Morocco</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Game of Thrones in Morocco</h2>
           <p className="text-[13px] max-w-[550px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Prominent in Season 3. Essaouira&rsquo;s ramparts became Astapor.
             Aït Benhaddou became Yunkai. Atlas Studios built Pentos.
@@ -329,9 +329,9 @@ export default function CinemaMoroccoPage() {
 
       {/* ═══ INCENTIVES ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — Why Morocco</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">The Incentive Structure</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">The Incentive Structure</h2>
           <p className="text-[14px] text-dwl-body max-w-[580px] leading-relaxed mb-10">
             Reliable weather. Desert, mountains, medinas, Atlantic coast within hours. Trained local crew.
             Moroccan army as extras. And since March 2022, a 30% cash rebate administered by the Centre
@@ -346,7 +346,7 @@ export default function CinemaMoroccoPage() {
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(6px)',
                 }}>
-                  <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: '#EF4444' }}>{inc.value}</p>
+                  <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#EF4444' }}>{inc.value}</p>
                   <p className="text-[12px] text-dwl-gray mt-2 font-medium">{inc.label}</p>
                   <p className="text-[11px] text-dwl-muted mt-1">{inc.detail}</p>
                 </div>
@@ -357,7 +357,7 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[34vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[34vh]" style={{ background: '#111' }}>
         <div className="max-w-[700px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#EF4444' }}>
             Clear mountain air funnels down from the High Atlas.
@@ -369,13 +369,13 @@ export default function CinemaMoroccoPage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>005 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
-                <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: '#EF4444' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#EF4444' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -385,8 +385,8 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

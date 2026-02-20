@@ -443,7 +443,7 @@ export default function HammamGeometryPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -469,7 +469,7 @@ export default function HammamGeometryPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { n: '3', l: 'Bathing rooms (cool → warm → hot)', c: C.warm },
@@ -490,10 +490,10 @@ export default function HammamGeometryPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ I. THE PLAN ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Plan</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -504,10 +504,10 @@ export default function HammamGeometryPage() {
         <RoomDetail roomId={activeRoom} />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ II. THE SECTION ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Section</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -517,10 +517,10 @@ export default function HammamGeometryPage() {
         <CrossSection />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ III. THERMAL DATA ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Thermal Data</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -530,10 +530,10 @@ export default function HammamGeometryPage() {
         <ThermalTable />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ IV. THE SYSTEMS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Systems</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
@@ -565,10 +565,10 @@ export default function HammamGeometryPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ V. THE KIT ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section V</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Kit</h2>
         <p className="text-[13px] mb-6 max-w-[500px]" style={{ color: C.muted }}>
@@ -586,10 +586,10 @@ export default function HammamGeometryPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ VI. THE TIMELINE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section VI</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">2,000 Years</h2>
         <div className="space-y-3 mt-6">
@@ -603,10 +603,10 @@ export default function HammamGeometryPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: C.muted }}>Reading Notes</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -641,10 +641,10 @@ export default function HammamGeometryPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Architecture: Raftani & Radoine (2008), "The Architecture of the Hammams of Fez, Morocco" (ResearchGate). Hammam Saffarin: Wikipedia, based on rehabilitation documentation. Hypocaust system: Alksar.com; Wikipedia (Hammam). Thermal data: SaunaDekor.com (Moroccan Bath specifications: 38–42°C, 50–80% humidity); Humidity Matters Ltd; Effe Perfect Wellness. Light levels: Raftani & Radoine (2016), daylight factor measurements in Fes hammams — max horizontal illuminance &lt;60 lx, roof openings &lt;2% of floor area. Social history: Morocco World News; Sarah Tours; Middle East Eye. Products: editorial documentation from Moroccan hammam traditions. Roman precedent: Volubilis Idrissid bath plan (Alaa El-Habashi, 2006). Timeline: compiled from Raftani & Radoine, Wikipedia, and Morocco heritage sources.</p>

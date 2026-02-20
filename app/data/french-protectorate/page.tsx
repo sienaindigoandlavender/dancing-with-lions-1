@@ -76,7 +76,7 @@ export default function FrenchProtectoratePage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#3B82F6', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 073 — Political &amp; Historical Intelligence
           </p>
@@ -102,9 +102,9 @@ export default function FrenchProtectoratePage() {
 
       {/* ═══ TIMELINE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — The Timeline</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Forty-Four Years</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Forty-Four Years</h2>
           <p className="text-[14px] text-dwl-body max-w-[520px] leading-relaxed mb-6">
             From military occupation to diplomatic departure.
             Filter by thread.
@@ -154,7 +154,7 @@ export default function FrenchProtectoratePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[36vh]" style={{ background: '#3B82F6' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[36vh]" style={{ background: '#3B82F6' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#ffffff' }}>
             The more those at the top borrowed, the more
@@ -166,9 +166,9 @@ export default function FrenchProtectoratePage() {
 
       {/* ═══ MAP — VILLES NOUVELLES ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>002 — The Dual City</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Villes Nouvelles</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Villes Nouvelles</h2>
           <p className="text-[13px] max-w-[540px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Prost designed European districts alongside existing medinas.
             Wide boulevards on one side of the wall. Narrow alleys on the other.
@@ -180,10 +180,10 @@ export default function FrenchProtectoratePage() {
       </section>
 
       {/* ═══ KEY FIGURES ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — The Actors</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-10">Seven Figures</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-10">Seven Figures</h2>
 
           <div className="space-y-0">
             {KEY_FIGURES.map((f, i) => {
@@ -213,7 +213,7 @@ export default function FrenchProtectoratePage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[34vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[34vh]" style={{ background: '#111' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.4rem)', color: '#F59E0B' }}>
             Complete independence under the leadership of His Majesty
@@ -225,13 +225,13 @@ export default function FrenchProtectoratePage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>004 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
-                <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: '#3B82F6' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#3B82F6' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -242,9 +242,9 @@ export default function FrenchProtectoratePage() {
 
       {/* ═══ BIBLIOGRAPHY ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">005 — Bibliography</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
           <p className="text-[14px] text-dwl-body max-w-[480px] leading-relaxed mb-10">
             Eight books. Each one earned its place on this list.
           </p>
@@ -271,8 +271,8 @@ export default function FrenchProtectoratePage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

@@ -222,7 +222,7 @@ export default function CarthagePage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="text-[10px] font-mono tracking-wider uppercase hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -251,7 +251,7 @@ export default function CarthagePage() {
       </section>
 
       {/* Key numbers */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
           {KEY_NUMBERS.map((k, i) => {
             const kR = useReveal()
@@ -266,10 +266,10 @@ export default function CarthagePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ I. THE MAP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Sites</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -280,10 +280,10 @@ export default function CarthagePage() {
         <CarthageMap />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ II. VERTICAL TIMELINE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Timeline</h2>
         <p className="text-[13px] mb-10 max-w-[540px]" style={{ color: C.muted }}>
@@ -336,10 +336,10 @@ export default function CarthagePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: C.muted }}>Reading Notes</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -379,10 +379,10 @@ export default function CarthagePage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p><strong>Foundation & Punic Republic:</strong> Wikipedia, "Ancient Carthage" and "History of Carthage." Britannica, "Carthage." World History Encyclopedia, "Carthage" and "Punic Wars." Livius.org, "Punic Carthage." Foundation date: Timaeus of Taormina (c. 300 BCE) gives 814 BCE; radiocarbon dating in the 1990s confirms last quarter of 9th century BCE. Hanno's voyage: Periplus of Hanno (Greek translation of Punic original). Population estimates: various sources cite 400,000–500,000 at peak for both Punic and Roman Carthage.</p>
@@ -392,7 +392,7 @@ export default function CarthagePage() {
           <p><strong>Archaeological sites:</strong> UNESCO, "Archaeological Site of Carthage." Africanworldheritagesites.org. Wikipedia, "Archaeological site of Carthage." GPS: 36.8529°N, 10.3217°E (Byrsa Hill). Tophet discovery (1921): 20,000+ urns. Antonine Baths: third-largest in Roman world. La Malga Cisterns: 816m long, 50,000–60,000 m³ capacity.</p>
         </div>
         <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
-          © Dancing with Lions · dancingwithlions.com · All dates approximate prior to 264 BCE. Carthaginian perspective largely lost due to destruction of archives. This visualisation may not be reproduced without visible attribution.
+          © Dancing with Lions · dancingwithlions.com · All dates approximate before 264 BCE. Carthaginian perspective largely lost due to destruction of archives. This visualisation may not be reproduced without visible attribution.
         </p>
       </section>
     </div>

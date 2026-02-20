@@ -327,7 +327,7 @@ export default function GatesOfMarrakechPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 061 · Urban Archaeology</p>
         <div ref={heroR.ref}>
@@ -367,7 +367,7 @@ export default function GatesOfMarrakechPage() {
       </section>
 
       {/* ═══ MAP ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div ref={mapR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
             <div>
@@ -431,7 +431,7 @@ export default function GatesOfMarrakechPage() {
       </section>
 
       {/* ═══ GATE LIST ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={listR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
 
           {/* Medina gates */}
@@ -483,7 +483,7 @@ export default function GatesOfMarrakechPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Deverdun, Gaston. <em>Marrakech: des origines à 1912</em>. Éditions Techniques Nord-Africaines, 1959.

@@ -7,251 +7,244 @@ import { VARIATIONS, TECHNIQUE, FRIDAY_RITUAL, LIFE_EVENTS, MAGHREB_STYLES, VOCA
 const ACCENT = '#D97706'
 
 export default function CouscousFridayPage() {
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+  const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeVariation, setActiveVariation] = useState(0)
   const [activeStep, setActiveStep] = useState(0)
-  const [expandedEvent, setExpandedEvent] = useState<number | null>(null)
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-sid'); if (id) setVisibleSections(prev => new Set(prev).add(id)) } })
-    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' })
+      entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-sid'); if (id) setVis(prev => new Set(prev).add(id)) } })
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' })
     document.querySelectorAll('[data-sid]').forEach(el => obs.observe(el))
     return () => obs.disconnect()
   }, [])
 
-  const vis = (id: string) => visibleSections.has(id)
+  const v = (id: string) => vis.has(id)
 
   return (
-    <main className="min-h-screen bg-white text-[#1C1917]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+    <main className="min-h-screen bg-white text-[#0a0a0a]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
 
-      {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]">
-          <svg width="100%" height="100%"><defs><pattern id="grain-dot" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="0.8" fill="#D97706" /></pattern></defs><rect width="100%" height="100%" fill="url(#grain-dot)" /></svg>
+      {/* ═══ HERO ═══ */}
+      <section className="relative min-h-[100vh] flex flex-col justify-end overflow-hidden" style={{ background: '#0a0a0a' }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.03]" preserveAspectRatio="xMidYMid slice">
+            {[...Array(6)].map((_, j) => (
+              <circle key={j} cx={600} cy={400} r={100 + j * 70} stroke={ACCENT} strokeWidth="0.5" fill="none" opacity={0.4 - j * 0.05} />
+            ))}
+          </svg>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="mb-6">
-            <Link href="/data" className="text-xs tracking-[0.3em] text-neutral-500 uppercase hover:text-neutral-600 transition-colors">&#8592; Data Index</Link>
-          </div>
-          <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT }}>Module 080 &#183; Culinary &amp; Social Intelligence</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
-            Couscous Friday
+        <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 076 · Food Intelligence</p>
+          <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
+            Couscous<br />Friday
           </h1>
-          <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            The sacred Friday meal. Seven regional variations, a three-steam technique, and the social contract
-            around a shared dish. UNESCO Intangible Cultural Heritage since December 2020.
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+            The sacred Friday meal. Seven regional variations, a three-steam technique, and the social contract that holds a country together over a shared plate.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {HERO_STATS.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-light mb-1" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{s.value}</div>
-                <div className="text-[10px] tracking-[0.15em] uppercase text-neutral-500 leading-snug">{s.label}</div>
+          <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
+            {HERO_STATS.map((st, i) => (
+              <div key={i}>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <div className="w-px h-8 bg-gradient-to-b from-transparent to-neutral-600" />
-          <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-600">Scroll</span>
-        </div>
+        <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
       </section>
 
-      {/* VARIATIONS */}
-      <section data-sid="variations" className="py-24 px-6">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('variations') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Versions</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Seven Ways to Friday</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">Every region, every season, every family has its own couscous. The Amazigh foundation adapts to local identity while maintaining its communal core.</p>
-
-          <div className="flex flex-wrap gap-2 mb-8">
-            {VARIATIONS.map((v, i) => (
+      {/* ═══ SEVEN VARIATIONS — Expanding selector ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>001 — The Variations</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Seven Ways to Friday</h2>
+          <div className="flex flex-wrap gap-2 mb-12">
+            {VARIATIONS.map((va, i) => (
               <button key={i} onClick={() => setActiveVariation(i)}
-                className={`px-3 py-2 text-xs border transition-all duration-300 ${activeVariation === i ? 'border-[#D97706]/60 bg-[#D97706]/5 text-neutral-700' : 'border-neutral-200 text-neutral-500 hover:border-neutral-300'}`}>
-                {v.name}
+                className="transition-all duration-300 text-left px-4 py-3"
+                style={{ background: activeVariation === i ? '#0a0a0a' : '#fafafa', color: activeVariation === i ? ACCENT : '#999' }}>
+                <span className="font-serif italic text-[16px]">{va.name}</span>
               </button>
             ))}
           </div>
-
-          <div className="border border-neutral-200 p-6 md:p-8">
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <div className="flex-1">
-                <div className="flex items-baseline gap-3 mb-1">
-                  <h3 className="text-xl md:text-2xl font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{VARIATIONS[activeVariation].name}</h3>
-                  <span className="text-sm text-neutral-600 font-arabic" dir="rtl">{VARIATIONS[activeVariation].arabic}</span>
+          <div data-sid="variations" className={`transition-all duration-700 ${v('variations') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+              <div className="md:col-span-4">
+                <h3 className="font-serif italic text-[28px] md:text-[36px] text-[#0a0a0a] leading-tight">{VARIATIONS[activeVariation].name}</h3>
+                <p className="text-[14px] mt-1" dir="rtl" style={{ color: '#bbb' }}>{VARIATIONS[activeVariation].arabic}</p>
+                <p className="text-[12px] text-[#999] mt-4">{VARIATIONS[activeVariation].region}</p>
+                <div className="border-l-2 pl-6 mt-6" style={{ borderColor: ACCENT }}>
+                  <span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: '#999' }}>Key Ingredient</span>
+                  <p className="text-[14px] leading-relaxed" style={{ color: ACCENT }}>{VARIATIONS[activeVariation].keyIngredient}</p>
                 </div>
-                <div className="text-xs tracking-[0.15em] uppercase text-neutral-500 mb-4">{VARIATIONS[activeVariation].region}</div>
-                <p className="text-sm text-neutral-600 leading-relaxed">{VARIATIONS[activeVariation].detail}</p>
               </div>
-              <div className="md:w-56 flex-shrink-0">
-                <div className="border border-neutral-200 p-4 bg-[#D97706]/[0.03]">
-                  <div className="text-[10px] tracking-[0.2em] uppercase text-neutral-600 mb-2">Key Ingredient</div>
-                  <p className="text-sm leading-relaxed" style={{ color: ACCENT }}>{VARIATIONS[activeVariation].keyIngredient}</p>
-                </div>
+              <div className="md:col-span-8">
+                <p className="text-[15px] text-[#525252] leading-[1.75]">{VARIATIONS[activeVariation].detail}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TECHNIQUE */}
-      <section data-sid="technique" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('technique') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Process</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Six Steps, Three Hours, One Dish</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">Proper couscous is never instant. The grain is steamed, broken, oiled, steamed again, broken again, buttered. Each grain separate, tender, light.</p>
-
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-8">
+      {/* ═══ TECHNIQUE — Step numbers as hero ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Method</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-16" style={{ color: '#fff' }}>Three Steams</h2>
+          <div className="flex gap-2 md:gap-4 mb-12">
             {TECHNIQUE.map((t, i) => (
               <button key={i} onClick={() => setActiveStep(i)}
-                className={`p-3 text-center border transition-all duration-300 ${activeStep === i ? 'border-[#D97706]/60 bg-[#D97706]/5' : 'border-neutral-200 hover:border-neutral-300'}`}>
-                <div className="text-lg font-light mb-1" style={{ color: activeStep === i ? ACCENT : '#737373', fontFamily: "'Instrument Serif', Georgia, serif" }}>{t.step}</div>
-                <div className="text-[10px] text-neutral-500 leading-tight">{t.name}</div>
+                style={{ padding: '12px 8px', borderBottom: activeStep === i ? `2px solid ${ACCENT}` : '2px solid transparent' }}>
+                <span className="font-serif italic block transition-all duration-300" style={{
+                  fontSize: activeStep === i ? 'clamp(2rem, 4vw, 3.5rem)' : '20px',
+                  color: activeStep === i ? '#fff' : '#555', lineHeight: 1,
+                }}>{String(t.step).padStart(2, '0')}</span>
               </button>
             ))}
           </div>
-
-          <div className="border border-neutral-200 p-6 md:p-8">
-            <div className="flex items-baseline gap-3 mb-1">
-              <span className="text-2xl font-light" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{TECHNIQUE[activeStep].step}.</span>
-              <h3 className="text-lg md:text-xl font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{TECHNIQUE[activeStep].name}</h3>
-              <span className="text-sm text-neutral-600 font-arabic" dir="rtl">{TECHNIQUE[activeStep].arabic}</span>
+          <div data-sid="technique" className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 transition-all duration-700 ${v('technique') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="md:col-span-4">
+              <h3 className="font-serif italic text-[24px] md:text-[28px]" style={{ color: '#fff' }}>{TECHNIQUE[activeStep].name}</h3>
+              <p className="text-[13px] mt-1" style={{ color: ACCENT }}>{TECHNIQUE[activeStep].arabic} · {TECHNIQUE[activeStep].duration}</p>
             </div>
-            <div className="flex items-center gap-2 mb-4 mt-2">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ACCENT }} />
-              <span className="text-xs text-neutral-500">{TECHNIQUE[activeStep].duration}</span>
-            </div>
-            <p className="text-sm text-neutral-600 leading-relaxed max-w-3xl">{TECHNIQUE[activeStep].detail}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* FRIDAY RITUAL */}
-      <section data-sid="ritual" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('ritual') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Day</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Anatomy of a Friday</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">Yawm al-Jumu&#x27;ah. The holiest day of the week. Schools close. Streets empty for prayer. The country gathers around one dish.</p>
-
-          <div className="relative">
-            <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#D97706]/40 via-[#D97706]/20 to-[#D97706]/5" />
-            <div className="space-y-6">
-              {FRIDAY_RITUAL.map((r, i) => (
-                <div key={i} className="relative pl-10 md:pl-14">
-                  <div className="absolute left-[11px] md:left-[19px] top-[6px] w-2.5 h-2.5 rounded-full border-2 border-[#D97706] bg-white" />
-                  <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: ACCENT }}>{r.moment}</div>
-                  <p className="text-sm text-neutral-500 leading-relaxed max-w-xl">{r.detail}</p>
-                </div>
-              ))}
+            <div className="md:col-span-8">
+              <p className="text-[15px] leading-[1.75]" style={{ color: 'rgba(255,255,255,0.5)' }}>{TECHNIQUE[activeStep].detail}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* LIFE EVENTS */}
-      <section data-sid="life" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('life') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Occasions</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>From Birth to Burial</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">Couscous marks every threshold of Moroccan life. It is never absent from the moments that matter.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {LIFE_EVENTS.map((e, i) => (
-              <div key={i} className="border border-neutral-200 p-5 hover:border-neutral-300 transition-colors cursor-pointer"
-                onClick={() => setExpandedEvent(expandedEvent === i ? null : i)}>
-                <div className="text-sm font-medium mb-2" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{e.occasion}</div>
-                <p className={`text-xs text-neutral-500 leading-relaxed transition-all ${expandedEvent === i ? '' : 'line-clamp-2'}`}>{e.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ACROSS THE MAGHREB */}
-      <section data-sid="maghreb" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('maghreb') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Region</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Five Countries, One Grain</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-12 leading-relaxed">
-            The UNESCO inscription was a joint nomination &#8212; four countries setting aside the &#8220;couscous wars&#8221; to declare it shared heritage.
+      {/* ═══ PULLQUOTE ═══ */}
+      <section className="flex items-center justify-center min-h-[42vh]" style={{ background: ACCENT }}>
+        <div className="max-w-[720px] px-8 text-center py-20">
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.8rem)', color: '#fff' }}>
+            You don&apos;t cook when you mourn. The community cooks for you.
           </p>
+        </div>
+      </section>
 
-          <div className="space-y-3">
-            {MAGHREB_STYLES.map((s, i) => (
-              <div key={i} className="border border-neutral-200 p-5 flex flex-col md:flex-row md:items-start gap-3">
-                <div className="md:w-32 flex-shrink-0">
-                  <span className="text-sm font-medium" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{s.country}</span>
+      {/* ═══ FRIDAY RITUAL — The day unfolds ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Ritual</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">A Friday Unfolds</h2>
+          <div data-sid="ritual" className={`transition-all duration-700 ${v('ritual') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            {FRIDAY_RITUAL.map((r, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-8" style={{ borderBottom: '1px solid #e5e5e5' }}>
+                <div className="md:col-span-3">
+                  <h3 className="font-serif italic text-[20px] md:text-[24px] text-[#0a0a0a]">{r.moment}</h3>
                 </div>
-                <p className="text-sm text-neutral-500 leading-relaxed">{s.character}</p>
+                <div className="md:col-span-9">
+                  <p className="text-[14px] text-[#525252] leading-[1.75]">{r.detail}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* VOCABULARY */}
-      <section data-sid="vocab" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('vocab') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Language</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-12" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Vocabulary of the Table</h2>
+      {/* ═══ LIFE EVENTS — Sidebar heading + list ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>004 — Beyond Friday</p>
+              <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05]">Couscous<br />in Life</h2>
+            </div>
+            <div className="md:col-span-8" data-sid="life">
+              <div className={`transition-all duration-700 ${v('life') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+                {LIFE_EVENTS.map((e, i) => (
+                  <div key={i} className="py-6" style={{ borderBottom: '1px solid #e5e5e5' }}>
+                    <h3 className="font-serif italic text-[20px] text-[#0a0a0a] mb-2">{e.occasion}</h3>
+                    <p className="text-[14px] text-[#525252] leading-[1.75]">{e.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {VOCABULARY.map((v, i) => (
-              <div key={i} className="border border-neutral-200 p-4 hover:border-neutral-300 transition-colors">
-                <div className="flex items-baseline gap-3 mb-1">
-                  <span className="text-sm font-medium">{v.term}</span>
-                  <span className="text-xs text-neutral-600 font-arabic" dir="rtl">{v.arabic}</span>
+      {/* ═══ ACROSS THE MAGHREB — Country comparison ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>005 — Across Borders</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">The Maghreb Styles</h2>
+          <div data-sid="maghreb" className={`transition-all duration-700 ${v('maghreb') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            {MAGHREB_STYLES.map((m, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-10" style={{ borderTop: i === 0 ? 'none' : '1px solid #e5e5e5' }}>
+                <div className="md:col-span-3">
+                  <h3 className="font-serif italic text-[24px] md:text-[28px] text-[#0a0a0a]">{m.country}</h3>
                 </div>
-                <p className="text-xs text-neutral-500 leading-relaxed">{v.meaning}</p>
+                <div className="md:col-span-9">
+                  <p className="text-[15px] text-[#525252] leading-[1.75]">{m.character}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* KEY NUMBERS */}
-      <section data-sid="numbers" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${vis('numbers') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>By the Numbers</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-12" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Key Numbers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* ═══ VOCABULARY — Dark section ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>006 — Language</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-16" style={{ color: '#fff' }}>Vocabulary</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+            {VOCABULARY.map((word, i) => (
+              <div key={i} className="py-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="flex items-baseline gap-3">
+                  <span className="font-serif italic text-[18px]" style={{ color: '#fff' }}>{word.term}</span>
+                  <span className="text-[13px]" dir="rtl" style={{ color: 'rgba(255,255,255,0.25)' }}>{word.arabic}</span>
+                </div>
+                <p className="text-[13px] leading-relaxed mt-2" style={{ color: 'rgba(255,255,255,0.4)' }}>{word.meaning}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ KEY NUMBERS ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>007 — By the Numbers</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Key Numbers</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
             {KEY_NUMBERS.map((n, i) => (
-              <div key={i} className="border border-neutral-200 p-5 hover:border-neutral-300 transition-colors">
-                <div className="text-2xl md:text-3xl font-light mb-2" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{n.number}</div>
-                <p className="text-xs text-neutral-500 leading-relaxed">{n.context}</p>
+              <div key={i} className="flex gap-6 items-start" style={{ paddingTop: i % 2 === 1 ? '40px' : '0' }}>
+                <span className="font-serif italic flex-shrink-0" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{n.number}</span>
+                <p className="text-[13px] text-[#525252] leading-relaxed pt-2">{n.context}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BIBLIOGRAPHY */}
-      <section data-sid="bib" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 ${vis('bib') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Sources</p>
-          <h2 className="text-2xl md:text-3xl font-light mb-8" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Bibliography</h2>
-          <div className="space-y-4">
+      {/* ═══ SOURCES ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#999' }}>Sources</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
             {BIBLIOGRAPHY.map((b, i) => (
-              <div key={i} className="border-l border-neutral-200 pl-4">
-                <div className="text-sm text-neutral-600 mb-1">{b.source}</div>
-                <div className="text-xs text-neutral-500 leading-relaxed">{b.detail}</div>
-                {'url' in b && b.url && <a href={b.url} target="_blank" rel="noopener noreferrer" className="text-[10px] hover:underline mt-1 inline-block" style={{ color: ACCENT }}>{b.url}</a>}
+              <div key={i}>
+                <span className="text-[12px] text-[#525252]">{b.source}</span>
+                <p className="text-[11px] text-[#999] leading-relaxed">{b.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-[11px] text-white/50 tracking-[0.15em] uppercase">Module 080 &#183; Couscous Friday &#183; &#169; Dancing with Lions</p>
-          <p className="text-[11px] text-white/35 mt-2">Data: UNESCO Decision 15.COM/8.b.14, Taste of Maroc, NPR, Morocco World News</p>
+      {/* ═══ FOOTER ═══ */}
+      <footer>
+        <div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]">
+          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 076 · Couscous Friday · © Dancing with Lions</p>
         </div>
-      
-        <div style={{ backgroundColor: '#161616' }} className="mt-12 -mx-6 -mb-16 py-3">
-          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>dancingwithlions.com</p>
+        <div style={{ backgroundColor: '#161616' }} className="py-3">
+          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p>
         </div>
+        <div style={{ backgroundColor: '#0e0e0e' }} className="py-2" />
       </footer>
     </main>
   )

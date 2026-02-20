@@ -117,7 +117,7 @@ export default function HarvestCalendarPage() {
     <div className="pt-16 min-h-screen" style={{ background: '#ffffff', color: E.ink }}>
 
       {/* HERO */}
-      <div ref={hero.ref}><section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-16">
+      <div ref={hero.ref}><section className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-16">
         <p className="micro-label mb-4" style={{ opacity: hero.vis ? 1 : 0, transition: 'opacity 0.6s' }}>Module 056 · Living Data</p>
         <h1 className="font-serif text-[clamp(2.8rem,7vw,4.5rem)] text-dwl-black leading-[0.95]" style={{ opacity: hero.vis ? 1 : 0, transform: hero.vis ? 'none' : 'translateY(20px)', transition: 'all 0.8s' }}>
           The Harvest <em>Calendar</em>
@@ -141,10 +141,10 @@ export default function HarvestCalendarPage() {
         </div>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* WHEEL */}
-      <div ref={wheel.ref}><section className="max-w-[900px] mx-auto px-4 py-section">
+      <div ref={wheel.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="flex items-baseline justify-between px-2 mb-4">
           <div>
             <p className="micro-label mb-1">The Living Wheel</p>
@@ -252,10 +252,10 @@ export default function HarvestCalendarPage() {
         </div>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* WHAT'S IN SEASON NOW — DETAIL GRID */}
-      <div ref={grid.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={grid.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="flex items-baseline gap-4 mb-2">
           <p className="micro-label">In Season — {MONTHS_FULL[activeMonth]}</p>
           {activeMonth === NOW && <div className="flex items-center gap-2"><span className="inline-block w-[6px] h-[6px] rounded-full bg-green-500 animate-pulse" /><span className="text-[11px] text-dwl-muted">Live</span></div>}
@@ -332,7 +332,7 @@ export default function HarvestCalendarPage() {
       </section></div>
 
       {/* READING NOTES */}
-      <div ref={notes.ref}><section className="bg-[#f5f5f5]"><div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={notes.ref}><section className="bg-[#f5f5f5]"><div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-8">Reading Notes</p>
         <div className="space-y-10 max-w-[640px]">
           <div style={{ opacity: notes.vis ? 1 : 0, transition: 'opacity 0.6s' }}>
@@ -351,7 +351,7 @@ export default function HarvestCalendarPage() {
       </div></section></div>
 
       {/* CLOSING */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <blockquote className="font-serif text-[clamp(1.3rem,3.5vw,1.8rem)] text-dwl-black leading-[1.4] max-w-[680px]">
           "In Marrakech the fruit changes faster than the weather. You learn the calendar not from dates
           but from what's piled highest at the souk entrance. Strawberries mean it's March. Watermelons mean school is out. Pomegranates mean the heat is broken. Oranges mean the year is turning again."
@@ -359,13 +359,13 @@ export default function HarvestCalendarPage() {
       </section>
 
       {/* SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
         <p className="micro-label mb-4">Sources & Attribution</p>
         <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">Seasonal availability data compiled from Ministère de l'Agriculture, de la Pêche Maritime, du Développement Rural et des Eaux et Forêts; ORMVA regional agricultural development offices; FAO country profiles; USDA GAIN reports (Morocco Grain and Feed Annual 2024); Global Yield Gap Atlas (Morocco); and direct market observation in Marrakech, Fes, and Agadir souks (2020–2026). Darija names verified through field usage. Growing regions based on MAPMDREF agricultural zone classifications. Drought and import data: DEPF (Direction des Études et des Prévisions Financières), ONICL. Export figures: Morocco World News, AgriSource Morocco.</p>
         <p className="text-[11px] text-dwl-muted mt-4">© Dancing with Lions · dancingwithlions.com · Data may not be reproduced without attribution.</p>
       </div></section>
 
-      <div className="border-t border-dwl-border"><div className="max-w-wide mx-auto px-6 md:px-10 py-6">
+      <div className="border-t border-dwl-border"><div className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <Link href="/data" className="text-meta hover:text-dwl-black transition-colors">← All Data Modules</Link>
       </div></div>
     </div>

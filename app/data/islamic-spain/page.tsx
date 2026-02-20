@@ -317,7 +317,7 @@ export default function IslamicSpainPage() {
         </div>
 
         {/* Content */}
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p
             className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0"
             style={{ color: '#E63946', animation: 'fadeUp 1s ease 0.3s forwards' }}
@@ -382,7 +382,7 @@ export default function IslamicSpainPage() {
           ERA NAVIGATION BAR
       ═══════════════════════════════════════════ */}
       <section className="sticky top-16 z-40 bg-white/95 backdrop-blur-sm" style={{ borderBottom: '1px solid #1a1a1a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <div className="flex items-center gap-1 overflow-x-auto py-3 -mx-2 px-2" style={{ scrollbarWidth: 'none' }}>
             {ERAS.map((era) => (
               <button
@@ -414,7 +414,7 @@ export default function IslamicSpainPage() {
           MAP + TIMELINE (SPLIT)
       ═══════════════════════════════════════════ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           {/* Map section */}
           <div className="relative" style={{ height: '70vh', borderBottom: '1px solid #1a1a1a' }}>
             <div ref={mapContainer} className="absolute inset-0" />
@@ -507,7 +507,7 @@ export default function IslamicSpainPage() {
           VERTICAL TIMELINE
       ═══════════════════════════════════════════ */}
       <section className="bg-white" ref={timelineRef}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — Timeline</p>
           <h2
             className="font-serif leading-[1] tracking-[-0.02em] mb-4"
@@ -640,9 +640,9 @@ export default function IslamicSpainPage() {
           TERRITORY DECLINE
       ═══════════════════════════════════════════ */}
       <section id="territory-section" className="bg-white" style={{ borderTop: '1px solid #e5e5e5' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — Territory</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-2">
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-2">
             Muslim-Held Iberia Over Time
           </h2>
           <p className="text-[15px] text-dwl-body max-w-[600px] mb-12">
@@ -685,7 +685,7 @@ export default function IslamicSpainPage() {
           THE RED QUOTE
       ═══════════════════════════════════════════ */}
       <section
-        className="py-section flex items-center justify-center min-h-[50vh]"
+        className="py-24 md:py-40 flex items-center justify-center min-h-[50vh]"
         style={{ background: '#E63946' }}
       >
         <div className="max-w-[720px] px-6 md:px-10 text-center">
@@ -702,9 +702,9 @@ export default function IslamicSpainPage() {
           KEY FIGURES
       ═══════════════════════════════════════════ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — Figures</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">
             The People Who Built and Broke Al-Andalus
           </h2>
 
@@ -745,8 +745,8 @@ export default function IslamicSpainPage() {
       {/* ═══════════════════════════════════════════
           SOURCES & FOOTER
       ═══════════════════════════════════════════ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>
             Sources
           </p>

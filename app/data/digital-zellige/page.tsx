@@ -183,7 +183,7 @@ export default function DigitalZelligePage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* HERO */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data"
           className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6"
           style={{ color: C.muted }}>← All Data Modules</Link>
@@ -229,7 +229,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* GENERATIVE MOSAIC */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.zellige }}>
             The Data Mosaic
@@ -272,7 +272,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* PRODUCT BREAKDOWN */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={prodR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.clay }}>
             By Product Category
@@ -313,7 +313,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* DESTINATION BREAKDOWN */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={destR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.blue }}>
             By Destination Country
@@ -356,7 +356,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* YEARLY TREND */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={yearR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.zellige }}>
             Export Trend 2019–2025
@@ -398,7 +398,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* SECTOR STATS */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={sectorR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.copper }}>
             The Sector at Scale
@@ -431,7 +431,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -470,7 +470,7 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             A zellige mosaic is never finished by one person. The cutter shapes the tile.

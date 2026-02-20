@@ -240,7 +240,7 @@ export default function FourPeaksPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* HERO */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Geography · Mountains · Scale Comparison</p>
         <div ref={heroR.ref}>
@@ -264,7 +264,7 @@ export default function FourPeaksPage() {
       </section>
 
       {/* ELEVATION PROFILE */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={profR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.muted }}>Elevation Profile — To Scale</p>
           <p className="font-mono text-[11px] mb-4" style={{ color: C.muted }}>
@@ -275,7 +275,7 @@ export default function FourPeaksPage() {
       </section>
 
       {/* COMPARISON BARS */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Comparative Data</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
@@ -311,7 +311,7 @@ export default function FourPeaksPage() {
       </section>
 
       {/* MOUNTAIN CARDS */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={cardR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Mountain Profiles — Click to expand</p>
           <div className="space-y-3">
@@ -375,7 +375,7 @@ export default function FourPeaksPage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -415,7 +415,7 @@ export default function FourPeaksPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The summit of Toubkal is crowned with a metal pyramid. The summit of Everest is

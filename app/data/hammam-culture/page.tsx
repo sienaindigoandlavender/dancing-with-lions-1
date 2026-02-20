@@ -47,7 +47,7 @@ export default function HammamCulturePage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 074 — Cultural Intelligence
           </p>
@@ -73,9 +73,9 @@ export default function HammamCulturePage() {
 
       {/* ═══ THE ROOMS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — The Architecture</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Four Rooms</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Four Rooms</h2>
           <p className="text-[14px] text-dwl-body max-w-[520px] leading-relaxed mb-10">
             From the changing room to the furnace. Each chamber exists at a different
             temperature. You move inward. The heat rises.
@@ -109,9 +109,9 @@ export default function HammamCulturePage() {
 
       {/* ═══ THE RITUAL — auto-advancing cycle ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Ritual</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Steps</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Steps</h2>
           <p className="text-[13px] max-w-[500px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             The order has not changed. Click any step to hold.
           </p>
@@ -144,7 +144,7 @@ export default function HammamCulturePage() {
             <p className="text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: ACCENT }}>
               Step {activeStep + 1} of {RITUAL.length} — {RITUAL[activeStep].duration}
             </p>
-            <h3 className="font-serif italic text-[24px] md:text-[32px] mb-3" style={{ color: '#ffffff' }}>
+            <h3 className="font-serif italic text-[28px] md:text-[36px] mb-3" style={{ color: '#ffffff' }}>
               {RITUAL[activeStep].name}
             </h3>
             <p className="text-[13px] max-w-[600px] leading-relaxed" style={{ color: 'rgba(0,0,0,0.5)' }}>
@@ -169,7 +169,7 @@ export default function HammamCulturePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[32vh]" style={{ background: ACCENT }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[32vh]" style={{ background: ACCENT }}>
         <div className="max-w-[640px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3.5vw, 2.2rem)', color: '#ffffff' }}>
             Even the act of performing the scrub for one another
@@ -180,10 +180,10 @@ export default function HammamCulturePage() {
       </section>
 
       {/* ═══ PRODUCTS ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — The Products</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Six Ingredients</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Six Ingredients</h2>
           <p className="text-[14px] text-dwl-body max-w-[480px] leading-relaxed mb-10">
             Every product comes from somewhere. Olive groves. Atlas mines.
             Argan forests. Rose valleys. Each one earned its place in the ritual.
@@ -210,9 +210,9 @@ export default function HammamCulturePage() {
 
       {/* ═══ FIVE ELEMENTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>004 — The Neighbourhood</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Five Elements</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Five Elements</h2>
           <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             Every neighbourhood in the medina contains these five structures.
             The hammam does not stand alone. It is part of a system.
@@ -246,10 +246,10 @@ export default function HammamCulturePage() {
       </section>
 
       {/* ═══ HISTORY ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">005 — The History</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-10">From Rome to Now</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-10">From Rome to Now</h2>
 
           <div className="space-y-0">
             {HISTORY.map((h, i) => {
@@ -276,13 +276,13 @@ export default function HammamCulturePage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>006 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map(n => (
               <div key={n.unit} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
-                <p className="font-serif italic text-[28px] md:text-[36px] leading-none" style={{ color: ACCENT }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: ACCENT }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.unit}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -292,10 +292,10 @@ export default function HammamCulturePage() {
       </section>
 
       {/* ═══ BIBLIOGRAPHY ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">007 — Bibliography</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
           <p className="text-[14px] text-dwl-body max-w-[480px] leading-relaxed mb-10">
             Six works. Architectural, theological, ethnographic.
           </p>
@@ -322,8 +322,8 @@ export default function HammamCulturePage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

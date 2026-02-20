@@ -227,7 +227,7 @@ export default function GnawaRoadPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 060 · Music & Memory</p>
         <div ref={heroR.ref}>
@@ -268,7 +268,7 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ MAP ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div ref={mapR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
             <div>
@@ -318,7 +318,7 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ SOURCE KINGDOMS ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.sahel }}>Where They Came From</p>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -337,7 +337,7 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ GNAWA CENTRES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.gnawa }}>Where They Arrived</p>
           <div className="flex flex-wrap gap-2">
@@ -361,7 +361,7 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ THE SEVEN SPIRITS ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={spiritsR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.blood }}>The Seven Colours of the Lila</p>
           <p className="text-[12px] mb-4" style={{ color: C.muted }}>
@@ -391,7 +391,7 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="space-y-4 max-w-[600px]">
@@ -444,7 +444,7 @@ export default function GnawaRoadPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: El Hamel, Chouki. <em>Black Morocco: A History of Slavery, Race, and Islam</em>. Cambridge University Press, 2013.

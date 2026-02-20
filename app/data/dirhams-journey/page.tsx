@@ -135,7 +135,7 @@ export default function DirhamsJourneyPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 067 · Currency Intelligence</p>
         <div ref={heroR.ref}>
@@ -174,7 +174,7 @@ export default function DirhamsJourneyPage() {
       </section>
 
       {/* ═══ CHART ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div ref={chartR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="flex flex-wrap items-center gap-4 mb-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.12em]" style={{ color: C.ink }}>Exchange Rates · 2005–2025</p>
@@ -282,7 +282,7 @@ export default function DirhamsJourneyPage() {
       </section>
 
       {/* ═══ EVENT TIMELINE ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.event }}>The Story Behind the Line</p>
           <p className="text-[11px] mb-6" style={{ color: C.muted }}>Every dot on the chart is an event. Click to expand.</p>
@@ -316,7 +316,7 @@ export default function DirhamsJourneyPage() {
       </section>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.event }}>Reading Notes</p>
           <div className="space-y-6 text-[12px] leading-[1.7] max-w-[600px]" style={{ color: C.text }}>
@@ -341,7 +341,7 @@ export default function DirhamsJourneyPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Bank Al-Maghrib: &quot;Reform of the Exchange Rate Regime&quot; (bkam.ma).
