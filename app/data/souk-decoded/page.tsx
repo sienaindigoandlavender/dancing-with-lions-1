@@ -179,7 +179,7 @@ export default function SoukDecodedPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#A855F7' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#7B506F' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
             A souk vendor once said: &ldquo;These? Factory-made in Salé.

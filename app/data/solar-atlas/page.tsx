@@ -39,9 +39,9 @@ export default function SolarAtlasPage() {
       map.on('load', () => {
         const statusColors: Record<string, string> = {
           'Operational': '#F59E0B',
-          'Under construction': '#EF4444',
-          'Planned': '#3B82F6',
-          'Tendering': '#A855F7',
+          'Under construction': '#A0452E',
+          'Planned': '#2D5F8A',
+          'Tendering': '#7B506F',
         }
         SOLAR_PROJECTS.forEach(p => {
           const color = statusColors[p.status] || '#888'
@@ -69,7 +69,7 @@ export default function SolarAtlasPage() {
   }, [])
 
   const filteredTimeline = tlFilter === 'all' ? TIMELINE : TIMELINE.filter(t => t.type === tlFilter)
-  const typeColors: Record<string, string> = { policy: '#3B82F6', project: '#F59E0B', milestone: '#22C55E' }
+  const typeColors: Record<string, string> = { policy: '#2D5F8A', project: '#F59E0B', milestone: '#5C7C3E' }
 
   return (
     <div className="-mt-16">
@@ -165,9 +165,9 @@ export default function SolarAtlasPage() {
           <div className="flex flex-wrap gap-4 mb-6">
             {[
               { color: '#F59E0B', label: 'Operational' },
-              { color: '#EF4444', label: 'Under construction' },
-              { color: '#3B82F6', label: 'Planned' },
-              { color: '#A855F7', label: 'Tendering' },
+              { color: '#A0452E', label: 'Under construction' },
+              { color: '#2D5F8A', label: 'Planned' },
+              { color: '#7B506F', label: 'Tendering' },
             ].map(l => (
               <div key={l.label} className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ background: l.color }} />
@@ -202,7 +202,7 @@ export default function SolarAtlasPage() {
                     <tr key={z.region} data-sid={`irr-${i}`} className="transition-all duration-500" style={{ borderBottom: '1px solid #f0f0f0', opacity: isVisible ? 1 : 0 }}>
                       <td className="py-3 pr-4 text-[13px] font-medium text-dwl-black">{z.region}</td>
                       <td className="py-3 pr-4 font-mono text-[12px]" style={{ color: '#F59E0B' }}>{z.ghi}</td>
-                      <td className="py-3 pr-4 font-mono text-[12px]" style={{ color: '#EF4444' }}>{z.dni}</td>
+                      <td className="py-3 pr-4 font-mono text-[12px]" style={{ color: '#A0452E' }}>{z.dni}</td>
                       <td className="py-3 pr-4 text-[12px] text-dwl-muted">{z.sunshineHours}</td>
                       <td className="py-3 text-[11px] text-dwl-muted">{z.note}</td>
                     </tr>
@@ -217,13 +217,13 @@ export default function SolarAtlasPage() {
       {/* ═══ ENERGY MIX ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>004 — The Electricity Mix</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>004 — The Electricity Mix</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>What Powers Morocco Today</h2>
           <p className="text-[14px] max-w-[560px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>Coal still dominates. But the trajectory is clear.</p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {ENERGY_MIX.map((e) => {
-              const trendColor = e.trend.includes('Growing') ? '#22C55E' : e.trend.includes('Declining') ? '#EF4444' : '#888'
+              const trendColor = e.trend.includes('Growing') ? '#5C7C3E' : e.trend.includes('Declining') ? '#A0452E' : '#888'
               return (
                 <div key={e.source} className="p-6" style={{ background: '#0f0f0f' }}>
                   <p className="font-serif italic text-[28px] leading-none" style={{ color: '#f5f5f5' }}>{e.share}</p>
@@ -278,7 +278,7 @@ export default function SolarAtlasPage() {
       {/* ═══ DARK QUOTE — XLINKS ═══ */}
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
-          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#3B82F6' }}>
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#2D5F8A' }}>
             The same PV panels generate approximately
             three times more power in Morocco than in the UK,
             and five times more from January to March.

@@ -6,12 +6,12 @@ import { CEREMONY, BRIDAL_OUTFITS, KEY_ROLES, REGIONAL, COST_BREAKDOWN, HERO_STA
 
 
 const WEDDING_MAP_POINTS = [
-  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Fassiya kaftan. Heavy gold brocade. Andalusi music.', color: '#A855F7' },
-  { name: 'Rabat', lat: 34.0209, lng: -6.8416, detail: 'R\'batiya style. Lighter, flowing silhouette. Blue.', color: '#3B82F6' },
-  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Largest negafa industry. Multi-outfit spectacle.', color: '#EF4444' },
-  { name: 'Souss / Tiznit', lat: 29.6974, lng: -9.7986, detail: 'Amazigh tradition. Silver fibules. Ahwach dance.', color: '#22C55E' },
-  { name: 'Sahara / Laayoune', lat: 27.1536, lng: -13.2033, detail: 'Sahrawi melhfa. Indigo or white. Simpler ceremony.', color: '#F97316' },
-  { name: 'Rif / Nador', lat: 35.1740, lng: -2.9287, detail: 'Tarifit traditions. Rifle dance. Izlan songs.', color: '#FACC15' },
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Fassiya kaftan. Heavy gold brocade. Andalusi music.', color: '#7B506F' },
+  { name: 'Rabat', lat: 34.0209, lng: -6.8416, detail: 'R\'batiya style. Lighter, flowing silhouette. Blue.', color: '#2D5F8A' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Largest negafa industry. Multi-outfit spectacle.', color: '#A0452E' },
+  { name: 'Souss / Tiznit', lat: 29.6974, lng: -9.7986, detail: 'Amazigh tradition. Silver fibules. Ahwach dance.', color: '#5C7C3E' },
+  { name: 'Sahara / Laayoune', lat: 27.1536, lng: -13.2033, detail: 'Sahrawi melhfa. Indigo or white. Simpler ceremony.', color: '#C17F28' },
+  { name: 'Rif / Nador', lat: 35.1740, lng: -2.9287, detail: 'Tarifit traditions. Rifle dance. Izlan songs.', color: '#C8A415' },
 ]
 const MAPBOX_TOKEN_W = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 function WeddingMap() {
@@ -278,7 +278,7 @@ export default function WeddingAtlasPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#A855F7' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#7B506F' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
             A Moroccan wedding is not a party. It is a production —
@@ -320,7 +320,7 @@ export default function WeddingAtlasPage() {
           {/* Cost summary cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-12" style={{ background: '#e5e5e5' }}>
             {[
-              { label: 'Modest (rural/small city)', range: '$10,000–$20,000', guests: '100–200 guests', color: '#22C55E' },
+              { label: 'Modest (rural/small city)', range: '$10,000–$20,000', guests: '100–200 guests', color: '#5C7C3E' },
               { label: 'Mid-range (urban)', range: '$25,000–$50,000', guests: '300–500 guests', color: '#F59E0B' },
               { label: 'Luxury (Marrakech/Fes)', range: '$50,000–$100,000+', guests: '300–800 guests', color: '#EC4899' },
             ].map((tier) => (

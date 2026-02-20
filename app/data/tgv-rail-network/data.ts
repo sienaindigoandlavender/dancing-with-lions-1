@@ -25,7 +25,7 @@ export const LINES: RailLine[] = [
     route: 'Tangier → Kenitra → Rabat → Casablanca',
     distance: '323 km (186 km true high-speed)', topSpeed: '320 km/h', travelTime: '2h 10min',
     detail: 'Africa\'s only high-speed rail. Opened 15 November 2018. Named after the mythical creature that transported the Prophet Muhammad. 186 km dedicated high-speed track (Tangier–Kenitra) + 137 km upgraded conventional (Kenitra–Casablanca). 12 Alstom Euroduplex trainsets, 533 passengers each. Hourly departures 06:00–21:00. African speed record: 357 km/h set during testing (2017). 5.6 million passengers in 2025.',
-    status: 'operational', color: '#EF4444',
+    status: 'operational', color: '#A0452E',
     coords: [[-5.81, 35.76], [-6.58, 34.26], [-6.85, 34.02], [-7.59, 33.57]],
   },
   {
@@ -33,7 +33,7 @@ export const LINES: RailLine[] = [
     route: 'Tangier → Kenitra → Rabat → Casablanca → Marrakech',
     distance: '~600 km', topSpeed: '160 km/h', travelTime: '~7h end-to-end (conventional)',
     detail: 'Morocco\'s spine. Connects all major Atlantic coast cities. The Casablanca–Kenitra section is shared with Al Boraq. South of Casablanca, the line continues to El Jadida junction, Settat, and Marrakech. Al Atlas intercity service. Night trains with couchettes and private compartments.',
-    status: 'operational', color: '#3B82F6',
+    status: 'operational', color: '#2D5F8A',
     coords: [[-5.81, 35.76], [-6.58, 34.26], [-6.85, 34.02], [-7.59, 33.57], [-8.01, 32.30], [-7.99, 31.63]],
   },
   {
@@ -49,7 +49,7 @@ export const LINES: RailLine[] = [
     route: 'Kenitra → Casablanca Airport → Marrakech',
     distance: '~492 km new dedicated track', topSpeed: '320 km/h', travelTime: '2h 45min Tangier–Marrakech (target)',
     detail: 'Three construction segments: Kenitra–Aïn Sebaâ (150 km), Aïn Sebaâ–Nouaceur via Casablanca Airport (130 km), Nouaceur–Marrakech (212 km). Will replace current shared conventional track. 18 new Alstom Avelia Horizon trainsets ordered (€781M, March 2025, delivery from 2027). Target completion by 2029–2030, ahead of 2030 FIFA World Cup.',
-    status: 'under-construction', color: '#A855F7',
+    status: 'under-construction', color: '#7B506F',
     coords: [[-6.58, 34.26], [-7.59, 33.57], [-7.59, 33.37], [-7.99, 31.63]],
   },
   {
@@ -57,7 +57,7 @@ export const LINES: RailLine[] = [
     route: 'Marrakech → Chichaoua → Agadir',
     distance: '~230 km', topSpeed: '320 km/h', travelTime: 'TBD',
     detail: 'Land procurement has begun. Stop at Chichaoua (pop. <16,000). Original extension to Essaouira dropped due to difficult terrain and economics — Essaouira to be connected via 200 km/h intercity service instead. Would bring rail to the Souss-Massa region for the first time.',
-    status: 'planned', color: '#22C55E',
+    status: 'planned', color: '#5C7C3E',
     coords: [[-7.99, 31.63], [-8.76, 31.35], [-9.60, 30.43]],
   },
   {
@@ -95,11 +95,11 @@ export interface MilestoneFact {
 }
 
 export const MILESTONES: MilestoneFact[] = [
-  { value: '2018', label: 'Al Boraq opens', detail: 'Africa\'s first (and still only) high-speed rail. Casablanca–Tangier in 2h 10min vs. 4h 45min previously.', color: '#EF4444' },
+  { value: '2018', label: 'Al Boraq opens', detail: 'Africa\'s first (and still only) high-speed rail. Casablanca–Tangier in 2h 10min vs. 4h 45min previously.', color: '#A0452E' },
   { value: '357 km/h', label: 'African speed record', detail: 'Set during testing in February 2017. Revenue service tops out at 320 km/h.', color: '#F59E0B' },
-  { value: '€781M', label: '18 new trainsets ordered', detail: 'Alstom Avelia Horizon. Ordered March 2025. Deliveries from 2027 for the Marrakech extension.', color: '#A855F7' },
-  { value: '$9.5B', label: '2030 rail investment', detail: 'Total planned investment to 2030. New stations, rolling stock, extensions, regional express services.', color: '#3B82F6' },
-  { value: '43 cities', label: '2040 network target', detail: 'Up from 23 cities currently connected. 87% population coverage (from 51%). 12 ports, 15 airports linked.', color: '#22C55E' },
+  { value: '€781M', label: '18 new trainsets ordered', detail: 'Alstom Avelia Horizon. Ordered March 2025. Deliveries from 2027 for the Marrakech extension.', color: '#7B506F' },
+  { value: '$9.5B', label: '2030 rail investment', detail: 'Total planned investment to 2030. New stations, rolling stock, extensions, regional express services.', color: '#2D5F8A' },
+  { value: '43 cities', label: '2040 network target', detail: 'Up from 23 cities currently connected. 87% population coverage (from 51%). 12 ports, 15 airports linked.', color: '#5C7C3E' },
   { value: '300,000', label: 'Jobs projected', detail: 'Direct and indirect employment from the 2040 Rail Strategy expansion.', color: '#78716C' },
 ]
 
@@ -130,8 +130,8 @@ export const NETWORK_STATS = [
 ]
 
 export const LINE_COLORS: Record<string, string> = {
-  'high-speed': '#EF4444',
-  'conventional': '#3B82F6',
-  'planned': '#22C55E',
-  'night': '#A855F7',
+  'high-speed': '#A0452E',
+  'conventional': '#2D5F8A',
+  'planned': '#5C7C3E',
+  'night': '#7B506F',
 }

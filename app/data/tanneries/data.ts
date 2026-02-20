@@ -27,10 +27,10 @@ export interface NaturalDye {
 
 export const DYES: NaturalDye[] = [
   { color: 'Red', hex: '#DC2626', source: 'Poppy flower', note: 'Deep crimson.  Used for bags, poufs, decorative leather.' },
-  { color: 'Blue', hex: '#2563EB', source: 'Indigo', note: 'Imported historically from sub-Saharan trade routes. Deep and resistant to fading.' },
+  { color: 'Blue', hex: '#1A5276', source: 'Indigo', note: 'Imported historically from sub-Saharan trade routes. Deep and resistant to fading.' },
   { color: 'Yellow', hex: '#EAB308', source: 'Saffron / Turmeric', note: 'Saffron for premium yellow. Turmeric as the affordable alternative. Golden tones.' },
   { color: 'Orange', hex: '#EA580C', source: 'Henna', note: 'The warm orange that defines Moroccan leather. Same plant used for body art.' },
-  { color: 'Green', hex: '#16A34A', source: 'Mint', note: 'Less common. Subtle. The same mint given to visitors to mask the smell.' },
+  { color: 'Green', hex: '#2D6E4F', source: 'Mint', note: 'Less common. Subtle. The same mint given to visitors to mask the smell.' },
   { color: 'Brown', hex: '#78350F', source: 'Cedarwood bark', note: 'Atlas cedar. Deep warm brown. Used for bookbindings, belts, formal goods.' },
   { color: 'Gold', hex: '#CA8A04', source: 'Pomegranate rinds', note: 'The canary-gold of babouche slippers. Soaked pomegranate peels yield a rich golden hue.' },
 ]

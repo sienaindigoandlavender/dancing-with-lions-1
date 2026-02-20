@@ -323,7 +323,7 @@ export default function PotteryTraditionsPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[45vh]" style={{ background: '#1E3A8A' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[45vh]" style={{ background: '#1E3A5F' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.8rem, 5vw, 3.5rem)', color: '#ffffff' }}>
             Turn any piece of Moroccan pottery over. If it says Fès on the base, someone in that city signed it with pride. If it says nothing, it was made by a woman in the mountains who never needed a signature.

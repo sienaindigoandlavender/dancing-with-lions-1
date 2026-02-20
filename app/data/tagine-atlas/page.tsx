@@ -219,7 +219,7 @@ export default function TagineAtlasPage() {
       {/* ═══ SPICE PANTRY ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>003 — The Spice Pantry</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>003 — The Spice Pantry</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Eight Ingredients That Define the Dish</h2>
           <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(0,0,0,0.4)' }}>Every tagine is built on a handful of constants. The variables — dried fruit, meat, vegetables — change by region. These don&rsquo;t.</p>
 
@@ -228,7 +228,7 @@ export default function TagineAtlasPage() {
               const isVisible = visibleSections.has(`spice-${i}`)
               return (
                 <div key={s.name} data-sid={`spice-${i}`} className="p-8 transition-all duration-700" style={{ background: '#0f0f0f', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
-                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#EF4444' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#A0452E' }}>{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-serif text-[22px] italic mt-2" style={{ color: '#f5f5f5' }}>{s.name}</h3>
                   <p className="text-[13px] mt-1 mb-3" style={{ color: '#666' }}>{s.nameAr} — {s.role}</p>
                   <p className="text-[13px] leading-relaxed" style={{ color: '#aaa' }}>{s.note}</p>
@@ -273,7 +273,7 @@ export default function TagineAtlasPage() {
       {/* ═══ CULTURAL RULES ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A855F7' }}>005 — The Rules of the Pot</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7B506F' }}>005 — The Rules of the Pot</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Things You Need to Know</h2>
 
           <div className="space-y-0">
@@ -283,7 +283,7 @@ export default function TagineAtlasPage() {
                 <div key={r.rule} data-sid={`rule-${i}`} className="py-8 transition-all duration-700" style={{ borderTop: '1px solid #1a1a1a', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10">
                     <div className="md:col-span-3">
-                      <span className="font-serif italic" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#A855F7', lineHeight: 1 }}>{String(i + 1).padStart(2, '0')}</span>
+                      <span className="font-serif italic" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#7B506F', lineHeight: 1 }}>{String(i + 1).padStart(2, '0')}</span>
                       <p className="font-serif text-[20px] italic mt-2" style={{ color: '#f5f5f5' }}>{r.rule}</p>
                     </div>
                     <div className="md:col-span-9">

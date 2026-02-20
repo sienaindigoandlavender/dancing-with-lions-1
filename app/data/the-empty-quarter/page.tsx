@@ -267,6 +267,45 @@ function TerrainBar() {
 }
 
 // ═══ PAGE ═══
+
+const THE_EMPTY_QUARTER_PTS = [
+  { name: 'Erg Chebbi', lat: 31.14, lng: -3.97, detail: 'Morocco\'s photogenic dunes. Merzouga gateway.', color: '#D4A373' },
+  { name: 'Erg Chegaga', lat: 29.80, lng: -6.28, detail: 'Remote grand erg. 40km. Near Mhamid.', color: '#D4A373' },
+  { name: 'Draa Valley', lat: 30.20, lng: -5.80, detail: 'Longest river. 1,100km. Palm oases.', color: '#5C7C3E' },
+  { name: 'Zagora', lat: 30.33, lng: -5.84, detail: 'Timbuktu 52 days. Desert gateway.', color: '#C17F28' },
+  { name: 'Ouarzazate', lat: 30.92, lng: -6.89, detail: 'Door of the desert. Atlas Studios.', color: '#C17F28' },
+  { name: 'Tindouf', lat: 27.67, lng: -8.13, detail: 'Algerian border. Sahrawi camps.', color: '#8B7355' },
+]
+const MBT_THE_EMPTY_QUARTER = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function TheEmptyQuarterMap() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_THE_EMPTY_QUARTER || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_THE_EMPTY_QUARTER!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-5.5, 29.5], zoom: 5.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        THE_EMPTY_QUARTER_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function EmptyQuarterPage() {
   const heroR = useReveal()
   const mapR = useReveal()
@@ -564,7 +603,14 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── CLOSING + SOURCES ─── */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-10">
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#D4A373' }}>The Empty Quarter — Mapped</p>
+        <TheEmptyQuarterMap />
+      </div></section>
+
+<section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-10">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The Sahara is not a barrier. It is a corridor. For thousands of years, trade routes

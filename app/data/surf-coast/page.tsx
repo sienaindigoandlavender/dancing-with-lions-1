@@ -6,7 +6,7 @@ import { SPOTS, ZONES, SEASONS, HERO_STATS, ECONOMY, SPOT_LEVELS, type SurfSpot 
 
 let mapboxgl: typeof import('mapbox-gl') | null = null
 
-const LEVEL_COLORS: Record<string, string> = { beginner: '#22C55E', intermediate: '#3B82F6', advanced: '#FACC15', expert: '#EF4444' }
+const LEVEL_COLORS: Record<string, string> = { beginner: '#5C7C3E', intermediate: '#2D5F8A', advanced: '#C8A415', expert: '#A0452E' }
 
 export default function SurfCoastPage() {
   const mapContainer = useRef<HTMLDivElement>(null)
@@ -96,13 +96,13 @@ export default function SurfCoastPage() {
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMidYMid slice">
             {/* Wave pattern */}
             {[0, 1, 2, 3, 4].map(i => (
-              <path key={i} d={`M0 ${350 + i * 50} Q300 ${300 + i * 50} 600 ${350 + i * 50} T1200 ${350 + i * 50}`} stroke="#3B82F6" strokeWidth="0.5" fill="none" opacity={0.5 - i * 0.08} />
+              <path key={i} d={`M0 ${350 + i * 50} Q300 ${300 + i * 50} 600 ${350 + i * 50} T1200 ${350 + i * 50}`} stroke="#2D5F8A" strokeWidth="0.5" fill="none" opacity={0.5 - i * 0.08} />
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#3B82F6', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#2D5F8A', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 047 — Coastal Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -117,7 +117,7 @@ export default function SurfCoastPage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#3B82F6', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#2D5F8A', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -227,7 +227,7 @@ export default function SurfCoastPage() {
       {/* ═══ SEASON GUIDE ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>002 — When to Go</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D5F8A' }}>002 — When to Go</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Season Guide</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: '#1a1a1a' }}>
@@ -255,7 +255,7 @@ export default function SurfCoastPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#3B82F6' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#2D5F8A' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 3rem)', color: '#ffffff' }}>
             In the 1970s, Taghazout was a handful of hippies and a fishing village.
@@ -304,7 +304,7 @@ export default function SurfCoastPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#3B82F6' }}>Sources: WSL, Magicseaweed, field research</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D5F8A' }}>Sources: WSL, Magicseaweed, field research</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

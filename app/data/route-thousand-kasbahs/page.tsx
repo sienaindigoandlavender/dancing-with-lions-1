@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { KASBAHS, ARCHITECTURE, HISTORY, FILMS, ROUTE_STOPS, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
 const ACCENT = '#D4A373'
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
-const THREAD_COLORS: Record<string, string> = { ancient: '#8B7355', glaoui: '#D4A373', french: '#3B82F6', modern: '#22C55E', hollywood: '#EF4444' }
+const THREAD_COLORS: Record<string, string> = { ancient: '#8B7355', glaoui: '#D4A373', french: '#2D5F8A', modern: '#5C7C3E', hollywood: '#A0452E' }
 
 function KasbahMap({ onSelect }: { onSelect: (i: number) => void }) {
   const mapContainer = useRef<HTMLDivElement>(null)

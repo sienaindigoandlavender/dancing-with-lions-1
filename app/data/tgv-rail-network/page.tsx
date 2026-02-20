@@ -104,10 +104,10 @@ function RailMap() {
 
       {/* Legend */}
       <div className="flex flex-wrap gap-6 mt-4">
-        <div className="flex items-center gap-2"><div className="w-6 h-[3px] rounded" style={{ background: '#EF4444' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>High-Speed (Operational)</span></div>
-        <div className="flex items-center gap-2"><div className="w-6 h-[2px] rounded" style={{ background: '#3B82F6' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>Conventional</span></div>
-        <div className="flex items-center gap-2"><div className="w-6 h-[2px] rounded" style={{ background: '#A855F7', backgroundImage: 'repeating-linear-gradient(90deg, #A855F7 0 6px, transparent 6px 10px)' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>Under Construction</span></div>
-        <div className="flex items-center gap-2"><div className="w-6 h-[2px] rounded" style={{ background: '#22C55E', backgroundImage: 'repeating-linear-gradient(90deg, #22C55E 0 6px, transparent 6px 10px)' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>Planned</span></div>
+        <div className="flex items-center gap-2"><div className="w-6 h-[3px] rounded" style={{ background: '#A0452E' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>High-Speed (Operational)</span></div>
+        <div className="flex items-center gap-2"><div className="w-6 h-[2px] rounded" style={{ background: '#2D5F8A' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>Conventional</span></div>
+        <div className="flex items-center gap-2"><div className="w-6 h-[2px] rounded" style={{ background: '#7B506F', backgroundImage: 'repeating-linear-gradient(90deg, #7B506F 0 6px, transparent 6px 10px)' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>Under Construction</span></div>
+        <div className="flex items-center gap-2"><div className="w-6 h-[2px] rounded" style={{ background: '#5C7C3E', backgroundImage: 'repeating-linear-gradient(90deg, #5C7C3E 0 6px, transparent 6px 10px)' }} /><span className="text-[10px] uppercase tracking-[0.06em]" style={{ color: '#aaa' }}>Planned</span></div>
       </div>
 
       {selectedLine && (
@@ -115,7 +115,7 @@ function RailMap() {
           <div className="flex items-center gap-3 mb-2">
             <div className="w-3 h-3 rounded-full" style={{ background: selectedLine.color }} />
             <span className="text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 rounded-full" style={{ background: `${selectedLine.color}18`, color: selectedLine.color }}>{selectedLine.type.replace('-', ' ')}</span>
-            <span className="text-[10px] uppercase tracking-[0.08em]" style={{ color: selectedLine.status === 'operational' ? '#22C55E' : selectedLine.status === 'under-construction' ? '#F59E0B' : '#78716C' }}>{selectedLine.status.replace('-', ' ')}</span>
+            <span className="text-[10px] uppercase tracking-[0.08em]" style={{ color: selectedLine.status === 'operational' ? '#5C7C3E' : selectedLine.status === 'under-construction' ? '#F59E0B' : '#78716C' }}>{selectedLine.status.replace('-', ' ')}</span>
           </div>
           <h3 className="font-serif text-[24px] italic mb-1" style={{ color: '#f5f5f5' }}>{selectedLine.name}</h3>
           <p className="text-[12px] mb-3" style={{ color: selectedLine.color }}>{selectedLine.route}</p>
@@ -152,9 +152,9 @@ export default function TGVRailPage() {
             {/* Rail track pattern */}
             {Array.from({ length: 2 }, (_, i) => (
               <g key={i}>
-                <line x1="0" y1={390 + i * 20} x2="1200" y2={390 + i * 20} stroke="#EF4444" strokeWidth="0.5" />
+                <line x1="0" y1={390 + i * 20} x2="1200" y2={390 + i * 20} stroke="#A0452E" strokeWidth="0.5" />
                 {Array.from({ length: 40 }, (_, j) => (
-                  <line key={j} x1={j * 30} y1={388 + i * 20} x2={j * 30} y2={412 + i * 20} stroke="#EF4444" strokeWidth="0.3" />
+                  <line key={j} x1={j * 30} y1={388 + i * 20} x2={j * 30} y2={412 + i * 20} stroke="#A0452E" strokeWidth="0.3" />
                 ))}
               </g>
             ))}
@@ -162,7 +162,7 @@ export default function TGVRailPage() {
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#EF4444', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#A0452E', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 060 — Infrastructure Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -177,7 +177,7 @@ export default function TGVRailPage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#EF4444', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#A0452E', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -188,7 +188,7 @@ export default function TGVRailPage() {
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>001 — The Network</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>001 — The Network</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Six Lines, One Vision</h2>
           <RailMap />
         </div>
@@ -210,7 +210,7 @@ export default function TGVRailPage() {
                       <div className="flex items-center gap-2 mb-2">
                         <div className="w-3 h-3 rounded-full" style={{ background: line.color }} />
                         <span className="text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 rounded-full" style={{ background: `${line.color}10`, color: line.color }}>{line.type.replace('-', ' ')}</span>
-                        <span className="text-[10px] uppercase tracking-[0.08em]" style={{ color: line.status === 'operational' ? '#22C55E' : line.status === 'under-construction' ? '#F59E0B' : '#999' }}>{line.status.replace('-', ' ')}</span>
+                        <span className="text-[10px] uppercase tracking-[0.08em]" style={{ color: line.status === 'operational' ? '#5C7C3E' : line.status === 'under-construction' ? '#F59E0B' : '#999' }}>{line.status.replace('-', ' ')}</span>
                       </div>
                       <h3 className="font-serif text-[24px] italic text-dwl-black">{line.name}</h3>
                       <p className="text-[12px] mt-1" style={{ color: line.color }}>{line.route}</p>
@@ -232,7 +232,7 @@ export default function TGVRailPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#A0452E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             Al Boraq. Named after the creature
@@ -263,7 +263,7 @@ export default function TGVRailPage() {
                   const isVisible = visibleSections.has(`pax-${i}`)
                   return (
                     <tr key={row.year} data-sid={`pax-${i}`} className="transition-all duration-700" style={{ borderBottom: '1px solid #1a1a1a', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(8px)' }}>
-                      <td className="py-3 pr-4 font-serif italic text-[16px]" style={{ color: '#EF4444' }}>{row.year}</td>
+                      <td className="py-3 pr-4 font-serif italic text-[16px]" style={{ color: '#A0452E' }}>{row.year}</td>
                       <td className="py-3 pr-4 text-[14px] font-medium" style={{ color: '#f5f5f5' }}>{row.totalPassengers}</td>
                       <td className="py-3 pr-4 text-[14px]" style={{ color: '#F59E0B' }}>{row.alBoraqPassengers}</td>
                       <td className="py-3 pr-4 text-[13px]" style={{ color: '#aaa' }}>{row.revenue}</td>
@@ -303,7 +303,7 @@ export default function TGVRailPage() {
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <div className="max-w-[680px]">
-            <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A855F7' }}>005 — The Dream</p>
+            <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7B506F' }}>005 — The Dream</p>
             <h2 className="font-serif text-[28px] md:text-[40px] italic leading-[1.05] mb-6" style={{ color: '#ffffff' }}>{STRAIT.title}</h2>
             <p className="text-[16px] leading-relaxed" style={{ color: 'rgba(0,0,0,0.5)' }}>{STRAIT.detail}</p>
           </div>
@@ -349,7 +349,7 @@ export default function TGVRailPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#EF4444' }}>Sources: ONCF, AfDB</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#A0452E' }}>Sources: ONCF, AfDB</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

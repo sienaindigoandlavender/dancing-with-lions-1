@@ -42,14 +42,14 @@ export interface Basin {
 }
 
 export const BASINS: Basin[] = [
-  { id: 'loukkos', name: 'Loukkos', nameAr: 'اللكوس', coords: [-5.5, 35.2], fillRate: 94.2, storedMcm: 1803, fillRateLastYear: 42, keyDam: 'Oued El Makhazine', color: '#3B82F6', region: 'north' },
-  { id: 'sebou', name: 'Sebou', nameAr: 'سبو', coords: [-5.0, 34.3], fillRate: 91.2, storedMcm: 5064, fillRateLastYear: 35, keyDam: 'Al Wahda (largest in Morocco)', color: '#2563EB', region: 'north' },
+  { id: 'loukkos', name: 'Loukkos', nameAr: 'اللكوس', coords: [-5.5, 35.2], fillRate: 94.2, storedMcm: 1803, fillRateLastYear: 42, keyDam: 'Oued El Makhazine', color: '#2D5F8A', region: 'north' },
+  { id: 'sebou', name: 'Sebou', nameAr: 'سبو', coords: [-5.0, 34.3], fillRate: 91.2, storedMcm: 5064, fillRateLastYear: 35, keyDam: 'Al Wahda (largest in Morocco)', color: '#1A5276', region: 'north' },
   { id: 'bouregreg', name: 'Bouregreg', nameAr: 'أبي رقراق', coords: [-6.8, 33.9], fillRate: 93.6, storedMcm: 1013, fillRateLastYear: 38, keyDam: 'Sidi Mohammed Ben Abdellah', color: '#1D4ED8', region: 'central' },
   { id: 'tensift', name: 'Tensift', nameAr: 'تانسيفت', coords: [-8.0, 31.6], fillRate: 84.7, storedMcm: 193, fillRateLastYear: 22, keyDam: 'Lalla Takerkoust', color: '#60A5FA', region: 'central' },
   { id: 'oum-er-rbia', name: 'Oum Er-Rbia', nameAr: 'أم الربيع', coords: [-7.0, 32.5], fillRate: 62, storedMcm: 1850, fillRateLastYear: 15, keyDam: 'Al Massira', color: '#93C5FD', region: 'central' },
-  { id: 'souss-massa', name: 'Souss-Massa', nameAr: 'سوس ماسة', coords: [-9.3, 30.4], fillRate: 55, storedMcm: 420, fillRateLastYear: 18, color: '#FACC15', region: 'south' },
-  { id: 'guir-ziz', name: 'Guir-Ziz-Rheris', nameAr: 'غير زيز غريس', coords: [-4.5, 32.0], fillRate: 28, storedMcm: 180, fillRateLastYear: 12, color: '#F97316', region: 'south' },
-  { id: 'draa-noun', name: 'Draa-Oued Noun', nameAr: 'درعة واد نون', coords: [-6.5, 30.0], fillRate: 22, storedMcm: 95, fillRateLastYear: 8, color: '#EF4444', region: 'south' },
+  { id: 'souss-massa', name: 'Souss-Massa', nameAr: 'سوس ماسة', coords: [-9.3, 30.4], fillRate: 55, storedMcm: 420, fillRateLastYear: 18, color: '#C8A415', region: 'south' },
+  { id: 'guir-ziz', name: 'Guir-Ziz-Rheris', nameAr: 'غير زيز غريس', coords: [-4.5, 32.0], fillRate: 28, storedMcm: 180, fillRateLastYear: 12, color: '#C17F28', region: 'south' },
+  { id: 'draa-noun', name: 'Draa-Oued Noun', nameAr: 'درعة واد نون', coords: [-6.5, 30.0], fillRate: 22, storedMcm: 95, fillRateLastYear: 8, color: '#A0452E', region: 'south' },
 ]
 
 export interface DesalProject {

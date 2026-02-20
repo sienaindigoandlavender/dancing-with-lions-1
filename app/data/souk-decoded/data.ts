@@ -15,15 +15,15 @@ export interface SoukSection {
 }
 
 export const SOUKS_MARRAKECH: SoukSection[] = [
-  { id: 'semmarine', name: 'Souk Semmarine', specialty: 'Textiles, general goods', position: 'Main artery — starts at Jemaa el-Fna', note: 'The widest, most covered passage. Begins with pâtisserie and pottery, transitions into premium textiles deeper in. Forks into two branches.', color: '#A855F7' },
+  { id: 'semmarine', name: 'Souk Semmarine', specialty: 'Textiles, general goods', position: 'Main artery — starts at Jemaa el-Fna', note: 'The widest, most covered passage. Begins with pâtisserie and pottery, transitions into premium textiles deeper in. Forks into two branches.', color: '#7B506F' },
   { id: 'attarine', name: 'Souk el Attarine', specialty: 'Copper, brass, spices', position: 'Left fork off Semmarine', note: 'Named for perfume/spice sellers (attar). Now copper and brass craftwork. Leads toward the Medersa Ben Youssef.', color: '#F59E0B' },
-  { id: 'ableuh', name: 'Souk Ableuh', specialty: 'Olives, preserved foods', position: 'Right fork off Semmarine', note: 'Mountains of olives — green, black, cracked, spiced. Preserved lemons, pickled vegetables. A kitchen souk.', color: '#22C55E' },
+  { id: 'ableuh', name: 'Souk Ableuh', specialty: 'Olives, preserved foods', position: 'Right fork off Semmarine', note: 'Mountains of olives — green, black, cracked, spiced. Preserved lemons, pickled vegetables. A kitchen souk.', color: '#5C7C3E' },
   { id: 'smata', name: 'Souk Smata', specialty: 'Babouches (slippers)', position: 'Side passage off main spine', note: 'Rows of leather slippers in every color. Pointed-toe for men, rounded for women. ', color: '#EC4899' },
-  { id: 'cherratine', name: 'Souk Cherratine', specialty: 'Leather goods', position: 'Near the Medersa', note: 'Bags, belts, poufs, wallets. Tanned hides from the tanneries. Marrakech leather has been exported since the medieval period.', color: '#F97316' },
-  { id: 'haddadine', name: 'Souk Haddadine', specialty: 'Metalwork, lanterns', position: 'Deep interior', note: 'Blacksmiths and lantern-makers. The sound of hammering is constant. Iron, brass, and copper punched into geometric patterns.', color: '#3B82F6' },
-  { id: 'zrabia', name: 'Souk Zrabia', specialty: 'Carpets, rugs', position: 'Near the Criée Berbère', note: 'The carpet auction. Berber rugs, kilims, Boucherouite. Historically the site of the Berber slave market (Criée Berbère) until 1912.', color: '#EF4444' },
+  { id: 'cherratine', name: 'Souk Cherratine', specialty: 'Leather goods', position: 'Near the Medersa', note: 'Bags, belts, poufs, wallets. Tanned hides from the tanneries. Marrakech leather has been exported since the medieval period.', color: '#C17F28' },
+  { id: 'haddadine', name: 'Souk Haddadine', specialty: 'Metalwork, lanterns', position: 'Deep interior', note: 'Blacksmiths and lantern-makers. The sound of hammering is constant. Iron, brass, and copper punched into geometric patterns.', color: '#2D5F8A' },
+  { id: 'zrabia', name: 'Souk Zrabia', specialty: 'Carpets, rugs', position: 'Near the Criée Berbère', note: 'The carpet auction. Berber rugs, kilims, Boucherouite. Historically the site of the Berber slave market (Criée Berbère) until 1912.', color: '#A0452E' },
   { id: 'chouari', name: 'Souk Chouari', specialty: 'Woodwork, carpentry', position: 'Northern edge', note: 'Cedar, thuya wood, walnut. Boxes, chessboards, furniture. Strong scent of cedar shavings.', color: '#78716C' },
-  { id: 'sebbaghine', name: 'Souk Sebbaghine', specialty: 'Dyers', position: 'Near tanneries (downwind)', note: 'Skeins of freshly dyed wool and silk hang from poles to dry. Vivid reds, yellows, blues. Always downwind from residential areas.', color: '#A855F7' },
+  { id: 'sebbaghine', name: 'Souk Sebbaghine', specialty: 'Dyers', position: 'Near tanneries (downwind)', note: 'Skeins of freshly dyed wool and silk hang from poles to dry. Vivid reds, yellows, blues. Always downwind from residential areas.', color: '#7B506F' },
   { id: 'dabbaghin', name: 'Souk Dabbaghin', specialty: 'Tanneries', position: 'Eastern edge, outside residential core', note: 'Stone vats of natural dyes. Pigeon dung for softening. Deliberately placed at the medina\'s edge because of the smell.', color: '#78716C' },
 ]
 

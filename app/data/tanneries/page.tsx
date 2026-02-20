@@ -7,9 +7,9 @@ import { PROCESS_STEPS, DYES, THREE_TANNERIES, HISTORY, PRODUCTS, HERO_STATS, KE
 const ACCENT = '#D97706'
 const THREAD_COLORS: Record<string, string> = {
   founding: '#F59E0B',
-  trade: '#3B82F6',
-  craft: '#22C55E',
-  modern: '#EF4444',
+  trade: '#2D5F8A',
+  craft: '#5C7C3E',
+  modern: '#A0452E',
 }
 
 export default function TanneriesPage() {

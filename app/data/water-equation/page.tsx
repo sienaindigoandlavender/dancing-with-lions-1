@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 const C = {
   ink: '#0a0a0a', text: '#262626', muted: '#737373', border: '#e5e5e5',
-  water: '#2563EB', waterLight: '#93C5FD', waterDark: '#1E3A8A',
+  water: '#1A5276', waterLight: '#93C5FD', waterDark: '#1E3A5F',
   crisis: '#DC2626', hope: '#059669',
   sand: '#D4A843', aquifer: '#164E63',
 }

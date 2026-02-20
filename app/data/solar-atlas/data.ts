@@ -29,21 +29,21 @@ export const NOOR_PHASES: NoorPhase[] = [
     area: '680 hectares', storage: '7 hours (molten salt)',
     commissioned: 'January 2018',
     detail: 'Larger troughs, longer storage. Switched to dry cooling to reduce water consumption in the arid Draa-Tafilalet region. Seven hours of storage means electricity after sunset. Supplies power to approximately one million people.',
-    color: '#EF4444',
+    color: '#A0452E',
   },
   {
     name: 'Noor III', capacity: '150 MW', technology: 'CSP — Solar Tower',
     area: '750 hectares', storage: '7 hours (molten salt)',
     commissioned: 'December 2018',
     detail: 'A 243-metre tower surrounded by 7,400 heliostats. Sunlight is concentrated onto a receiver at the top, heating molten salt to 565°C. The tower is visible from 20 km away. Suffered a molten salt leak in February 2024 ($47M loss), repaired and restarted by late 2024.',
-    color: '#A855F7',
+    color: '#7B506F',
   },
   {
     name: 'Noor IV', capacity: '72 MW', technology: 'Photovoltaic (PV)',
     area: '137 hectares', storage: 'None',
     commissioned: '2018',
     detail: 'Polycrystalline PV modules with sun-tracking systems. The cost comparison: Noor IV\'s PV cost $78M versus the billions for CSP. This is the technology that has since won the global cost race, but without CSP\'s ability to store heat and generate at night.',
-    color: '#3B82F6',
+    color: '#2D5F8A',
   },
 ]
 

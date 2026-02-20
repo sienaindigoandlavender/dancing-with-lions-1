@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 // ═══ EARTH DATA COLORS ═══
@@ -143,6 +143,48 @@ function lineToPath(pts: {x:number;y:number}[]): string {
 
 type FilterType = 'all' | 'Morocco' | 'Spain' | 'Portugal'
 type ViewType = 'stadiums' | 'infrastructure' | 'budget'
+
+
+const WORLD_CUP_2030_PTS = [
+  { name: 'Casablanca', lat: 33.5731, lng: -7.5898, detail: 'Grand Stade de Casablanca. 93,000 capacity. Final venue.', color: '#C17F28' },
+  { name: 'Rabat', lat: 34.0209, lng: -6.8416, detail: 'Stade Moulay Abdallah. Semi-finals.', color: '#C17F28' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Grand Stade de Marrakech. Group stage.', color: '#C17F28' },
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Stade de Fes. Group stage.', color: '#C17F28' },
+  { name: 'Tangier', lat: 35.7595, lng: -5.8340, detail: 'Stade Ibn Batouta. Group stage.', color: '#C17F28' },
+  { name: 'Agadir', lat: 30.4278, lng: -9.5981, detail: 'Grand Stade d\'Agadir. Group stage.', color: '#C17F28' },
+  { name: 'Madrid', lat: 40.4168, lng: -3.7038, detail: 'Santiago Bernabeu. Spain co-host.', color: '#2D5F8A' },
+  { name: 'Barcelona', lat: 41.3874, lng: 2.1686, detail: 'Camp Nou. Spain co-host.', color: '#2D5F8A' },
+  { name: 'Lisbon', lat: 38.7223, lng: -9.1393, detail: 'Estadio da Luz. Portugal co-host.', color: '#2D6E4F' },
+]
+const MBT_WORLD_CUP_2030 = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function WorldCup2030Map() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_WORLD_CUP_2030 || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_WORLD_CUP_2030!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-3, 36], zoom: 4, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        WORLD_CUP_2030_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
 
 export default function WorldCup2030Page() {
   const [filter, setFilter] = useState<FilterType>('all')
@@ -601,7 +643,14 @@ export default function WorldCup2030Page() {
         </div>
       </section>
 
-      {/* ═══ SOURCES ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#C17F28' }}>Host Cities — 2030</p>
+        <WorldCup2030Map />
+      </div></section>
+
+{/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: '#e5e5e5' }}>
           <p className="micro-label mb-2" style={{ color: '#737373' }}>Sources</p>

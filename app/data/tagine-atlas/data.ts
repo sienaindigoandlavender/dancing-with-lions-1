@@ -41,7 +41,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     signature: 'Tangy-briny — preserved lemon and cracked green olives in golden saffron sauce',
     spices: ['saffron', 'turmeric', 'garlic', 'ginger', 'preserved lemon'],
     description: 'Preserved lemon — a distinctly Moroccan ingredient, salt-cured for months — adds a tangy, fermented depth that fresh citrus cannot replicate. Cracked green olives bring brine. The sauce turns gold from saffron and turmeric. Fes claims the most refined version; Casablanca serves it everywhere.',
-    color: '#22C55E',
+    color: '#5C7C3E',
   },
   {
     id: 'fish-chermoula',
@@ -53,7 +53,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     signature: 'Bright-acidic — chermoula marinade, tomato-pepper sauce, lighter than inland tagines',
     spices: ['cumin', 'paprika', 'cilantro', 'parsley', 'garlic', 'lemon juice'],
     description: 'Along the Atlantic coast, the tagine changes with the tides. Chermoula — a garlicky marinade of cilantro, parsley, cumin, and lemon — replaces the warm spice blends of the interior. The sauce is tomato-based, sharper, brighter. Often served bubbling in shallow clay pots with bread for scooping. The acidity cuts through the oil of the fish.',
-    color: '#3B82F6',
+    color: '#2D5F8A',
   },
   {
     id: 'kefta',
@@ -65,7 +65,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     signature: 'Spiced tomato sauce, eggs cracked on top, harissa on the side',
     spices: ['cumin', 'paprika', 'cinnamon', 'parsley', 'cilantro'],
     description: 'The democratic tagine — found everywhere, affordable, endlessly variable. Spiced meatballs simmer in a rich tomato sauce until the sauce thickens. Eggs are cracked on top to set gently in the residual heat. Harissa served at the table lets everyone adjust the heat. The definitive comfort food of Morocco.',
-    color: '#EF4444',
+    color: '#A0452E',
   },
   {
     id: 'berber',
@@ -89,7 +89,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     signature: 'Sweet-rich — honey, raisins, almonds, ras el hanout. The Eid celebration dish.',
     spices: ['ras el hanout', 'cinnamon', 'nutmeg', 'honey', 'raisins'],
     description: 'Associated with Eid al-Adha, when every family prepares lamb. Mrouzia is the most spiced tagine — ras el hanout (the "head of the shop" blend of 20–30 spices) is the engine. Honey, raisins, and almonds create a sweetness that borders on confectionery. Prepared for generations during the Feast of Sacrifice.',
-    color: '#A855F7',
+    color: '#7B506F',
   },
   {
     id: 'tangia',
@@ -101,7 +101,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     signature: 'Not a tagine pot — an amphora-shaped clay urn, slow-cooked in hammam embers all day',
     spices: ['preserved lemon', 'garlic', 'cumin', 'saffron', 'smen (aged butter)'],
     description: 'Technically not a tagine but its closest cousin. Named after the tall clay urn (tangia), not cooked over fire but buried in the embers of a public bathhouse furnace. Traditionally a bachelor\'s dish — men would seal meat, spices, preserved lemon, and smen (aged butter) in the urn and leave it at the hammam to slow-cook all day. Fall-off-the-bone tender with a deep, smoky flavor unique to Marrakech.',
-    color: '#F97316',
+    color: '#C17F28',
   },
   {
     id: 'vegetable',
@@ -113,7 +113,7 @@ export const TAGINE_STYLES: TagineStyle[] = [
     signature: 'Hearty, budget-friendly — seasonal vegetables, chickpeas, ras el hanout, saffron',
     spices: ['ras el hanout', 'saffron', 'turmeric', 'cumin', 'paprika'],
     description: 'Potatoes, carrots, squash, turnips, courgettes, chickpeas, and whatever else the season provides. The vegetables soften slowly, the chickpeas thicken the broth, and the spices bring warmth without overpowering. The most common weeknight tagine across Morocco. Dried apricots or figs sometimes appear for sweetness.',
-    color: '#22C55E',
+    color: '#5C7C3E',
   },
   {
     id: 'sardine',

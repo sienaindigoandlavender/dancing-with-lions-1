@@ -115,7 +115,7 @@ export default function TransSaharanTradePage() {
           <div className="flex flex-wrap gap-4 mb-6">
             {[
               { label: 'Northern termini', color: '#F59E0B' },
-              { label: 'Southern hubs', color: '#EF4444' },
+              { label: 'Southern hubs', color: '#A0452E' },
               { label: 'Desert waypoints', color: '#9CA3AF' },
             ].map(l => (
               <div key={l.label} className="flex items-center gap-2">
@@ -182,7 +182,7 @@ export default function TransSaharanTradePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#1a1a1a' }}>
             {COMMODITIES.map((c, i) => {
               const isVisible = visibleSections.has(`comm-${i}`)
-              const dirColors: Record<string, string> = { 'Northbound': '#F59E0B', 'Southbound': '#3B82F6', 'Both': '#22C55E' }
+              const dirColors: Record<string, string> = { 'Northbound': '#F59E0B', 'Southbound': '#2D5F8A', 'Both': '#5C7C3E' }
               return (
                 <div key={c.name} data-sid={`comm-${i}`} className="p-6 md:p-8 transition-all duration-700" style={{ background: '#0a0a0a', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(8px)' }}>
                   <div className="flex items-center gap-2 mb-2">
