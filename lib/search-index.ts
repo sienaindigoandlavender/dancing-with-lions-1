@@ -563,13 +563,5 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['textiles', 'weaving', 'fabric', 'craft', 'africa', 'cotton', 'wool', 'silk', 'indigo', 'house of weaves'],
     href: '#',
   },
-  {
-    id: 'cultural-index',
-    number: 'EXT',
-    title: 'Morocco Cultural Index',
-    category: 'Cultural Documentation',
-    description: '97+ source-documented essays on architecture, music, food, craft, and seasonal practices.',
-    tags: ['culture', 'essays', 'architecture', 'music', 'food', 'craft', 'documentation', 'morocco'],
-    href: '#',
-  },
+
 ]
