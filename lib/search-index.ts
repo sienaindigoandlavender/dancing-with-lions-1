@@ -788,4 +788,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['fashion', 'caftan', 'kaftan', 'djellaba', 'babouche', 'takchita', 'sfifa', 'aakad', 'embroidery', 'Fez', 'Rabat', 'Tetouan', 'UNESCO', 'textile', 'leather', 'silk', 'brocade', 'Casablanca brand', 'Charaf Tajer', 'haute couture', 'designer', 'artisan', 'craft', 'gandoura', 'selham', 'wedding', 'bride'],
     href: '/data/moroccan-fashion',
   },
+  {
+    id: 'route-thousand-kasbahs',
+    number: '079',
+    title: 'The Route of a Thousand Kasbahs',
+    category: 'Architectural & Geographic Intelligence',
+    description: 'Aït Benhaddou to Skoura. Fortified mud-brick architecture of the Drâa-Tafilalet. 4,000+ earthen settlements. Glaoui dynasty. 370km Atlas to Sahara. Hollywood\'s desert.',
+    tags: ['kasbah', 'ksar', 'ksour', 'Ait Benhaddou', 'Telouet', 'Taourirt', 'Amridil', 'Skoura', 'Ouarzazate', 'Glaoui', 'rammed earth', 'pisé', 'adobe', 'mud brick', 'fortified', 'UNESCO', 'architecture', 'Draa-Tafilalet', 'Atlas', 'Sahara', 'Dadès', 'Todra', 'Tichka', 'agadir', 'tighremt', 'Gladiator', 'Game of Thrones', 'Lawrence of Arabia', 'Hollywood', 'Atlas Studios', 'CERKAS', 'Getty Conservation', 'trade route', 'caravan'],
+    href: '/data/route-thousand-kasbahs',
+  },
 ]
