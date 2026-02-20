@@ -725,4 +725,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['argan', 'oil', 'Souss', 'Essaouira', 'Agadir', 'cooperatives', 'women', 'Amazigh', 'Berber', 'UNESCO', 'biosphere', 'cosmetics', 'amlou', 'tree', 'desertification'],
     href: '/data/argan-triangle',
   },
+  {
+    id: 'cinema-morocco',
+    number: '071',
+    title: 'Cinema Morocco',
+    category: 'Cultural & Economic Intelligence',
+    description: 'Ouarzawood. Atlas Studios — world\'s largest film studio. Game of Thrones, Gladiator, Lawrence of Arabia. 30% cash rebate. Six decades of blockbusters.',
+    tags: ['cinema', 'film', 'Ouarzazate', 'Atlas Studios', 'CLA', 'Game of Thrones', 'Gladiator', 'Ridley Scott', 'GoT', 'Essaouira', 'Aït Benhaddou', 'Hollywood', 'CCM', 'rebate', 'production'],
+    href: '/data/cinema-morocco',
+  },
 ]
