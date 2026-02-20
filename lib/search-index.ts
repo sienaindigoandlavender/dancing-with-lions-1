@@ -635,4 +635,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['rail', 'tgv', 'al boraq', 'train', 'oncf', 'infrastructure', 'transport', 'high-speed', 'casablanca', 'tangier'],
     href: '/data/tgv-rail-network',
   },
+  {
+    id: 'geometry-of-zellige',
+    number: '061',
+    title: 'The Geometry of Zellige',
+    category: 'Mathematical Intelligence',
+    description: 'Star patterns, tessellation, 17 wallpaper groups, compass-and-straightedge construction. The mathematics behind Moroccan tilework.',
+    tags: ['zellige', 'geometry', 'mathematics', 'symmetry', 'tessellation', 'star', 'islamic', 'pattern', 'craft', 'tilework'],
+    href: '/data/geometry-of-zellige',
+  },
 ]
