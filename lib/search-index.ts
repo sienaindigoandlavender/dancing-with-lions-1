@@ -599,4 +599,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['phosphate', 'ocp', 'mining', 'khouribga', 'fertilizer', 'jorf lasfar', 'industry', 'export', 'geology', 'agriculture'],
     href: '/data/phosphate-kingdom',
   },
+  {
+    id: 'anatomy-of-a-riad',
+    number: '053',
+    title: 'The Anatomy of a Riad',
+    category: 'Architectural Intelligence',
+    description: 'Courtyard, fountain, zellige, tadelakt, moucharabieh, cedar, gebs. 12 elements, 6 passive climate systems, 0 street-facing windows.',
+    tags: ['riad', 'architecture', 'courtyard', 'zellige', 'tadelakt', 'moucharabieh', 'cedar', 'medina', 'house', 'islamic'],
+    href: '/data/anatomy-of-a-riad',
+  },
 ]
