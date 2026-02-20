@@ -671,4 +671,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['port', 'trade', 'Tanger Med', 'Nador', 'Dakhla', 'container', 'TEU', 'shipping', 'infrastructure', 'logistics', 'Africa'],
     href: '/data/port-strategy',
   },
+  {
+    id: 'carpet-atlas',
+    number: '065',
+    title: 'The Carpet Atlas',
+    category: 'Textile & Cultural Intelligence',
+    description: 'Regional rug traditions mapped. Beni Ourain, Azilal, Boujaad, Boucherouite, Kilim, Zanafi, Taznakht. Amazigh symbols, natural dyes, tribal origins.',
+    tags: ['carpet', 'rug', 'textile', 'Beni Ourain', 'Azilal', 'Boujaad', 'Boucherouite', 'kilim', 'hanbel', 'Amazigh', 'Berber', 'weaving', 'symbols', 'wool'],
+    href: '/data/carpet-atlas',
+  },
 ]
