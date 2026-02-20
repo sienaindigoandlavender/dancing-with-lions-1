@@ -824,4 +824,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['Al-Qarawiyyin', 'university', 'oldest', 'Fatima al-Fihri', 'Fez', 'madrasa', 'Ben Youssef', 'Marrakech', 'Ibn Yusuf', 'Bologna', 'Oxford', 'Marinid', 'Saadian', 'Maimonides', 'Ibn Khaldun', 'Ibn Rushd', 'Averroes', 'Leo Africanus', 'Al-Idrisi', 'Pope Sylvester', 'Gerbert', 'library', 'manuscript', 'Quran', 'Muqaddimah', 'ijazah', 'degree', 'Aziza Chaouni', 'Kairouan', 'education', 'Islamic Golden Age', 'Guinness', 'UNESCO'],
     href: '/data/oldest-universities',
   },
+  {
+    id: 'not-all-desert-is-sand',
+    number: '082',
+    title: 'Not All Desert Is Sand',
+    category: 'Geographic & Environmental Intelligence',
+    description: 'Erg, reg, hammada, oued. Four desert types. Only 25% of the Sahara is sand. Erg Chebbi 150m dunes. Erg Chegaga 40km expanse. The vocabulary of aridity.',
+    tags: ['desert', 'Sahara', 'erg', 'reg', 'hammada', 'hamada', 'oued', 'wadi', 'sand', 'dunes', 'gravel', 'bedrock', 'plateau', 'Erg Chebbi', 'Merzouga', 'Erg Chegaga', 'M\'Hamid', 'Tinfou', 'Zagora', 'Drâa', 'Tafilalet', 'oasis', 'geomorphology', 'deflation', 'aeolian', 'Green Sahara', 'climate', 'desertification', 'arid'],
+    href: '/data/not-all-desert-is-sand',
+  },
 ]
