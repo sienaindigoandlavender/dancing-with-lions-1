@@ -716,4 +716,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['trade', 'Sahara', 'caravan', 'gold', 'salt', 'Timbuktu', 'Sijilmasa', 'Marrakech', 'Fez', 'Mansa Musa', 'Almoravid', 'Mali', 'Songhai', 'Gnawa', 'slavery', 'manuscripts'],
     href: '/data/trans-saharan-trade',
   },
+  {
+    id: 'argan-triangle',
+    number: '070',
+    title: 'The Argan Triangle',
+    category: 'Agricultural & Economic Intelligence',
+    description: 'UNESCO biosphere reserve. 20 million trees. 688 women\'s cooperatives. The only place on earth argan grows — cosmetics, cooking, conservation.',
+    tags: ['argan', 'oil', 'Souss', 'Essaouira', 'Agadir', 'cooperatives', 'women', 'Amazigh', 'Berber', 'UNESCO', 'biosphere', 'cosmetics', 'amlou', 'tree', 'desertification'],
+    href: '/data/argan-triangle',
+  },
 ]
