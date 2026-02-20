@@ -56,7 +56,7 @@ export default function AmazighIdentityPage() {
           </h1>
           <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
             ⵉⵎⴰⵣⵉⵖⵏ — the free people. Three languages, three ancient confederations, one 3,000-year-old script.
-            From 45% of Morocco at independence to 24.8% in 2024. The mathematics of erasure — and the persistence that defies it.
+            From 45% of Morocco at independence to 24.8% in 2024.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             {HERO_STATS.map((st, i) => (
@@ -75,7 +75,7 @@ export default function AmazighIdentityPage() {
           <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>01</p>
           <h2 className="text-3xl md:text-4xl font-light mb-3" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Three Languages</h2>
           <p className="text-sm text-neutral-500 mb-10 max-w-2xl">
-            Not dialects. Three distinct languages forming a dialect continuum — Tashelhit and Tamazight are mutually intelligible, but neither can be understood by Tarifit speakers in the Rif.
+            Three distinct languages, not dialects. Tashelhit and Tamazight are mutually intelligible. Tarifit is not.
           </p>
 
           {/* Language tabs */}
