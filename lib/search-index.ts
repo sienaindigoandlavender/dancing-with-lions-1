@@ -743,4 +743,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['protectorate', 'France', 'Lyautey', 'Prost', 'ville nouvelle', 'colonialism', 'independence', 'Istiqlal', 'Mohammed V', 'Rif', 'Abd el-Krim', 'Allal al-Fassi', 'Treaty of Fez', 'Rabat', 'Casablanca', 'medina'],
     href: '/data/french-protectorate',
   },
+  {
+    id: 'hammam-culture',
+    number: '074',
+    title: 'Hammam Culture',
+    category: 'Cultural Intelligence',
+    description: 'The social architecture of the Moroccan bathhouse. Three rooms, six steps, five neighbourhood elements. Design, ritual, products.',
+    tags: ['hammam', 'bathhouse', 'savon beldi', 'black soap', 'kessa', 'ghassoul', 'argan oil', 'ritual', 'ablution', 'wudu', 'ghusl', 'mosque', 'medina', 'neighbourhood', 'women', 'farnatchi', 'tangia', 'culture'],
+    href: '/data/hammam-culture',
+  },
 ]
