@@ -626,4 +626,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['coast', 'atlantic', 'tangier', 'dakhla', 'fishing', 'wind', 'surf', 'port', 'essaouira', 'agadir'],
     href: '/data/atlantic-coast',
   },
+  {
+    id: 'tgv-rail-network',
+    number: '060',
+    title: 'The TGV & Rail Network',
+    category: 'Infrastructure Intelligence',
+    description: 'Africa\'s only high-speed rail. Al Boraq at 320 km/h. 55M passengers. ONCF conventional network. $9.5B 2040 strategy. Strait of Gibraltar tunnel.',
+    tags: ['rail', 'tgv', 'al boraq', 'train', 'oncf', 'infrastructure', 'transport', 'high-speed', 'casablanca', 'tangier'],
+    href: '/data/tgv-rail-network',
+  },
 ]
