@@ -707,4 +707,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['imperial', 'cities', 'Fez', 'Marrakech', 'Meknes', 'Rabat', 'dynasty', 'Idrisid', 'Almoravid', 'Almohad', 'Marinid', 'Saadian', 'Alaouite', 'capital', 'history', 'monuments', 'UNESCO'],
     href: '/data/imperial-cities',
   },
+  {
+    id: 'trans-saharan-trade',
+    number: '069',
+    title: 'Trans-Saharan Trade Routes',
+    category: 'Historical & Trade Intelligence',
+    description: 'Salt, gold, slaves, manuscripts. Five routes, ten cities, 1,200 years of desert commerce. The ancient networks that built Timbuktu and Marrakech.',
+    tags: ['trade', 'Sahara', 'caravan', 'gold', 'salt', 'Timbuktu', 'Sijilmasa', 'Marrakech', 'Fez', 'Mansa Musa', 'Almoravid', 'Mali', 'Songhai', 'Gnawa', 'slavery', 'manuscripts'],
+    href: '/data/trans-saharan-trade',
+  },
 ]
