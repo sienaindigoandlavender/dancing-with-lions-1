@@ -653,4 +653,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['literature', 'writers', 'Bowles', 'Burroughs', 'Choukri', 'Canetti', 'Mrabet', 'Tangier', 'Interzone', 'Beat', 'books'],
     href: '/data/literary-morocco',
   },
+  {
+    id: 'solar-atlas',
+    number: '063',
+    title: 'Morocco\'s Solar Atlas',
+    category: 'Energy Intelligence',
+    description: 'Noor Ouarzazate complex, MASEN solar projects, irradiance data by region, renewable energy targets, Xlinks subsea cable.',
+    tags: ['solar', 'energy', 'renewable', 'Noor', 'Ouarzazate', 'MASEN', 'CSP', 'photovoltaic', 'irradiance', 'Xlinks', 'electricity'],
+    href: '/data/solar-atlas',
+  },
 ]
