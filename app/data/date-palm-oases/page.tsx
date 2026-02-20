@@ -183,7 +183,7 @@ export default function DatePalmOasesPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[32vh]" style={{ background: ACCENT }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: ACCENT }}>
         <div className="max-w-[640px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3.5vw, 2.2rem)', color: '#ffffff' }}>
             The Bayoud did not just kill trees. It destroyed
@@ -309,7 +309,7 @@ export default function DatePalmOasesPage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'ResearchGate — Sedra (2015): 453 cultivars, 52% varieties / 48% khalts, Tafilalet varietal profile (Boufeggous, Mejhoul, Bouslikhène, Najda), three oasis regions (Draa, Tafilalet/Ziz, Tata-Bani) = 90% of national grove, 59,000 ha',
               'Meer.com: 4.8 million date palms, 50,000 ha, 117,000 tonnes/year, Draa-Tafilalet 77%, ranked 7th worldwide, 60% of agricultural income for 1 million inhabitants, khalts predominance, biochar/briquettes/feed by-products',

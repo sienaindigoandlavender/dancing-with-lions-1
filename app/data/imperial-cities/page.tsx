@@ -246,7 +246,7 @@ export default function ImperialCitiesPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#D4A373' }}>
             Fez has never relinquished its heritage. More than anywhere else
@@ -278,7 +278,7 @@ export default function ImperialCitiesPage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'UNESCO World Heritage Centre: Medina of Fez (1981), Medina of Marrakech (1985), Historic City of Meknes (1996), Rabat Modern Capital & Historic City (2012)',
               'Wikipedia — Fez, Morocco: Population, Idrisid founding, Marinid golden age, al-Qarawiyyin (859), Fez Jdid (1276), car-free urban area',

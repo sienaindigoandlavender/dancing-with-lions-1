@@ -282,7 +282,7 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[36vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#EF4444' }}>
         <div className="max-w-[700px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             These same dunes, casbahs and mountain lakes now stand in for
@@ -357,7 +357,7 @@ export default function CinemaMoroccoPage() {
       </section>
 
       {/* ═══ DARK QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[34vh]" style={{ background: '#111' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[700px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#EF4444' }}>
             Clear mountain air funnels down from the High Atlas.
@@ -388,7 +388,7 @@ export default function CinemaMoroccoPage() {
       <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
         <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {[
               'Wikipedia — Atlas Corporation Studios: founded 1983 by Mohamed Belghmi, ~31,000 m², films list, largest by area',
               'Wikipedia — Ouarzazate: 20–50 foreign productions/year (2020 study), ~80% Moroccan crew (2017), cinema history, name etymology',
