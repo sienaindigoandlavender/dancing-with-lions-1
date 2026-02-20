@@ -662,4 +662,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['solar', 'energy', 'renewable', 'Noor', 'Ouarzazate', 'MASEN', 'CSP', 'photovoltaic', 'irradiance', 'Xlinks', 'electricity'],
     href: '/data/solar-atlas',
   },
+  {
+    id: 'port-strategy',
+    number: '064',
+    title: 'Morocco\'s Port Strategy',
+    category: 'Trade & Infrastructure Intelligence',
+    description: 'Tanger Med, Nador West Med, Dakhla Atlantique, Casablanca, Jorf Lasfar. Container throughput, trade routes, Africa gateway.',
+    tags: ['port', 'trade', 'Tanger Med', 'Nador', 'Dakhla', 'container', 'TEU', 'shipping', 'infrastructure', 'logistics', 'Africa'],
+    href: '/data/port-strategy',
+  },
 ]
