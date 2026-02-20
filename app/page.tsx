@@ -148,30 +148,6 @@ export default function HomePage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* ═══ WHAT THIS IS ═══ */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <div className="max-w-[700px]">
-          <p className="font-serif text-[28px] md:text-[34px] leading-[1.35] text-dwl-black italic">
-            There is no other publication doing this.
-          </p>
-          <p className="text-body text-dwl-body mt-8 leading-relaxed">
-            Travel guides tell you where to eat. Data platforms sell you a PDF.
-            News outlets run a feature and move on. Nobody is building a permanent,
-            deepening archive of interactive data stories about a single region &mdash;
-            where the visualization is the editorial language and every story
-            compounds on the last.
-          </p>
-          <p className="text-body text-dwl-body mt-4 leading-relaxed">
-            The Monocle eye. The Atlas Obscura curiosity.
-            The rigour of a research desk. Applied to Morocco
-            and the Maghreb by someone who has lived inside
-            the country for eleven years.
-          </p>
-        </div>
-      </section>
-
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
-
       {/* ═══ CATEGORIES ═══ */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <p className="micro-label mb-12">Browse by Category</p>
