@@ -1,8 +1,47 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { CEREMONY, BRIDAL_OUTFITS, KEY_ROLES, REGIONAL, COST_BREAKDOWN, HERO_STATS, WEDDING_MENU } from './data'
+
+
+const WEDDING_MAP_POINTS = [
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Fassiya kaftan. Heavy gold brocade. Andalusi music.', color: '#A855F7' },
+  { name: 'Rabat', lat: 34.0209, lng: -6.8416, detail: 'R\'batiya style. Lighter, flowing silhouette. Blue.', color: '#3B82F6' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Largest negafa industry. Multi-outfit spectacle.', color: '#EF4444' },
+  { name: 'Souss / Tiznit', lat: 29.6974, lng: -9.7986, detail: 'Amazigh tradition. Silver fibules. Ahwach dance.', color: '#22C55E' },
+  { name: 'Sahara / Laayoune', lat: 27.1536, lng: -13.2033, detail: 'Sahrawi melhfa. Indigo or white. Simpler ceremony.', color: '#F97316' },
+  { name: 'Rif / Nador', lat: 35.1740, lng: -2.9287, detail: 'Tarifit traditions. Rifle dance. Izlan songs.', color: '#FACC15' },
+]
+const MAPBOX_TOKEN_W = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function WeddingMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN_W || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN_W!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6.5, 32], zoom: 5.2, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        WEDDING_MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:16px;height:16px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.9);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
 
 export default function WeddingAtlasPage() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
@@ -181,7 +220,14 @@ export default function WeddingAtlasPage() {
         </div>
       </section>
 
-      {/* ═══ REGIONAL VARIATIONS ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Regional Traditions — Mapped</p>
+        <WeddingMap />
+      </div></section>
+
+{/* ═══ REGIONAL VARIATIONS ═══ */}
       <section className="bg-white">
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — Regional Variations</p>

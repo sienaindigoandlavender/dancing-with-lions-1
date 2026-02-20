@@ -183,6 +183,46 @@ function SpiceCard({ spice, index }: { spice: Spice; index: number }) {
 }
 
 // ═══ MAIN PAGE ═══
+
+const SPICE_ROUTES_MAP_POINTS = [
+  { name: 'Taliouine', lat: 30.5306, lng: -7.9236, detail: 'Saffron capital. 95% of Moroccan production.', color: '#C8A415' },
+  { name: 'Souk el Attarine, Fez', lat: 34.0625, lng: -4.9733, detail: 'Oldest spice souk. Marinid era. Wholesale.', color: '#8B6914' },
+  { name: 'Rahba Kedima, Marrakech', lat: 31.6310, lng: -7.9880, detail: 'Spice square. Ras el hanout capital.', color: '#C54B3C' },
+  { name: 'Berkane / Oriental', lat: 34.9220, lng: -2.3194, detail: 'Cumin and fenugreek. Eastern plains.', color: '#6B8E23' },
+  { name: 'Zanzibar', lat: -6.1659, lng: 39.2026, detail: 'Clove origin. East African trade route.', color: '#4A2C2A' },
+  { name: 'Kerala', lat: 10.8505, lng: 76.2711, detail: 'Black pepper, cardamom. Indian Ocean trade.', color: '#2D2D2D' },
+  { name: 'Sri Lanka', lat: 7.8731, lng: 80.7718, detail: 'True cinnamon. Maritime silk road.', color: '#7B3F00' },
+]
+const MAPBOX_TOKEN_SPICE_ROUTES = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function SpiceroutesMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN_SPICE_ROUTES || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN_SPICE_ROUTES!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [30, 20], zoom: 2.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        SPICE_ROUTES_MAP_POINTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function SpiceRoutesPage() {
   const heroR = useReveal()
   const numsR = useReveal()
@@ -380,7 +420,14 @@ export default function SpiceRoutesPage() {
         </div>
       </section>
 
-      {/* CLOSING */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Spice Origins — Mapped</p>
+        <SpiceroutesMap />
+      </div></section>
+
+{/* CLOSING */}
       <section className="px-8 md:px-[8%] lg:px-[12%] mt-4">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>

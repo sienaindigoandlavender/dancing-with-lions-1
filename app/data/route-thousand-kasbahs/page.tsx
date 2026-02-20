@@ -1,9 +1,54 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { KASBAHS, ARCHITECTURE, HISTORY, FILMS, ROUTE_STOPS, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
 const ACCENT = '#D4A373'
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 const THREAD_COLORS: Record<string, string> = { ancient: '#8B7355', glaoui: '#D4A373', french: '#3B82F6', modern: '#22C55E', hollywood: '#EF4444' }
+
+function KasbahMap({ onSelect }: { onSelect: (i: number) => void }) {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TOKEN || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TOKEN!
+      const map = new mapboxgl.Map({
+        container: mapContainer.current!,
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [-6.8, 31.0],
+        zoom: 7.5,
+        pitch: 30,
+        attributionControl: false,
+      })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        const routeCoords = KASBAHS.map(k => [k.coords.lng, k.coords.lat])
+        map.addSource('route-line', { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: routeCoords } } })
+        map.addLayer({ id: 'route-line-layer', type: 'line', source: 'route-line', paint: { 'line-color': ACCENT, 'line-width': 2, 'line-dasharray': [3, 2], 'line-opacity': 0.6 } })
+        KASBAHS.forEach((k, i) => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:18px;height:18px;border-radius:50%;background:${ACCENT};border:2px solid rgba(255,255,255,0.9);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 12px ${ACCENT}66;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.5)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => {
+            onSelect(i)
+            map.flyTo({ center: [k.coords.lng, k.coords.lat], zoom: 10, duration: 1200, pitch: 40 })
+          })
+          new mapboxgl.Marker({ element: el })
+            .setLngLat([k.coords.lng, k.coords.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '240px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:${ACCENT};margin:0 0 2px">${k.location}</p><p style="font-size:15px;font-weight:600;margin:0;color:#f5f5f5">${k.name}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [onSelect])
+  return <div ref={mapContainer} className="w-full" style={{ height: '560px', background: '#0a0a0a' }} />
+}
+
 export default function KasbahsPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeKasbah, setActiveKasbah] = useState(0)
@@ -51,6 +96,12 @@ export default function KasbahsPage() {
               <div className="col-span-6 md:col-span-8"><p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.highlight}</p></div>
             </div>))}
         </div>
+      </div></section>
+
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>The Route — Mapped</p>
+        <KasbahMap onSelect={(i) => setActiveKasbah(i)} />
       </div></section>
 
       {/* ═══ KASBAHS ═══ */}
