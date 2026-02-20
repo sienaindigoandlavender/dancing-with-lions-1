@@ -1,9 +1,40 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { THREE_LANGUAGES, MINOR_LANGUAGES, THREE_CONFEDERATIONS, TIFINAGH_EVOLUTION, HISTORY, THREAD_META, CENSUS_DATA, HERO_STATS, KEY_NUMBERS, TIFINAGH_ALPHABET, BIBLIOGRAPHY } from './data'
+import { THREE_LANGUAGES, MINOR_LANGUAGES, THREE_CONFEDERATIONS, TIFINAGH_EVOLUTION, HISTORY, THREAD_META, CENSUS_DATA, HERO_STATS, KEY_NUMBERS, TIFINAGH_ALPHABET, BIBLIOGRAPHY , MAP_POINTS } from './data'
 const ACCENT = '#E63946'
 const LANG_COLORS = ['#E63946', '#F59E0B', '#3B82F6']
+
+const MAPBOX_TK_A = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function AmazighMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TK_A || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TK_A!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6, 32.5], zoom: 5.2, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_POINTS.forEach((p: typeof MAP_POINTS[0]) => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function AmazighIdentityPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeLang, setActiveLang] = useState(0)
@@ -116,7 +147,14 @@ export default function AmazighIdentityPage() {
         <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.8rem)', color: '#fff' }}>Imazighen. The free people. They named themselves before anyone else could.</p>
       </div></section>
 
-      {/* ═══ THREE CONFEDERATIONS — Staggered editorial ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>Language Zones — Mapped</p>
+        <AmazighMap />
+      </div></section>
+
+{/* ═══ THREE CONFEDERATIONS — Staggered editorial ═══ */}
       <section className="bg-white"><div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Confederations</p>
         <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Three Confederations</h2>

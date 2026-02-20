@@ -99,3 +99,13 @@ export const ERA_COLORS: Record<string, string> = {
   'prohibition': '#EF4444',
   'legalization': '#22C55E',
 }
+
+export const MAP_POINTS = [
+  { name: 'Ketama', lat: 34.9167, lng: -4.5833, detail: 'Capital of cannabis cultivation. Rif heartland. ~800 tonnes/year.', color: '#22C55E' },
+  { name: 'Issaguen', lat: 34.9000, lng: -4.4167, detail: 'Chefchaouen province. Traditional growing area.', color: '#22C55E' },
+  { name: 'Bab Berred', lat: 35.0, lng: -4.7, detail: 'Northern Rif. Major production zone.', color: '#22C55E' },
+  { name: 'Al Hoceima', lat: 35.2517, lng: -3.9372, detail: 'Coastal city. Gateway to growing regions.', color: '#F59E0B' },
+  { name: 'Chefchaouen', lat: 35.17, lng: -5.26, detail: 'Tourist gateway. Hash cafés. Legal grey zone.', color: '#F59E0B' },
+  { name: 'Tangier', lat: 35.76, lng: -5.83, detail: 'Transit port. European export route. 14km to Spain.', color: '#EF4444' },
+  { name: 'Nador / Melilla', lat: 35.29, lng: -2.94, detail: 'Eastern export corridor. Spanish enclave border.', color: '#EF4444' },
+]

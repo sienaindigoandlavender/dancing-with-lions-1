@@ -1,10 +1,41 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { TIMELINE, PRODUCTION_STATS, GEOGRAPHY, LEGALIZATION, VOCABULARY, HERO_STATS, ERA_COLORS } from './data'
+import { TIMELINE, PRODUCTION_STATS, GEOGRAPHY, LEGALIZATION, VOCABULARY, HERO_STATS, ERA_COLORS , MAP_POINTS } from './data'
 
 type Era = 'all' | 'pre-colonial' | 'colonial' | 'prohibition' | 'legalization'
+
+
+const MAPBOX_TK_C = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function RifMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TK_C || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TK_C!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-4.5, 35], zoom: 7.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_POINTS.forEach((p: typeof MAP_POINTS[0]) => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
 
 export default function CannabisRifPage() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
@@ -86,7 +117,14 @@ export default function CannabisRifPage() {
         </div>
       </section>
 
-      {/* ═══ QUOTE 1 ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>The Rif — Growing Zones</p>
+        <RifMap />
+      </div></section>
+
+{/* ═══ QUOTE 1 ═══ */}
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#22C55E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
@@ -167,7 +205,14 @@ export default function CannabisRifPage() {
         </div>
       </section>
 
-      {/* ═══ QUOTE 2 ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>The Rif — Growing Zones</p>
+        <RifMap />
+      </div></section>
+
+{/* ═══ QUOTE 2 ═══ */}
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#D4A373' }}>

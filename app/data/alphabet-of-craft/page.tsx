@@ -1,6 +1,18 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+
+const MAP_POINTS = [
+  { name: 'Fez', lat: 34.0181, lng: -5.0078, detail: 'Zellige tilework. Brass. Leather. 30,000 artisans in the medina.', color: '#C17F28' },
+  { name: 'Marrakech', lat: 31.6295, lng: -7.9811, detail: 'Leather. Lanterns. Woodwork. Souk el-Attarine.', color: '#B8705A' },
+  { name: 'Safi', lat: 32.2994, lng: -9.2372, detail: 'Pottery capital. Blue-and-white tradition. Colline des Potiers.', color: '#B86B4A' },
+  { name: 'Essaouira', lat: 31.5085, lng: -9.7595, detail: 'Thuya woodwork. Marquetry. Argan wood turning.', color: '#6B4226' },
+  { name: 'Taroudant', lat: 30.4706, lng: -8.8778, detail: 'Silver jewelry. Amazigh motifs. Souss tradition.', color: '#6B8BA4' },
+  { name: 'Azrou / Khenifra', lat: 33.4342, lng: -5.2200, detail: 'Cedar carving. Atlas Amazigh woodcraft.', color: '#4A6741' },
+  { name: 'Tetouan', lat: 35.5715, lng: -5.3684, detail: 'Andalusian embroidery. Fine textile tradition.', color: '#8B3A6E' },
+  { name: 'Ouarzazate / Tinghir', lat: 31.5000, lng: -5.5333, detail: 'Carpet weaving. Amazigh symbols. Rose water.', color: '#9B2335' },
+]
 
 // ═══ THE MOROCCAN ALPHABET OF CRAFT ═══
 // Sixty craft traditions. One plate. Each drawn as a specimen.
@@ -462,6 +474,37 @@ function SpecimenSVG({ craft, size }: { craft: Craft; size: number }) {
   )
 }
 
+
+const MAPBOX_TK_CR = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function CraftMap() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mapContainer.current || !MAPBOX_TK_CR || mapRef.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MAPBOX_TK_CR!
+      const map = new mapboxgl.Map({ container: mapContainer.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6, 32.5], zoom: 5.5, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mapRef.current = map
+      map.on('load', () => {
+        MAP_POINTS.forEach((p: typeof MAP_POINTS[0]) => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mapRef.current?.remove(); mapRef.current = null }
+  }, [])
+  return <div ref={mapContainer} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function AlphabetOfCraftPage() {
   // Layout: 10 columns × 6 rows = 60 specimens
   const COLS = 10
@@ -654,7 +697,14 @@ export default function AlphabetOfCraftPage() {
         </div>
       </section>
 
-      {/* ═══ SOURCES ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#C17F28' }}>Craft Regions — Mapped</p>
+        <CraftMap />
+      </div></section>
+
+{/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>

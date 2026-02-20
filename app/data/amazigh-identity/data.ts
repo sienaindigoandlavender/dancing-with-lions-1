@@ -321,3 +321,14 @@ export const BIBLIOGRAPHY = [
   { id: 7, source: 'British Museum / TARA', detail: 'Rock Art Image Project: "Written in Stone" — Libyco-Berber inscriptions documentation.' },
   { id: 8, source: 'INALCO', detail: 'The Tifinagh/Berber Alphabet: History and Current Status. Institut National des Langues et Civilisations Orientales.' },
 ]
+
+export const MAP_POINTS = [
+  { name: 'Tashelhit Zone', lat: 30.4, lng: -8.5, detail: 'Souss, Anti-Atlas, High Atlas west. ~8M speakers. Largest Amazigh group.', color: '#EF4444' },
+  { name: 'Tamazight Zone', lat: 32.3, lng: -5.8, detail: 'Central Atlas, eastern High Atlas. ~5M speakers. Aït Atta, Aït Hadiddou.', color: '#3B82F6' },
+  { name: 'Tarifit Zone', lat: 35.0, lng: -3.5, detail: 'Rif mountains. ~4M speakers. Declining fastest in urban areas.', color: '#22C55E' },
+  { name: 'Casablanca', lat: 33.57, lng: -7.59, detail: 'Urban diaspora. Soussi trade networks built the corner-shop economy.', color: '#737373' },
+  { name: 'Rabat', lat: 34.02, lng: -6.84, detail: 'IRCAM headquarters (Royal Institute of Amazigh Culture, est. 2001).', color: '#737373' },
+  { name: 'Agadir', lat: 30.43, lng: -9.60, detail: 'Souss capital. Tashelhit heartland. University offers Amazigh studies.', color: '#EF4444' },
+  { name: 'Nador', lat: 35.17, lng: -2.93, detail: 'Tarifit stronghold. Rif movement center.', color: '#22C55E' },
+  { name: 'Errachidia', lat: 31.93, lng: -4.43, detail: 'Draa-Tafilalet. Central Tamazight. Oasis communities.', color: '#3B82F6' },
+]
