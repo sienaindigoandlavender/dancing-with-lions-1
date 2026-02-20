@@ -680,4 +680,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['carpet', 'rug', 'textile', 'Beni Ourain', 'Azilal', 'Boujaad', 'Boucherouite', 'kilim', 'hanbel', 'Amazigh', 'Berber', 'weaving', 'symbols', 'wool'],
     href: '/data/carpet-atlas',
   },
+  {
+    id: 'musical-traditions',
+    number: '066',
+    title: 'Morocco\'s Musical Traditions',
+    category: 'Cultural Intelligence',
+    description: 'Gnawa, Andalusi, Amazigh, Chaabi, Raï. Five traditions mapped by region and lineage. Instruments, masters, ceremonies, festivals.',
+    tags: ['music', 'Gnawa', 'Andalusi', 'Amazigh', 'Chaabi', 'Raï', 'guembri', 'nuba', 'ahwash', 'lila', 'festival', 'Essaouira', 'Fez', 'instruments'],
+    href: '/data/musical-traditions',
+  },
 ]
