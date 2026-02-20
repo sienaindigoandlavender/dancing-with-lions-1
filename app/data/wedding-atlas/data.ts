@@ -24,7 +24,7 @@ export const CEREMONY: CeremonyStage[] = [
     description: 'The bridal purification. The bride, accompanied by female relatives and friends, visits a traditional hammam for a ritual cleansing — scrubbing, massage, milk bath. Symbolizes the bride\'s transformation.',
     details: ['Milk bath (symbolizes purity)', 'Gommage (exfoliation with black soap)', 'Ghassoul clay treatment', 'Traditional songs and ululations', 'Bride wears Turkish-style hammam attire'] },
   { id: 'henna', day: 'Day 2 (Eve of wedding)', name: 'Laylat Al Henna', nameAr: 'ليلة الحناء', duration: 'Full evening', color: '#22C55E',
-    description: 'Henna Night. The most cherished pre-wedding ritual. A nekkasha applies intricate henna designs to the bride\'s hands and feet. The bride wears a green and gold caftan. Guests also receive henna.',
+    description: 'Henna Night.  A nekkasha applies intricate henna designs to the bride\'s hands and feet. The bride wears a green and gold caftan. Guests also receive henna.',
     details: ['Bride in green & gold caftan (fertility, prosperity)', 'Nekkasha (henna artist) applies designs — 2–4 hours', 'Geometric and floral motifs symbolize protection and fertility', 'Darker henna = more auspicious future', 'Music, dancing, singing throughout', 'Female-only gathering (traditionally)'] },
   { id: 'hdiyya', day: 'Day 2 (after henna)', name: 'The Hdiyya', nameAr: 'الهدية', duration: 'Evening', color: '#F59E0B',
     description: 'The gift ceremony. The groom\'s family presents the bride with gifts in decorative trays (taifours): caftans, jewelry, perfume, sugar (happiness), milk (purity), sweets.',
@@ -54,7 +54,7 @@ export const BRIDAL_OUTFITS: BridalOutfit[] = [
   { name: 'R\'batiya', nameAr: 'الرباطية', region: 'Rabat', description: 'Rabat tradition. Often blue. Lighter, more flowing silhouette than the Fassiya.', color: '#3B82F6' },
   { name: 'Sahrawiya', nameAr: 'الصحراوية', region: 'Sahara', description: 'Saharan draped fabric. Indigo or white melhfa. Simpler but striking.', color: '#F97316' },
   { name: 'Soussia', nameAr: 'السوسية', region: 'Souss (Amazigh)', description: 'Berber costume from the Souss region. Heavy silver jewelry (fibules, khalkhal), colorful fabrics.', color: '#22C55E' },
-  { name: 'Mejdoub', nameAr: 'المجدوب', region: 'National', description: 'The golden caftan. Opulent, fully embroidered in gold thread. Often the most expensive outfit of the evening.', color: '#FACC15' },
+  { name: 'Mejdoub', nameAr: 'المجدوب', region: 'National', description: 'The golden caftan. Opulent, fully embroidered in gold thread. Often the most expensive outfit worn.', color: '#FACC15' },
   { name: 'White Dress', nameAr: 'الفستان الأبيض', region: 'Modern', description: 'Western-style white wedding gown. Often the final outfit of the night, blending traditions.', color: '#D4D4D4' },
 ]
 
@@ -80,7 +80,7 @@ export interface RegionalVariation {
 }
 
 export const REGIONAL: RegionalVariation[] = [
-  { region: 'Fes', note: 'The most elaborate urban tradition. Heavy gold brocade. Andalusi music. The bride\'s Fassiya outfit is a centerpiece. Families often compete on the opulence of the negafa.', color: '#A855F7' },
+  { region: 'Fes', note: ' Heavy gold brocade. Andalusi music. The bride\'s Fassiya outfit is a centerpiece. Families often compete on the opulence of the negafa.', color: '#A855F7' },
   { region: 'Marrakech', note: 'Dakka Marrakchia percussion is the heartbeat. Red and gold color palette. Riads and palaces as venues. Gnawa musicians sometimes join.', color: '#EF4444' },
   { region: 'Amazigh (Atlas)', note: 'Multi-day outdoor celebration. Ahidous group dancing. The bride wears heavy silver jewelry, not gold. Community-wide participation. Less formalized than urban weddings.', color: '#22C55E' },
   { region: 'Sahara', note: 'Melhfa draped fabric. Camel procession possible. Tent celebrations. Hassani music. Simpler but longer — can stretch a full week in some communities.', color: '#F97316' },
