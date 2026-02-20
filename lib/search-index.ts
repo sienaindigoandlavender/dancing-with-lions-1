@@ -581,4 +581,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['souk', 'market', 'medina', 'trade', 'guild', 'craft', 'negotiation', 'commerce', 'economy', 'marrakech'],
     href: '/data/souk-decoded',
   },
+  {
+    id: 'tagine-atlas',
+    number: '051',
+    title: 'The Tagine Atlas',
+    category: 'Culinary Intelligence',
+    description: 'Regional tagine variations mapped. Marrakech lamb-prune, Fes chicken-olive, coastal fish chermoula, Berber mountain. Spice pantry, vessel science, cultural rules.',
+    tags: ['tagine', 'food', 'cooking', 'lamb', 'chicken', 'fish', 'spice', 'saffron', 'marrakech', 'fes'],
+    href: '/data/tagine-atlas',
+  },
 ]
