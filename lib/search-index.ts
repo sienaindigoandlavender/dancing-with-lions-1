@@ -842,4 +842,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['Gnawa', 'Gnaoua', 'maalem', 'guembri', 'sintir', 'hajhouj', 'qraqeb', 'krakebs', 'lila', 'derdeba', 'trance', 'jedba', 'mluk', 'spirits', 'jinn', 'seven colours', 'Mahmoud Guinia', 'Essaouira', 'Marrakech', 'UNESCO', 'intangible heritage', 'Sufi', 'brotherhood', 'taifa', 'slavery', 'West Africa', 'Bambara', 'Hausa', 'Bilal', 'moqaddma', 'festival', 'Pharoah Sanders', 'Randy Weston', 'Hassan Hakmoun', 'Hamid El Kasri', 'Baqbou', 'blues', 'jazz', 'pentatonic', 'camel skin', 'goat gut'],
     href: '/data/gnawa-atlas',
   },
+  {
+    id: 'gardens-of-morocco',
+    number: '084',
+    title: 'The Gardens of Morocco',
+    category: 'Landscape & Water Intelligence',
+    description: 'Majorelle, Agdal, Menara, Jnan Sbil. Islamic garden design. Khettara water systems. Almohad engineering. 500 hectares of productive paradise. Majorelle Blue #6050DC.',
+    tags: ['garden', 'gardens', 'Majorelle', 'Agdal', 'Menara', 'Jnan Sbil', 'Marrakech', 'Fez', 'Islamic garden', 'chahar bagh', 'four-fold', 'khettara', 'qanat', 'seguia', 'noria', 'water', 'irrigation', 'reservoir', 'sahrij', 'Almohad', 'Saadian', 'Alaouite', 'Yves Saint Laurent', 'Jacques Majorelle', 'Majorelle Blue', 'cobalt', 'UNESCO', 'olive', 'orchard', 'pavilion', 'menzeh', 'Atlas Mountains', 'paradise', 'jannah', 'geometry', 'hydraulic', 'Berber Museum', 'Pierre Bergé', 'bamboo', 'zellige', 'fountain'],
+    href: '/data/gardens-of-morocco',
+  },
 ]
