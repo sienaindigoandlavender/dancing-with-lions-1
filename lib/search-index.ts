@@ -797,4 +797,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['kasbah', 'ksar', 'ksour', 'Ait Benhaddou', 'Telouet', 'Taourirt', 'Amridil', 'Skoura', 'Ouarzazate', 'Glaoui', 'rammed earth', 'pisé', 'adobe', 'mud brick', 'fortified', 'UNESCO', 'architecture', 'Draa-Tafilalet', 'Atlas', 'Sahara', 'Dadès', 'Todra', 'Tichka', 'agadir', 'tighremt', 'Gladiator', 'Game of Thrones', 'Lawrence of Arabia', 'Hollywood', 'Atlas Studios', 'CERKAS', 'Getty Conservation', 'trade route', 'caravan'],
     href: '/data/route-thousand-kasbahs',
   },
+  {
+    id: 'couscous-friday',
+    number: '080',
+    title: 'Couscous Friday',
+    category: 'Culinary & Social Intelligence',
+    description: 'The sacred Friday meal. Seven regional variations, three-steam technique, communal platter, Maghreb styles. UNESCO 2020. Tfaya, lben, smen, gueddid.',
+    tags: ['couscous', 'Friday', 'Jumu\'ah', 'seksu', 'kseksu', 'tfaya', 'seffa', 'medfouna', 'barley', 'belboula', 'fish', 'seven vegetables', 'Bidaoui', 'Casablanca', 'couscoussier', 'kiskas', 'gsaa', 'smen', 'lben', 'buttermilk', 'gueddid', 'UNESCO', 'Amazigh', 'Berber', 'communal', 'ritual', 'food', 'semolina', 'Ramadan', 'Eid', 'wedding', 'funeral', 'Maghreb', 'Algeria', 'Tunisia', 'Mauritania', 'saffron', 'turmeric'],
+    href: '/data/couscous-friday',
+  },
 ]
