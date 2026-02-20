@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Islamic Spain — 781 Years of Al-Andalus | Dancing with Lions',
-  description: 'From the Umayyad crossing at Gibraltar to the fall of Granada — 781 years of Muslim rule on the Iberian Peninsula, mapped and measured.',
+  description: 'From Tariq ibn Ziyad\'s 711 crossing to the fall of Granada in 1492. Interactive timeline and map of 781 years of Muslim rule in the Iberian Peninsula.',
   openGraph: {
-    title: 'Islamic Spain — 781 Years of Al-Andalus',
-    description: '25 events, 22 cities, 8 key figures, and the territory chart of Muslim-held Iberia from 90% to zero. Interactive data story.',
+    title: 'Islamic Spain — 781 Years of Al-Andalus | Dancing with Lions',
+    description: 'Interactive timeline and Mapbox map: trace the conquest, golden age, and fall of Al-Andalus across 781 years of history.',
     siteName: 'Dancing with Lions',
   },
 }
