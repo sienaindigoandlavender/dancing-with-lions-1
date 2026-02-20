@@ -68,13 +68,13 @@ export default function MusicalTraditionsPage() {
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMidYMid slice">
             {/* Sound waves */}
             {Array.from({ length: 12 }, (_, i) => (
-              <ellipse key={i} cx="600" cy="400" rx={60 + i * 45} ry={30 + i * 22} fill="none" stroke="#7C3AED" strokeWidth="0.3" />
+              <ellipse key={i} cx="600" cy="400" rx={60 + i * 45} ry={30 + i * 22} fill="none" stroke="#6A4C93" strokeWidth="0.3" />
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#7C3AED', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#6A4C93', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 066 — Cultural &amp; Sound Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -90,7 +90,7 @@ export default function MusicalTraditionsPage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#7C3AED', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#6A4C93', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -101,7 +101,7 @@ export default function MusicalTraditionsPage() {
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7C3AED' }}>001 — The Sound Map</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#6A4C93' }}>001 — The Sound Map</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Where the Music Lives</h2>
           <div className="flex flex-wrap gap-4 mb-6">
             {TRADITIONS.map(t => (
@@ -135,7 +135,7 @@ export default function MusicalTraditionsPage() {
                       <p className="text-[16px] mt-0.5" style={{ color: '#999' }}>{t.arabicName}</p>
                     </div>
                     {t.unescoStatus && (
-                      <span className="text-[10px] uppercase tracking-[0.06em] px-2 py-1 ml-auto flex-shrink-0" style={{ background: '#7C3AED', color: '#fff' }}>UNESCO 2019</span>
+                      <span className="text-[10px] uppercase tracking-[0.06em] px-2 py-1 ml-auto flex-shrink-0" style={{ background: '#6A4C93', color: '#fff' }}>UNESCO 2019</span>
                     )}
                   </div>
 
@@ -201,7 +201,7 @@ export default function MusicalTraditionsPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#7C3AED' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#6A4C93' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             Our goal is to bring this music to the world.
@@ -213,13 +213,13 @@ export default function MusicalTraditionsPage() {
       {/* ═══ INSTRUMENTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#7C3AED' }}>003 — The Instruments</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#6A4C93' }}>003 — The Instruments</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>Eight Voices</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: '#1a1a1a' }}>
             {INSTRUMENTS.map((inst, i) => {
               const tradition = TRADITIONS.find(t => inst.tradition.includes(t.name.split(' ')[0]))
-              const color = tradition?.color || '#7C3AED'
+              const color = tradition?.color || '#6A4C93'
               const isVisible = visibleSections.has(`inst-${i}`)
               return (
                 <div key={inst.name} data-sid={`inst-${i}`} className="p-5 md:p-6 transition-all duration-700" style={{ background: '#0a0a0a', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(8px)' }}>
@@ -285,7 +285,7 @@ export default function MusicalTraditionsPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#7C3AED' }}>Sources: UNESCO, ethnomusicological research</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#6A4C93' }}>Sources: UNESCO, ethnomusicological research</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

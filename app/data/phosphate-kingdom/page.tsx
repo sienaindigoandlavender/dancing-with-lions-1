@@ -79,7 +79,7 @@ function PhosphateMap() {
           <span className="text-[11px]" style={{ color: '#888' }}>Mine</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 border-2 border-white/60" style={{ background: '#3B82F6', transform: 'rotate(45deg)' }} />
+          <div className="w-3 h-3 border-2 border-white/60" style={{ background: '#2D5F8A', transform: 'rotate(45deg)' }} />
           <span className="text-[11px]" style={{ color: '#888' }}>Processing plant</span>
         </div>
       </div>
@@ -256,7 +256,7 @@ export default function PhosphateKingdomPage() {
       {/* ═══ VALUE CHAIN ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>004 — The Value Chain</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>004 — The Value Chain</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>From Rock to Fertilizer to Port</h2>
           <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(0,0,0,0.4)' }}>OCP doesn&rsquo;t just mine phosphate. It extracts, processes, customizes, and ships. The integrated model is the competitive advantage.</p>
 
@@ -267,7 +267,7 @@ export default function PhosphateKingdomPage() {
                 <div key={v.step} data-sid={`chain-${i}`} className="py-8 transition-all duration-700" style={{ borderTop: '1px solid #1a1a1a', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10">
                     <div className="md:col-span-3">
-                      <span className="font-serif italic" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#22C55E', lineHeight: 1 }}>{String(i + 1).padStart(2, '0')}</span>
+                      <span className="font-serif italic" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#5C7C3E', lineHeight: 1 }}>{String(i + 1).padStart(2, '0')}</span>
                       <p className="font-serif text-[20px] italic mt-2" style={{ color: '#f5f5f5' }}>{v.step}</p>
                       <p className="text-[11px] mt-1" style={{ color: '#666' }}>{v.location}</p>
                     </div>
@@ -305,7 +305,7 @@ export default function PhosphateKingdomPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#5C7C3E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
             When China restricted phosphate fertilizer exports in 2024 to secure domestic

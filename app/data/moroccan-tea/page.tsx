@@ -56,15 +56,15 @@ export default function MoroccanTeaPage() {
             {/* Steam curves */}
             {[200, 500, 800].map((x) => (
               <g key={x}>
-                <path d={`M${x},600 Q${x - 20},500 ${x + 10},400 Q${x + 30},300 ${x - 5},200`} fill="none" stroke="#16A34A" strokeWidth="0.5" />
-                <path d={`M${x + 40},620 Q${x + 25},510 ${x + 50},410 Q${x + 60},310 ${x + 35},210`} fill="none" stroke="#16A34A" strokeWidth="0.3" />
+                <path d={`M${x},600 Q${x - 20},500 ${x + 10},400 Q${x + 30},300 ${x - 5},200`} fill="none" stroke="#2D6E4F" strokeWidth="0.5" />
+                <path d={`M${x + 40},620 Q${x + 25},510 ${x + 50},410 Q${x + 60},310 ${x + 35},210`} fill="none" stroke="#2D6E4F" strokeWidth="0.3" />
               </g>
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#16A34A', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#2D6E4F', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 072 — Food &amp; Cultural Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -80,7 +80,7 @@ export default function MoroccanTeaPage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#16A34A', lineHeight: 1 }}>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#2D6E4F', lineHeight: 1 }}>
                   {s.value}<span className="text-[16px] ml-1 opacity-50">{s.unit}</span>
                 </span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
@@ -127,7 +127,7 @@ export default function MoroccanTeaPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#16A34A' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#2D6E4F' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             The first glass is gentle as life, the second strong
@@ -140,7 +140,7 @@ export default function MoroccanTeaPage() {
       {/* ═══ PREPARATION — ANIMATED STEPS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#16A34A' }}>002 — The Ritual</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D6E4F' }}>002 — The Ritual</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>How It Is Made</h2>
           <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             The head of the household pours. The preparation is performed in front of guests.
@@ -156,12 +156,12 @@ export default function MoroccanTeaPage() {
                   onClick={() => setActiveStep(i)}
                   className="w-full text-left px-4 py-3 rounded-sm transition-all duration-500"
                   style={{
-                    background: activeStep === i ? '#16A34A10' : 'transparent',
-                    borderLeft: activeStep === i ? '2px solid #16A34A' : '2px solid transparent',
+                    background: activeStep === i ? '#2D6E4F10' : 'transparent',
+                    borderLeft: activeStep === i ? '2px solid #2D6E4F' : '2px solid transparent',
                   }}
                 >
                   <div className="flex items-baseline gap-2">
-                    <span className="text-[11px] font-mono" style={{ color: activeStep === i ? '#16A34A' : '#555' }}>{p.step}</span>
+                    <span className="text-[11px] font-mono" style={{ color: activeStep === i ? '#2D6E4F' : '#555' }}>{p.step}</span>
                     <span className="text-[13px]" style={{ color: activeStep === i ? '#f5f5f5' : '#888' }}>{p.name}</span>
                     {p.duration !== '—' && (
                       <span className="text-[10px] ml-auto" style={{ color: '#555' }}>{p.duration}</span>
@@ -177,7 +177,7 @@ export default function MoroccanTeaPage() {
                 key={activeStep}
                 style={{ animation: 'fadeUp 0.5s ease forwards' }}
               >
-                <span className="font-serif italic text-[48px] md:text-[64px] block leading-none" style={{ color: '#16A34A' }}>{PREPARATION[activeStep].step}</span>
+                <span className="font-serif italic text-[48px] md:text-[64px] block leading-none" style={{ color: '#2D6E4F' }}>{PREPARATION[activeStep].step}</span>
                 <h3 className="text-[20px] mt-3 mb-3" style={{ color: '#f5f5f5' }}>{PREPARATION[activeStep].name}</h3>
                 <p className="text-[14px] leading-relaxed max-w-[400px]" style={{ color: 'rgba(255,255,255,0.55)' }}>{PREPARATION[activeStep].detail}</p>
               </div>
@@ -191,7 +191,7 @@ export default function MoroccanTeaPage() {
                 <div
                   className="h-full rounded-full"
                   style={{
-                    background: '#16A34A',
+                    background: '#2D6E4F',
                     width: i < activeStep ? '100%' : i === activeStep ? '100%' : '0%',
                     opacity: i <= activeStep ? 1 : 0.15,
                     transition: 'all 0.5s ease',
@@ -219,7 +219,7 @@ export default function MoroccanTeaPage() {
                   transform: isVisible ? 'translateY(0)' : 'translateY(6px)',
                 }}>
                   <div className="grid grid-cols-1 md:grid-cols-[100px_1fr] gap-3 md:gap-8">
-                    <span className="font-serif italic text-[20px]" style={{ color: '#16A34A' }}>{h.year}</span>
+                    <span className="font-serif italic text-[20px]" style={{ color: '#2D6E4F' }}>{h.year}</span>
                     <div>
                       <p className="text-[14px] font-medium text-dwl-black mb-1">{h.event}</p>
                       <p className="text-[12px] text-dwl-body leading-relaxed">{h.detail}</p>
@@ -235,7 +235,7 @@ export default function MoroccanTeaPage() {
       {/* ═══ DARK QUOTE ═══ */}
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[680px] px-6 md:px-10 text-center">
-          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.4rem)', color: '#16A34A' }}>
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.4rem)', color: '#2D6E4F' }}>
             Moroccans often say that half of their bodies are green tea.
           </p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Zhejiang Chunli Tea Co.</p>
@@ -245,12 +245,12 @@ export default function MoroccanTeaPage() {
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#16A34A' }}>004 — Key Numbers</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D6E4F' }}>004 — Key Numbers</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
-                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#16A34A' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#2D6E4F' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -313,7 +313,7 @@ export default function MoroccanTeaPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#16A34A' }}>Sources: FAO, ITC</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D6E4F' }}>Sources: FAO, ITC</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

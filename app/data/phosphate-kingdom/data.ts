@@ -40,7 +40,7 @@ export const MINES: MineOperations[] = [
     outputShare: '~15%',
     capacity: 'Open-pit mine',
     note: '70 km north of Marrakech. Also hosts Mohammed VI Polytechnic University (UM6P) Living Lab — an open research site for mining innovation. Phosphate transported by rail to Safi for processing.',
-    color: '#3B82F6',
+    color: '#2D5F8A',
   },
   {
     id: 'youssoufia',
@@ -52,7 +52,7 @@ export const MINES: MineOperations[] = [
     outputShare: '~8%',
     capacity: 'Underground + open-pit',
     note: 'Morocco\'s second mine, third largest phosphate producer worldwide. Also operates the Bouchane mine 40 km away since 1998. Phosphate processed at Safi.',
-    color: '#3B82F6',
+    color: '#2D5F8A',
   },
   {
     id: 'boucraa',
@@ -76,7 +76,7 @@ export const MINES: MineOperations[] = [
     outputShare: 'Ramping up',
     capacity: '2.1 Mt/yr TSP (Phase 1), +2.0 Mt/yr (Phase 2, 2026)',
     note: 'OCP\'s newest integrated mining and processing site. Represents the next generation of phosphate infrastructure — built from scratch with green technology. Will exclusively produce Triple Super Phosphate (TSP).',
-    color: '#22C55E',
+    color: '#5C7C3E',
   },
 ]
 
@@ -110,7 +110,7 @@ export const PROCESSING: ProcessingPlant[] = [
     role: 'Phosphoric acid, fertilizers, animal feed',
     capacity: 'Phosphoric acid + fertilizer lines',
     note: 'OCP\'s first processing complex. Receives phosphate by rail from Gantour mines (Benguerir and Youssoufia). Produces phosphoric acid, fertilizers, and animal feed additives. The original downstream operation.',
-    color: '#3B82F6',
+    color: '#2D5F8A',
   },
 ]
 
@@ -145,10 +145,10 @@ export interface ExportDestination {
 }
 
 export const EXPORT_FLOWS: ExportDestination[] = [
-  { region: 'Africa', share: '~35%', keyMarkets: 'Nigeria, Ethiopia, Kenya, Tanzania, Côte d\'Ivoire', note: 'OCP\'s fastest-growing market. Dedicated African Fertilizer Complex at Jorf Lasfar. 17 subsidiaries across Africa. Customized blends for African soil types.', color: '#22C55E' },
+  { region: 'Africa', share: '~35%', keyMarkets: 'Nigeria, Ethiopia, Kenya, Tanzania, Côte d\'Ivoire', note: 'OCP\'s fastest-growing market. Dedicated African Fertilizer Complex at Jorf Lasfar. 17 subsidiaries across Africa. Customized blends for African soil types.', color: '#5C7C3E' },
   { region: 'South Asia', share: '~25%', keyMarkets: 'India, Bangladesh, Pakistan', note: 'India is one of OCP\'s largest single-country markets. Phosphate rock + phosphoric acid exports. Critical for food security in the world\'s most populous region.', color: '#F59E0B' },
-  { region: 'Europe', share: '~15%', keyMarkets: 'Spain, France, Turkey, Poland', note: 'Traditional market. Proximity advantage. Increasingly high-value specialty fertilizers rather than bulk rock.', color: '#3B82F6' },
-  { region: 'Latin America', share: '~15%', keyMarkets: 'Brazil, Argentina, Colombia', note: 'Brazil is one of the world\'s largest fertilizer importers. OCP expanding aggressively. Customized products for tropical soils.', color: '#A855F7' },
+  { region: 'Europe', share: '~15%', keyMarkets: 'Spain, France, Turkey, Poland', note: 'Traditional market. Proximity advantage. Increasingly high-value specialty fertilizers rather than bulk rock.', color: '#2D5F8A' },
+  { region: 'Latin America', share: '~15%', keyMarkets: 'Brazil, Argentina, Colombia', note: 'Brazil is one of the world\'s largest fertilizer importers. OCP expanding aggressively. Customized products for tropical soils.', color: '#7B506F' },
   { region: 'Rest of World', share: '~10%', keyMarkets: 'USA, Australia, New Zealand, Southeast Asia', note: 'Diversified export base. Boucraa exports historically served Oceania markets.', color: '#78716C' },
 ]
 

@@ -85,7 +85,7 @@ const MEDINA_ATLAS_MAP_POINTS = [
   { name: 'Meknès Medina', lat: 33.8935, lng: -5.5547, detail: 'Moulay Ismaïl\'s capital. 40km of walls.', color: '#5C4033' },
   { name: 'Tétouan Medina', lat: 35.5715, lng: -5.3684, detail: 'Andalusian character. White walls. Spanish influence.', color: '#4A6741' },
   { name: 'Essaouira Medina', lat: 31.5125, lng: -9.7700, detail: 'Mogador. Portuguese-Moroccan. Wind city.', color: '#1A5276' },
-  { name: 'Chefchaouen', lat: 35.1688, lng: -5.2636, detail: 'The blue city. Rif mountain medina. Founded 1471.', color: '#3B82F6' },
+  { name: 'Chefchaouen', lat: 35.1688, lng: -5.2636, detail: 'The blue city. Rif mountain medina. Founded 1471.', color: '#2D5F8A' },
 ]
 const MAPBOX_TOKEN_MEDINA_ATLAS = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 function MedinaatlasMap() {

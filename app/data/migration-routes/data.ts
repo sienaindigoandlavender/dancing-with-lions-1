@@ -144,10 +144,10 @@ export const KEY_CONCEPTS: KeyConcept[] = [
 ]
 
 export const TYPE_COLORS: Record<string, string> = {
-  moroccan: '#22C55E',
-  european: '#3B82F6',
-  crisis: '#EF4444',
-  international: '#A855F7',
+  moroccan: '#5C7C3E',
+  european: '#2D5F8A',
+  crisis: '#A0452E',
+  international: '#7B506F',
 }
 
 export const BIBLIOGRAPHY = [
@@ -177,7 +177,7 @@ export const MAP_POINTS = [
 ]
 
 export const MAP_ROUTES = [
-  { name: 'Western Mediterranean', coords: [[-5.83, 35.76], [-5.35, 36.14]] as [number, number][], color: '#EF4444' },
+  { name: 'Western Mediterranean', coords: [[-5.83, 35.76], [-5.35, 36.14]] as [number, number][], color: '#A0452E' },
   { name: 'Atlantic to Canaries', coords: [[-15.96, 23.68], [-13.20, 27.15], [-15.42, 28.12]] as [number, number][], color: '#F59E0B' },
-  { name: 'Eastern Overland', coords: [[-1.91, 34.68], [-2.93, 35.17], [-5.83, 35.76]] as [number, number][], color: '#3B82F6' },
+  { name: 'Eastern Overland', coords: [[-1.91, 34.68], [-2.93, 35.17], [-5.83, 35.76]] as [number, number][], color: '#2D5F8A' },
 ]

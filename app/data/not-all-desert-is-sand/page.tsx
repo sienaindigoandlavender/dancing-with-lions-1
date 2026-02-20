@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { DESERT_TYPES, SAHARA_FACTS, MOROCCAN_ERGS, HISTORY, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY , MAP_POINTS } from './data'
 
 const ACCENT = '#F59E0B'
-const TYPE_COLORS = ['#D4A373', '#A1887F', '#F59E0B', '#3B82F6']
-const THREAD_COLORS: Record<string, string> = { geology: '#A1887F', climate: '#3B82F6', human: '#22C55E' }
+const TYPE_COLORS = ['#D4A373', '#A1887F', '#F59E0B', '#2D5F8A']
+const THREAD_COLORS: Record<string, string> = { geology: '#A1887F', climate: '#2D5F8A', human: '#5C7C3E' }
 
 
 const MAPBOX_TK_D = process.env.NEXT_PUBLIC_MAPBOX_TOKEN

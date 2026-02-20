@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { INSTITUTIONS, SCHOLARS, THE_DEBATE, LIBRARY, HISTORY, COMPARISONS, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
-const ACCENT = '#1E3A8A'
-const THREAD_COLORS: Record<string, string> = { founding: '#1E3A8A', scholars: '#7C3AED', modern: '#22C55E', debate: '#EF4444' }
+const ACCENT = '#1E3A5F'
+const THREAD_COLORS: Record<string, string> = { founding: '#1E3A5F', scholars: '#6A4C93', modern: '#5C7C3E', debate: '#A0452E' }
 export default function OldestUniversitiesPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeInst, setActiveInst] = useState(0)
@@ -98,7 +98,7 @@ export default function OldestUniversitiesPage() {
               <h3 className="font-serif italic text-[20px] text-[#0a0a0a] mb-6">{d.claim}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div><span className="text-[10px] uppercase tracking-[0.1em] block mb-3" style={{ color: ACCENT }}>For Morocco</span><p className="text-[14px] text-[#525252] leading-[1.75]">{d.forMorocco}</p></div>
-                <div><span className="text-[10px] uppercase tracking-[0.1em] block mb-3" style={{ color: '#EF4444' }}>Counter</span><p className="text-[14px] text-[#525252] leading-[1.75]">{d.counterArgument}</p></div>
+                <div><span className="text-[10px] uppercase tracking-[0.1em] block mb-3" style={{ color: '#A0452E' }}>Counter</span><p className="text-[14px] text-[#525252] leading-[1.75]">{d.counterArgument}</p></div>
               </div>
             </div>))}
         </div>

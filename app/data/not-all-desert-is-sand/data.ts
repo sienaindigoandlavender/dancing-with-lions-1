@@ -137,7 +137,7 @@ export const MAP_POINTS = [
   { name: 'Erg Chegaga', lat: 29.8000, lng: -6.2833, detail: 'Remote grand erg. 40km long. Wilder, less visited. Near Mhamid.', color: '#F59E0B' },
   { name: 'Hammada du Draa', lat: 30.5, lng: -5.5, detail: 'Stone desert. Flat rock pavement. Largest hammada in Morocco.', color: '#8B7355' },
   { name: 'Reg (Tanezrouft)', lat: 27.0, lng: -3.0, detail: 'Gravel plain. Land of Thirst. Most desolate landscape on Earth.', color: '#A0522D' },
-  { name: 'Draa Valley (Oued)', lat: 30.2, lng: -5.8, detail: 'Longest river in Morocco. 1,100km. Seasonal flow. Palm oases.', color: '#2563EB' },
+  { name: 'Draa Valley (Oued)', lat: 30.2, lng: -5.8, detail: 'Longest river in Morocco. 1,100km. Seasonal flow. Palm oases.', color: '#1A5276' },
   { name: 'Zagora', lat: 30.3300, lng: -5.8400, detail: 'Gateway to the Sahara. Timbuktu 52 days sign.', color: '#737373' },
   { name: 'Mhamid el Ghizlane', lat: 29.8281, lng: -5.7222, detail: 'Last town before the desert. End of the road.', color: '#737373' },
 ]

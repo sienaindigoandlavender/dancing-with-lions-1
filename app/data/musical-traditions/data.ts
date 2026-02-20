@@ -34,7 +34,7 @@ export const TRADITIONS: Tradition[] = [
     ritual: 'Lila — all-night healing ceremony. Led by maalem (master) and moqadma (priestess). Begins with animal sacrifice (dbiha), then aada (procession with acrobatic dance). Seven suites invoke mlouk (spirits) through colours, incense, and rhythms. Participants enter jadba (trance). Each spirit has a colour: white (Moulay Abdelkader), blue (Sidi Moussa/sea), red (Sidi Hamu), black (Lalla Mimouna), yellow (Lalla Mira).',
     unescoStatus: 'UNESCO Intangible Cultural Heritage — inscribed December 2019',
     detail: ' Rooted in the experience of enslaved West Africans (many Bambara-speaking, from present-day Mali) brought to Morocco from the 16th century. The Gnawa claim Bilal ibn Rabah — the first muezzin and the Prophet\'s freed companion — as their patron saint. A Sufi brotherhood fusing African, Arab-Muslim, and Amazigh practices. Once marginalized, now celebrated globally. The Essaouira Gnaoua Festival (founded 1998) draws hundreds of thousands annually. Western collaborators include Brian Jones (1968), Randy Weston, Bill Laswell, Robert Plant, Jimmy Page, Pat Metheny, and Jacob Collier. Nass El Ghiwane drew heavily on Gnawa rhythms in the 1970s.',
-    color: '#7C3AED', lat: 31.5085, lng: -9.7595,
+    color: '#6A4C93', lat: 31.5085, lng: -9.7595,
   },
   {
     id: 'andalusi', name: 'Andalusi (Al-Ala)', arabicName: 'الآلة',
@@ -54,7 +54,7 @@ export const TRADITIONS: Tradition[] = [
     instruments: ['Bendir (frame drum with snare)', 'Tbel (large double-headed drum)', 'Rebab (single-string fiddle)', 'Lutar (Amazigh lute)', 'Tazammart (double clarinet)', 'Naqus (bell)', 'Hand-clapping'],
     keyArtists: ['Ammouri Mbarek ("John Lennon of the Berbers")', 'Najat Aatabou (500,000-copy debut)', 'Rais Haj Belaid (Souss legend)', 'Ousmane (first Tamazight pop group, 1974)', 'Tinariwen (Grammy 2011)', 'Master Musicians of Joujouka'],
     detail: 'The oldest musical tradition in Morocco. Three main forms: Ahwash — collective village music of southern Morocco (Ouarzazate, Draa, Souss), men and women in rows or circles, call-and-response over bendir drums. Ahidous — collective dance-song of Middle/Eastern High Atlas, facing lines moving in sync. Rrways (Raïs) — travelling professional poet-musicians of the Souss/Chleuh tradition, up to 12 musicians. 9-segment performance: astara (rebab prelude), amarg (sung poetry), tamssust (transition), aberdag (dance), tabbayt (accelerating finale). Guedra — Saharan trance music of the Tuareg. Each village develops its own variant. The rrways historically served as intermediaries between isolated communities, sharing news through poetry.',
-    color: '#22C55E', lat: 31.50, lng: -6.50,
+    color: '#5C7C3E', lat: 31.50, lng: -6.50,
   },
   {
     id: 'chaabi', name: 'Chaabi', arabicName: 'الشعبي',
@@ -74,7 +74,7 @@ export const TRADITIONS: Tradition[] = [
     instruments: ['Gasba (end-blown flute)', 'Guellal (goblet drum)', 'Synthesizer', 'Electric guitar', 'Derbouka', 'Accordion', 'Drum machines'],
     keyArtists: ['Cheb Khaled (Algeria, global icon)', 'Cheb Mimoun El Oujdi (17 albums)', 'Cheb Hanino', 'Chaba Zahouania'],
     detail: 'Born in Oran, Algeria in the 1920s as expression of social frustration and taboo subjects — alcohol, love, sex, politics. "Raï" means "opinion" or "point of view." Crossed into eastern Morocco through Oujda (14 km from the Algerian border). Known for code-switching between French and Arabic, adding rhetorical effect while expanding audience reach. Addressed subjects other Moroccan genres avoided. The synthesizer-driven "pop raï" of the 1980s–90s became the region\'s first transnational popular music, with Cheb Khaled\'s "Didi" (1992) a global hit.',
-    color: '#EF4444', lat: 34.6814, lng: -1.9086,
+    color: '#A0452E', lat: 34.6814, lng: -1.9086,
   },
 ]
 

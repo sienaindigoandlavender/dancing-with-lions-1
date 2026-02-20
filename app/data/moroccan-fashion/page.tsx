@@ -7,9 +7,9 @@ import { GARMENTS, EMBROIDERY_STYLES, CRAFT_COMPONENTS, DESIGNERS, HISTORY, INDU
 const ACCENT = '#E11D48'
 const THREAD_COLORS: Record<string, string> = {
   origin: '#F59E0B',
-  royal: '#A855F7',
-  craft: '#22C55E',
-  global: '#3B82F6',
+  royal: '#7B506F',
+  craft: '#5C7C3E',
+  global: '#2D5F8A',
   recognition: '#E11D48',
 }
 

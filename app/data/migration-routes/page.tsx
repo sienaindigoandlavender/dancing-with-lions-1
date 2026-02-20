@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { ROUTES, TRANSIT_CITIES, POLICY_TIMELINE, HERO_STATS, KEY_NUMBERS, KEY_CONCEPTS, TYPE_COLORS, BIBLIOGRAPHY, MAP_POINTS, MAP_ROUTES } from './data'
 
-const ACCENT = '#EF4444'
+const ACCENT = '#A0452E'
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 function MigrationMap() {
@@ -24,7 +24,7 @@ function MigrationMap() {
         })
         MAP_POINTS.forEach(p => {
           const el = document.createElement('div')
-          el.style.cssText = `width:12px;height:12px;border-radius:50%;background:#EF4444;border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;`
+          el.style.cssText = `width:12px;height:12px;border-radius:50%;background:#A0452E;border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;`
           el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.5)' })
           el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
           new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
@@ -63,7 +63,7 @@ export default function MigrationRoutesPage() {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.05]" preserveAspectRatio="xMidYMid slice">
             <line x1="200" y1="200" x2="900" y2="600" stroke={ACCENT} strokeWidth="0.4" strokeDasharray="4,8" />
-            <line x1="100" y1="400" x2="800" y2="300" stroke="#3B82F6" strokeWidth="0.4" strokeDasharray="4,8" />
+            <line x1="100" y1="400" x2="800" y2="300" stroke="#2D5F8A" strokeWidth="0.4" strokeDasharray="4,8" />
             <line x1="400" y1="100" x2="700" y2="700" stroke="#F59E0B" strokeWidth="0.4" strokeDasharray="4,8" />
           </svg>
         </div>
@@ -91,7 +91,7 @@ export default function MigrationRoutesPage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>The Routes — Mapped</p>
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>The Routes — Mapped</p>
         <MigrationMap />
       </div></section>
 

@@ -304,6 +304,45 @@ function SupplyChain() {
 // PAGE
 // ═══════════════════════════════════════════════════
 
+
+const MARRIAGE_ECONOMY_PTS = [
+  { name: 'Casablanca', lat: 33.57, lng: -7.59, detail: 'Highest costs. 200,000-500,000 MAD average.', color: '#A0452E' },
+  { name: 'Rabat', lat: 34.02, lng: -6.84, detail: 'Government city. 150,000-400,000 MAD.', color: '#C17F28' },
+  { name: 'Fez', lat: 34.02, lng: -5.01, detail: 'Traditional Fassi weddings. Gold-heavy.', color: '#C8A415' },
+  { name: 'Marrakech', lat: 31.63, lng: -7.98, detail: 'Tourism-inflated. Destination weddings.', color: '#D4A373' },
+  { name: 'Rural Souss', lat: 30.20, lng: -8.80, detail: 'Lowest costs. Community-funded. 30,000-80,000 MAD.', color: '#5C7C3E' },
+  { name: 'Oujda', lat: 34.68, lng: -1.91, detail: 'Eastern border. Algerian influence. Moderate.', color: '#8B7355' },
+]
+const MBT_MARRIAGE_ECONOMY = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+function MarriageEconomyMap() {
+  const mc = useRef<HTMLDivElement>(null)
+  const mr = useRef<mapboxgl.Map | null>(null)
+  useEffect(() => {
+    if (!mc.current || !MBT_MARRIAGE_ECONOMY || mr.current) return
+    import('mapbox-gl').then((mapboxgl) => {
+      (mapboxgl as typeof mapboxgl & { accessToken: string }).accessToken = MBT_MARRIAGE_ECONOMY!
+      const map = new mapboxgl.Map({ container: mc.current!, style: 'mapbox://styles/mapbox/dark-v11', center: [-6.5, 32.5], zoom: 5.2, attributionControl: false })
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+      mr.current = map
+      map.on('load', () => {
+        MARRIAGE_ECONOMY_PTS.forEach(p => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${p.color};border:2px solid rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.2s;box-shadow:0 0 10px ${p.color}55;`
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.4)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          el.addEventListener('click', () => { map.flyTo({ center: [p.lng, p.lat], zoom: 8, duration: 1200 }) })
+          new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 14, closeButton: false, maxWidth: '220px' })
+              .setHTML(`<div style="font-family:monospace;padding:4px 0"><p style="font-size:15px;font-weight:600;margin:0 0 4px;color:#f5f5f5">${p.name}</p><p style="font-size:12px;color:#aaa;margin:0;line-height:1.4">${p.detail}</p></div>`))
+            .addTo(map)
+        })
+      })
+    })
+    return () => { mr.current?.remove(); mr.current = null }
+  }, [])
+  return <div ref={mc} className="w-full" style={{ height: '480px', background: '#0a0a0a' }} />
+}
+
 export default function MarriageEconomyPage() {
   const heroR = useReveal()
   const numsR = useReveal()
@@ -510,7 +549,14 @@ export default function MarriageEconomyPage() {
 
       <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
-      {/* ═══ SOURCES ═══ */}
+      
+      {/* ═══ MAP ═══ */}
+      <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#C17F28' }}>Wedding Costs by City</p>
+        <MarriageEconomyMap />
+      </div></section>
+
+{/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
