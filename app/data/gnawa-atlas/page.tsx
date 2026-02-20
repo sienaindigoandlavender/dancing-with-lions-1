@@ -4,21 +4,16 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { INSTRUMENTS, SEVEN_COLOURS, MAALEMS, LILA_PHASES, HISTORY, HERO_STATS, KEY_NUMBERS, REGIONAL_STYLES, KEY_VOCABULARY, BIBLIOGRAPHY } from './data'
 
-const ACCENT = '#8B2FC9' // deep spiritual purple
+const ACCENT = '#8B2FC9'
 const THREAD_COLORS: Record<string, string> = {
-  origin: '#8B7355',
-  formation: '#8B2FC9',
-  modern: '#3B82F6',
-  global: '#22C55E',
-  festival: '#E8A94E',
-  recognition: '#EF4444',
+  origin: '#8B7355', formation: '#8B2FC9', modern: '#3B82F6',
+  global: '#22C55E', festival: '#E8A94E', recognition: '#EF4444',
 }
 
 export default function GnawaAtlasPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())
   const [activeInstrument, setActiveInstrument] = useState(0)
   const [activeColour, setActiveColour] = useState(0)
-  const [activeMaalem, setActiveMaalem] = useState(0)
   const [activePhase, setActivePhase] = useState(0)
   const [activeThread, setActiveThread] = useState<string | null>(null)
   const [expandedVocab, setExpandedVocab] = useState<number | null>(null)
@@ -27,339 +22,359 @@ export default function GnawaAtlasPage() {
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-sid'); if (id) setVis(prev => new Set(prev).add(id)) } })
-    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' })
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' })
     document.querySelectorAll('[data-sid]').forEach(el => obs.observe(el))
     return () => obs.disconnect()
   }, [])
 
-  const s = (id: string) => vis.has(id)
+  const v = (id: string) => vis.has(id)
   const filteredHistory = activeThread ? HISTORY.filter(h => h.thread === activeThread) : HISTORY
   const visibleMaalems = showAllMaalems ? MAALEMS : MAALEMS.slice(0, 4)
 
   return (
-    <main className="min-h-screen bg-white text-[#1C1917]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+    <main className="min-h-screen bg-white text-[#0a0a0a]" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-        {/* Seven colour band */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 flex">
+      {/* ═══ HERO — Full viewport, cinematic ═══ */}
+      <section className="relative min-h-[100vh] flex flex-col justify-end overflow-hidden" style={{ background: '#0a0a0a' }}>
+        <div className="absolute top-0 left-0 right-0 h-[3px] flex">
           {SEVEN_COLOURS.map((c, i) => (
-            <div key={i} className="flex-1" style={{ backgroundColor: c.hex === '#F5F5F5' ? '#cccccc' : c.hex === '#1a1a1a' ? '#333' : c.hex }} />
+            <div key={i} className="flex-1" style={{ backgroundColor: c.hex === '#F5F5F5' ? '#555' : c.hex === '#1a1a1a' ? '#333' : c.hex }} />
           ))}
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="mb-6">
-            <Link href="/data" className="text-xs tracking-[0.3em] text-neutral-500 uppercase hover:text-neutral-600 transition-colors">← Data Index</Link>
-          </div>
-          <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT }}>Module 083 · Musical &amp; Spiritual Intelligence</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
-            The Gnawa Atlas
-          </h1>
-          <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Descendants of West African slaves. Five hundred years of spiritual music.
-            The guembri, the qraqeb, the seven colours, the all-night lila. Trance as therapy. Possession as negotiation. UNESCO, 2019.
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.03]" preserveAspectRatio="xMidYMid slice">
+            {[...Array(7)].map((_, j) => (
+              <circle key={j} cx={600} cy={400} r={80 + j * 60} stroke={ACCENT} strokeWidth="0.5" fill="none" opacity={0.5 - j * 0.06} />
+            ))}
+          </svg>
+        </div>
+        <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block transition-colors" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>
+            Module 083 · Musical &amp; Spiritual Intelligence
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
+            The Gnawa<br />Atlas
+          </h1>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+            Descendants of West African slaves. Five hundred years of spiritual music.
+            Guembri, qraqeb, seven colours, the all-night lila. UNESCO, 2019.
+          </p>
+          <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((st, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-light mb-1" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{st.value}</div>
-                <div className="text-[10px] tracking-[0.15em] uppercase text-neutral-500 leading-snug">{st.label}</div>
+              <div key={i}>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <div className="w-px h-8 bg-gradient-to-b from-transparent to-neutral-600" />
-          <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-600">Scroll</span>
-        </div>
+        <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
       </section>
 
-      {/* ── INSTRUMENTS ── */}
-      <section data-sid="instruments" className="py-24 px-6">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('instruments') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Instruments</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Three Voices</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-10 leading-relaxed">
+      {/* ═══ INSTRUMENTS — Expanding selector, asymmetric detail ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>001 — The Instruments</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-6">Three Voices</h2>
+          <p className="text-[14px] text-[#737373] max-w-[500px] leading-relaxed mb-16">
             Guembri, qraqeb, tbel. Wood, skin, gut, iron. Everything from the animal and the earth.
           </p>
-
-          <div className="flex gap-2 mb-8">
+          <div className="flex gap-3 mb-12">
             {INSTRUMENTS.map((inst, i) => (
               <button key={i} onClick={() => setActiveInstrument(i)}
-                className={`flex-1 text-left p-4 border transition-all duration-300 ${activeInstrument === i ? 'border-[#8B2FC9]/60 bg-[#8B2FC9]/5' : 'border-neutral-200 hover:border-neutral-300'}`}>
-                <div className="text-sm font-medium">{inst.name}</div>
-                <div className="text-[10px] text-neutral-600 mt-1">{inst.aliases.join(' / ')}</div>
+                className="transition-all duration-500 text-left"
+                style={{ flex: activeInstrument === i ? 3 : 1, padding: '20px', background: activeInstrument === i ? '#0a0a0a' : '#fafafa', color: activeInstrument === i ? '#fff' : '#999', border: 'none' }}>
+                <span className="font-serif italic block" style={{ fontSize: activeInstrument === i ? '28px' : '16px', transition: 'font-size 0.5s' }}>{inst.name}</span>
+                <span className="text-[10px] uppercase tracking-[0.06em] block mt-1 opacity-60">{inst.aliases[0]}</span>
               </button>
             ))}
           </div>
-
-          <div className="border border-neutral-200 p-6 md:p-8">
-            <div className="flex items-baseline gap-3 mb-1">
-              <h3 className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{INSTRUMENTS[activeInstrument].name}</h3>
-              <span className="text-sm text-neutral-600" dir="rtl">{INSTRUMENTS[activeInstrument].arabic}</span>
-            </div>
-            <div className="text-xs text-neutral-500 italic mb-4">{INSTRUMENTS[activeInstrument].aliases.join(' · ')}</div>
-
-            <div className="space-y-4 text-sm text-neutral-500 leading-relaxed">
-              <p>{INSTRUMENTS[activeInstrument].description}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-neutral-200">
-                <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Materials</span>{INSTRUMENTS[activeInstrument].materials}</div>
-                <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Construction</span>{INSTRUMENTS[activeInstrument].construction}</div>
-                <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Playing Technique</span>{INSTRUMENTS[activeInstrument].playing}</div>
-                <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Ritual Role</span>{INSTRUMENTS[activeInstrument].role}</div>
+          <div data-sid="instruments" className={`transition-all duration-700 ${v('instruments') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+              <div className="md:col-span-7">
+                <span className="text-[24px] md:text-[28px]" dir="rtl" style={{ color: '#d4d4d4', fontFamily: "'Instrument Serif', Georgia, serif" }}>{INSTRUMENTS[activeInstrument].arabic}</span>
+                <p className="text-[15px] text-[#525252] leading-[1.75] mt-4 mb-8">{INSTRUMENTS[activeInstrument].description}</p>
+                <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+                  {([['Materials', INSTRUMENTS[activeInstrument].materials], ['Construction', INSTRUMENTS[activeInstrument].construction], ['Playing', INSTRUMENTS[activeInstrument].playing], ['Ritual Role', INSTRUMENTS[activeInstrument].role]] as const).map(([label, text]) => (
+                    <div key={label}>
+                      <span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: ACCENT }}>{label}</span>
+                      <p className="text-[13px] text-[#525252] leading-relaxed">{text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="pt-3 border-t border-neutral-200">
-                <span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">African Ancestor</span>
-                <p className="text-neutral-600">{INSTRUMENTS[activeInstrument].ancestor}</p>
+              <div className="md:col-span-5 flex flex-col justify-end">
+                <div className="border-l-2 pl-6" style={{ borderColor: ACCENT }}>
+                  <span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: '#999' }}>African Ancestor</span>
+                  <p className="text-[14px] text-[#525252] leading-relaxed">{INSTRUMENTS[activeInstrument].ancestor}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── THE SEVEN COLOURS ── */}
-      <section data-sid="colours" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('colours') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Seven Mluk</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Seven Colours, Seven Realms</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-10 leading-relaxed">
+      {/* ═══ SEVEN COLOURS — Dark, immersive colour swatches ═══ */}
+      <section style={{ background: '#0a0a0a' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Seven Mluk</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#fff' }}>Seven Colours,<br />Seven Realms</h2>
+          <p className="text-[14px] max-w-[480px] leading-relaxed mb-16" style={{ color: 'rgba(255,255,255,0.35)' }}>
             The lila moves through seven spirit families — each identified by a colour, an incense, a rhythm, and a character.
-            A prismatic decomposition of the original light.
           </p>
-
-          {/* Colour selector — actual colours */}
-          <div className="flex gap-1 mb-8">
+          <div className="flex gap-1 mb-12">
             {SEVEN_COLOURS.map((c, i) => (
               <button key={i} onClick={() => setActiveColour(i)}
-                className={`flex-1 h-14 relative transition-all duration-300 border ${activeColour === i ? 'border-neutral-400 scale-105 z-10' : 'border-transparent hover:border-neutral-300'}`}
-                style={{ backgroundColor: c.hex === '#F5F5F5' ? '#e8e8e8' : c.hex === '#1a1a1a' ? '#222' : c.hex }}>
-                <span className={`absolute bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-wider ${c.hex === '#F5F5F5' || c.hex === '#87CEEB' || c.hex === '#F9A825' ? 'text-neutral-800' : 'text-white/80'}`}>
-                  {c.colour}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          <div className="border border-neutral-200 p-6 md:p-8" style={{ borderLeftColor: SEVEN_COLOURS[activeColour].hex === '#F5F5F5' ? '#ccc' : SEVEN_COLOURS[activeColour].hex, borderLeftWidth: '3px' }}>
-            <div className="flex items-baseline gap-3 mb-1">
-              <h3 className="text-xl font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{SEVEN_COLOURS[activeColour].name}</h3>
-              <span className="text-xs text-neutral-600" dir="rtl">{SEVEN_COLOURS[activeColour].arabic}</span>
-            </div>
-            <div className="text-xs text-neutral-500 mb-4">{SEVEN_COLOURS[activeColour].spirits}</div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-neutral-500 leading-relaxed">
-              <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Character</span>{SEVEN_COLOURS[activeColour].character}</div>
-              <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Incense</span>{SEVEN_COLOURS[activeColour].incense}</div>
-              <div className="md:col-span-2"><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Domain</span>{SEVEN_COLOURS[activeColour].domain}</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE LILA ── */}
-      <section data-sid="lila" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('lila') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Ceremony</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Anatomy of a Lila</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-10 leading-relaxed">
-            Dusk to dawn. Sacrifice, processional, the seven-colour journey, renaissance.
-            Not a concert — a negotiation with the spirit world.
-          </p>
-
-          <div className="flex gap-2 mb-8">
-            {LILA_PHASES.map((p, i) => (
-              <button key={i} onClick={() => setActivePhase(i)}
-                className={`flex-1 text-left p-3 border transition-all duration-300 ${activePhase === i ? 'border-[#8B2FC9]/60 bg-[#8B2FC9]/5' : 'border-neutral-200 hover:border-neutral-300'}`}>
-                <div className="text-sm font-medium">{p.name}</div>
-                <div className="text-[10px] text-neutral-600 mt-1">{p.duration}</div>
-              </button>
-            ))}
-          </div>
-
-          <div className="border border-neutral-200 p-6 md:p-8">
-            <div className="flex items-baseline gap-3 mb-1">
-              <h3 className="text-xl font-light" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{LILA_PHASES[activePhase].name}</h3>
-              {LILA_PHASES[activePhase].arabic && <span className="text-sm text-neutral-600" dir="rtl">{LILA_PHASES[activePhase].arabic}</span>}
-            </div>
-            <div className="text-xs text-neutral-500 mb-4">{LILA_PHASES[activePhase].duration}</div>
-            <p className="text-sm text-neutral-500 leading-relaxed mb-3">{LILA_PHASES[activePhase].description}</p>
-            <p className="text-xs text-neutral-500 italic">{LILA_PHASES[activePhase].music}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE MAALEMS ── */}
-      <section data-sid="maalems" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('maalems') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>The Masters</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Maalem Lineages</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-10 leading-relaxed">
-            Eight masters. Essaouira, Marrakech, Tangier, Casablanca, New York.
-            The title is earned after decades. The guembri is inherited.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
-            {visibleMaalems.map((m, i) => (
-              <button key={i} onClick={() => setActiveMaalem(i)}
-                className={`text-left p-3 border transition-all duration-300 ${activeMaalem === i ? 'border-[#8B2FC9]/60 bg-[#8B2FC9]/5' : 'border-neutral-200 hover:border-neutral-300'}`}>
-                <div className="text-xs font-medium leading-tight">{m.name}</div>
-                <div className="text-[10px] text-neutral-600 mt-1">{m.city}</div>
-              </button>
-            ))}
-          </div>
-
-          {!showAllMaalems && MAALEMS.length > 4 && (
-            <button onClick={() => setShowAllMaalems(true)}
-              className="mb-8 text-xs tracking-[0.15em] uppercase hover:text-neutral-600 transition-colors" style={{ color: ACCENT }}>
-              Show all {MAALEMS.length} masters →
-            </button>
-          )}
-
-          {activeMaalem < visibleMaalems.length && (
-            <div className="border border-neutral-200 p-6 md:p-8">
-              <h3 className="text-xl font-light mb-0.5" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{MAALEMS[activeMaalem].name}</h3>
-              <div className="text-xs text-neutral-500 mb-4">{MAALEMS[activeMaalem].years} · {MAALEMS[activeMaalem].city}</div>
-              <div className="space-y-3 text-sm text-neutral-500 leading-relaxed">
-                <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Lineage</span>{MAALEMS[activeMaalem].lineage}</div>
-                <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Significance</span><span className="text-neutral-600">{MAALEMS[activeMaalem].significance}</span></div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 border-t border-neutral-200">
-                  <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Collaborations</span>{MAALEMS[activeMaalem].collaborations}</div>
-                  <div><span className="text-neutral-500 text-xs uppercase tracking-wider block mb-1">Style</span>{MAALEMS[activeMaalem].style}</div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ── REGIONAL STYLES ── */}
-      <section data-sid="styles" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('styles') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Geography of Sound</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-10" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Five Regional Styles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {REGIONAL_STYLES.map((r, i) => (
-              <div key={i} className="border border-neutral-200 p-5 hover:border-neutral-300 transition-colors">
-                <div className="text-sm font-medium mb-0.5">{r.name}</div>
-                <div className="text-xs mb-3" style={{ color: ACCENT }}>{r.city}</div>
-                <p className="text-xs text-neutral-500 leading-relaxed">{r.character}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── VOCABULARY ── */}
-      <section data-sid="vocab" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('vocab') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Language</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-10" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Gnawa Vocabulary</h2>
-          <div className="space-y-2">
-            {KEY_VOCABULARY.map((v, i) => (
-              <button key={i} onClick={() => setExpandedVocab(expandedVocab === i ? null : i)}
-                className={`w-full text-left border transition-all duration-300 ${expandedVocab === i ? 'border-neutral-300 bg-white/[0.01]' : 'border-neutral-200 hover:border-neutral-300'}`}>
-                <div className="flex items-center justify-between p-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-medium">{v.term}</span>
-                    <span className="text-xs text-neutral-600" dir="rtl">{v.arabic}</span>
-                  </div>
-                  <span className="text-neutral-600 text-xs">{expandedVocab === i ? '−' : '+'}</span>
-                </div>
-                {expandedVocab === i && (
-                  <div className="px-4 pb-4">
-                    <p className="text-sm text-neutral-500 leading-relaxed">{v.definition}</p>
-                  </div>
+                className="transition-all duration-500 relative overflow-hidden"
+                style={{ flex: activeColour === i ? 4 : 1, height: '120px', background: c.hex === '#F5F5F5' ? '#ddd' : c.hex === '#1a1a1a' ? '#333' : c.hex, minWidth: '32px' }}>
+                {activeColour === i && (
+                  <span className="absolute bottom-3 left-4 text-[11px] font-medium" style={{ color: ['#F5F5F5','#FCBF49','#22C55E'].includes(c.hex) ? '#0a0a0a' : '#fff' }}>{c.name}</span>
                 )}
               </button>
             ))}
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 min-h-[200px]">
+            <div className="md:col-span-5">
+              <h3 className="font-serif italic text-[28px] md:text-[36px]" style={{ color: '#fff', lineHeight: 1.1 }}>{SEVEN_COLOURS[activeColour].name}</h3>
+              <p className="text-[13px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>{SEVEN_COLOURS[activeColour].arabic}</p>
+              <p className="text-[14px] leading-relaxed mt-6" style={{ color: 'rgba(255,255,255,0.5)' }}>{SEVEN_COLOURS[activeColour].character}</p>
+            </div>
+            <div className="md:col-span-3">
+              <span className="text-[10px] uppercase tracking-[0.1em] block mb-3" style={{ color: ACCENT }}>Spirit</span>
+              <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{SEVEN_COLOURS[activeColour].spirits}</p>
+            </div>
+            <div className="md:col-span-4">
+              <span className="text-[10px] uppercase tracking-[0.1em] block mb-3" style={{ color: ACCENT }}>Incense</span>
+              <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{SEVEN_COLOURS[activeColour].incense}</p>
+              <span className="text-[10px] uppercase tracking-[0.1em] block mb-3 mt-6" style={{ color: ACCENT }}>Songs</span>
+              <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{SEVEN_COLOURS[activeColour].domain}</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── TIMELINE ── */}
-      <section data-sid="timeline" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('timeline') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Chronology</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>From Slavery to UNESCO</h2>
-          <p className="text-sm text-neutral-500 max-w-2xl mb-8 leading-relaxed">
-            Twelve centuries of survival, adaptation, and global recognition.
+      {/* ═══ PULLQUOTE — Accent colour moment ═══ */}
+      <section className="flex items-center justify-center min-h-[45vh]" style={{ background: ACCENT }}>
+        <div className="max-w-[720px] px-8 text-center py-20">
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.8rem)', color: '#fff' }}>
+            The lila is not a performance.<br />It is a negotiation between the living and the unseen.
           </p>
+          <p className="text-[10px] uppercase tracking-[0.2em] mt-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Deborah Kapchan, Traveling Spirit Masters
+          </p>
+        </div>
+      </section>
 
-          <div className="flex flex-wrap gap-2 mb-8">
+      {/* ═══ THE LILA — Oversized phase numbers ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Ritual</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-6">The All-Night Lila</h2>
+          <p className="text-[14px] text-[#737373] max-w-[500px] leading-relaxed mb-16">
+            From sunset to sunrise. Seven phases. The ceremony unfolds through food, prayer, trance, and dawn.
+          </p>
+          <div data-sid="lila" className={`transition-all duration-700 ${v('lila') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="flex gap-2 md:gap-4 mb-12">
+              {LILA_PHASES.map((_, i) => (
+                <button key={i} onClick={() => setActivePhase(i)}
+                  style={{ padding: '12px 8px', borderBottom: activePhase === i ? `2px solid ${ACCENT}` : '2px solid transparent' }}>
+                  <span className="font-serif italic block transition-all duration-400" style={{
+                    fontSize: activePhase === i ? 'clamp(2rem, 4vw, 3.5rem)' : '20px',
+                    color: activePhase === i ? '#0a0a0a' : '#d4d4d4', lineHeight: 1,
+                  }}>{String(i + 1).padStart(2, '0')}</span>
+                </button>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+              <div className="md:col-span-4">
+                <h3 className="font-serif italic text-[24px] md:text-[28px] text-[#0a0a0a] mb-1">{LILA_PHASES[activePhase].name}</h3>
+                <p className="text-[13px]" style={{ color: ACCENT }}>{LILA_PHASES[activePhase].duration}</p>
+              </div>
+              <div className="md:col-span-8">
+                <p className="text-[15px] text-[#525252] leading-[1.75]">{LILA_PHASES[activePhase].description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ MAALEMS — Staggered editorial portraits ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>004 — The Masters</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">The Maalems</h2>
+          <div data-sid="maalems" className={`transition-all duration-700 ${v('maalems') ? 'opacity-100' : 'opacity-0'}`}>
+            {visibleMaalems.map((m, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-10" style={{ borderTop: i === 0 ? 'none' : '1px solid #e5e5e5' }}>
+                <div className={i % 2 === 0 ? 'md:col-span-3' : 'md:col-span-3 md:col-start-2'}>
+                  <h3 className="font-serif italic text-[22px] md:text-[26px] text-[#0a0a0a] leading-tight">{m.name}</h3>
+                  <p className="text-[12px] mt-1" style={{ color: ACCENT }}>{m.years}</p>
+                  <p className="text-[12px] text-[#999] mt-1">{m.city}</p>
+                </div>
+                <div className="md:col-span-5">
+                  <p className="text-[14px] text-[#525252] leading-[1.75]">{m.significance}</p>
+                </div>
+                <div className="md:col-span-3">
+                  {m.collaborations && (
+                    <>
+                      <span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: '#999' }}>Collaborations</span>
+                      {[m.collaborations].map((r, j) => (
+                        <p key={j} className="text-[12px] text-[#737373] leading-relaxed">{r}</p>
+                      ))}
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+            {!showAllMaalems && MAALEMS.length > 4 && (
+              <button onClick={() => setShowAllMaalems(true)}
+                className="mt-8 text-[11px] uppercase tracking-[0.1em] px-6 py-3 transition-all hover:bg-[#0a0a0a] hover:text-white"
+                style={{ border: '1px solid #0a0a0a', color: '#0a0a0a' }}>
+                Show all {MAALEMS.length} maalems
+              </button>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ REGIONAL STYLES — Wide horizontal cards ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>005 — Geography of Sound</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Five Regional Styles</h2>
+          <div data-sid="styles" className={`space-y-0 transition-all duration-700 ${v('styles') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            {REGIONAL_STYLES.map((r, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 py-8" style={{ borderBottom: '1px solid #e5e5e5' }}>
+                <div className="md:col-span-3">
+                  <h3 className="font-serif italic text-[20px] text-[#0a0a0a]">{r.name}</h3>
+                  <p className="text-[12px] mt-1" style={{ color: ACCENT }}>{r.city}</p>
+                </div>
+                <div className="md:col-span-9">
+                  <p className="text-[14px] text-[#525252] leading-[1.75]">{r.character}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ DARK QUOTE ═══ */}
+      <section className="flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
+        <div className="max-w-[720px] px-8 text-center py-20">
+          <p className="font-serif italic leading-[1.25]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.4rem)', color: 'rgba(255,255,255,0.7)' }}>
+            Gnawa is not folklore. It is a living technology of the spirit.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══ VOCABULARY — Sidebar heading + accordion ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+            <div className="md:col-span-4">
+              <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>006 — Language</p>
+              <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05]">Gnawa<br />Vocabulary</h2>
+            </div>
+            <div className="md:col-span-8" data-sid="vocab">
+              <div className={`transition-all duration-700 ${v('vocab') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+                {KEY_VOCABULARY.map((word, i) => (
+                  <div key={i} style={{ borderBottom: '1px solid #e5e5e5' }}>
+                    <div className="flex items-baseline justify-between py-5 cursor-pointer group" onClick={() => setExpandedVocab(expandedVocab === i ? null : i)}>
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-serif italic text-[20px] text-[#0a0a0a]">{word.term}</span>
+                        <span className="text-[14px]" dir="rtl" style={{ color: '#bbb' }}>{word.arabic}</span>
+                      </div>
+                      <span className="text-[14px] text-[#ccc] group-hover:text-[#999] transition-colors">{expandedVocab === i ? '−' : '+'}</span>
+                    </div>
+                    <div className="overflow-hidden transition-all duration-500" style={{ maxHeight: expandedVocab === i ? '200px' : '0', opacity: expandedVocab === i ? 1 : 0 }}>
+                      <p className="text-[14px] text-[#525252] leading-[1.75] pb-6 max-w-[600px]">{word.definition}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ TIMELINE — Vertical line ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>007 — Chronology</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-6">From Slavery<br />to UNESCO</h2>
+          <div className="flex flex-wrap gap-2 mb-12">
             <button onClick={() => setActiveThread(null)}
-              className={`px-3 py-1 text-[10px] tracking-[0.15em] uppercase border transition-colors ${!activeThread ? 'border-neutral-500 text-neutral-700' : 'border-neutral-200 text-neutral-500 hover:border-neutral-300'}`}>
-              All
-            </button>
+              className="text-[10px] tracking-[0.1em] uppercase px-4 py-2 transition-all"
+              style={{ background: !activeThread ? '#0a0a0a' : 'transparent', color: !activeThread ? '#fff' : '#999', border: `1px solid ${!activeThread ? '#0a0a0a' : '#ddd'}` }}>All</button>
             {Object.entries(THREAD_COLORS).map(([t, c]) => (
               <button key={t} onClick={() => setActiveThread(activeThread === t ? null : t)}
-                className={`px-3 py-1 text-[10px] tracking-[0.15em] uppercase border transition-colors ${activeThread === t ? 'text-neutral-700' : 'text-neutral-500 hover:border-neutral-300'}`}
-                style={{ borderColor: activeThread === t ? c : undefined }}>
-                {t}
-              </button>
+                className="text-[10px] tracking-[0.1em] uppercase px-4 py-2 transition-all"
+                style={{ background: activeThread === t ? '#0a0a0a' : 'transparent', color: activeThread === t ? c : '#999', border: `1px solid ${activeThread === t ? '#0a0a0a' : '#ddd'}` }}>{t}</button>
             ))}
           </div>
+          <div data-sid="timeline" className={`transition-all duration-700 ${v('timeline') ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
+            <div className="relative pl-8 md:pl-12">
+              <div className="absolute left-3 md:left-5 top-0 bottom-0 w-px" style={{ background: '#ddd' }} />
+              <div className="space-y-6">
+                {filteredHistory.map((h, i) => (
+                  <div key={i} className="relative">
+                    <div className="absolute -left-[23px] md:-left-[31px] top-[6px] w-[7px] h-[7px] rounded-full" style={{ background: THREAD_COLORS[h.thread] || ACCENT }} />
+                    <span className="text-[11px] block mb-1" style={{ color: THREAD_COLORS[h.thread] || '#999' }}>{h.year}</span>
+                    <p className="text-[14px] text-[#525252] leading-relaxed max-w-[640px]">{h.event}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="space-y-3">
-            {filteredHistory.map((h, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <div className="w-24 md:w-32 flex-shrink-0 text-right">
-                  <span className="text-xs text-neutral-500 font-mono">{h.year}</span>
+      {/* ═══ KEY NUMBERS — Staggered, large ═══ */}
+      <section className="bg-white">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>008 — By the Numbers</p>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-[#0a0a0a] leading-[1.05] mb-16">Key Numbers</h2>
+          <div data-sid="numbers" className={`transition-all duration-700 ${v('numbers') ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+              {KEY_NUMBERS.map((n, i) => (
+                <div key={i} className="flex gap-6 items-start" style={{ paddingTop: i % 2 === 1 ? '40px' : '0' }}>
+                  <span className="font-serif italic flex-shrink-0" style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{n.number}</span>
+                  <p className="text-[13px] text-[#525252] leading-relaxed pt-2">{n.context}</p>
                 </div>
-                <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: THREAD_COLORS[h.thread] || ACCENT }} />
-                <p className="text-sm text-neutral-500 leading-relaxed">{h.event}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── KEY NUMBERS ── */}
-      <section data-sid="numbers" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-6xl mx-auto transition-all duration-1000 ${s('numbers') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>By the Numbers</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-12" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Key Numbers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {KEY_NUMBERS.map((n, i) => (
-              <div key={i} className="border border-neutral-200 p-5 hover:border-neutral-300 transition-colors">
-                <div className="text-2xl md:text-3xl font-light mb-2" style={{ color: ACCENT, fontFamily: "'Instrument Serif', Georgia, serif" }}>{n.number}</div>
-                <p className="text-xs text-neutral-500 leading-relaxed">{n.context}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── BIBLIOGRAPHY ── */}
-      <section data-sid="bib" className="py-24 px-6 border-t border-neutral-200">
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 ${s('bib') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Sources</p>
-          <h2 className="text-2xl md:text-3xl font-light mb-8" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Bibliography</h2>
-          <div className="space-y-4">
+      {/* ═══ SOURCES ═══ */}
+      <section style={{ background: '#fafafa' }}>
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
+          <p className="text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#999' }}>Sources</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
             {BIBLIOGRAPHY.map((b, i) => (
-              <div key={i} className="border-l border-neutral-200 pl-4">
-                <div className="text-sm text-neutral-600 mb-1">{b.source}</div>
-                <div className="text-xs text-neutral-500 leading-relaxed">{b.detail}</div>
+              <div key={i}>
+                <span className="text-[12px] text-[#525252]">{b.source}</span>
+                <p className="text-[11px] text-[#999] leading-relaxed">{b.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-[11px] text-white/50 tracking-[0.15em] uppercase">
-            Module 083 · The Gnawa Atlas · © Dancing with Lions
-          </p>
-          <p className="text-[11px] text-white/35 mt-2">
-            Data: UNESCO ICH, Deborah Kapchan, IEMed, Afropop Worldwide, Penn Museum, Wikipedia
-          </p>
+      {/* ═══ FOOTER ═══ */}
+      <footer>
+        <div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]">
+          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 083 · The Gnawa Atlas · © Dancing with Lions</p>
+          <p className="text-[11px] mt-2" style={{ color: 'rgba(255,255,255,0.2)' }}>Data: UNESCO ICH, Deborah Kapchan, IEMed, Afropop Worldwide, Penn Museum, Wikipedia</p>
         </div>
-      
-        <div style={{ backgroundColor: '#161616' }} className="mt-12 -mx-6 -mb-16 py-3">
-          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>dancingwithlions.com</p>
+        <div style={{ backgroundColor: '#161616' }} className="py-3">
+          <p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p>
         </div>
+        <div style={{ backgroundColor: '#0e0e0e' }} className="py-2" />
       </footer>
+
     </main>
   )
 }
