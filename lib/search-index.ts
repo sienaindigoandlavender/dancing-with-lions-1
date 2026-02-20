@@ -770,4 +770,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['tannery', 'Chouara', 'Fez', 'Fes', 'leather', 'dye', 'indigo', 'poppy', 'saffron', 'henna', 'babouche', 'craft', 'chromium', 'pollution', 'medina', 'guild'],
     href: '/data/tanneries',
   },
+  {
+    id: 'jewish-heritage',
+    number: '077',
+    title: 'Jewish Heritage in Morocco',
+    category: 'Cultural & Demographic Intelligence',
+    description: '265,000 in 1948. ~1,000 in 2025. Mellahs, synagogues, cemeteries. Operation Yachin, Cadima, the departure, the preservation.',
+    tags: ['Jewish', 'mellah', 'synagogue', 'Sephardic', 'Toshavim', 'Megorashim', 'Operation Yachin', 'Cadima', 'emigration', 'Israel', 'Fez', 'Marrakech', 'Essaouira', 'Casablanca', 'Mohammed V', 'heritage', 'cemetery'],
+    href: '/data/jewish-heritage',
+  },
 ]
