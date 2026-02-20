@@ -779,4 +779,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['Jewish', 'mellah', 'synagogue', 'Sephardic', 'Toshavim', 'Megorashim', 'Operation Yachin', 'Cadima', 'emigration', 'Israel', 'Fez', 'Marrakech', 'Essaouira', 'Casablanca', 'Mohammed V', 'heritage', 'cemetery'],
     href: '/data/jewish-heritage',
   },
+  {
+    id: 'moroccan-fashion',
+    number: '078',
+    title: 'Moroccan Fashion Intelligence',
+    category: 'Cultural & Design Intelligence',
+    description: 'Caftan, djellaba, babouche, takchita. Six core garments, three embroidery schools, craft components. UNESCO 2025. Contemporary designers. $4.25B textile industry.',
+    tags: ['fashion', 'caftan', 'kaftan', 'djellaba', 'babouche', 'takchita', 'sfifa', 'aakad', 'embroidery', 'Fez', 'Rabat', 'Tetouan', 'UNESCO', 'textile', 'leather', 'silk', 'brocade', 'Casablanca brand', 'Charaf Tajer', 'haute couture', 'designer', 'artisan', 'craft', 'gandoura', 'selham', 'wedding', 'bride'],
+    href: '/data/moroccan-fashion',
+  },
 ]
