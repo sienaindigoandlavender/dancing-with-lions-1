@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Morocco\'s Musical Traditions — Gnawa, Andalusi, Amazigh, Chaabi, Raï | Dancing with Lions',
-  description: 'Five traditions mapped by region and lineage. Gnawa trance, Andalusi nuba, Amazigh ahwash, Chaabi street, Raï rebellion. Instruments, masters, festivals.',
+  description: 'Five traditions mapped by region and lineage. Gnawa trance, Andalusi nuba, Amazigh ahwash, Chaabi protest, Raï rebellion. Instruments, artists, rituals.',
   openGraph: {
     title: 'Morocco\'s Musical Traditions | Dancing with Lions',
-    description: 'From Gnawa healing ceremonies to Andalusi court suites. Five musical traditions that map Morocco\'s soul.',
+    description: 'From the guembri of Essaouira to the oud of Fez to the bendir of the Atlas. The complete sound map.',
     siteName: 'Dancing with Lions',
   },
 }

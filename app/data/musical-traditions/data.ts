@@ -1,139 +1,124 @@
 // ─────────────────────────────────────────────────
 // Morocco's Musical Traditions
-// Module 066 — Cultural Intelligence
-// Sources: Wikipedia (Music of Morocco, Gnawa,
-// Berber music, Andalusi nubah), UNESCO ICH,
-// Afropop, World Music Network, Melodigging
+// Module 066 — Cultural & Sound Intelligence
+// Sources: Wikipedia (multiple), UNESCO ICH,
+// Afropop Worldwide, Melodigging, Souffles Monde,
+// Music of Morocco (Weebly), MarocMama
 // ─────────────────────────────────────────────────
 
-export interface MusicTradition {
+export interface Tradition {
   id: string
   name: string
   arabicName: string
   origin: string
-  region: string
   era: string
+  region: string
   instruments: string[]
-  keyFigures: string[]
-  ritualOrContext: string
+  keyArtists: string[]
+  ritual?: string
+  unescoStatus?: string
   detail: string
-  unesco?: string
-  modernFusion: string
+  color: string
   lat: number
   lng: number
-  color: string
 }
 
-export const TRADITIONS: MusicTradition[] = [
+export const TRADITIONS: Tradition[] = [
   {
     id: 'gnawa', name: 'Gnawa', arabicName: 'كناوة',
-    origin: 'Sub-Saharan Africa (Hausa, Fulani, Bambara peoples) via trans-Saharan slave trade',
+    origin: 'Sub-Saharan Africa via trans-Saharan slave trade',
+    era: '16th century onward',
     region: 'Essaouira, Marrakech, Casablanca, Rabat, Tangier',
-    era: '16th–17th century onwards (Saadian dynasty)',
-    instruments: ['Guembri / sintir (3-string bass lute)', 'Qraqeb / krakeb (metal castanets)', 'Tbel / ganga (large double-headed drum)', 'Hand-clapping', 'Call-and-response vocals'],
-    keyFigures: ['Maalem Mahmoud Guinia (Essaouira)', 'Maalem Mokhtar Gania', 'Hamid El Kasri (Rabat)', 'Maalem Mustapha Baqbou (Marrakech)', 'Maalem H\'mida Boussou (Casablanca)', 'Hassan Hakmoun'],
-    ritualOrContext: 'Lila (Derdeba) — all-night healing ceremony. Led by a moqaddema (priestess) and maalem (master musician). Three stages: Al-\'Ada (consecration), Ouled Bambara, The Kings. Animal sacrifice opens. Spirits (Mluk) are summoned through music to possess and heal followers. Incense burning, ecstatic trance dancing (jedba).',
-    detail: 'Descendants of enslaved West Africans brought to Morocco by Sultan Ahmad al-Mansur after campaigns in Timbuktu (1591). Spiritual practices fused Islam, Sufi mysticism, and ancestral African ritual. Claims spiritual descent from Sidi Bilal, the first muezzin in Islam. Zawayas (spiritual lodges) established in Marrakech and Essaouira around tombs of saints. Pentatonic scale with modal shifts echoing Andalusian tradition. Shares affinities with Algeria\'s Diwan, Tunisia\'s Stambeli, Haitian Vodou, Cuban Santería, and Brazilian Candomblé. The Ganga sub-group (Haha region, Souss) plays only drums and qraqeb — no guembri.',
-    unesco: 'Inscribed on UNESCO Intangible Cultural Heritage list, 2019',
-    modernFusion: 'Nass El Ghiwane (1970s) drew from Gnawa to create Moroccan pop. Collaborations with Randy Weston, Bill Laswell, Robert Plant, Jacob Collier, Snarky Puppy. Bab L\'Bluz (blues-Gnawa fusion) embody the "Nayda" youth movement. Essaouira Gnawa Festival (est. 1997) draws international audiences.',
-    lat: 31.5085, lng: -9.7595, color: '#8B5CF6',
+    instruments: ['Guembri (sintir) — 3-string bass lute, walnut body, camel skin, sheep-gut strings', 'Qraqeb (krakeb) — heavy iron double castanets', 'Tbel — large drum, curved stick', 'Call-and-response vocals'],
+    keyArtists: ['Maalem Mahmoud Guinia (Essaouira)', 'Maalem Mokhtar Gania (Essaouira)', 'Maalem Mustapha Baqbou (Marrakech)', 'Hamid El Kasri (Tangier/Rabat)', 'Maalem Hassan Hakmoun', 'Maalem Abdellah El Gourd (Essaouira)', 'Asmaa Hamzaoui & Bnat Timbouktou'],
+    ritual: 'Lila — all-night healing ceremony. Led by maalem (master) and moqadma (priestess). Begins with animal sacrifice (dbiha), then aada (procession with acrobatic dance). Seven suites invoke mlouk (spirits) through colours, incense, and rhythms. Participants enter jadba (trance). Each spirit has a colour: white (Moulay Abdelkader), blue (Sidi Moussa/sea), red (Sidi Hamu), black (Lalla Mimouna), yellow (Lalla Mira).',
+    unescoStatus: 'UNESCO Intangible Cultural Heritage — inscribed December 2019',
+    detail: 'The most internationally celebrated Moroccan music. Rooted in the experience of enslaved West Africans (many Bambara-speaking, from present-day Mali) brought to Morocco from the 16th century. The Gnawa claim Bilal ibn Rabah — the first muezzin and the Prophet\'s freed companion — as their patron saint. A Sufi brotherhood fusing African, Arab-Muslim, and Amazigh practices. Once marginalized, now celebrated globally. The Essaouira Gnaoua Festival (founded 1998) draws hundreds of thousands annually. Western collaborators include Brian Jones (1968), Randy Weston, Bill Laswell, Robert Plant, Jimmy Page, Pat Metheny, and Jacob Collier. Nass El Ghiwane drew heavily on Gnawa rhythms in the 1970s.',
+    color: '#7C3AED', lat: 31.5085, lng: -9.7595,
   },
   {
-    id: 'andalusi', name: 'Andalusi (Al-Ala)', arabicName: 'الآلة الأندلسية',
-    origin: 'Al-Andalus (Islamic Spain) — 9th century Cordoba, codified by Ziryab',
-    region: 'Fez, Tetouan, Chefchaouen, Tangier, Meknes, Rabat, Casablanca',
-    era: '9th century origins; brought to Morocco after fall of Granada (1492) and Morisco expulsion (1609)',
-    instruments: ['Oud (lute)', 'Rabab / rebec (bowed string)', 'Violin / kamanja', 'Qanun (zither)', 'Nay (flute)', 'Darbuka (goblet drum)', 'Tambourine / tar', 'Voice (soloist + chorus)'],
-    keyFigures: ['Ziryab (Abu Hassan Ali Ben Nafi, 9th C — founded the nuba)', 'Al-Haik of Tetouan (18th C — codified the Moroccan repertoire)', 'Haj Abdelkrim al-Raïs (Fez)', 'Ahmed Zaitouni (Orchestra of Tangier)', 'Mohammed Larbi Temsamani (Tetouan Conservatoire)'],
-    ritualOrContext: 'Court and salon music. Performed at state occasions, private gatherings, riad concerts, and sacred music festivals. Also preserved in Jewish communities (Haim Zafrani documents shared Muslim-Jewish musical tradition in the Maghreb).',
-    detail: 'Morocco\'s classical art music. Ziryab fled Baghdad, established a music school in Cordoba, and invented the nuba suite — the foundation of all Arab-Andalusian classical music. Originally 24 nubat (one per hour of the day); 11 survive in Morocco (with 24 modes total). Each nuba has 5 mizan (rhythmic sections): basit, qayim wa-nisf, btayhi, darj, quddam — progressing from slow to fast. Begins with arrhythmic boughia, then instrumental touchiya. Lyrics in mouwachah (classical Arabic) or zajal (colloquial). Modes include Gregorian (pre-Islamic Spanish), pentatonic (Amazigh), and artificial (combined tetrachords). Al-Haik\'s Kunnash (late 18th C) from Tetouan codified the repertoire — over 900 pieces, now performed in his order.',
-    modernFusion: 'Orchestra of Tangier collaborated with flamenco singer El Lebrijano (1980s). Performed on national TV regularly. Fez Festival of Sacred Music features Andalusi ensembles. Gharnati sub-style (from Granada) heard in Rabat and Oujda.',
-    lat: 34.0331, lng: -5.0003, color: '#D4A373',
+    id: 'andalusi', name: 'Andalusi (Al-Ala)', arabicName: 'الآلة',
+    origin: 'Al-Andalus (Islamic Iberia), carried to Morocco after Reconquista',
+    era: '9th century origins, 13th–15th century migration',
+    region: 'Fez, Tetouan, Tangier, Rabat, Meknes, Chefchaouen, Oujda',
+    instruments: ['Oud (lute)', 'Rabab (rebec)', 'Kamanja (violin, held vertically)', 'Qanun (zither)', 'Darbouka (goblet drum)', 'Taarija (tambourine)', 'Nay (end-blown flute)'],
+    keyArtists: ['Haj Abdelkrim al-Rais (Fez)', 'Ahmed Zaitouni (Tangier)', 'Mohammed Larbi Temsamani (Tetouan)', 'Orchestre al-Brihi de Fès', 'Orchestre du Conservatoire de Tétouan'],
+    detail: 'Morocco\'s courtly classical tradition. Attributed to Ziryab (Abu Hassan Ali Ben Nafi), the Iraqi musician who fled Baghdad for Cordoba in the 9th century and invented the nuba suite system. After the fall of Granada (1492), Muslim and Jewish refugees carried the repertoire to Fez, Tetouan, Rabat. Morocco preserves 11 of the original 24 nubat. Each nuba uses one tab\' (mode) and contains 5 mizan (rhythmic sections): basit, qayim wa-nisf, btayhi, darj, quddam. A complete nuba lasts 6–7 hours — rarely performed in full. The Kunnash al-Haik (~1788, Tetouan) is the canonical songbook. Jewish musicians were central to preservation. Andalusi music profoundly shaped flamenco through shared modal structures and rhythmic patterns.',
+    color: '#D4A373', lat: 34.0331, lng: -5.0003,
   },
   {
-    id: 'amazigh', name: 'Amazigh (Berber)', arabicName: 'أمازيغ',
-    origin: 'Indigenous — predates Islam in North Africa. Oral transmission across millennia.',
-    region: 'Middle Atlas (ahidus), High Atlas / Souss (ahwash), Rif, Sahara (guedra), all rural Morocco',
-    era: 'Ancient — thousands of years of continuous tradition',
-    instruments: ['Bendir (frame drum — core instrument)', 'Tbel (large drum)', 'Ribab / rebab (one-string bowed)', 'Lotar (plucked lute)', 'Nay / nair (flute)', 'Ghaita (oboe — outdoor festivals)', 'Handclaps', 'Qraqeb (metal idiophones)'],
-    keyFigures: ['Ammouri Mbarek ("the John Lennon of the Berbers")', 'Najat Aatabou (debut cassette sold 500,000 copies)', 'Rways / Raiss tradition (Souss poet-musicians)', 'Imdyazen (travelling poet-musician troupes, Atlas)'],
-    ritualOrContext: 'Ahwash — communal dance of High Atlas / Souss-Massa. Men and women in facing rows or circle. Bendir + handclaps. Lyrics in Tachelhit on nature, love, history. Ahidus — collective dance/song of Middle/Eastern High Atlas tribes. Guedra — Saharan/Tuareg trance dance with earthenware drum. Moussems (saint-day fairs), harvests, weddings.',
-    detail: 'The oldest continuous musical tradition in Morocco. Three categories: village (communal, open-air ring around drums + flute), ritual (agricultural calendar, marriage, evil spirit protection), and professional (imdyazen touring troupes — leader improvises poems on current affairs, accompanied by drum, rabab, clarinet; clarinettist doubles as clown). Rrways tradition of Souss: performance begins with astara (instrumental), then amarg (sung poetry), ammussu (choreographed overture), tamssust (lively song), aberdag (dance), tabbayt (accelerating finale then abrupt stop). 2021: Rrways anthology won Prix Coups de Cœur at Académie Charles Cros.',
-    modernFusion: 'Timitar Festival (Agadir) showcases Amazigh music. Tamazight TV broadcasts traditional and modern forms. Young artists blend Amazigh rhythms with pop-rock, reggae, electronic. Nayda movement. Royal Institute for Amazigh Culture (IRCAM) preservation efforts.',
-    lat: 32.50, lng: -5.50, color: '#22C55E',
+    id: 'amazigh', name: 'Amazigh', arabicName: 'ⵎⵓⵙⵉⴽⴰ ⵏ ⵉⵎⴰⵣⵉⵖⵏ',
+    origin: 'Indigenous — pre-dates Arab arrival (7th century)',
+    era: 'Thousands of years',
+    region: 'High Atlas, Middle Atlas, Anti-Atlas, Souss, Rif, Sahara',
+    instruments: ['Bendir (frame drum with snare)', 'Tbel (large double-headed drum)', 'Rebab (single-string fiddle)', 'Lutar (Amazigh lute)', 'Tazammart (double clarinet)', 'Naqus (bell)', 'Hand-clapping'],
+    keyArtists: ['Ammouri Mbarek ("John Lennon of the Berbers")', 'Najat Aatabou (500,000-copy debut)', 'Rais Haj Belaid (Souss legend)', 'Ousmane (first Tamazight pop group, 1974)', 'Tinariwen (Grammy 2011)', 'Master Musicians of Joujouka'],
+    detail: 'The oldest musical layer in Morocco. Three main forms: Ahwash — collective village music of southern Morocco (Ouarzazate, Draa, Souss), men and women in rows or circles, call-and-response over bendir drums. Ahidous — collective dance-song of Middle/Eastern High Atlas, facing lines moving in sync. Rrways (Raïs) — travelling professional poet-musicians of the Souss/Chleuh tradition, up to 12 musicians. 9-segment performance: astara (rebab prelude), amarg (sung poetry), tamssust (transition), aberdag (dance), tabbayt (accelerating finale). Guedra — Saharan trance music of the Tuareg. Each village develops its own variant. The rrways historically served as intermediaries between isolated communities, sharing news through poetry.',
+    color: '#22C55E', lat: 31.50, lng: -6.50,
   },
   {
     id: 'chaabi', name: 'Chaabi', arabicName: 'الشعبي',
-    origin: 'Moroccan urban folk — fusion of Andalusi melody, Malhun poetry, Aita rural tradition, Amazigh rhythm, and Gnawa grooves',
-    region: 'All cities — especially Casablanca, Marrakech, Rabat. Aita sub-style from Atlantic coastal plains (Doukkala-Abda, Chaouia).',
-    era: '20th century crystallisation (1970s "new chaabi" as reaction to Egyptian/Lebanese pop dominance)',
-    instruments: ['Violin / kamanja (lead melody)', 'Oud', 'Bendir (frame drum)', 'Taarija (small goblet drum)', 'Darbuka', 'Hadjuj (bass lute)', 'Banjo, bouzouki, electric guitar (modern additions)'],
-    keyFigures: ['Nass El Ghiwane (led by Larbi Batma — "the Moroccan Rolling Stones")', 'Jil Jilala', 'Nass Marrakech (1990s fusion)', 'Hoba Hoba Spirit (rock-Gnawa)', 'Mimoun El Oujdi', 'Hanino'],
-    ritualOrContext: 'Weddings, celebrations, markets, street festivals. Originally performed in souks. Now the soundtrack to all Moroccan celebrations. Aita sub-genre ("call, cry, lament") is the oldest form — slow violin prelude (lafrash) followed by sung verses.',
-    detail: '"Chaabi" means "of the people" in Arabic. Morocco\'s true popular music — the sonic equivalent of street food. Blends every Moroccan tradition into danceable, community-centred performance. Buoyant 6/8 and 2/4 rhythms. Lyrics move between romance, satire, and social commentary. Call-and-response with spontaneous audience interaction. The 1970s "new chaabi" led by Nass El Ghiwane combined Amazigh music + Malhun poetry + Sufi ritual + Gnawa rhythm + Western rock/reggae + political lyrics. One band member, Abd er-Rahman Paco, was himself a Gnawa master from Essaouira.',
-    modernFusion: 'Nass El Ghiwane were the most listened-to band in Morocco through the 1970s–80s. Modern chaabi infused with rap, electronic production, and global pop. Hoba Hoba Spirit bridges rock + Gnawa + reggae. Bab L\'Bluz represent the youth "Nayda" movement.',
-    lat: 33.5731, lng: -7.5898, color: '#F59E0B',
+    origin: 'Moroccan folk + Andalusi influence + Gnawa grooves',
+    era: 'Modern form mid-20th century; roots in centuries-old al-Aita',
+    region: 'All urban centres — Casablanca, Marrakech, Fez, Rif',
+    instruments: ['Kamanja (violin)', 'Oud', 'Bendir', 'Taarija', 'Darbouka', 'Banjo (introduced by Nass El Ghiwane)', 'Electric guitar'],
+    keyArtists: ['Nass El Ghiwane ("Rolling Stones of Africa")', 'Jil Jilala', 'Larbi Batma', 'Attarazat Addahabia (funk pioneer)', 'Hoba Hoba Spirit', 'Bab L\'Bluz'],
+    detail: 'Morocco\'s popular music — the soundtrack of weddings, markets, and celebrations. "Chaabi" literally means "of the people." Its oldest ancestor is al-Aita, rural songs in Darija from the Atlantic plains. Modern chaabi blends Andalusi melody, Malhun poetry, Amazigh rhythms, and Gnawa grooves into danceable 6/8 and 2/4 beats. Nass El Ghiwane (formed Casablanca, 1970s) revolutionised chaabi by mixing Gnawa rhythms with protest themes and Western instruments. Member Abderrahman Paco was a Gnawa master from Essaouira. The "Nayda" movement continues to fuse chaabi with rock, reggae, hip-hop, and electronic music.',
+    color: '#F59E0B', lat: 33.5731, lng: -7.5898,
   },
   {
     id: 'rai', name: 'Raï', arabicName: 'الراي',
-    origin: 'Algeria (Oran) — Bedouin/rural roots, electrified 1970s–80s',
-    region: 'Oujda, Al Hoceima, northeastern Morocco (strong Algerian cultural connection)',
-    era: '1920s–30s rural origins; 1970s–80s electric pop raï explosion',
-    instruments: ['Gasba (end-blown flute — traditional)', 'Guellal (goblet drum — traditional)', 'Synthesizer / keyboard', 'Electric guitar', 'Drum machine', 'Darbuka', 'Accordion (Oran tradition)'],
-    keyFigures: ['Khaled ("King of Raï" — Algeria)', 'Cheb Mami (Algeria)', 'Cheikha Rimitti (Algeria — grandmother of raï)', 'Cheb Hasni', 'Mimoun El Oujdi (Morocco)', 'Moroccan raï scene centred in Oujda'],
-    ritualOrContext: 'Dance music, nightclubs, weddings, festivals. Originally a counter-cultural voice — hedonistic celebration + aching nostalgia. The word "raï" means "opinion" or "point of view" — lyrics were often socially provocative.',
-    detail: 'Algerian in origin but deeply embedded in northeastern Morocco. Oujda, on the Algerian border, is the Moroccan capital of raï. The genre evolved from rural Bedouin songs through cheikha (female singer) tradition to electric pop raï — merging acoustic melodies with synthesizers, drum machines, funk, disco, and reggae. Lyrics alternate between hedonistic celebration and aching nostalgia for home and lost love. The "cheb" (young man) / "cheba" (young woman) title replaced the older "cheikh" / "cheikha" as the genre modernised.',
-    modernFusion: 'Raï-rap fusion emerging. Cross-pollination with Moroccan chaabi. Khaled\'s "Didi" (1992) became a global hit. The genre remains vibrant in Moroccan nightlife, especially the Oriental region.',
-    lat: 34.6814, lng: -1.9086, color: '#EF4444',
+    origin: 'Algeria (Oran), adopted in eastern Morocco',
+    era: '1920s origins; entered Morocco mid-20th century',
+    region: 'Oujda, Nador, eastern Morocco (Oriental region)',
+    instruments: ['Gasba (end-blown flute)', 'Guellal (goblet drum)', 'Synthesizer', 'Electric guitar', 'Derbouka', 'Accordion', 'Drum machines'],
+    keyArtists: ['Cheb Khaled (Algeria, global icon)', 'Cheb Mimoun El Oujdi (17 albums)', 'Cheb Hanino', 'Chaba Zahouania'],
+    detail: 'Born in Oran, Algeria in the 1920s as expression of social frustration and taboo subjects — alcohol, love, sex, politics. "Raï" means "opinion" or "point of view." Crossed into eastern Morocco through Oujda (14 km from the Algerian border). Known for code-switching between French and Arabic, adding rhetorical effect while expanding audience reach. Addressed subjects other Moroccan genres avoided. The synthesizer-driven "pop raï" of the 1980s–90s became the region\'s first transnational popular music, with Cheb Khaled\'s "Didi" (1992) a global hit.',
+    color: '#EF4444', lat: 34.6814, lng: -1.9086,
   },
 ]
 
-export interface Instrument {
+export interface SubTradition {
   name: string
-  type: 'String' | 'Percussion' | 'Wind' | 'Vocal'
-  traditions: string[]
+  parent: string
   detail: string
+  region: string
 }
 
-export const KEY_INSTRUMENTS: Instrument[] = [
-  { name: 'Guembri / Sintir', type: 'String', traditions: ['Gnawa'], detail: 'Three-string bass lute. Skin-covered resonator. Gut strings. Played by the maalem (master). Produces deep, earthy, hypnotic tones that anchor the Gnawa sound. Similar to Hausa garaya.' },
-  { name: 'Oud', type: 'String', traditions: ['Andalusi', 'Chaabi'], detail: 'Short-necked fretless lute. The "king of instruments" in Arab classical music. 11 or 13 strings. Warm, rounded tone. Essential to Andalusi nuba suites.' },
-  { name: 'Rabab / Rebab', type: 'String', traditions: ['Andalusi', 'Amazigh'], detail: 'One-string (Amazigh) or two-string (Andalusi) bowed instrument. Ancestor of the European rebec. Soft, emotional sound. Souss raiss tradition.' },
-  { name: 'Bendir', type: 'Percussion', traditions: ['Amazigh', 'Chaabi', 'Sufi'], detail: 'Frame drum with snare strings. Core percussion of Amazigh music. Played with fingers/palm. Made from almond/walnut wood frame + goat/rabbit skin. Drives ahwash and ahidus.' },
-  { name: 'Qraqeb / Krakeb', type: 'Percussion', traditions: ['Gnawa'], detail: 'Large metal castanets (double). Iron. Played one in each hand. Sound evokes the clashing of chains — memory of slavery. Regulates tempo and induces trance.' },
-  { name: 'Darbuka', type: 'Percussion', traditions: ['Andalusi', 'Chaabi', 'Raï'], detail: 'Goblet drum. Clay or metal body. Struck with both hands. Provides rhythmic foundation across urban Moroccan music.' },
-  { name: 'Nay / Nair', type: 'Wind', traditions: ['Amazigh', 'Andalusi'], detail: 'End-blown reed flute. Ancient. Controls tempo in ahwash performances. Traditionally a shepherd\'s instrument.' },
-  { name: 'Ghaita', type: 'Wind', traditions: ['Amazigh'], detail: 'Double-reed oboe. Loud, high-pitched. Outdoor festivals and processions only. Carries sound across mountain valleys.' },
+export const SUB_TRADITIONS: SubTradition[] = [
+  { name: 'Malhun', parent: 'andalusi', detail: 'Sung vernacular poetry in Darija. Lengthy qasidas with monorhyme, refrain (harba), and chorus. Rooted in urban craft guilds and Sufi circles. Bridges classical poetics with popular accessibility.', region: 'Meknes, Fez, Marrakech' },
+  { name: 'Gharnati', parent: 'andalusi', detail: 'Distinct style from the Granada diaspora. In Morocco, a separate tradition alongside Al-Ala. Preserved particularly in Oujda and Rabat.', region: 'Oujda, Rabat' },
+  { name: 'Ahwash', parent: 'amazigh', detail: 'Collective village music of southern Morocco. Men and women in rows or circles. Call-and-response singing with bendir and tbel drums.', region: 'Ouarzazate, Draa, Souss' },
+  { name: 'Ahidous', parent: 'amazigh', detail: 'Collective dance-song of Middle/Eastern High Atlas. Men and women form large circles, singing and clapping in synchronisation.', region: 'Middle & Eastern High Atlas' },
+  { name: 'Rrways (Raïs)', parent: 'amazigh', detail: 'Travelling poet-musicians of the Souss. Up to 12 musicians. 9-segment performance. Won Académie Charles Cross prize 2021.', region: 'Souss, Agadir, Tiznit' },
+  { name: 'Guedra', parent: 'amazigh', detail: 'Saharan trance music of the Tuareg. Named after cooking vessel used as drum. Hypnotic, spiritual, communal.', region: 'Sahara, Guelmim' },
+  { name: 'Sufi Samaa', parent: 'andalusi', detail: 'Religious a cappella devotional music. Vocal-only. Music as vehicle for mystical ecstasy.', region: 'Fez, nationwide' },
+  { name: 'Al-Aita', parent: 'chaabi', detail: 'Oldest form of chaabi. Rural songs in Darija. Themes of love, hardship, resistance.', region: 'Doukkala, Chaouia' },
 ]
 
-export interface Festival {
-  name: string
-  city: string
-  tradition: string
-  note: string
-}
-
-export const FESTIVALS: Festival[] = [
-  { name: 'Gnawa & World Music Festival', city: 'Essaouira', tradition: 'Gnawa + fusion', note: 'Est. 1997. Free. Tours to Marrakech, Casablanca, Rabat. International collaborations.' },
-  { name: 'Fez Festival of Sacred Music', city: 'Fez', tradition: 'Andalusi + Sufi + world sacred', note: 'Andalusi nuba performances in historic riads and Bab al-Makina.' },
-  { name: 'Timitar Festival', city: 'Agadir', tradition: 'Amazigh + world', note: 'Largest Amazigh music festival. Showcases Souss traditions alongside international acts.' },
-  { name: 'Mawazine', city: 'Rabat', tradition: 'All genres', note: 'One of Africa\'s largest music festivals. Millions attend. Mix of Moroccan and global artists.' },
-  { name: 'Festival of Andalusian Music', city: 'Fez / Tetouan', tradition: 'Andalusi', note: 'Dedicated to classical nuba preservation. Conservatoire ensembles.' },
-  { name: 'Allegria Festival', city: 'Oujda', tradition: 'Raï + chaabi', note: 'Northeastern Morocco\'s celebration of raï music and border culture.' },
+export const INSTRUMENTS = [
+  { name: 'Guembri', arabicName: 'كمبري', type: 'String', tradition: 'Gnawa', detail: '3-string bass lute. Carved from single walnut/mahogany log, camel-skin cover, sheep-gut strings. Register of a double bass.' },
+  { name: 'Qraqeb', arabicName: 'قراقب', type: 'Percussion', tradition: 'Gnawa', detail: 'Heavy iron double castanets. Relentless metallic triplet rhythm. Historically evocative of slave chains.' },
+  { name: 'Oud', arabicName: 'عود', type: 'String', tradition: 'Andalusi', detail: 'Short-necked fretless lute. 11 or 13 strings. Arabic word gave English "lute."' },
+  { name: 'Rabab', arabicName: 'رباب', type: 'String', tradition: 'Andalusi / Amazigh', detail: 'Single-string bowed fiddle. Conductor often leads from rabab. Used in Andalusi orchestras and Amazigh rrways.' },
+  { name: 'Kamanja', type: 'String', tradition: 'Andalusi / Chaabi', detail: 'Violin held vertically. Most prominent in Andalusi orchestras. Also the lead instrument in chaabi.' },
+  { name: 'Bendir', arabicName: 'بندير', type: 'Percussion', tradition: 'Amazigh', detail: 'Frame drum with snare strings. The heartbeat of Amazigh communal music.' },
+  { name: 'Tbel', arabicName: 'طبل', type: 'Percussion', tradition: 'Amazigh / Gnawa', detail: 'Large double-headed drum worn at the waist. Central to ahwash and Ganga performances.' },
+  { name: 'Qanun', arabicName: 'قانون', type: 'String', tradition: 'Andalusi', detail: 'Plucked trapezoidal zither. 78 strings in triple courses. Harmonic foundation in orchestras.' },
 ]
 
 export const HERO_STATS = [
   { value: '5', label: 'Major traditions' },
   { value: '11', label: 'Surviving Andalusi nubat' },
-  { value: '2019', label: 'Gnawa inscribed — UNESCO' },
-  { value: '1,000+', label: 'Years of Malhun' },
+  { value: '2019', label: 'Gnawa — UNESCO inscription' },
+  { value: '1', label: 'Language: call-and-response' },
 ]
 
 export const KEY_NUMBERS = [
-  { value: '24', label: 'Original nubat (Andalusi)', note: 'One for each hour of the day. 11 survive in Morocco. 16 in Algeria. 12 in Tunisia.' },
-  { value: '5', label: 'Mizan per nuba', note: 'Basit → qayim wa-nisf → btayhi → darj → quddam. Slow to fast. A complete nuba lasts 6–7 hours.' },
-  { value: '1591', label: 'Timbuktu campaign', note: 'Sultan Ahmad al-Mansur. Brought thousands of West Africans to Morocco. Gnawa origins.' },
-  { value: '1997', label: 'Essaouira Gnawa Festival founded', note: 'Government-established. Transformed Gnawa from ceremonial to international.' },
-  { value: '500,000', label: 'Najat Aatabou debut sales', note: '"J\'en ai Marre" — unprecedented for a Moroccan cassette. Amazigh music goes mainstream.' },
-  { value: '1970s', label: 'Nass El Ghiwane era', note: 'Combined Gnawa + Amazigh + Malhun + rock. Most listened-to band in Morocco for two decades.' },
+  { value: '24 → 11', label: 'Nubat surviving in Morocco', note: 'Of the original 24 suites, 11 survive. A complete nuba lasts 6–7 hours.' },
+  { value: '1998', label: 'Essaouira Gnaoua Festival', note: 'Now one of the world\'s largest music festivals. Hundreds of thousands annually.' },
+  { value: '1970s', label: 'Nass El Ghiwane era', note: '"Rolling Stones of Africa." Fused Gnawa + protest. Most popular Moroccan band of the century.' },
+  { value: '500K', label: 'Najat Aatabou debut copies', note: 'Unprecedented. "J\'en ai Marre" — Amazigh music addressing women\'s rights.' },
+  { value: '1492', label: 'Fall of Granada', note: 'Muslims and Jews fled to Fez, Tetouan, Rabat. Carried the Andalusi nuba repertoire.' },
+  { value: '7', label: 'Spirit colours in Gnawa lila', note: 'White, blue, red, black, yellow, green, purple. Each invokes specific mlouk.' },
 ]
