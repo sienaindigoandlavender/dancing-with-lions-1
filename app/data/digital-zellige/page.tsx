@@ -470,8 +470,8 @@ export default function DigitalZelligePage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             A zellige mosaic is never finished by one person. The cutter shapes the tile.
             The glazer paints it. The setter places it. The patron pays for it.
@@ -481,9 +481,9 @@ export default function DigitalZelligePage() {
             The pattern holds. The distances have changed.
           </p>
         </div>
-        <div className="border-t mt-8 pt-4" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+        <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             2025 full-year exports (MAD 1.23 billion, +11%): State Secretariat for Handicrafts and the
             Social and Solidarity Economy, via Morocco World News (Jan 16, 2026), Hespress, Barlaman Today.
             Product breakdown (pottery 36%, carpets 18%, clothing 17%): same source. Destination shares

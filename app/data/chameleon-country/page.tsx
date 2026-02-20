@@ -482,10 +482,10 @@ export default function ChameleonCountryPage() {
       </section>
 
       {/* SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Revenue: Minister Bensaid, Chamber of Representatives, Jan 2026 (Morocco
             World News). $150M (MAD 1.5B) foreign revenue 2025; pre-2021 under $50M.
             Gladiator II: Le Monde, $30M local spend. Atlas Studios: founded 1983,
@@ -493,7 +493,7 @@ export default function ChameleonCountryPage() {
             Burbank, CA (IMDb). Budgets: Box Office Mojo. Palettes: editorial approximation.
           </p>
           <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
+            <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions
             </p>
             <p className="font-mono text-[11px]" style={{ color: C.green }}>

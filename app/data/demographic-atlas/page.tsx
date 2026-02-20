@@ -623,10 +623,10 @@ export default function DemographicAtlasPage() {
       </section>
 
       {/* SOURCES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
-        <div className="border-t pt-4" style={{ borderColor: C.border }}>
-          <p className="micro-label mb-2" style={{ color: C.muted }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+        <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Population totals: RGPH 2024, 7th General Census (HCP). Regional breakdown: HCP
             preliminary results (Nov 2024, Morocco World News). Age structure: UN World Population
             Prospects 2024. Fertility: HCP 2024 census (1.97 TFR, Bladi Dec 2024); historical
@@ -640,7 +640,7 @@ export default function DemographicAtlasPage() {
             fully published at time of compilation.
           </p>
           <div className="flex justify-between items-center mt-6 flex-wrap gap-2">
-            <p className="text-[9px]" style={{ color: C.border }}>
+            <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.15)' }}>
               &copy; {new Date().getFullYear()} Dancing with Lions
             </p>
             <p className="font-mono text-[11px]" style={{ color: C.pop }}>

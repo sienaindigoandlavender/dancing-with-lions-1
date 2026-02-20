@@ -382,16 +382,16 @@ export default function CarthagePage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
-        <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: C.muted }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+        <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p><strong>Foundation & Punic Republic:</strong> Wikipedia, "Ancient Carthage" and "History of Carthage." Britannica, "Carthage." World History Encyclopedia, "Carthage" and "Punic Wars." Livius.org, "Punic Carthage." Foundation date: Timaeus of Taormina (c. 300 BCE) gives 814 BCE; radiocarbon dating in the 1990s confirms last quarter of 9th century BCE. Hanno's voyage: Periplus of Hanno (Greek translation of Punic original). Population estimates: various sources cite 400,000–500,000 at peak for both Punic and Roman Carthage.</p>
           <p><strong>Punic Wars:</strong> Polybius, <em>The Histories</em> (primary source). Britannica, "Punic Wars" and "Third Punic War." HISTORY.com, "Punic Wars." Battle of Cannae casualties: estimates vary from 48,000 to 70,000 Roman dead. "Carthago delenda est": attributed to Cato the Elder, reported by Plutarch and Pliny. 146 BCE destruction: Appian, <em>Roman History</em>. Salt myth: no ancient source supports it; first attested 1863.</p>
           <p><strong>Roman & Christian Carthage:</strong> Wikipedia, "Roman Carthage." Caesar refounding: 49–44 BCE, Colonia Julia Concordia Carthago. Second-largest city: widely cited. Tertullian: "Apology" (c. 197 CE). Perpetua: <em>Passio Sanctarum Perpetuae et Felicitatis</em> (203 CE). Council of Carthage (397 CE): confirmation of Biblical canon per Augustine's influence. Augustine quote "cauldron of unholy loves": <em>Confessions</em>, Book 3.</p>
           <p><strong>Vandal to Arab:</strong> Vandal conquest 439 CE: Victor of Vita, <em>Historia Persecutionis</em>. Belisarius reconquest 533–534 CE: Procopius, <em>History of the Wars</em>. Arab conquest 698 CE: final destruction per Wikipedia "Carthage." UNESCO inscription: 1979 (whc.unesco.org/en/list/37). Peace treaty: 1985 per multiple sources.</p>
           <p><strong>Archaeological sites:</strong> UNESCO, "Archaeological Site of Carthage." Africanworldheritagesites.org. Wikipedia, "Archaeological site of Carthage." GPS: 36.8529°N, 10.3217°E (Byrsa Hill). Tophet discovery (1921): 20,000+ urns. Antonine Baths: third-largest in Roman world. La Malga Cisterns: 816m long, 50,000–60,000 m³ capacity.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
           © Dancing with Lions · dancingwithlions.com · All dates approximate prior to 264 BCE. Carthaginian perspective largely lost due to destruction of archives. This visualisation may not be reproduced without visible attribution.
         </p>
       </section>

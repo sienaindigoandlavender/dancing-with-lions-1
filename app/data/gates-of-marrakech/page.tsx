@@ -483,9 +483,9 @@ export default function GatesOfMarrakechPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
-        <div className="border-t pt-6" style={{ borderColor: C.border }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+        <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Deverdun, Gaston. <em>Marrakech: des origines à 1912</em>. Éditions Techniques Nord-Africaines, 1959.
             Archnet: &quot;Walls and Gates of Marrakech.&quot;
             Salmon, Georges. &quot;Les Remparts de Marrakech.&quot; <em>Archives Marocaines</em>, Vol. 3, 1905.
@@ -494,7 +494,7 @@ export default function GatesOfMarrakechPage() {
             Wikipedia: &quot;Walls of Marrakesh,&quot; &quot;Bab Agnaou,&quot; &quot;Zawiya of Sidi Bel Abbes.&quot;
             Coordinates verified via Google Earth, OpenStreetMap, and field observation.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: C.muted }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

@@ -83,7 +83,7 @@ export default function DatePalmOasesPage() {
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             The Date Palm<br />Oases
           </h1>
-          <p className="text-[16px] md:text-[18px] max-w-[540px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[16px] md:text-[18px] max-w-[540px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Draa Valley. Ziz Valley. Tafilalet. The three-tier ecosystem
             that feeds the desert — and the disease that nearly destroyed it.
           </p>
@@ -92,7 +92,7 @@ export default function DatePalmOasesPage() {
             {HERO_STATS.map(s => (
               <div key={s.label}>
                 <span className="font-serif italic block tabular-nums" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{s.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -104,7 +104,7 @@ export default function DatePalmOasesPage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>001 — The Geography</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Four Oasis Regions</h2>
-          <p className="text-[13px] max-w-[520px] leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[520px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>
             South of the Atlas. Long ribbons of palm groves along desert rivers.
             These were the caravan routes to Timbuktu. The oases are measured
             by the number of their palms, not by area.
@@ -154,7 +154,7 @@ export default function DatePalmOasesPage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>003 — The Cultivars</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Varieties</h2>
-          <p className="text-[13px] max-w-[500px] leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[500px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             453 cultivars recorded. These six define the landscape.
           </p>
 
@@ -234,7 +234,7 @@ export default function DatePalmOasesPage() {
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>005 — The Water</p>
           <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Four Systems</h2>
-          <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[13px] max-w-[520px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>
             The oasis exists because of water. How it arrives determines
             everything — who farms, who eats, who stays.
           </p>
@@ -308,7 +308,7 @@ export default function DatePalmOasesPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ background: '#0a0a0a' }} className="py-section-sm">
         <div className="max-w-wide mx-auto px-6 md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Sources</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[
               'ResearchGate — Sedra (2015): 453 cultivars, 52% varieties / 48% khalts, Tafilalet varietal profile (Boufeggous, Mejhoul, Bouslikhène, Najda), three oasis regions (Draa, Tafilalet/Ziz, Tata-Bani) = 90% of national grove, 59,000 ha',
@@ -323,13 +323,13 @@ export default function DatePalmOasesPage() {
               <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
             ))}
           </div>
-          <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: ACCENT }}>Sources: FAO, Ministry of Agriculture Morocco</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

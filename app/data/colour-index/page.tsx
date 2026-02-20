@@ -665,14 +665,14 @@ export default function ColourIndexPage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
-        <p className="micro-label mb-4" style={{ color: C.muted }}>Sources &amp; Methodology</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: C.muted }}>
+      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources &amp; Methodology</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Hex values are editorial approximations sampled from documentary photography, architectural surveys, and material specimens — not Pantone-certified measurements.</p>
           <p>Marrakech pisé composition: El Fgaier et al. (2018), "Characterization of rammed-earth materials from the XVIth century Badii Palace in Marrakech." Zellige chemistry: Zellige de Fès certification documentation. Tadelakt process: Traditional Moroccan Lime Plaster guide (Marrakeche.com). Chefchaouen history: Wikipedia, AFAR Magazine, Times of Israel. Saffron data: Taliouine PDO documentation. Indigo chemistry: Artisans of Morocco. Phosphate reserves: OCP Group annual reports.</p>
           <p>Pantone references are nearest visual matches, not official Pantone colour assignments. "Majorelle Blue" is a registered trademark of the Majorelle Garden / Fondation Jardin Majorelle.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: C.muted }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
           © Dancing with Lions · dancingwithlions.com · All data editorial estimates unless otherwise sourced. This visualization may not be reproduced without visible attribution.
         </p>
       </section>
