@@ -309,7 +309,7 @@ export default function ZaouiaMapPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 059 · Sacred Geography</p>
         <div ref={heroR.ref}>
@@ -348,7 +348,7 @@ export default function ZaouiaMapPage() {
       </section>
 
       {/* ═══ MAP SECTION ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div ref={mapR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: '#2D6E4F' }}>Sufi Geography of Morocco</p>
           <p className="text-[12px] mb-4" style={{ color: C.muted }}>
@@ -403,7 +403,7 @@ export default function ZaouiaMapPage() {
       </section>
 
       {/* ═══ THE BROTHERHOODS ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={ordersR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#2D6E4F' }}>The Orders</p>
 
@@ -477,7 +477,7 @@ export default function ZaouiaMapPage() {
       </section>
 
       {/* ═══ THE STATE-SUFI DYNAMIC ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>The Pattern</p>
 
@@ -517,7 +517,7 @@ export default function ZaouiaMapPage() {
       </section>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
 
@@ -559,7 +559,7 @@ export default function ZaouiaMapPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Cornell, Vincent J. <em>Realm of the Saint: Power and Authority in Moroccan Sufism</em>. University of Texas Press, 1998.

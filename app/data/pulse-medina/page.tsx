@@ -277,7 +277,7 @@ export default function PulseOfMedinaPage() {
     <div className="min-h-screen" style={{ background: C.bg, color: '#E8E0D4' }}>
 
       {/* HERO */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 pt-36 pb-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-4">
         <Link href="/data" className="text-[10px] tracking-[3px] uppercase hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: '#6B6050' }}>
           ← All Data Modules
         </Link>
@@ -368,7 +368,7 @@ export default function PulseOfMedinaPage() {
       </section>
 
       {/* QUARTER LEGEND */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
         <div className="border-t pt-6" style={{ borderColor: '#2A2520' }}>
           <p className="text-[10px] tracking-[3px] uppercase mb-4" style={{ color: '#6B6050' }}>
             Craft Quarters — colour = trade, brightness = activity at current hour
@@ -399,7 +399,7 @@ export default function PulseOfMedinaPage() {
       </section>
 
       {/* SOUNDSCAPE TABLE */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
         <div className="border-t pt-6" style={{ borderColor: '#2A2520' }}>
           <p className="text-[10px] tracking-[3px] uppercase mb-4" style={{ color: '#6B6050' }}>
             24-Hour Soundscape — what you hear at each hour
@@ -435,7 +435,7 @@ export default function PulseOfMedinaPage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: '#2A2520' }}>
           <p className="text-[10px] tracking-[3px] uppercase mb-6" style={{ color: '#6B6050' }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -482,7 +482,7 @@ export default function PulseOfMedinaPage() {
       </section>
 
       {/* CLOSING */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8 max-w-[640px]" style={{ borderColor: '#2A2520' }}>
           <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: '#E8E0D4' }}>
             A thousand years of people walking the same stones have worn grooves
@@ -497,7 +497,7 @@ export default function PulseOfMedinaPage() {
       </section>
 
       {/* SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1400px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: '#2A2520' }}>
           <p className="text-[10px] tracking-[3px] uppercase mb-2" style={{ color: '#6B6050' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: '#4A4030' }}>

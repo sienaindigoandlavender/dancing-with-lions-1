@@ -211,16 +211,16 @@ export default function WeatherPortraitsPage() {
 
   return (
     <div className="pt-16" style={{ background: '#ffffff' }}>
-      <div ref={hero.ref}><section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-16">
+      <div ref={hero.ref}><section className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-16">
         <p className="micro-label mb-4" style={{ opacity: hero.vis ? 1 : 0, transition: 'opacity 0.6s' }}>Module 041</p>
         <h1 className="font-serif text-[clamp(2.8rem,7vw,4.5rem)] text-dwl-black leading-[0.95]" style={{ opacity: hero.vis ? 1 : 0, transform: hero.vis ? 'none' : 'translateY(20px)', transition: 'all 0.8s' }}>Weather <em>Portraits</em></h1>
         <p className="text-body text-dwl-body mt-6 max-w-[620px]" style={{ opacity: hero.vis ? 1 : 0, transition: 'opacity 0.8s 0.2s' }}>Eight cities. Twelve months. One country that holds both Africa's coldest recorded temperature and some of its hottest. Morocco stretches from Atlantic fog to Saharan furnace — a 73.5°C swing contained in a single nation.</p>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── LIVE WEATHER ─── */}
-      <div ref={live.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={live.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div className="flex items-baseline gap-4 mb-2">
           <p className="micro-label">Right Now</p>
           {!liveLoading && liveTime && <div className="flex items-center gap-2"><span className="inline-block w-[6px] h-[6px] rounded-full bg-green-500 animate-pulse" /><span className="text-[11px] text-dwl-muted">{liveTime} Morocco time</span></div>}
@@ -242,25 +242,25 @@ export default function WeatherPortraitsPage() {
         )}
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── EXTREMES ─── */}
-      <div ref={extremes.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={extremes.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-8">National Extremes</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {EXTREMES.map((ex, i) => (<div key={i} className="border border-dwl-border p-5" style={{ opacity: extremes.vis ? 1 : 0, transform: extremes.vis ? 'none' : 'translateY(16px)', transition: `all 0.5s ${i * 0.06}s` }}>
             <div className="text-[11px] text-dwl-muted uppercase tracking-[0.06em]">{ex.label}</div>
-            <div className="font-serif text-[28px] md:text-[36px] text-dwl-black leading-none mt-2">{ex.value}</div>
+            <div className="font-serif text-[32px] md:text-[44px] text-dwl-black leading-none mt-2">{ex.value}</div>
             <div className="text-[13px] text-dwl-gray mt-2">{ex.where}</div>
             <div className="text-[11px] text-dwl-muted mt-1">{ex.when}</div>
           </div>))}
         </div>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── CITY PORTRAITS ─── */}
-      <div ref={radials.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={radials.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-4">City Climate Portraits</p>
         <p className="text-[15px] text-dwl-gray mb-8 max-w-[500px]">Each ring is a year. Inner circle = low temperature, outer ring = high. The colour is the heat. Toggle the satellite view to see Morocco from space today.</p>
         <div className="flex flex-wrap gap-2 mb-10">
@@ -307,10 +307,10 @@ export default function WeatherPortraitsPage() {
         </div>
       </section></div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── CLIMATE ZONES ─── */}
-      <div ref={zones.ref}><section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={zones.ref}><section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-4">Six Climate Zones in One Country</p>
         <p className="text-[15px] text-dwl-gray mb-10 max-w-[540px]">Most countries have one or two climate zones. Morocco has six — from the Mediterranean coast to the true Sahara, a journey of 1,000km and 73.5°C of temperature range.</p>
         <div className="space-y-0">{ZONES.map((z, i) => (<div key={i} className="border-b border-dwl-border py-8 grid grid-cols-1 md:grid-cols-12 gap-6" style={{ opacity: zones.vis ? 1 : 0, transform: zones.vis ? 'none' : 'translateY(12px)', transition: `all 0.5s ${i*0.08}s` }}>
@@ -322,7 +322,7 @@ export default function WeatherPortraitsPage() {
       </section></div>
 
       {/* ─── READING NOTES ─── */}
-      <div ref={notes.ref}><section className="bg-[#f5f5f5]"><div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <div ref={notes.ref}><section className="bg-[#f5f5f5]"><div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-8">Reading Notes</p>
         <div className="space-y-10 max-w-[640px]">
           <div style={{ opacity: notes.vis ? 1 : 0, transition: 'opacity 0.6s' }}><h3 className="font-serif text-[22px] text-dwl-black">The 73.5°C Country</h3><p className="text-[15px] text-dwl-gray leading-relaxed mt-3">Africa's coldest recorded temperature belongs to Morocco: −23.9°C at Ifrane, 11 February 1935. A mountain town at 1,665m in the Middle Atlas, covered in snow half the year. Morocco's hottest verified temperature: 49.6°C at Marrakech, 17 July 2012. Between these two numbers: 73.5°C. A single country that spans the full thermal range of an entire continent.</p></div>
@@ -332,18 +332,18 @@ export default function WeatherPortraitsPage() {
       </div></section></div>
 
       {/* ─── CLOSING ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <blockquote className="font-serif text-[clamp(1.3rem,3.5vw,1.8rem)] text-dwl-black leading-[1.4] max-w-[680px]">"Ifrane and Errachidia are 200 kilometres apart. One holds Africa's coldest recorded temperature. The other regularly exceeds 42°C. Between them: the Atlas Mountains — a wall of rock that separates two climates, two ecosystems, two ways of living. Morocco is not one weather. It is six, stacked vertically."</blockquote>
       </section>
 
       {/* ─── SOURCES ─── */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border"><div style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
         <p className="micro-label mb-4">Sources & Attribution</p>
         <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">Temperature and rainfall averages: Climates to Travel (WMO 1991–2020 normals); climate-data.org (1991–2021); Weather Spark. Record temperatures: Ifrane −23.9°C (11 Feb 1935): Wikipedia/Ifrane; Current Results Africa extremes. Marrakech 49.6°C (17 Jul 2012): Weather Underground (Christopher C. Burt). Agadir-Inezgane 50.4°C (11 Aug 2023): Morocco World News; disputed/unverified. Köppen classifications: Wikipedia/Climate of Morocco. Sunshine hours: worlddata.info; weather-and-climate.com. Warming trend (+1.6°C 1990–2024): worlddata.info (German Weather Service archives). Climate zones: Encyclopedia of the Environment (Hanchane Mohamed, 2025). Live weather: Open-Meteo API (open-meteo.com). Satellite imagery: NASA Global Imagery Browse Services (GIBS), MODIS Terra Corrected Reflectance. All data editorial estimates unless otherwise sourced.</p>
         <p className="text-[11px] text-dwl-muted mt-4">© Dancing with Lions · dancingwithlions.com · Data may not be reproduced without attribution.</p>
       </div></section>
 
-      <div className="border-t border-dwl-border"><div className="max-w-wide mx-auto px-6 md:px-10 py-6">
+      <div className="border-t border-dwl-border"><div className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <Link href="/data" className="text-meta hover:text-dwl-black transition-colors">← All Data Modules</Link>
       </div></div>
     </div>

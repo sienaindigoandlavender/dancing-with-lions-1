@@ -368,7 +368,7 @@ export default function SevenSaintsPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 058 · Sacred Geography</p>
         <div ref={heroR.ref}>
@@ -425,7 +425,7 @@ export default function SevenSaintsPage() {
       </section>
 
       {/* ═══ PILGRIMAGE MAP ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div ref={mapR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.sacred }}>The Ziyara Circuit</p>
           <p className="text-[12px] mb-4" style={{ color: C.muted }}>
@@ -481,7 +481,7 @@ export default function SevenSaintsPage() {
       </section>
 
       {/* ═══ THE SEVEN PROFILES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={detailR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: C.sacred }}>The Seven Men — In Pilgrimage Order</p>
 
@@ -535,7 +535,7 @@ export default function SevenSaintsPage() {
       </section>
 
       {/* ═══ THE PATTERN ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.sacred }}>The Pattern</p>
 
@@ -574,7 +574,7 @@ export default function SevenSaintsPage() {
       </section>
 
       {/* ═══ SVG CIRCUIT DIAGRAM ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.gold }}>The Week</p>
 
@@ -638,7 +638,7 @@ export default function SevenSaintsPage() {
       </section>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
 
@@ -681,7 +681,7 @@ export default function SevenSaintsPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Deverdun, Gaston. <em>Marrakech: des origines à 1912</em>. Éditions Techniques Nord-Africaines, 1959.

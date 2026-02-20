@@ -144,7 +144,7 @@ export default function RamadanMoonPage() {
     <div className="bg-white text-white min-h-screen pt-16">
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[900px] mx-auto px-6 md:px-10 pt-20 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-8">
         <Link href="/data" className="micro-label text-[#555] hover:text-[#1C1917]/60 transition-colors inline-block mb-6">
           ← All Data Modules
         </Link>
@@ -174,7 +174,7 @@ export default function RamadanMoonPage() {
       </section>
 
       {/* ═══ SECTION 1: THE 30 MOONS ═══ */}
-      <section ref={moonRef} className="max-w-[900px] mx-auto px-6 md:px-10 pt-12">
+      <section ref={moonRef} className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">30 Nights of Ramadan</p>
           <p className="font-serif italic text-[20px] text-white/50 mb-0">
@@ -286,7 +286,7 @@ export default function RamadanMoonPage() {
       </div>
 
       {/* ═══ SECTION 2: THE 33-YEAR DRIFT ═══ */}
-      <section ref={wheelRef} className="max-w-[900px] mx-auto px-6 md:px-10 pt-12">
+      <section ref={wheelRef} className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">The 33-Year Rotation</p>
           <p className="font-serif italic text-[20px] text-white/50 mb-6">
@@ -400,7 +400,7 @@ export default function RamadanMoonPage() {
       </section>
 
       {/* ═══ SECTION 3: FASTING HOURS ═══ */}
-      <section ref={barsRef} className="max-w-[900px] mx-auto px-6 md:px-10 pt-6">
+      <section ref={barsRef} className="px-8 md:px-[8%] lg:px-[12%] pt-6">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">What Fasting Feels Like</p>
           <p className="font-serif italic text-[20px] text-white/50 mb-5">
@@ -466,7 +466,7 @@ export default function RamadanMoonPage() {
       </section>
 
       {/* ═══ KEY ═══ */}
-      <section className="max-w-[900px] mx-auto px-6 md:px-10 pt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-white/[0.06] pt-6">
           <div>
             <p className="micro-label text-[#444] mb-2">The Crescent (Hilal)</p>
@@ -490,7 +490,7 @@ export default function RamadanMoonPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[900px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t border-white/[0.06] pt-4">
           <p className="micro-label text-[#333] mb-2">Sources & Methodology</p>
           <p className="text-[11px] text-white/20 leading-[1.6] max-w-[600px]">

@@ -167,7 +167,7 @@ function ShareEmbed() {
   }
 
   return (
-    <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-12">
+    <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
       <div style={{ borderTop: `1px solid ${EARTH.border}` }} className="pt-8">
         <p className="micro-label" style={{ color: EARTH.muted }}>Share & Embed</p>
         <p className="font-serif italic text-[20px] mt-1 mb-6" style={{ color: EARTH.body }}>
@@ -239,7 +239,7 @@ export default function SeasonalProducePage() {
     <div className="min-h-screen pt-16" style={{ background: EARTH.paper, color: EARTH.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-20 pb-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-12">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: EARTH.muted }}>
           ← All Data Modules
         </Link>
@@ -377,7 +377,7 @@ export default function SeasonalProducePage() {
       </section>
 
       {/* ═══ ILLUSTRATED MONTH-BY-MONTH CALENDAR ═══ */}
-      <section ref={calRef} className="max-w-[1100px] mx-auto px-6 md:px-10 mt-12">
+      <section ref={calRef} className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="pt-8 mb-6" style={{ borderTop: `1px solid ${EARTH.border}` }}>
           <p className="micro-label mb-1" style={{ color: EARTH.muted }}>The Calendar</p>
           <p className="font-serif italic text-[20px]" style={{ color: EARTH.body }}>
@@ -432,7 +432,7 @@ export default function SeasonalProducePage() {
       </section>
 
       {/* ═══ CULTURAL NOTES ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="pt-8" style={{ borderTop: `1px solid ${EARTH.border}` }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -468,7 +468,7 @@ export default function SeasonalProducePage() {
       <ShareEmbed />
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="pt-4" style={{ borderTop: `1px solid ${EARTH.border}` }}>
           <p className="micro-label mb-2" style={{ color: EARTH.muted }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: EARTH.muted }}>

@@ -44,7 +44,7 @@ export default function WeddingAtlasPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#EC4899', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 048 — Event Intelligence
           </p>
@@ -70,9 +70,9 @@ export default function WeddingAtlasPage() {
 
       {/* ═══ CEREMONY TIMELINE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — The Ceremonies</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Seven Stages, Three to Seven Days</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Seven Stages, Three to Seven Days</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-16">Every Moroccan wedding follows the same arc — from negotiation to celebration. The timeline compresses or expands, but the rituals remain.</p>
 
           <div className="relative">
@@ -94,7 +94,7 @@ export default function WeddingAtlasPage() {
                       {/* Right: content */}
                       <div className="md:col-span-9">
                         <div className="flex items-baseline gap-3 mb-3">
-                          <h3 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1]">{stage.name}</h3>
+                          <h3 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1]">{stage.name}</h3>
                           <span className="text-[14px] text-dwl-muted" style={{ fontFamily: "'Noto Sans Arabic', sans-serif" }}>{stage.nameAr}</span>
                         </div>
                         <p className="text-[15px] text-dwl-body leading-relaxed mb-5 max-w-[600px]">{stage.description}</p>
@@ -117,7 +117,7 @@ export default function WeddingAtlasPage() {
       </section>
 
       {/* ═══ QUOTE 1 ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[40vh]" style={{ background: '#EC4899' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#EC4899' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 3rem)', color: '#ffffff' }}>
             The bride enters at eleven. She leaves at dawn.
@@ -129,9 +129,9 @@ export default function WeddingAtlasPage() {
 
       {/* ═══ BRIDAL WARDROBE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — The Wardrobe</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Seven Outfits, One Night</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Seven Outfits, One Night</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-12">The bride doesn&rsquo;t just change clothes — she crosses regions. Each outfit carries the weight of a city, a lineage, a tradition. The negafa orchestrates every transition.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
@@ -155,9 +155,9 @@ export default function WeddingAtlasPage() {
 
       {/* ═══ KEY ROLES ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EC4899' }}>003 — The Cast</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Roles That Make It Happen</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Roles That Make It Happen</h2>
 
           <div className="space-y-0">
             {KEY_ROLES.map((role, i) => {
@@ -183,9 +183,9 @@ export default function WeddingAtlasPage() {
 
       {/* ═══ REGIONAL VARIATIONS ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">004 — Regional Variations</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Same Arc, Different Worlds</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Same Arc, Different Worlds</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-12">The core ceremonies hold everywhere. But a wedding in Fes sounds nothing like a wedding in the Sahara — and an Amazigh celebration in the Atlas looks nothing like either.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
@@ -207,9 +207,9 @@ export default function WeddingAtlasPage() {
 
       {/* ═══ THE FEAST ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#F59E0B' }}>005 — The Feast</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Courses, One Night</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Courses, One Night</h2>
 
           <div className="space-y-0">
             {WEDDING_MENU.map((course, i) => {
@@ -232,7 +232,7 @@ export default function WeddingAtlasPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[35vh]" style={{ background: '#A855F7' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[35vh]" style={{ background: '#A855F7' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
             A Moroccan wedding is not a party. It is a production —
@@ -244,10 +244,10 @@ export default function WeddingAtlasPage() {
       </section>
 
       {/* ═══ COST BREAKDOWN ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">006 — The Cost</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">What It Costs</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">What It Costs</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-12">Moroccan weddings range from $10,000 for a modest celebration to $100,000+ for Marrakech luxury. Most land between $15,000 and $50,000. Both families typically contribute.</p>
 
           <div className="space-y-0">
@@ -290,8 +290,8 @@ export default function WeddingAtlasPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

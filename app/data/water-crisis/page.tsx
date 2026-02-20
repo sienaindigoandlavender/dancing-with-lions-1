@@ -120,7 +120,7 @@ export default function WaterCrisisPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#3B82F6', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 006 — Environmental Data
           </p>
@@ -145,9 +145,9 @@ export default function WaterCrisisPage() {
 
       {/* ═══ DAM FILL RATE CHART ═══ */}
       <section className="bg-white" id="fill-chart">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — The Decline & Recovery</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Dam Fill Rate 2015–2026</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Dam Fill Rate 2015–2026</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-12">
             National average dam fill rate. The descent from 72% to 28% took seven years.
             The recovery from 28% to 70.7% took twelve months.
@@ -182,9 +182,9 @@ export default function WaterCrisisPage() {
 
       {/* ═══ RAINFALL RECOVERY ═══ */}
       <section style={{ background: '#3B82F6' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.5)' }}>002 — The Rains of Winter 2025–2026</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>
             &ldquo;These rains remind us of the winters of the 1960s and 1970s.&rdquo;
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(255,255,255,0.15)' }}>
@@ -201,7 +201,7 @@ export default function WaterCrisisPage() {
 
       {/* ═══ MAP — BASINS / DESALINATION ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           {/* Toggle */}
           <div className="flex gap-2 px-6 md:px-10 pt-6">
             {(['basins', 'desal'] as const).map((layer) => (
@@ -239,9 +239,9 @@ export default function WaterCrisisPage() {
 
       {/* ═══ BASIN BARS ═══ */}
       <section className="bg-white" id="basin-bars">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — Basin by Basin</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">
             The North Overflows. The South Still Waits.
           </h2>
           <p className="text-body text-dwl-body max-w-[580px] mb-12">
@@ -276,7 +276,7 @@ export default function WaterCrisisPage() {
       </section>
 
       {/* ═══ STRUCTURAL CRISIS QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[40vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#EF4444' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 3rem)', color: '#ffffff' }}>
             The drought is over. The water crisis isn&rsquo;t. Morocco&rsquo;s per-capita water has dropped
@@ -287,9 +287,9 @@ export default function WaterCrisisPage() {
 
       {/* ═══ DESALINATION STRATEGY ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#72EFDD' }}>004 — The Desalination Bet</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>
             Half of Drinking Water by 2030
           </h2>
           <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(0,0,0,0.4)' }}>
@@ -320,9 +320,9 @@ export default function WaterCrisisPage() {
 
       {/* ═══ KEY NUMBERS ═══ */}
       <section className="bg-white" style={{ borderTop: '1px solid #e5e5e5' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">005 — By the Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">The Structural Picture</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">The Structural Picture</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
             {KEY_NUMBERS.map((fig) => (
               <div key={fig.label} className="bg-white p-6 md:p-8">
@@ -336,8 +336,8 @@ export default function WaterCrisisPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

@@ -539,7 +539,7 @@ export default function FreePeoplePage() {
 
       {/* ─── HERO ─── */}
       <div ref={hero.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-16">
+        <section className="px-8 md:px-[8%] lg:px-[12%] pt-section pb-16">
           <p className="micro-label mb-4" style={{ opacity: hero.vis ? 1 : 0, transition: 'opacity 0.6s' }}>Module 042</p>
           <h1 className="font-serif text-[clamp(2.8rem,7vw,4.5rem)] text-dwl-black leading-[0.95]"
             style={{ opacity: hero.vis ? 1 : 0, transform: hero.vis ? 'none' : 'translateY(20px)', transition: 'all 0.8s' }}>
@@ -559,11 +559,11 @@ export default function FreePeoplePage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── KEY NUMBERS ─── */}
       <div ref={numbers.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { n: '30–40M', l: 'Amazigh people across Africa', sub: 'Estimated total population' },
@@ -585,10 +585,10 @@ export default function FreePeoplePage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── TAB SELECTOR ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 pt-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-section">
         <div className="flex gap-2">
           {([['morocco', 'Part 1 — Morocco'], ['africa', 'Part 2 — Across Africa']] as const).map(([key, label]) => (
             <button key={key} onClick={() => setTab(key)}
@@ -607,7 +607,7 @@ export default function FreePeoplePage() {
       {/* ═══ PART 1: MOROCCO ═══ */}
       {tab === 'morocco' && (
         <div ref={morocco.ref}>
-          <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
             <p className="micro-label mb-3">Moroccan Confederations, Tribes & Language Groups</p>
             <p className="text-[15px] text-dwl-gray mb-10 max-w-[580px]">
               Morocco&apos;s Amazigh world is not one people — it is a constellation of confederations,
@@ -739,7 +739,7 @@ export default function FreePeoplePage() {
       {/* ═══ PART 2: ACROSS AFRICA ═══ */}
       {tab === 'africa' && (
         <div ref={africa.ref}>
-          <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
             <p className="micro-label mb-3">Amazigh Communities by Country</p>
             <p className="text-[15px] text-dwl-gray mb-10 max-w-[580px]">
               From the Atlantic to the Nile. From the Mediterranean to the Sahel. Ten countries,
@@ -778,11 +778,11 @@ export default function FreePeoplePage() {
         </div>
       )}
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── LANGUAGES TABLE ─── */}
       <div ref={langs.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-3">The Major Amazigh Languages</p>
           <p className="text-[15px] text-dwl-gray mb-8 max-w-[520px]">
             Not one language but a family — comparable in diversity to the Romance languages.
@@ -814,11 +814,11 @@ export default function FreePeoplePage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── TIMELINE ─── */}
       <div ref={timeline.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-3">12,000 Years in 21 Moments</p>
           <div className="max-w-[680px] space-y-0">
             {TIMELINE.map((t, i) => (
@@ -840,7 +840,7 @@ export default function FreePeoplePage() {
       {/* ─── READING NOTES ─── */}
       <div ref={reading.ref}>
         <section className="bg-dwl-offwhite">
-          <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+          <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
             <p className="micro-label mb-8">Reading Notes</p>
             <div className="space-y-10 max-w-[640px]">
               <div style={{ opacity: reading.vis ? 1 : 0, transition: 'opacity 0.6s' }}>
@@ -881,7 +881,7 @@ export default function FreePeoplePage() {
       </div>
 
       {/* ─── CLOSING ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <blockquote className="font-serif text-[clamp(1.3rem,3.5vw,1.8rem)] text-dwl-black leading-[1.4] max-w-[680px]">
           &ldquo;ⴰⵣⵓⵍ — azul. The Amazigh greeting. It means &lsquo;be well.&rsquo; Twelve thousand years of saying it.
           Through the Phoenicians, the Romans, the Arabs, the French. Still here. Still free.
@@ -891,7 +891,7 @@ export default function FreePeoplePage() {
 
       {/* ─── SOURCES ─── */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="border-t border-dwl-border">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
           <p className="micro-label mb-4">Sources & Attribution</p>
           <p className="text-[12px] text-dwl-muted leading-relaxed max-w-[640px]">
             Morocco 2024 census data: High Commission for Planning (HCP), announced 17 December 2024; IWGIA (International
@@ -915,7 +915,7 @@ export default function FreePeoplePage() {
 
       {/* ─── BACK ─── */}
       <div className="border-t border-dwl-border">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-6">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-6">
           <Link href="/data" className="text-meta hover:text-dwl-black transition-colors">
             ← All Data Modules
           </Link>

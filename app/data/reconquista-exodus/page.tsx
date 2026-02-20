@@ -359,7 +359,7 @@ export default function ReconquistaPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Module 064 · Conquest & Exile</p>
         <div ref={heroR.ref}>
@@ -399,7 +399,7 @@ export default function ReconquistaPage() {
       </section>
 
       {/* ═══ TIMELINE ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-8">
         <div ref={timeR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: C.christian }}>The Reconquista · 711–1614</p>
 
@@ -437,7 +437,7 @@ export default function ReconquistaPage() {
       </section>
 
       {/* ═══ DIASPORA MAP ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={mapR.ref} className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.both }}>The Exodus · Where They Went</p>
           <p className="text-[12px] mb-4" style={{ color: C.muted }}>
@@ -484,7 +484,7 @@ export default function ReconquistaPage() {
       </section>
 
       {/* ═══ DESTINATION LIST ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: C.both }}>Diaspora Destinations</p>
 
@@ -523,7 +523,7 @@ export default function ReconquistaPage() {
       </section>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.both }}>Reading Notes</p>
           <div className="space-y-6 text-[12px] leading-[1.7] max-w-[600px]" style={{ color: C.text }}>
@@ -548,7 +548,7 @@ export default function ReconquistaPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-8 pb-24">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sources: Harvey, L.P. <em>Muslims in Spain, 1500–1614</em>. University of Chicago Press, 2005.

@@ -276,7 +276,7 @@ export default function TourismFlowPage() {
     <div className="bg-white text-white min-h-screen pt-16">
 
       {/* ═══ HERO ═══ */}
-      <section ref={heroRef} className="max-w-[1100px] mx-auto px-6 md:px-10 pt-20 pb-12">
+      <section ref={heroRef} className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-12">
         <Link href="/data" className="micro-label text-[#555] hover:text-[#1C1917]/60 transition-colors inline-block mb-6">
           ← All Data Modules
         </Link>
@@ -490,7 +490,7 @@ export default function TourismFlowPage() {
       </section>
 
       {/* ═══ THE SPLIT ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">The 51/49 Split</p>
           <p className="font-serif italic text-[20px] text-white/50 mb-6">
@@ -538,7 +538,7 @@ export default function TourismFlowPage() {
       </section>
 
       {/* ═══ REVENUE BREAKDOWN ═══ */}
-      <section ref={revenueRef} className="max-w-[1100px] mx-auto px-6 md:px-10 pt-12">
+      <section ref={revenueRef} className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">Where the Money Goes</p>
           <p className="font-serif italic text-[20px] text-white/50 mb-6">
@@ -587,7 +587,7 @@ export default function TourismFlowPage() {
       </section>
 
       {/* ═══ GROWTH CONTEXT ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">The Trajectory</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
@@ -620,7 +620,7 @@ export default function TourismFlowPage() {
       </section>
 
       {/* ═══ SHARE & EMBED ═══ */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-12">
         <div className="border-t border-white/[0.06] pt-8">
           <p className="micro-label text-[#444] mb-1">Share & Embed</p>
           <p className="font-serif italic text-[20px] text-white/50 mb-6">
@@ -657,7 +657,7 @@ export default function TourismFlowPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1100px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t border-white/[0.06] pt-4">
           <p className="micro-label text-[#333] mb-2">Sources & Methodology</p>
           <p className="text-[11px] text-white/20 leading-[1.6] max-w-[700px]">

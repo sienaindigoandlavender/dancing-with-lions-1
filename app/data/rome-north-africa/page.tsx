@@ -176,7 +176,7 @@ export default function RomeNorthAfricaPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="text-[10px] font-mono tracking-wider uppercase hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="text-[10px] font-mono tracking-wider uppercase mb-3" style={{ color: C.muted }}>Module 055 · Archaeological Intelligence</p>
         <div ref={heroR.ref}>
@@ -203,7 +203,7 @@ export default function RomeNorthAfricaPage() {
       </section>
 
       {/* Key numbers */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
           {KEY.map((k, i) => {
             const kR = useReveal()
@@ -218,10 +218,10 @@ export default function RomeNorthAfricaPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ I. THE MAP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Cities</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -231,10 +231,10 @@ export default function RomeNorthAfricaPage() {
         <RomanMap />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ II. THE PROVINCES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Provinces</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -262,10 +262,10 @@ export default function RomeNorthAfricaPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ III. TIMELINE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Timeline</h2>
         <p className="text-[13px] mb-10 max-w-[540px]" style={{ color: C.muted }}>
@@ -296,10 +296,10 @@ export default function RomeNorthAfricaPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ IV. KEY FIGURES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The People</h2>
         <p className="text-[13px] mb-8 max-w-[540px]" style={{ color: C.muted }}>
@@ -322,10 +322,10 @@ export default function RomeNorthAfricaPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ READING NOTES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: C.muted }}>Reading Notes</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -366,10 +366,10 @@ export default function RomeNorthAfricaPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="text-[10px] font-mono tracking-wider uppercase mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p><strong>Provinces:</strong> Wikipedia, "Africa (Roman province)," "Roman colonies in North Africa," "Byzantine North Africa." Britannica, "Africa, Proconsular Roman province." UNRV.com, "Africa." Oxford Reference, "Roman Africa." Province dates and structure per standard Roman administrative history. Military: 28,000 troops (one legion plus auxiliaries), UNRV and factsanddetails.com. Grain: 1 million tons annual production, one-quarter exported — widely cited. 180 cities in Tunisia: factsanddetails.com citing standard scholarship.</p>

@@ -193,7 +193,7 @@ export default function TheBuildPage() {
     <div className="min-h-screen pt-16 bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-20 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-8">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -266,7 +266,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ PANEL TOGGLE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mb-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mb-4">
         <div className="flex gap-0 border-b" style={{ borderColor: C.border }}>
           <button
             onClick={() => setActivePanel('infrastructure')}
@@ -298,7 +298,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ ANIMATED BARS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         {activeTracks.map(track => {
           const value = current[track.key]
           return (
@@ -392,7 +392,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ CURRENT YEAR DASHBOARD ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-4">
         <div className="border-t pt-4" style={{ borderColor: C.border }}>
           <p className="micro-label mb-3" style={{ color: C.muted }}>
             {activePanel === 'infrastructure' ? 'Infrastructure' : 'Economy'} · {current.year}
@@ -419,7 +419,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ PROJECTION NOTE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <div className="flex items-start gap-4">
             <div className="w-3 h-3 mt-1 rounded-sm" style={{ background: C.ink, opacity: 0.65 }} />
@@ -439,7 +439,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ THE STORY — INFRASTRUCTURE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>I. The Infrastructure</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -477,7 +477,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ THE STORY — ECONOMY ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>II. The Economy</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -529,7 +529,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ INFLECTION POINTS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>III. The Inflection Points</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -550,7 +550,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ THE NUMBERS AT A GLANCE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>IV. 2004 → 2030</p>
           <div className="grid grid-cols-3 md:grid-cols-9 gap-3">
@@ -572,7 +572,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ CLOSING ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-10">
         <div className="border-t pt-8 max-w-[640px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: C.ink }}>
             Every bar in this chart is concrete, steel, and asphalt. Every economic
@@ -584,7 +584,7 @@ export default function TheBuildPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>

@@ -348,7 +348,7 @@ export default function WindAndSunPage() {
     <div className="min-h-screen pt-16 bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-20 pb-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-8">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -389,7 +389,7 @@ export default function WindAndSunPage() {
       </section>
 
       {/* ═══ FILTER + LEGEND ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <div className="border-t border-b py-3 flex items-center justify-between flex-wrap gap-3" style={{ borderColor: C.border }}>
           <div className="flex items-center gap-2">
             <span className="text-[10px] uppercase tracking-widest mr-2" style={{ color: C.muted }}>Type</span>
@@ -424,13 +424,13 @@ export default function WindAndSunPage() {
       </section>
 
       {/* ═══ INSTALLATION MAP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8 mb-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-8 mb-4">
         <p className="text-[10px] uppercase tracking-[0.06em] mb-3" style={{ color: C.muted }}>Installation Map — Click markers to explore. Circle size = capacity (MW).</p>
         <EnergyMap installations={filtered} selected={selected} onSelect={setSelected} />
       </section>
 
       {/* ═══ BLOOM GARDEN ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {filtered.map(inst => (
             <RadialBloom
@@ -448,7 +448,7 @@ export default function WindAndSunPage() {
 
       {/* ═══ SELECTED DETAIL ═══ */}
       {selected && (
-        <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-6">
+        <section className="px-8 md:px-[8%] lg:px-[12%] mt-6">
           <div className="p-6 border" style={{
             borderColor: (selected.type === 'solar' ? C.sun : selected.type === 'wind' ? C.wind : C.hydro) + '30'
           }}>
@@ -509,7 +509,7 @@ export default function WindAndSunPage() {
       )}
 
       {/* ═══ SEASONAL COMPLEMENTARITY ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-4" style={{ color: C.muted }}>Seasonal Complementarity — Why Morocco&apos;s Mix Works</p>
 
@@ -561,7 +561,7 @@ export default function WindAndSunPage() {
       </section>
 
       {/* ═══ STORY ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="border-t pt-8 grid grid-cols-1 md:grid-cols-3 gap-8" style={{ borderColor: C.border }}>
           <div>
             <p className="micro-label mb-2" style={{ color: C.sun }}>The Sun</p>
@@ -596,7 +596,7 @@ export default function WindAndSunPage() {
       </section>
 
       {/* ═══ THE CLOSING ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="border-t pt-8 max-w-[640px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[22px] leading-[1.4]" style={{ color: C.ink }}>
             Morocco imports 97% of its fossil fuel. It exports sunshine.
@@ -611,7 +611,7 @@ export default function WindAndSunPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>

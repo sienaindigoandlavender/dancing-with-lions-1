@@ -220,7 +220,7 @@ export default function WorldCupBlueprintPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* HERO */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -292,7 +292,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* ═══ SECTION 1: THE $41B ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-1" style={{ color: C.rail }}>The $41 Billion</p>
           <p className="font-mono text-[11px] mb-6" style={{ color: C.muted }}>
@@ -329,7 +329,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* ═══ SECTION 2: THE SHRINKING COUNTRY ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <div className="flex items-baseline justify-between mb-1 flex-wrap gap-4">
             <div>
@@ -356,7 +356,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* ═══ SECTION 3: THE SPILLOVER ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-1" style={{ color: C.growth }}>The Spillover Effect</p>
           <p className="font-mono text-[11px] mb-6" style={{ color: C.muted }}>
@@ -371,7 +371,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* ═══ SECTION 4: THE AFCON PROOF ═══ */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-4" style={{ color: C.stadium }}>The AFCON Proof of Concept</p>
           <p className="font-mono text-[11px] mb-6" style={{ color: C.muted }}>
@@ -406,7 +406,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8" style={{ borderColor: C.border }}>
           <p className="micro-label mb-6" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -444,7 +444,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* CLOSING */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 mt-4">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-4">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: C.border }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             Forty-one billion dollars is an abstraction. Here is what it looks like
@@ -460,7 +460,7 @@ export default function WorldCupBlueprintPage() {
       </section>
 
       {/* SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>

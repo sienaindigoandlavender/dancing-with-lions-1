@@ -166,7 +166,7 @@ export default function WorldCup2030Page() {
     <div className="min-h-screen pt-16 bg-white" style={{ color: '#0a0a0a' }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-20 pb-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-20 pb-12">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: '#737373' }}>
           ← All Data Modules
         </Link>
@@ -239,7 +239,7 @@ export default function WorldCup2030Page() {
       </section>
 
       {/* ═══ FILTER BAR ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <div className="border-t border-b" style={{ borderColor: '#e5e5e5' }}>
           <div className="flex items-center gap-2 py-3 overflow-x-auto" style={{ scrollbarWidth: 'none' as const }}>
             <span className="text-[10px] uppercase tracking-widest mr-2" style={{ color: '#737373' }}>View</span>
@@ -273,7 +273,7 @@ export default function WorldCup2030Page() {
 
       {/* ═══ MAP ═══ */}
       {view === 'stadiums' && (
-        <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+        <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
           <svg viewBox={`0 0 ${MAP.w} ${MAP.h}`} className="w-full h-auto" style={{ maxHeight: '70vh' }}>
             {/* Country outlines */}
             <path d={polyToPath(SPAIN_OUTLINE)} fill="#f5f5f5" stroke="#e5e5e5" strokeWidth="1" />
@@ -424,7 +424,7 @@ export default function WorldCup2030Page() {
 
       {/* ═══ INFRASTRUCTURE TABLE ═══ */}
       {view === 'infrastructure' && (
-        <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+        <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
           <div className="grid grid-cols-1 gap-px" style={{ background: '#e5e5e5' }}>
             {/* Header */}
             <div className="grid grid-cols-12 gap-4 p-3 bg-white"
@@ -470,7 +470,7 @@ export default function WorldCup2030Page() {
 
       {/* ═══ BUDGET BREAKDOWN ═══ */}
       {view === 'budget' && (
-        <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-8">
+        <section className="px-8 md:px-[8%] lg:px-[12%] mt-8">
           <div className="mb-8">
             <p className="micro-label mb-2" style={{ color: '#737373' }}>Morocco Investment Breakdown</p>
             <p className="font-serif italic text-[20px]" style={{ color: '#262626' }}>
@@ -563,7 +563,7 @@ export default function WorldCup2030Page() {
       )}
 
       {/* ═══ STADIUM TABLE (all views) ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 mt-12">
+      <section className="px-8 md:px-[8%] lg:px-[12%] mt-12">
         <div className="border-t pt-8" style={{ borderColor: '#e5e5e5' }}>
           <p className="micro-label mb-4" style={{ color: '#737373' }}>All 20 Venues</p>
           <div className="overflow-x-auto" style={{ scrollbarWidth: 'none' as const }}>
@@ -602,7 +602,7 @@ export default function WorldCup2030Page() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: '#e5e5e5' }}>
           <p className="micro-label mb-2" style={{ color: '#737373' }}>Sources</p>
           <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: '#737373' }}>

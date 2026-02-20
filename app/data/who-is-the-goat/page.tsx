@@ -589,7 +589,7 @@ export default function WhoIsTheGoatPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -615,7 +615,7 @@ export default function WhoIsTheGoatPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pb-10">
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { n: '117,000', l: 'km — Ibn Battuta', c: C.battuta },
@@ -636,10 +636,10 @@ export default function WhoIsTheGoatPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ MAP ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-2">The Routes</h2>
         <p className="text-[14px] leading-relaxed mb-6 max-w-[600px]" style={{ color: C.text }}>
@@ -650,28 +650,28 @@ export default function WhoIsTheGoatPage() {
         <RouteMap />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ TALE OF THE TAPE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-6">Tale of the Tape</h2>
         <TaleOfTheTape />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ COMPARISON BARS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-6">By the Numbers</h2>
         <ComparisonBars />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ TIMELINE ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-4">Two Lives, One Century</h2>
         <p className="text-[14px] leading-relaxed mb-8 max-w-[600px]" style={{ color: C.text }}>
@@ -687,10 +687,10 @@ export default function WhoIsTheGoatPage() {
         <DualTimeline />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SCORECARD ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section V</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-4">The Verdict</h2>
         <p className="text-[14px] leading-relaxed mb-8 max-w-[600px]" style={{ color: C.text }}>
@@ -703,7 +703,7 @@ export default function WhoIsTheGoatPage() {
       </section>
 
       {/* ═══ CLOSING ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-16 text-center">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-16 text-center">
         <div className="max-w-[540px] mx-auto">
           <p className="font-serif text-[clamp(1.4rem,3vw,2rem)] italic leading-relaxed mb-6" style={{ color: C.ink }}>
             &ldquo;Marco Polo told Europe about Asia.<br />
@@ -717,10 +717,10 @@ export default function WhoIsTheGoatPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-16">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Distance and country counts: Wikipedia, &ldquo;List of places visited by Ibn Battuta&rdquo;; Britannica, &ldquo;Ibn Battuta&rdquo;; World History Encyclopedia. Marco Polo distances from Wikipedia and Brilliant Maps. Biographical data: Britannica, Encyclopedia.com, ORIAS (UC Berkeley). Route coordinates reconstructed from historical itineraries and modern atlases. Scoring methodology is editorial — the numbers are real, the weights are ours.</p>

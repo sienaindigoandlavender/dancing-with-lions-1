@@ -274,7 +274,7 @@ export default function RomaAfricanaPage() {
 
   return (
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>History · From Tangier to Cyrene</p>
         <div ref={heroR.ref}>
@@ -313,7 +313,7 @@ export default function RomaAfricanaPage() {
       </section>
 
       {/* MAP */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={mapR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.rome }}>The Six Provinces</p>
           <p className="font-mono text-[11px] mb-4" style={{ color: C.muted }}>
@@ -352,7 +352,7 @@ export default function RomaAfricanaPage() {
       </section>
 
       {/* PROVINCES TABLE */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={provR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Province Data</p>
           <div className="space-y-2">
@@ -371,7 +371,7 @@ export default function RomaAfricanaPage() {
       </section>
 
       {/* UNESCO / KEY SITES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={siteR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.rome }}>Major Sites & Ruins</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -422,7 +422,7 @@ export default function RomaAfricanaPage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -462,7 +462,7 @@ export default function RomaAfricanaPage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The ruins at Volubilis face the ruins at Moulay Idris across a valley in Morocco.

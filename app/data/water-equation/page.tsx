@@ -460,7 +460,7 @@ export default function WaterEquationPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="micro-label hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>
           ← All Data Modules
         </Link>
@@ -490,7 +490,7 @@ export default function WaterEquationPage() {
       </section>
 
       {/* ═══ KEY FACTS ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <div ref={numsR.ref} className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {KEY_FACTS.map((k, i) => (
             <div key={k.l + k.n} className="border-t pt-3 transition-all duration-700"
@@ -505,26 +505,26 @@ export default function WaterEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ THE EQUATION ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%]">
         <TheEquation />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ DAM CAPACITY ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section I</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-8">The Dam Builders</h2>
         <DamCapacityChart />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ BASIN FILL RATES ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section II</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-4">Where the Water Is</h2>
         <p className="text-[14px] leading-relaxed mb-8 max-w-[600px]" style={{ color: C.text }}>
@@ -535,10 +535,10 @@ export default function WaterEquationPage() {
         <BasinFillRates />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ AQUIFER DEPLETION ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section III</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-4">The Invisible Crisis</h2>
         <p className="text-[14px] leading-relaxed mb-8 max-w-[600px]" style={{ color: C.text }}>
@@ -549,10 +549,10 @@ export default function WaterEquationPage() {
         <AquiferDepletion />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ DESALINATION ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section IV</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-4">The Response</h2>
         <p className="text-[14px] leading-relaxed mb-8 max-w-[600px]" style={{ color: C.text }}>
@@ -563,10 +563,10 @@ export default function WaterEquationPage() {
         <DesalinationTimeline />
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ THE SILT PROBLEM ═══ */}
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-2" style={{ color: C.muted }}>Section V</p>
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.8rem)] mb-6">The Numbers Nobody Mentions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -594,10 +594,10 @@ export default function WaterEquationPage() {
         </div>
       </section>
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10"><div className="border-t" style={{ borderColor: C.border }} /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t" style={{ borderColor: C.border }} /></div>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1200px] mx-auto px-6 md:px-10 py-section">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
         <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
           <p>Dam capacity and fill rates: Morocco Ministry of Equipment and Water daily reports (2024–2026); World Bank Morocco CCDR Background Note: Water Scarcity and Droughts (2023). Aquifer depletion: Hssaisoune et al. (2020), &ldquo;Moroccan Groundwater Resources and Evolution with Global Climate Changes,&rdquo; Geosciences 10(2):81; Fanack Water country profile. Desalination: Morocco World News; Aquatech Trade; IDA Water. Basin data: Hespress, North Africa Post, Morocco World News (Dec 2025 – Feb 2026). National Water Plan: U.S. Commercial Service Morocco Water report; Frontiers in Sustainable Food Systems (2025). Siltation projections: World Bank Morocco CCDR (2023).</p>

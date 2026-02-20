@@ -87,7 +87,7 @@ export default function SolarAtlasPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#F59E0B', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 063 — Energy Intelligence
           </p>
@@ -114,9 +114,9 @@ export default function SolarAtlasPage() {
 
       {/* ═══ NOOR COMPLEX ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — The Noor Ouarzazate Complex</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">Four Phases, One Desert</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Four Phases, One Desert</h2>
           <p className="text-body text-dwl-body max-w-[560px] mb-12">580 MW across 3,000+ hectares. Three CSP technologies and one PV plant. Near the ancient fortress of Ait-Ben-Haddou, where Lawrence of Arabia and Game of Thrones were filmed.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#e5e5e5' }}>
@@ -144,7 +144,7 @@ export default function SolarAtlasPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[38vh]" style={{ background: '#F59E0B' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#F59E0B' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             Morocco showed all other countries that
@@ -157,9 +157,9 @@ export default function SolarAtlasPage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#F59E0B' }}>002 — Solar Projects Map</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>MASEN&rsquo;s Solar Network</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>MASEN&rsquo;s Solar Network</h2>
           <p className="text-[14px] mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>Click markers for project details.</p>
 
           <div className="flex flex-wrap gap-4 mb-6">
@@ -181,10 +181,10 @@ export default function SolarAtlasPage() {
       </section>
 
       {/* ═══ IRRADIANCE ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — Solar Irradiance by Region</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">Where the Sun Hits Hardest</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">Where the Sun Hits Hardest</h2>
 
           <div className="overflow-x-auto">
             <table className="w-full min-w-[700px]">
@@ -216,9 +216,9 @@ export default function SolarAtlasPage() {
 
       {/* ═══ ENERGY MIX ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>004 — The Electricity Mix</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>What Powers Morocco Today</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>What Powers Morocco Today</h2>
           <p className="text-[14px] max-w-[560px] leading-relaxed mb-10" style={{ color: 'rgba(0,0,0,0.4)' }}>Coal still dominates. But the trajectory is clear.</p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
@@ -238,10 +238,10 @@ export default function SolarAtlasPage() {
       </section>
 
       {/* ═══ TIMELINE ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">005 — Timeline</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-8">From Strategy to Megawatts</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-8">From Strategy to Megawatts</h2>
 
           <div className="flex flex-wrap gap-2 mb-8">
             {[
@@ -276,7 +276,7 @@ export default function SolarAtlasPage() {
       </section>
 
       {/* ═══ DARK QUOTE — XLINKS ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#0a0a0a' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#3B82F6' }}>
             The same PV panels generate approximately
@@ -288,14 +288,14 @@ export default function SolarAtlasPage() {
       </section>
 
       {/* ═══ KEY NUMBERS ═══ */}
-      <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section style={{ background: '#fafafa' }} className="">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">006 — Key Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#e5e5e5' }}>
             {KEY_NUMBERS.map((n) => (
               <div key={n.label} className="bg-white p-6 md:p-8">
-                <p className="font-serif italic text-[28px] md:text-[36px] text-dwl-black leading-none">{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] text-dwl-black leading-none">{n.value}</p>
                 <p className="text-[12px] text-dwl-gray mt-2 font-medium">{n.label}</p>
                 <p className="text-[11px] text-dwl-muted mt-1">{n.note}</p>
               </div>
@@ -305,8 +305,8 @@ export default function SolarAtlasPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

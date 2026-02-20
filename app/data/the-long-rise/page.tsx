@@ -202,7 +202,7 @@ export default function TheLongRisePage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* HERO */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-16">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-16">
         <Link href="/data"
           className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6"
           style={{ color: C.muted }}>← All Data Modules</Link>
@@ -247,7 +247,7 @@ export default function TheLongRisePage() {
       </section>
 
       {/* THE LINE */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.rise }}>
             Tourist Arrivals (Millions)
@@ -260,7 +260,7 @@ export default function TheLongRisePage() {
       </section>
 
       {/* YEAR-BY-YEAR TABLE */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={revR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.sea }}>
             Year by Year
@@ -306,7 +306,7 @@ export default function TheLongRisePage() {
       </section>
 
       {/* MILESTONES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div ref={mileR.ref} className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Milestones</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -331,7 +331,7 @@ export default function TheLongRisePage() {
       </section>
 
       {/* READING NOTES */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-8">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-8">
         <div className="border-t pt-6" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -370,7 +370,7 @@ export default function TheLongRisePage() {
       </section>
 
       {/* CLOSING + SOURCES */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-12">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             4.28 million in 2000. 20 million in 2025. The line doesn&apos;t care about bombings

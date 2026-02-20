@@ -147,7 +147,7 @@ export default function PotteryTraditionsPage() {
           </svg>
         </div>
 
-        <div className="max-w-wide mx-auto px-6 md:px-10 pb-20 pt-32 relative z-10">
+        <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#DC2626', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 051 — Craft Intelligence
           </p>
@@ -186,7 +186,7 @@ export default function PotteryTraditionsPage() {
 
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
-        <div className="max-w-wide mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="relative" style={{ height: '65vh', borderBottom: '1px solid #1a1a1a' }}>
             <div ref={mapContainer} className="absolute inset-0" />
 
@@ -234,9 +234,9 @@ export default function PotteryTraditionsPage() {
 
       {/* ═══ REGIONAL DEEP DIVES ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">001 — Regional Traditions</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-4">
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">
             Six Traditions, Six Vocabularies
           </h2>
           <p className="text-body text-dwl-body max-w-[600px] mb-16">
@@ -323,7 +323,7 @@ export default function PotteryTraditionsPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-section flex items-center justify-center min-h-[45vh]" style={{ background: '#1E3A8A' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[45vh]" style={{ background: '#1E3A8A' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.8rem, 5vw, 3.5rem)', color: '#ffffff' }}>
             Turn any piece of Moroccan pottery over. If it says Fès on the base, someone in that city signed it with pride. If it says nothing, it was made by a woman in the mountains who never needed a signature.
@@ -333,9 +333,9 @@ export default function PotteryTraditionsPage() {
 
       {/* ═══ HISTORICAL TIMELINE ═══ */}
       <section className="bg-white">
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">002 — Timeline</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">
             6,000 Years of Clay and Fire
           </h2>
 
@@ -371,9 +371,9 @@ export default function PotteryTraditionsPage() {
 
       {/* ═══ PRODUCTION DATA ═══ */}
       <section className="bg-white" style={{ borderTop: '1px solid #e5e5e5' }}>
-        <div className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-4">003 — By the Numbers</p>
-          <h2 className="font-serif text-[28px] md:text-[36px] italic text-dwl-black leading-[1.05] mb-12">
+          <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-12">
             The Industry Today
           </h2>
 
@@ -390,8 +390,8 @@ export default function PotteryTraditionsPage() {
       </section>
 
       {/* ═══ SOURCES ═══ */}
-      <section style={{ background: '#0a0a0a' }} className="py-section-sm">
-        <div className="max-w-wide mx-auto px-6 md:px-10">
+      <section style={{ background: '#0a0a0a' }} className="py-20 md:py-32">
+        <div className="px-8 md:px-[8%] lg:px-[12%]">
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="space-y-1">
             {[

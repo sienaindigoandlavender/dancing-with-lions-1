@@ -466,7 +466,7 @@ export default function WildlifeAtlasPage() {
     <div className="min-h-screen bg-white">
       {/* ─── HERO ─── */}
       <div ref={hero.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] pt-16 md:pt-24 pb-section">
           <Link href="/data" className="micro-label hover:text-dwl-black transition-colors mb-6 inline-block">
             ← Data &amp; Research
           </Link>
@@ -483,11 +483,11 @@ export default function WildlifeAtlasPage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── KEY NUMBERS ─── */}
       <div ref={numbers.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { n: '118', l: 'Mammal species recorded', sub: '3 extinct, 3 critically endangered, 7 endangered' },
@@ -509,10 +509,10 @@ export default function WildlifeAtlasPage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── IUCN SCALE ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
         <p className="micro-label mb-4">IUCN Red List — Conservation Status Scale</p>
         <div className="flex flex-wrap gap-1">
           {(['EX', 'EW', 'CR', 'EN', 'VU', 'NT', 'LC'] as IUCNStatus[]).map(s => (
@@ -524,10 +524,10 @@ export default function WildlifeAtlasPage() {
         </div>
       </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── SPECIES CARDS ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="micro-label mb-3">Species Profiles</p>
         <p className="text-[15px] text-dwl-gray mb-8 max-w-[580px]">
           {extinctCount} species lost. {endangeredCount} critically endangered or endangered.
@@ -575,11 +575,11 @@ export default function WildlifeAtlasPage() {
         )}
       </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── THE BARBARY LION (Feature section) ─── */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section bg-dwl-offwhite -mx-0">
-        <div className="max-w-wide mx-auto">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40 bg-dwl-offwhite -mx-0">
+        <div className="max-w-[1400px] mx-auto">
           <p className="micro-label mb-6">Feature — The Atlas Lion</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
@@ -640,11 +640,11 @@ export default function WildlifeAtlasPage() {
         </div>
       </section>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── NATIONAL PARKS ─── */}
       <div ref={parks.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-3">Protected Areas</p>
           <h2 className="font-serif text-[clamp(1.6rem,4vw,2.8rem)] text-dwl-black leading-tight mb-8">
             National Parks of Morocco
@@ -684,11 +684,11 @@ export default function WildlifeAtlasPage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── LOSS TIMELINE ─── */}
       <div ref={tl.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-3">Timeline</p>
           <h2 className="font-serif text-[clamp(1.6rem,4vw,2.8rem)] text-dwl-black leading-tight mb-10">
             What Was Lost &amp; What Was Saved
@@ -734,11 +734,11 @@ export default function WildlifeAtlasPage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── READING NOTES ─── */}
       <div ref={reading.ref}>
-        <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
+        <section className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="micro-label mb-6">Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -764,10 +764,10 @@ export default function WildlifeAtlasPage() {
         </section>
       </div>
 
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
+      <div className="px-8 md:px-[8%] lg:px-[12%]"><div className="border-t border-dwl-border" /></div>
 
       {/* ─── SOURCES ─── */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-20 md:py-32">
         <p className="micro-label mb-4">Sources &amp; Methodology</p>
         <p className="text-[13px] text-dwl-gray leading-relaxed max-w-[640px]">
           Species data from IUCN Red List assessments and Wikipedia species profiles. Barbary lion research:

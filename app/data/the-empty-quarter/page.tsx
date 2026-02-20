@@ -299,7 +299,7 @@ export default function EmptyQuarterPage() {
     <div className="min-h-screen bg-white" style={{ color: C.ink }}>
 
       {/* ─── HERO ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-36 pb-10">
+      <section className="px-8 md:px-[8%] lg:px-[12%] pt-36 pb-10">
         <Link href="/data" className="font-mono text-[10px] uppercase tracking-[0.12em] hover:opacity-60 transition-opacity inline-block mb-6" style={{ color: C.muted }}>← All Data Modules</Link>
         <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Geography · Ecosystem · People · Terrain</p>
         <div ref={heroR.ref}>
@@ -323,7 +323,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── CORE STATS ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>The Numbers</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-3">
@@ -339,7 +339,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── MAP ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div ref={mapR.ref} className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.muted }}>The Sahara — 11 Countries</p>
           <p className="text-[11px] mb-3" style={{ color: C.muted }}>Hover a country for desert coverage and key features. Mountain ranges, ergs, and rivers marked.</p>
@@ -348,7 +348,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── COUNTRY TABLE ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Saharan Territory by Country</p>
           <div className="overflow-x-auto">
@@ -384,7 +384,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── TERRAIN ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div ref={terrainR.ref} className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.muted }}>Terrain — What the Sahara Is Actually Made Of</p>
           <p className="text-[11px] mb-4" style={{ color: C.muted }}>
@@ -410,7 +410,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── PEOPLES ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div ref={peopleR.ref} className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.muted }}>The People of the Sand</p>
           <p className="text-[11px] mb-4" style={{ color: C.muted }}>
@@ -446,7 +446,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── BIODIVERSITY ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div ref={bioR.ref} className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-1" style={{ color: C.muted }}>Biodiversity — Life in the Furnace</p>
           <p className="text-[11px] mb-4" style={{ color: C.muted }}>
@@ -481,7 +481,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── THE GREEN SAHARA ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: C.oasis }}>The Green Sahara — The 20,000-Year Cycle</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -521,7 +521,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── READING NOTES ─── */}
-      <section className="max-w-[1000px] mx-auto px-6 md:px-10 py-6">
+      <section className="px-8 md:px-[8%] lg:px-[12%] py-6">
         <div className="border-t pt-5" style={{ borderColor: C.border }}>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-3" style={{ color: C.muted }}>Reading Notes</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -564,7 +564,7 @@ export default function EmptyQuarterPage() {
       </section>
 
       {/* ─── CLOSING + SOURCES ─── */}
-      <section style={{ backgroundColor: '#1f1f1f' }} className="max-w-[1000px] mx-auto px-6 md:px-10 py-10">
+      <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-10">
         <div className="border-t pt-8 max-w-[560px]" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
           <p className="font-serif italic text-[20px] leading-[1.4]" style={{ color: C.ink }}>
             The Sahara is not a barrier. It is a corridor. For thousands of years, trade routes
