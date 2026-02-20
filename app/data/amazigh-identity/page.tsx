@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { THREE_LANGUAGES, MINOR_LANGUAGES, THREE_CONFEDERATIONS, TIFINAGH_EVOLUTION, HISTORY, THREAD_META, CENSUS_DATA, HERO_STATS, KEY_NUMBERS, TIFINAGH_ALPHABET, BIBLIOGRAPHY , MAP_POINTS } from './data'
 const ACCENT = '#E63946'
-const LANG_COLORS = ['#E63946', '#F59E0B', '#3B82F6']
+const LANG_COLORS = ['#E63946', '#F59E0B', '#2D5F8A']
 
 const MAPBOX_TK_A = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 function AmazighMap() {
@@ -150,7 +150,7 @@ export default function AmazighIdentityPage() {
       
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>Language Zones — Mapped</p>
+        <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>Language Zones — Mapped</p>
         <AmazighMap />
       </div></section>
 

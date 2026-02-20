@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { BREADS, FERRAN, WHEAT_DEPENDENCY, ETIQUETTE, HISTORY, HERO_STATS, KEY_NUMBERS, BIBLIOGRAPHY } from './data'
 
 const ACCENT = '#D4A053'
-const THREAD_COLORS: Record<string, string> = { origin: '#8B7355', colonial: '#3B82F6', modern: '#22C55E' }
+const THREAD_COLORS: Record<string, string> = { origin: '#8B7355', colonial: '#2D5F8A', modern: '#5C7C3E' }
 
 export default function BreadOfMoroccoPage() {
   const [vis, setVis] = useState<Set<string>>(new Set())

@@ -97,11 +97,11 @@ export default function ArganTrianglePage() {
               const cx = 60 + i * 90; const cy = 380 + Math.sin(i * 0.8) * 60
               return (
                 <g key={i} style={{ animation: `breathe ${3 + i * 0.3}s ease-in-out infinite` }}>
-                  <line x1={cx} y1={cy + 70} x2={cx} y2={cy - 10} stroke="#22C55E" strokeWidth="0.8" />
-                  <line x1={cx} y1={cy + 10} x2={cx - 22} y2={cy - 30} stroke="#22C55E" strokeWidth="0.4" />
-                  <line x1={cx} y1={cy + 10} x2={cx + 26} y2={cy - 28} stroke="#22C55E" strokeWidth="0.4" />
-                  <ellipse cx={cx - 22} cy={cy - 32} rx="4" ry="5.5" fill="none" stroke="#22C55E" strokeWidth="0.5" />
-                  <ellipse cx={cx + 26} cy={cy - 30} rx="3.5" ry="5" fill="none" stroke="#22C55E" strokeWidth="0.5" />
+                  <line x1={cx} y1={cy + 70} x2={cx} y2={cy - 10} stroke="#5C7C3E" strokeWidth="0.8" />
+                  <line x1={cx} y1={cy + 10} x2={cx - 22} y2={cy - 30} stroke="#5C7C3E" strokeWidth="0.4" />
+                  <line x1={cx} y1={cy + 10} x2={cx + 26} y2={cy - 28} stroke="#5C7C3E" strokeWidth="0.4" />
+                  <ellipse cx={cx - 22} cy={cy - 32} rx="4" ry="5.5" fill="none" stroke="#5C7C3E" strokeWidth="0.5" />
+                  <ellipse cx={cx + 26} cy={cy - 30} rx="3.5" ry="5" fill="none" stroke="#5C7C3E" strokeWidth="0.5" />
                 </g>
               )
             })}
@@ -109,7 +109,7 @@ export default function ArganTrianglePage() {
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#22C55E', animation: 'fadeUp 1s ease 0.3s forwards' }}>Data Module 070 — Agricultural &amp; Economic Intelligence</p>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#5C7C3E', animation: 'fadeUp 1s ease 0.3s forwards' }}>Data Module 070 — Agricultural &amp; Economic Intelligence</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>The Argan<br />Triangle</h1>
           <p className="text-[16px] md:text-[18px] max-w-[580px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(0,0,0,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             The only place on earth argan trees grow. Twenty million trees across 830,000 hectares of UNESCO-protected biosphere, from Essaouira to Agadir to the Anti-Atlas. The women-led economy of Morocco&rsquo;s liquid gold.
@@ -117,7 +117,7 @@ export default function ArganTrianglePage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#22C55E', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#5C7C3E', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -140,10 +140,10 @@ export default function ArganTrianglePage() {
         return (
           <section style={{ background: '#0a0a0a' }}>
             <div className="px-8 md:px-[8%] lg:px-[12%] pt-10">
-              <div className="p-5 rounded-sm" style={{ border: '1px solid #22C55E33', background: '#22C55E08' }}>
+              <div className="p-5 rounded-sm" style={{ border: '1px solid #5C7C3E33', background: '#5C7C3E08' }}>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#22C55E', boxShadow: '0 0 8px #22C55E', animation: 'breathe 2s ease-in-out infinite' }} />
-                  <span className="text-[11px] uppercase tracking-[0.1em] font-medium" style={{ color: '#22C55E' }}>Right Now — {s.status}</span>
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#5C7C3E', boxShadow: '0 0 8px #5C7C3E', animation: 'breathe 2s ease-in-out infinite' }} />
+                  <span className="text-[11px] uppercase tracking-[0.1em] font-medium" style={{ color: '#5C7C3E' }}>Right Now — {s.status}</span>
                 </div>
                 <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(0,0,0,0.5)' }}>{s.detail}</p>
               </div>
@@ -155,21 +155,21 @@ export default function ArganTrianglePage() {
       {/* ═══ ANIMATED EXTRACTION PROCESS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>001 — The Process</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>001 — The Process</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>From Fruit to Oil</h2>
 
           <div className="flex items-center justify-between gap-2 md:gap-4 mb-6">
             {extractionSteps.map((step, i) => (
               <div key={step.label} className="flex-1 text-center transition-all duration-700" style={{ opacity: extractionStep === i ? 1 : 0.15, transform: extractionStep === i ? 'scale(1.05)' : 'scale(0.9)' }}>
                 <div className="text-[36px] md:text-[52px] mb-2" style={{ filter: extractionStep === i ? 'drop-shadow(0 0 16px rgba(34,197,94,0.5))' : 'none', transition: 'filter 0.5s ease' }}>{step.icon}</div>
-                <p className="text-[12px] font-medium transition-colors duration-400" style={{ color: extractionStep === i ? '#22C55E' : '#444' }}>{step.label}</p>
+                <p className="text-[12px] font-medium transition-colors duration-400" style={{ color: extractionStep === i ? '#5C7C3E' : '#444' }}>{step.label}</p>
               </div>
             ))}
           </div>
 
           {/* Progress bar */}
           <div className="h-[3px] mb-5" style={{ background: '#1a1a1a', borderRadius: '2px' }}>
-            <div style={{ height: '100%', background: 'linear-gradient(90deg, #22C55E, #F59E0B)', borderRadius: '2px', width: `${((extractionStep + 1) / 4) * 100}%`, transition: 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)' }} />
+            <div style={{ height: '100%', background: 'linear-gradient(90deg, #5C7C3E, #F59E0B)', borderRadius: '2px', width: `${((extractionStep + 1) / 4) * 100}%`, transition: 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)' }} />
           </div>
 
           <p className="text-[13px] leading-relaxed min-h-[3rem]" style={{ color: 'rgba(0,0,0,0.5)' }}>{extractionSteps[extractionStep].desc}</p>
@@ -189,11 +189,11 @@ export default function ArganTrianglePage() {
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-24 md:pb-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>002 — The Biosphere</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>002 — The Biosphere</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Arganeraie Biosphere Reserve</h2>
           <p className="text-[13px] max-w-[600px] leading-relaxed mb-6" style={{ color: 'rgba(0,0,0,0.4)' }}>~2.5 million hectares designated by UNESCO in 1998. Morocco&rsquo;s first Biosphere Reserve. Pulsing markers show production zones across the southern High Atlas and Anti-Atlas.</p>
           <div className="flex flex-wrap gap-4 mb-6">
-            {[{ label: 'Major production', color: '#22C55E' }, { label: 'Heritage & conservation', color: '#F59E0B' }, { label: 'Processing hub', color: '#9CA3AF' }].map(l => (
+            {[{ label: 'Major production', color: '#5C7C3E' }, { label: 'Heritage & conservation', color: '#F59E0B' }, { label: 'Processing hub', color: '#9CA3AF' }].map(l => (
               <div key={l.label} className="flex items-center gap-2"><div className="w-3 h-3 rounded-full" style={{ background: l.color, boxShadow: `0 0 8px ${l.color}55` }} /><span className="text-[11px]" style={{ color: '#aaa' }}>{l.label}</span></div>
             ))}
           </div>
@@ -224,7 +224,7 @@ export default function ArganTrianglePage() {
                 { label: 'Forest decline', value: '~50% lost in 100 years. 100→30 trees/ha.' },
               ].map((item, i) => (
                 <div key={i} data-sid={`spec-${i}`} className="flex gap-3" style={{ borderBottom: '1px solid #f0f0f0', paddingBottom: '8px', opacity: visibleSections.has(`spec-${i}`) ? 1 : 0, transform: visibleSections.has(`spec-${i}`) ? 'translateX(0)' : 'translateX(12px)', transition: `all 0.5s ease ${i * 80}ms` }}>
-                  <span className="text-[11px] uppercase tracking-[0.04em] w-[110px] flex-shrink-0" style={{ color: '#22C55E' }}>{item.label}</span>
+                  <span className="text-[11px] uppercase tracking-[0.04em] w-[110px] flex-shrink-0" style={{ color: '#5C7C3E' }}>{item.label}</span>
                   <span className="text-[12px] text-dwl-body">{item.value}</span>
                 </div>
               ))}
@@ -234,7 +234,7 @@ export default function ArganTrianglePage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#5C7C3E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#0a0a0a' }}>The argan tree is a true bastion against desertification. It can reach 10 metres in height and live for 200 years.</p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(10,10,10,0.5)' }}>— United Nations, International Day of Argania</p>
@@ -244,7 +244,7 @@ export default function ArganTrianglePage() {
       {/* ═══ PRODUCTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>004 — What Argan Becomes</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>004 — What Argan Becomes</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>The Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: '#1a1a1a' }}>
             {PRODUCTS.map((p, i) => {
@@ -287,7 +287,7 @@ export default function ArganTrianglePage() {
             {COOPERATIVE_STATS.map((c, i) => {
               const vis = visibleSections.has(`coop-${i}`)
               return (
-                <div key={c.label} data-sid={`coop-${i}`} className="p-5" style={{ background: '#fafafa', borderLeft: '3px solid #22C55E', opacity: vis ? 1 : 0, transform: vis ? 'translateX(0)' : 'translateX(-10px)', transition: `all 0.5s ease ${i * 80}ms` }}>
+                <div key={c.label} data-sid={`coop-${i}`} className="p-5" style={{ background: '#fafafa', borderLeft: '3px solid #5C7C3E', opacity: vis ? 1 : 0, transform: vis ? 'translateX(0)' : 'translateX(-10px)', transition: `all 0.5s ease ${i * 80}ms` }}>
                   <p className="text-[14px] font-medium text-dwl-black">{c.stat} <span className="text-[12px] text-dwl-gray font-normal">— {c.label}</span></p>
                   <p className="text-[11px] text-dwl-muted mt-1">{c.detail}</p>
                 </div>
@@ -300,7 +300,7 @@ export default function ArganTrianglePage() {
       {/* ═══ DARK QUOTE ═══ */}
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
-          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#22C55E' }}>Everyone wants their share of the value chain and there is less and less room for women.</p>
+          <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#5C7C3E' }}>Everyone wants their share of the value chain and there is less and less room for women.</p>
           <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Jamila Idbourous, President, Union of Women&rsquo;s Cooperatives (The Ecologist, 2025)</p>
         </div>
       </section>
@@ -316,7 +316,7 @@ export default function ArganTrianglePage() {
               return (
                 <div key={i} data-sid={`recog-${i}`} className="py-5" style={{ borderTop: '1px solid #e5e5e5', opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(8px)', transition: `all 0.6s ease ${i * 100}ms` }}>
                   <div className="grid grid-cols-1 md:grid-cols-[100px_1fr] gap-3 md:gap-8">
-                    <div><span className="font-serif italic text-[24px]" style={{ color: '#22C55E' }}>{r.year}</span><p className="text-[11px] mt-1" style={{ color: '#999' }}>{r.body}</p></div>
+                    <div><span className="font-serif italic text-[24px]" style={{ color: '#5C7C3E' }}>{r.year}</span><p className="text-[11px] mt-1" style={{ color: '#999' }}>{r.body}</p></div>
                     <div><p className="text-[14px] font-medium text-dwl-black mb-1">{r.designation}</p><p className="text-[12px] text-dwl-body leading-relaxed">{r.detail}</p></div>
                   </div>
                 </div>
@@ -329,12 +329,12 @@ export default function ArganTrianglePage() {
       {/* ═══ KEY NUMBERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>007 — Key Numbers</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>007 — Key Numbers</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>The Data</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
             {KEY_NUMBERS.map((n, i) => (
               <div key={n.label} data-sid={`kn-${i}`} className="p-6 md:p-8" style={{ paddingTop: i % 2 === 1 ? '24px' : '0',  background: '#0a0a0a', opacity: visibleSections.has(`kn-${i}`) ? 1 : 0, transform: visibleSections.has(`kn-${i}`) ? 'translateY(0)' : 'translateY(6px)', transition: `all 0.5s ease ${i * 80}ms` }}>
-                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#22C55E' }}>{n.value}</p>
+                <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#5C7C3E' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
                 <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
               </div>
@@ -355,7 +355,7 @@ export default function ArganTrianglePage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#22C55E' }}>Sources: UNESCO, HCEFLCD Morocco</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#5C7C3E' }}>Sources: UNESCO, HCEFLCD Morocco</p>
           </div>
           <div className="mt-6"><Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← All Data Modules</Link></div>
         </div>

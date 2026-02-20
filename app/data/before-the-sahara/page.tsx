@@ -58,7 +58,7 @@ export default function BeforeTheSaharaPage() {
               <div style="font-size:11px;color:${zone.color};margin:4px 0">${zone.rainfall}</div>
               <div style="font-size:11px;color:#888">${zone.area}</div>
               <div style="font-size:11px;color:#aaa;margin-top:4px">${zone.vegetation}</div>
-              <div style="font-size:10px;color:#EF4444;margin-top:4px;font-style:italic">${zone.threat}</div>
+              <div style="font-size:10px;color:#A0452E;margin-top:4px;font-style:italic">${zone.threat}</div>
             </div>
           `))
           .addTo(mapRef.current)
@@ -78,7 +78,7 @@ export default function BeforeTheSaharaPage() {
               <div style="font-size:12px;color:#888;margin:2px 0">${oasis.nameAr}</div>
               <div style="font-size:11px;color:${oasis.color};margin:4px 0;text-transform:uppercase;letter-spacing:0.05em">${oasis.status}</div>
               <div style="font-size:11px;color:#aaa">${oasis.palmCount}</div>
-              <div style="font-size:10px;color:#EF4444;margin-top:4px;font-style:italic">${oasis.threat}</div>
+              <div style="font-size:10px;color:#A0452E;margin-top:4px;font-style:italic">${oasis.threat}</div>
             </div>
           `))
           .addTo(mapRef.current)
@@ -167,7 +167,7 @@ export default function BeforeTheSaharaPage() {
               const pct = (d.ndvi / maxNDVI) * 100
               const isDrought = d.year >= 2018 && d.year <= 2024
               const isRecovery = d.year >= 2025
-              const barColor = isRecovery ? '#22C55E' : isDrought ? '#EF4444' : '#F59E0B'
+              const barColor = isRecovery ? '#5C7C3E' : isDrought ? '#A0452E' : '#F59E0B'
               return (
                 <div key={d.year} data-sid={`ndvi-${i}`} className="flex items-center gap-4 transition-all duration-700" style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateX(0)' : 'translateX(-16px)' }}>
                   <span className="text-[12px] tabular-nums text-dwl-muted w-10 flex-shrink-0">{d.year}</span>
@@ -182,14 +182,14 @@ export default function BeforeTheSaharaPage() {
           </div>
           <div className="flex gap-6 mt-6">
             <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#F59E0B' }} /><span className="text-[10px] text-dwl-muted uppercase">Pre-drought</span></div>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#EF4444' }} /><span className="text-[10px] text-dwl-muted uppercase">Drought (2018–2024)</span></div>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#22C55E' }} /><span className="text-[10px] text-dwl-muted uppercase">Recovery (2025)</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#A0452E' }} /><span className="text-[10px] text-dwl-muted uppercase">Drought (2018–2024)</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#5C7C3E' }} /><span className="text-[10px] text-dwl-muted uppercase">Recovery (2025)</span></div>
           </div>
         </div>
       </section>
 
       {/* ═══ QUOTE 1 ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#EF4444' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#A0452E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', color: '#ffffff' }}>
             The oases of Morocco have lost two-thirds of their surface area
@@ -202,7 +202,7 @@ export default function BeforeTheSaharaPage() {
       {/* ═══ DESERTIFICATION DRIVERS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#EF4444' }}>002 — Why It&rsquo;s Happening</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#A0452E' }}>002 — Why It&rsquo;s Happening</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Drivers of Collapse</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: '#1a1a1a' }}>
@@ -210,7 +210,7 @@ export default function BeforeTheSaharaPage() {
               const isVisible = visibleSections.has(`driver-${i}`)
               return (
                 <div key={d.driver} data-sid={`driver-${i}`} className="p-8 transition-all duration-700" style={{ background: '#0f0f0f', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
-                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#EF4444' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#A0452E' }}>{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-serif text-[22px] italic mt-2 mb-3" style={{ color: '#f5f5f5' }}>{d.driver}</h3>
                   <p className="text-[13px] leading-relaxed" style={{ color: '#aaa' }}>{d.detail}</p>
                 </div>
@@ -239,7 +239,7 @@ export default function BeforeTheSaharaPage() {
                   <h3 className="font-serif text-[24px] italic text-dwl-black leading-[1]">{oasis.name}</h3>
                   <p className="text-[13px] text-dwl-muted mt-1">{oasis.nameAr}</p>
                   <p className="text-[12px] text-dwl-gray mt-3">{oasis.palmCount}</p>
-                  <p className="text-[12px] italic mt-3" style={{ color: '#EF4444' }}>{oasis.threat}</p>
+                  <p className="text-[12px] italic mt-3" style={{ color: '#A0452E' }}>{oasis.threat}</p>
                 </div>
               )
             })}
@@ -250,7 +250,7 @@ export default function BeforeTheSaharaPage() {
       {/* ═══ GREEN PROJECTS ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#22C55E' }}>004 — Holding the Line</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#5C7C3E' }}>004 — Holding the Line</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-12" style={{ color: '#ffffff' }}>Six Green Projects</h2>
 
           <div className="space-y-0">
@@ -279,7 +279,7 @@ export default function BeforeTheSaharaPage() {
       </section>
 
       {/* ═══ QUOTE 2 ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#22C55E' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#5C7C3E' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.6rem)', color: '#ffffff' }}>
             The Great Green Wall was supposed to be 8,000 km of trees

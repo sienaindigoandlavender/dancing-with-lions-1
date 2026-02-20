@@ -16,8 +16,8 @@ export interface BiosphereZone {
 }
 
 export const BIOSPHERE_ZONES: BiosphereZone[] = [
-  { name: 'Essaouira Province', detail: '~300 small firms and cooperatives (25 km inland). Fastest-growing production zone. Traditional hand-extraction heartland.', lat: 31.51, lng: -9.77, color: '#22C55E' },
-  { name: 'Agadir Ida Outanane', detail: 'Largest volumes. Souss-Massa dominates with ~44% revenue share. Modern mechanical extraction expanding. Proximity to processing units.', lat: 30.42, lng: -9.60, color: '#22C55E' },
+  { name: 'Essaouira Province', detail: '~300 small firms and cooperatives (25 km inland). Fastest-growing production zone. Traditional hand-extraction heartland.', lat: 31.51, lng: -9.77, color: '#5C7C3E' },
+  { name: 'Agadir Ida Outanane', detail: 'Largest volumes. Souss-Massa dominates with ~44% revenue share. Modern mechanical extraction expanding. Proximity to processing units.', lat: 30.42, lng: -9.60, color: '#5C7C3E' },
   { name: 'Taroudant Province', detail: 'High Atlas southern slopes. Traditional agro-sylvo-pastoral system. FAO Globally Important Agricultural Heritage System (Ait Souab–Ait Mansour, 2018).', lat: 30.47, lng: -8.88, color: '#F59E0B' },
   { name: 'Chtouka Ait Baha', detail: 'Remote desert mountainscapes. Highest-quality fruit (affiyache). Deep-rooted trees on arid slopes. ANDZOA conservation focus.', lat: 30.07, lng: -9.15, color: '#F59E0B' },
   { name: 'Tiznit Province', detail: 'Anti-Atlas northern slopes. Traditional Amazigh harvesting rights controlled by village law. Cooperative growth zone.', lat: 29.70, lng: -9.80, color: '#D4A373' },
@@ -32,10 +32,10 @@ export interface ArganProduct {
 }
 
 export const PRODUCTS: ArganProduct[] = [
-  { name: 'Cosmetic argan oil', type: 'Beauty', detail: 'Cold-pressed from unroasted kernels. Rich in vitamin E, omega-6 and omega-9 fatty acids, ferulic acid, triterpenoids. Anti-aging, moisturising, hair repair. ~66% of market (cosmetic grade dominated 2024). L\'Oréal, The Body Shop, Josie Maran source from cooperatives.', color: '#A855F7' },
+  { name: 'Cosmetic argan oil', type: 'Beauty', detail: 'Cold-pressed from unroasted kernels. Rich in vitamin E, omega-6 and omega-9 fatty acids, ferulic acid, triterpenoids. Anti-aging, moisturising, hair repair. ~66% of market (cosmetic grade dominated 2024). L\'Oréal, The Body Shop, Josie Maran source from cooperatives.', color: '#7B506F' },
   { name: 'Culinary argan oil', type: 'Food', detail: 'Pressed from roasted kernels — distinctive nutty flavour. Used in salads, couscous, tagines, drizzled on bread. Darker colour than cosmetic grade. Shelf life 3–6 months (traditional) to 12–18 months (dry-pressed).', color: '#F59E0B' },
   { name: 'Amlou', type: 'Food', detail: 'Traditional Amazigh spread: argan oil + ground almonds + honey. Breakfast staple in Souss region. Morocco\'s answer to peanut butter. Tourist cooperative staple.', color: '#D4A373' },
-  { name: 'Pharmaceutical argan oil', type: 'Health', detail: 'Anti-inflammatory compounds. Research into cardiovascular health, cholesterol reduction, diabetes, cancer prevention. Traditional medicine: skin conditions, wound healing.', color: '#3B82F6' },
+  { name: 'Pharmaceutical argan oil', type: 'Health', detail: 'Anti-inflammatory compounds. Research into cardiovascular health, cholesterol reduction, diabetes, cancer prevention. Traditional medicine: skin conditions, wound healing.', color: '#2D5F8A' },
   { name: 'Press cake (byproduct)', type: 'Feed & materials', detail: 'Protein-rich residue after oil extraction. Animal feed, cosmetic uses. Research into bioplastics, sudan dyes, biochar. Shells used as firewood alternative in hammams.', color: '#9CA3AF' },
 ]
 

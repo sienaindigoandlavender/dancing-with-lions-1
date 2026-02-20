@@ -49,7 +49,7 @@ function CoastMap() {
           id: 'coast-line-layer',
           type: 'line',
           source: 'coast-line',
-          paint: { 'line-color': '#3B82F6', 'line-width': 1.5, 'line-opacity': 0.25, 'line-dasharray': [3, 2] },
+          paint: { 'line-color': '#2D5F8A', 'line-width': 1.5, 'line-opacity': 0.25, 'line-dasharray': [3, 2] },
         })
 
         CITIES.forEach((c) => {
@@ -99,8 +99,8 @@ function CoastMap() {
           <button key={t} onClick={() => setTagFilter(t)}
             className="px-3 py-1.5 text-[10px] uppercase tracking-[0.06em] rounded-full border transition-all"
             style={{
-              borderColor: tagFilter === t ? '#3B82F6' : '#333',
-              color: tagFilter === t ? '#3B82F6' : '#666',
+              borderColor: tagFilter === t ? '#2D5F8A' : '#333',
+              color: tagFilter === t ? '#2D5F8A' : '#666',
               background: tagFilter === t ? 'rgba(59,130,246,0.1)' : 'transparent',
             }}
           >{t}</button>
@@ -147,13 +147,13 @@ export default function AtlanticCoastPage() {
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMidYMid slice">
             {/* Wave pattern */}
             {Array.from({ length: 8 }, (_, i) => (
-              <path key={i} d={`M0 ${300 + i * 60} Q150 ${270 + i * 60} 300 ${300 + i * 60} T600 ${300 + i * 60} T900 ${300 + i * 60} T1200 ${300 + i * 60}`} fill="none" stroke="#3B82F6" strokeWidth="0.3" />
+              <path key={i} d={`M0 ${300 + i * 60} Q150 ${270 + i * 60} 300 ${300 + i * 60} T600 ${300 + i * 60} T900 ${300 + i * 60} T1200 ${300 + i * 60}`} fill="none" stroke="#2D5F8A" strokeWidth="0.3" />
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#3B82F6', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#2D5F8A', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 059 — Coastal Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
@@ -169,7 +169,7 @@ export default function AtlanticCoastPage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#3B82F6', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#2D5F8A', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -180,7 +180,7 @@ export default function AtlanticCoastPage() {
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>001 — The Coastline</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D5F8A' }}>001 — The Coastline</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-8" style={{ color: '#ffffff' }}>12 Cities, One Ocean</h2>
           <CoastMap />
         </div>
@@ -223,7 +223,7 @@ export default function AtlanticCoastPage() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#3B82F6' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[38vh]" style={{ background: '#2D5F8A' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', color: '#ffffff' }}>
             &ldquo;For us, Dakhla Atlantic Port is a gateway for Africa.&rdquo;
@@ -291,7 +291,7 @@ export default function AtlanticCoastPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#3B82F6' }}>Sources: ANP Morocco, World Bank</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D5F8A' }}>Sources: ANP Morocco, World Bank</p>
           </div>
           <div className="mt-6">
             <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>

@@ -133,7 +133,7 @@ export default function AnatomyOfARiadPage() {
       {/* ═══ CLIMATE SYSTEM ═══ */}
       <section style={{ background: '#0a0a0a' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#3B82F6' }}>002 — Passive Climate Engineering</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: '#2D5F8A' }}>002 — Passive Climate Engineering</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#ffffff' }}>Six Systems, Zero Electricity</h2>
           <p className="text-[16px] max-w-[560px] leading-relaxed mb-12" style={{ color: 'rgba(0,0,0,0.4)' }}>A riad can be 5&ndash;8&deg;C cooler than the street outside. No air conditioning. No fans. Just geometry, water, and thermal mass working together for a thousand years.</p>
 
@@ -142,7 +142,7 @@ export default function AnatomyOfARiadPage() {
               const isVisible = visibleSections.has(`climate-${i}`)
               return (
                 <div key={c.feature} data-sid={`climate-${i}`} className="p-8 transition-all duration-700" style={{ background: '#0f0f0f', opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(12px)' }}>
-                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#3B82F6' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[10px] uppercase tracking-[0.08em] tabular-nums" style={{ color: '#2D5F8A' }}>{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-serif text-[20px] italic mt-2 mb-3" style={{ color: '#f5f5f5' }}>{c.feature}</h3>
                   <p className="text-[13px] leading-relaxed" style={{ color: '#aaa' }}>{c.mechanism}</p>
                 </div>

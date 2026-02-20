@@ -18,10 +18,10 @@ export interface ClimateZone {
 }
 
 export const CLIMATE_ZONES: ClimateZone[] = [
-  { id: 'humid', name: 'Humid (Rif & Northwest)', rainfall: '>600 mm/year, peaks >1,000 mm', area: '~5% of territory', vegetation: 'Cedar, cork oak, evergreen forests', threat: 'Deforestation, overgrazing of forest margins', coords: [-5.0, 35.0], color: '#22C55E' },
+  { id: 'humid', name: 'Humid (Rif & Northwest)', rainfall: '>600 mm/year, peaks >1,000 mm', area: '~5% of territory', vegetation: 'Cedar, cork oak, evergreen forests', threat: 'Deforestation, overgrazing of forest margins', coords: [-5.0, 35.0], color: '#5C7C3E' },
   { id: 'subhumid', name: 'Sub-humid (Atlantic plains)', rainfall: '400–600 mm/year', area: '~10% of territory', vegetation: 'Croplands, argan forests, maquis', threat: 'Soil erosion, urbanization, intensive farming', coords: [-7.5, 33.5], color: '#84CC16' },
   { id: 'semiarid', name: 'Semi-arid (Interior plains)', rainfall: '200–400 mm/year', area: '~25% of territory', vegetation: 'Steppe, alfa grass, degraded rangelands', threat: 'Overgrazing, soil salinization, drought intensification', coords: [-5.5, 32.0], color: '#F59E0B' },
-  { id: 'arid', name: 'Arid (Pre-Sahara)', rainfall: '100–200 mm/year', area: '~25% of territory', vegetation: 'Sparse shrubs, oasis palms, acacias', threat: 'Sand encroachment, oasis collapse, groundwater depletion', coords: [-5.0, 30.5], color: '#EF4444' },
+  { id: 'arid', name: 'Arid (Pre-Sahara)', rainfall: '100–200 mm/year', area: '~25% of territory', vegetation: 'Sparse shrubs, oasis palms, acacias', threat: 'Sand encroachment, oasis collapse, groundwater depletion', coords: [-5.0, 30.5], color: '#A0452E' },
   { id: 'hyperarid', name: 'Hyper-arid (Sahara)', rainfall: '<100 mm/year', area: '~35% of territory', vegetation: 'Bare sand, reg (gravel desert), isolated oases', threat: 'Expansion northward, extreme heat intensification', coords: [-6.0, 28.5], color: '#991B1B' },
 ]
 
@@ -61,10 +61,10 @@ export interface OasisData {
 }
 
 export const OASES: OasisData[] = [
-  { name: 'Draa Valley', nameAr: 'وادي درعة', coords: [-6.0, 30.1], palmCount: 'Was 4,575 km² → now ~1,342 km²', status: 'Critical', threat: 'Dam upstream, groundwater depletion, 8m water table drop (2012–2021)', color: '#EF4444' },
+  { name: 'Draa Valley', nameAr: 'وادي درعة', coords: [-6.0, 30.1], palmCount: 'Was 4,575 km² → now ~1,342 km²', status: 'Critical', threat: 'Dam upstream, groundwater depletion, 8m water table drop (2012–2021)', color: '#A0452E' },
   { name: 'Tafilalet (Errachidia)', nameAr: 'تافيلالت', coords: [-4.4, 31.9], palmCount: 'Largest oasis in Morocco', status: 'Threatened', threat: 'Fires destroyed thousands of palms (2,485 between 2008–2010, 5,500 in 2021)', color: '#F59E0B' },
-  { name: 'Skoura', nameAr: 'سكورة', coords: [-6.6, 31.1], palmCount: 'UNESCO Biosphere Reserve', status: 'Degrading', threat: 'Desertified lands expanded +168% (1991–2021). Cultivated land shrank −30%.', color: '#EF4444' },
-  { name: 'Zagora / Ternata', nameAr: 'زاكورة', coords: [-5.8, 30.3], palmCount: 'Ternata oasis ~26,000 ha', status: 'Critical', threat: 'Draa River flows less and less frequently. Illegal well drilling.', color: '#EF4444' },
+  { name: 'Skoura', nameAr: 'سكورة', coords: [-6.6, 31.1], palmCount: 'UNESCO Biosphere Reserve', status: 'Degrading', threat: 'Desertified lands expanded +168% (1991–2021). Cultivated land shrank −30%.', color: '#A0452E' },
+  { name: 'Zagora / Ternata', nameAr: 'زاكورة', coords: [-5.8, 30.3], palmCount: 'Ternata oasis ~26,000 ha', status: 'Critical', threat: 'Draa River flows less and less frequently. Illegal well drilling.', color: '#A0452E' },
   { name: 'Tinghir / Todra', nameAr: 'تنغير', coords: [-5.5, 31.5], palmCount: 'Todra Gorge oasis system', status: 'Moderate', threat: 'Tourism water demand. Upstream irrigation pressure.', color: '#F59E0B' },
   { name: 'Figuig', nameAr: 'فكيك', coords: [-1.2, 32.1], palmCount: 'Eastern border oasis', status: 'Threatened', threat: 'Algeria border tensions. Water table declining. Isolation.', color: '#F59E0B' },
 ]
@@ -78,12 +78,12 @@ export interface GreenProject {
 }
 
 export const GREEN_PROJECTS: GreenProject[] = [
-  { name: 'National Action Plan (PANLCD)', scope: 'National', status: 'Ongoing since 2001', detail: 'Morocco\'s UNCCD framework. Coordinates reforestation, soil conservation, sustainable agriculture, and desertification monitoring across all zones.', color: '#22C55E' },
-  { name: 'Oasis Zone Strategy (ANDZOA)', scope: 'Oasis provinces (~208,000 km²)', status: 'Active', detail: 'Dedicated agency for oasis and argan zones. Drip irrigation subsidies (11,770 ha equipped). Water savings of ~38M m³/year. Palm replanting programs.', color: '#22C55E' },
+  { name: 'National Action Plan (PANLCD)', scope: 'National', status: 'Ongoing since 2001', detail: 'Morocco\'s UNCCD framework. Coordinates reforestation, soil conservation, sustainable agriculture, and desertification monitoring across all zones.', color: '#5C7C3E' },
+  { name: 'Oasis Zone Strategy (ANDZOA)', scope: 'Oasis provinces (~208,000 km²)', status: 'Active', detail: 'Dedicated agency for oasis and argan zones. Drip irrigation subsidies (11,770 ha equipped). Water savings of ~38M m³/year. Palm replanting programs.', color: '#5C7C3E' },
   { name: 'National Reforestation Plan', scope: '40,000 ha/year target', status: 'Ongoing', detail: 'Managed by ANEF (Agence Nationale des Eaux et Forêts). Focus on watershed protection, dune fixation, and restoring degraded rangelands.', color: '#84CC16' },
-  { name: 'Great Green Wall (GGW)', scope: 'Continental (11 countries)', status: '~30% complete as of 2024', detail: 'Africa\'s flagship anti-desertification initiative. 100M ha restoration target by 2030. Morocco participates in northern fringe. $14.3B pledged (2021). 30M ha restored continent-wide.', color: '#22C55E' },
+  { name: 'Great Green Wall (GGW)', scope: 'Continental (11 countries)', status: '~30% complete as of 2024', detail: 'Africa\'s flagship anti-desertification initiative. 100M ha restoration target by 2030. Morocco participates in northern fringe. $14.3B pledged (2021). 30M ha restored continent-wide.', color: '#5C7C3E' },
   { name: 'Dune Fixation Programs', scope: 'Southern Morocco', status: 'Active', detail: 'Planting tamarisk, acacia, and native vegetation to stabilize moving sand dunes. Protecting oases from sand encroachment. Community-managed.', color: '#F59E0B' },
-  { name: 'Iriqui Lake Restoration', scope: 'Iriqui National Park', status: 'Planned', detail: 'ANEF plan to divert water to restore the dry Iriqui lakebed. Reintroduce addax antelope and red-necked ostrich. Anti-desertification + ecotourism.', color: '#3B82F6' },
+  { name: 'Iriqui Lake Restoration', scope: 'Iriqui National Park', status: 'Planned', detail: 'ANEF plan to divert water to restore the dry Iriqui lakebed. Reintroduce addax antelope and red-necked ostrich. Anti-desertification + ecotourism.', color: '#2D5F8A' },
 ]
 
 export const HERO_STATS = [

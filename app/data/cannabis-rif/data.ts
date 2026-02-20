@@ -40,11 +40,11 @@ export interface ProductionStat {
 }
 
 export const PRODUCTION_STATS: ProductionStat[] = [
-  { metric: 'Total cultivation area', value: '50,000–70,000 ha', note: 'Estimated illegal cultivation (2024). Down from 134,000 ha peak in 2003.', color: '#EF4444' },
-  { metric: 'Legal cultivation (2024)', value: '~2,700 ha', note: 'Up from <300 ha in 2023. Still a fraction of total.', color: '#22C55E' },
+  { metric: 'Total cultivation area', value: '50,000–70,000 ha', note: 'Estimated illegal cultivation (2024). Down from 134,000 ha peak in 2003.', color: '#A0452E' },
+  { metric: 'Legal cultivation (2024)', value: '~2,700 ha', note: 'Up from <300 ha in 2023. Still a fraction of total.', color: '#5C7C3E' },
   { metric: 'People dependent on cannabis', value: '400,000+', note: 'Direct and indirect participants in the trade across the Rif.', color: '#F59E0B' },
-  { metric: 'Europe\'s hashish from Morocco', value: '~70%', note: 'Spain is the primary transit route across the Strait of Gibraltar.', color: '#3B82F6' },
-  { metric: 'Spain seizures (2021)', value: '672 tonnes', note: 'Resin seized coming from Morocco. 80%+ of all EU hashish seizures.', color: '#A855F7' },
+  { metric: 'Europe\'s hashish from Morocco', value: '~70%', note: 'Spain is the primary transit route across the Strait of Gibraltar.', color: '#2D5F8A' },
+  { metric: 'Spain seizures (2021)', value: '672 tonnes', note: 'Resin seized coming from Morocco. 80%+ of all EU hashish seizures.', color: '#7B506F' },
   { metric: 'Black market revenue (Europe)', value: '$4–11B/year', note: 'Revenue generated for European drug dealers. UNODC estimate.', color: '#78716C' },
 ]
 
@@ -70,12 +70,12 @@ export interface LegalizationFact {
 }
 
 export const LEGALIZATION: LegalizationFact[] = [
-  { title: 'What Law 13-21 allows', detail: 'Cultivation of cannabis for medical, pharmaceutical, cosmetic, and industrial purposes. Not recreational. ANRAC regulates licensing, monitoring, seed certification, and export/import. Only the three northern provinces are authorized.', color: '#22C55E' },
-  { title: 'What it doesn\'t allow', detail: 'Recreational use, possession, or consumption remain illegal. No provisions for cannabis cafés or retail dispensaries. No THC thresholds for recreational products. The law targets producers, not consumers.', color: '#EF4444' },
+  { title: 'What Law 13-21 allows', detail: 'Cultivation of cannabis for medical, pharmaceutical, cosmetic, and industrial purposes. Not recreational. ANRAC regulates licensing, monitoring, seed certification, and export/import. Only the three northern provinces are authorized.', color: '#5C7C3E' },
+  { title: 'What it doesn\'t allow', detail: 'Recreational use, possession, or consumption remain illegal. No provisions for cannabis cafés or retail dispensaries. No THC thresholds for recreational products. The law targets producers, not consumers.', color: '#A0452E' },
   { title: 'The price gap', detail: 'Legal producers receive ~75 MAD/kg. Illegal market pays 10–20 MAD/kg but offers volume and no paperwork. Legal exports sell at €1,400–1,800/kg in Europe. The value chain favors processors and exporters, not farmers — echoing the old black market structure.', color: '#F59E0B' },
-  { title: 'The pardon', detail: 'August 2024: King Mohammed VI pardons 4,800+ people convicted of illegal cannabis cultivation. A reconciliatory gesture toward Rif farmers who lived under arrest warrants for decades. Further pardons expected.', color: '#A855F7' },
+  { title: 'The pardon', detail: 'August 2024: King Mohammed VI pardons 4,800+ people convicted of illegal cannabis cultivation. A reconciliatory gesture toward Rif farmers who lived under arrest warrants for decades. Further pardons expected.', color: '#7B506F' },
   { title: 'The scale problem', detail: '2,700 legal hectares vs. 50,000–70,000 illegal hectares. 3,300 licenses vs. 400,000+ people in the trade. The legal market absorbs a tiny fraction. The informal economy is resilient because it is efficient, established, and profitable.', color: '#78716C' },
-  { title: 'The Beldia question', detail: 'ANRAC has authorized the use of Beldia — the indigenous cannabis variety of the Rif. But modern high-THC hybrids introduced since the 1980s have largely replaced traditional strains. The genetic heritage is disappearing.', color: '#3B82F6' },
+  { title: 'The Beldia question', detail: 'ANRAC has authorized the use of Beldia — the indigenous cannabis variety of the Rif. But modern high-THC hybrids introduced since the 1980s have largely replaced traditional strains. The genetic heritage is disappearing.', color: '#2D5F8A' },
 ]
 
 export const VOCABULARY = [
@@ -95,17 +95,17 @@ export const HERO_STATS = [
 
 export const ERA_COLORS: Record<string, string> = {
   'pre-colonial': '#D4A373',
-  'colonial': '#3B82F6',
-  'prohibition': '#EF4444',
-  'legalization': '#22C55E',
+  'colonial': '#2D5F8A',
+  'prohibition': '#A0452E',
+  'legalization': '#5C7C3E',
 }
 
 export const MAP_POINTS = [
-  { name: 'Ketama', lat: 34.9167, lng: -4.5833, detail: 'Capital of cannabis cultivation. Rif heartland. ~800 tonnes/year.', color: '#22C55E' },
-  { name: 'Issaguen', lat: 34.9000, lng: -4.4167, detail: 'Chefchaouen province. Traditional growing area.', color: '#22C55E' },
-  { name: 'Bab Berred', lat: 35.0, lng: -4.7, detail: 'Northern Rif. Major production zone.', color: '#22C55E' },
+  { name: 'Ketama', lat: 34.9167, lng: -4.5833, detail: 'Capital of cannabis cultivation. Rif heartland. ~800 tonnes/year.', color: '#5C7C3E' },
+  { name: 'Issaguen', lat: 34.9000, lng: -4.4167, detail: 'Chefchaouen province. Traditional growing area.', color: '#5C7C3E' },
+  { name: 'Bab Berred', lat: 35.0, lng: -4.7, detail: 'Northern Rif. Major production zone.', color: '#5C7C3E' },
   { name: 'Al Hoceima', lat: 35.2517, lng: -3.9372, detail: 'Coastal city. Gateway to growing regions.', color: '#F59E0B' },
   { name: 'Chefchaouen', lat: 35.17, lng: -5.26, detail: 'Tourist gateway. Hash cafés. Legal grey zone.', color: '#F59E0B' },
-  { name: 'Tangier', lat: 35.76, lng: -5.83, detail: 'Transit port. European export route. 14km to Spain.', color: '#EF4444' },
-  { name: 'Nador / Melilla', lat: 35.29, lng: -2.94, detail: 'Eastern export corridor. Spanish enclave border.', color: '#EF4444' },
+  { name: 'Tangier', lat: 35.76, lng: -5.83, detail: 'Transit port. European export route. 14km to Spain.', color: '#A0452E' },
+  { name: 'Nador / Melilla', lat: 35.29, lng: -2.94, detail: 'Eastern export corridor. Spanish enclave border.', color: '#A0452E' },
 ]

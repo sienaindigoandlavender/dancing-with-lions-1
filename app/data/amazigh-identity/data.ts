@@ -239,11 +239,11 @@ export const HISTORY: HistoryEvent[] = [
 
 export const THREAD_META: Record<string, { label: string; color: string }> = {
   script: { label: 'Script', color: '#E8A94E' },
-  decline: { label: 'Decline', color: '#EF4444' },
+  decline: { label: 'Decline', color: '#A0452E' },
   resistance: { label: 'Resistance', color: '#8B2FC9' },
   dynasty: { label: 'Dynasties', color: '#8B7355' },
-  census: { label: 'Census', color: '#3B82F6' },
-  recognition: { label: 'Recognition', color: '#22C55E' },
+  census: { label: 'Census', color: '#2D5F8A' },
+  recognition: { label: 'Recognition', color: '#5C7C3E' },
   land: { label: 'Land Rights', color: '#D97706' },
 }
 
@@ -323,12 +323,12 @@ export const BIBLIOGRAPHY = [
 ]
 
 export const MAP_POINTS = [
-  { name: 'Tashelhit Zone', lat: 30.4, lng: -8.5, detail: 'Souss, Anti-Atlas, High Atlas west. ~8M speakers. Largest Amazigh group.', color: '#EF4444' },
-  { name: 'Tamazight Zone', lat: 32.3, lng: -5.8, detail: 'Central Atlas, eastern High Atlas. ~5M speakers. Aït Atta, Aït Hadiddou.', color: '#3B82F6' },
-  { name: 'Tarifit Zone', lat: 35.0, lng: -3.5, detail: 'Rif mountains. ~4M speakers. Declining fastest in urban areas.', color: '#22C55E' },
+  { name: 'Tashelhit Zone', lat: 30.4, lng: -8.5, detail: 'Souss, Anti-Atlas, High Atlas west. ~8M speakers. Largest Amazigh group.', color: '#A0452E' },
+  { name: 'Tamazight Zone', lat: 32.3, lng: -5.8, detail: 'Central Atlas, eastern High Atlas. ~5M speakers. Aït Atta, Aït Hadiddou.', color: '#2D5F8A' },
+  { name: 'Tarifit Zone', lat: 35.0, lng: -3.5, detail: 'Rif mountains. ~4M speakers. Declining fastest in urban areas.', color: '#5C7C3E' },
   { name: 'Casablanca', lat: 33.57, lng: -7.59, detail: 'Urban diaspora. Soussi trade networks built the corner-shop economy.', color: '#737373' },
   { name: 'Rabat', lat: 34.02, lng: -6.84, detail: 'IRCAM headquarters (Royal Institute of Amazigh Culture, est. 2001).', color: '#737373' },
-  { name: 'Agadir', lat: 30.43, lng: -9.60, detail: 'Souss capital. Tashelhit heartland. University offers Amazigh studies.', color: '#EF4444' },
-  { name: 'Nador', lat: 35.17, lng: -2.93, detail: 'Tarifit stronghold. Rif movement center.', color: '#22C55E' },
-  { name: 'Errachidia', lat: 31.93, lng: -4.43, detail: 'Draa-Tafilalet. Central Tamazight. Oasis communities.', color: '#3B82F6' },
+  { name: 'Agadir', lat: 30.43, lng: -9.60, detail: 'Souss capital. Tashelhit heartland. University offers Amazigh studies.', color: '#A0452E' },
+  { name: 'Nador', lat: 35.17, lng: -2.93, detail: 'Tarifit stronghold. Rif movement center.', color: '#5C7C3E' },
+  { name: 'Errachidia', lat: 31.93, lng: -4.43, detail: 'Draa-Tafilalet. Central Tamazight. Oasis communities.', color: '#2D5F8A' },
 ]

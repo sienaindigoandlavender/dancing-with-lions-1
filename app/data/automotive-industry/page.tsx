@@ -166,16 +166,16 @@ export default function AutomotiveIndustryPage() {
           <svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.03]" preserveAspectRatio="xMidYMid slice">
             {/* Abstract production line / assembly grid */}
             {Array.from({ length: 20 }, (_, i) => (
-              <line key={`h${i}`} x1="0" y1={i * 40} x2="1200" y2={i * 40} stroke="#FACC15" strokeWidth="0.3" />
+              <line key={`h${i}`} x1="0" y1={i * 40} x2="1200" y2={i * 40} stroke="#C8A415" strokeWidth="0.3" />
             ))}
             {Array.from({ length: 30 }, (_, i) => (
-              <line key={`v${i}`} x1={i * 40} y1="0" x2={i * 40} y2="800" stroke="#3B82F6" strokeWidth="0.3" />
+              <line key={`v${i}`} x1={i * 40} y1="0" x2={i * 40} y2="800" stroke="#2D5F8A" strokeWidth="0.3" />
             ))}
           </svg>
         </div>
 
         <div className="px-8 md:px-[8%] lg:px-[12%] pb-20 pt-32 relative z-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#FACC15', animation: 'fadeUp 1s ease 0.3s forwards' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: '#C8A415', animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Data Module 042 — Industrial Intelligence
           </p>
 
@@ -193,7 +193,7 @@ export default function AutomotiveIndustryPage() {
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((s) => (
               <div key={s.label}>
-                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#FACC15', lineHeight: 1 }}>{s.value}</span>
+                <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#C8A415', lineHeight: 1 }}>{s.value}</span>
                 <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(0,0,0,0.3)' }}>{s.label}</span>
               </div>
             ))}
@@ -201,8 +201,8 @@ export default function AutomotiveIndustryPage() {
 
           {/* Operator legend */}
           <div className="flex gap-8 mt-10 opacity-0" style={{ animation: 'fadeUp 1s ease 1.1s forwards' }}>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#FACC15' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Renault Group</span></div>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#3B82F6' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Stellantis</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#C8A415' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Renault Group</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#2D5F8A' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Stellantis</span></div>
             <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full" style={{ background: '#72EFDD' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Supplier Zones</span></div>
             <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#E63946' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Tanger Med Port</span></div>
           </div>
@@ -283,7 +283,7 @@ export default function AutomotiveIndustryPage() {
                       className="absolute top-0 left-0 h-full transition-all"
                       style={{
                         width: productionAnimated ? `${pct}%` : '0%',
-                        background: d.year >= 2023 ? 'linear-gradient(90deg, #FACC15, #E63946)' : '#0a0a0a',
+                        background: d.year >= 2023 ? 'linear-gradient(90deg, #C8A415, #E63946)' : '#0a0a0a',
                         transitionDuration: '1500ms',
                         transitionTimingFunction: 'ease-out',
                         transitionDelay: `${i * 80}ms`,
@@ -340,7 +340,7 @@ export default function AutomotiveIndustryPage() {
                     className="absolute top-0 left-0 h-full transition-all"
                     style={{
                       width: exportAnimated ? `${m.share}%` : '0%',
-                      background: i === 0 ? '#FACC15' : i === 1 ? '#3B82F6' : '#0a0a0a',
+                      background: i === 0 ? '#C8A415' : i === 1 ? '#2D5F8A' : '#0a0a0a',
                       transitionDuration: '1200ms',
                       transitionTimingFunction: 'ease-out',
                       transitionDelay: `${i * 100}ms`,
@@ -355,7 +355,7 @@ export default function AutomotiveIndustryPage() {
       </section>
 
       {/* ═══ BIG QUOTE ═══ */}
-      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#FACC15' }}>
+      <section className="py-24 md:py-40 flex items-center justify-center min-h-[40vh]" style={{ background: '#C8A415' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.8rem, 5vw, 3.2rem)', color: '#0a0a0a' }}>
             Europe&rsquo;s best-selling car — the Dacia Sandero — is made in Tangier. Not Romania. Not France. Morocco.
@@ -417,7 +417,7 @@ export default function AutomotiveIndustryPage() {
               <div key={inv.company} className="py-5 grid grid-cols-1 md:grid-cols-[200px_80px_160px_1fr] gap-4 items-baseline" style={{ borderTop: '1px solid #1a1a1a' }}>
                 <p className="font-serif italic text-[20px]" style={{ color: '#f5f5f5' }}>{inv.company}</p>
                 <span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: '#72EFDD' }}>{inv.origin}</span>
-                <span className="text-[16px] font-semibold tabular-nums" style={{ color: inv.amount !== '—' ? '#FACC15' : '#555' }}>{inv.amount}</span>
+                <span className="text-[16px] font-semibold tabular-nums" style={{ color: inv.amount !== '—' ? '#C8A415' : '#555' }}>{inv.amount}</span>
                 <p className="text-[13px]" style={{ color: '#999' }}>{inv.focus}</p>
               </div>
             ))}
@@ -484,7 +484,7 @@ export default function AutomotiveIndustryPage() {
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
             <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
-            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#FACC15' }}>Sources: AMICA, Ministry of Industry Morocco</p>
+            <p className="font-serif text-[18px] italic mt-2" style={{ color: '#C8A415' }}>Sources: AMICA, Ministry of Industry Morocco</p>
           </div>
 
           <div className="mt-6">
