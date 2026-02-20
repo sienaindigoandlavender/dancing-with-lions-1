@@ -752,4 +752,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['hammam', 'bathhouse', 'savon beldi', 'black soap', 'kessa', 'ghassoul', 'argan oil', 'ritual', 'ablution', 'wudu', 'ghusl', 'mosque', 'medina', 'neighbourhood', 'women', 'farnatchi', 'tangia', 'culture'],
     href: '/data/hammam-culture',
   },
+  {
+    id: 'date-palm-oases',
+    number: '075',
+    title: 'The Date Palm Oases',
+    category: 'Ecological & Agricultural Intelligence',
+    description: 'Draa Valley, Ziz Valley, Tafilalet. Three-tier oasis ecology, 453 cultivars, Bayoud disease, khettara irrigation. 4.8 million palms.',
+    tags: ['date palm', 'oasis', 'Draa', 'Ziz', 'Tafilalet', 'Mejhoul', 'Medjool', 'Boufeggous', 'Najda', 'Bayoud', 'Fusarium', 'khettara', 'irrigation', 'desert', 'ecology', 'agriculture', 'climate'],
+    href: '/data/date-palm-oases',
+  },
 ]
