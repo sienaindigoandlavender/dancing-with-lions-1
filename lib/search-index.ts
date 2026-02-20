@@ -806,4 +806,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     tags: ['couscous', 'Friday', 'Jumu\'ah', 'seksu', 'kseksu', 'tfaya', 'seffa', 'medfouna', 'barley', 'belboula', 'fish', 'seven vegetables', 'Bidaoui', 'Casablanca', 'couscoussier', 'kiskas', 'gsaa', 'smen', 'lben', 'buttermilk', 'gueddid', 'UNESCO', 'Amazigh', 'Berber', 'communal', 'ritual', 'food', 'semolina', 'Ramadan', 'Eid', 'wedding', 'funeral', 'Maghreb', 'Algeria', 'Tunisia', 'Mauritania', 'saffron', 'turmeric'],
     href: '/data/couscous-friday',
   },
+  {
+    id: 'bread-of-morocco',
+    number: '080',
+    title: 'The Bread of Morocco',
+    category: 'Food & Agricultural Intelligence',
+    description: 'Khobz, msemen, baghrir, rghaif, harcha. Eight breads. Communal ovens. Wheat dependency — 60%+ imported. $1.78B annual bill. Bread riots. The sacred food.',
+    tags: ['bread', 'khobz', 'msemen', 'baghrir', 'rghaif', 'harcha', 'batbout', 'tafarnout', 'krachel', 'ferran', 'oven', 'communal', 'wheat', 'flour', 'semolina', 'barley', 'import', 'subsidy', 'drought', 'food security', 'ONICL', 'bakery', 'breakfast', 'Ramadan', 'griddle', 'flatbread', 'Berber', 'Amazigh', 'sacred', 'etiquette'],
+    href: '/data/bread-of-morocco',
+  },
 ]
