@@ -56,7 +56,7 @@ export default function GardensOfMoroccoPage() {
             The Gardens of Morocco
           </h1>
           <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            In a city at the gateway to the Sahara, water is sacred luxury. Every garden is paradise made visible.
+            In a city at the edge of the Sahara, water is luxury. Every garden is engineered paradise.
             Almohad engineers, Saadian pavilions, French painters, French couturiers.
             Nine centuries of channelling the Atlas Mountains into geometry and shade.
           </p>
@@ -81,7 +81,7 @@ export default function GardensOfMoroccoPage() {
           <p className="text-xs tracking-[0.3em] uppercase mb-3" style={{ color: ACCENT }}>Four Gardens</p>
           <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>The Atlas of Gardens</h2>
           <p className="text-sm text-neutral-500 max-w-2xl mb-10 leading-relaxed">
-            Twelve-century royal orchards. An eighteenth-century paradise in Fez. A cobalt blue mirage.
+            Twelfth-century royal orchards. An eighteenth-century garden in Fez. One hectare of cobalt blue.
             Each a different answer to the same question: how to make water stay in the desert.
           </p>
 

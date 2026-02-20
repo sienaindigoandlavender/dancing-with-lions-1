@@ -41,8 +41,8 @@ export const BREADS: Bread[] = [
     type: 'Spongy semolina pancake — "the thousand-hole pancake"',
     method: 'Batter (not dough) poured onto hot pan. Cooked on one side only. Bubbles create holes as steam escapes',
     flour: 'Semolina + flour + yeast. Batter must rest ~1 hour for fermentation to create characteristic holes',
-    when: 'Weekends, special occasions, Ramadan. More time-intensive than msemen — reserved for when there is time to make it properly',
-    detail: 'The Moroccan cousin of the English crumpet. Porous surface traps every drop of honey-butter sauce. Cooked on one side only — bottom golden, top stays soft and riddled with holes. The word "baghrir" may derive from Arabic "baghir" — one who drinks without being able to quench thirst (said of animals). Fitting: the pancake absorbs endlessly. Also known as ghrayef in Tunisia and eastern Algeria. On the 9th day of Ramadan, Mozabite communities in Algeria exchange baghrir as tradition ("m\'layin"), also distributed to the poor. The batter must be exactly right — too thick and no holes form, too thin and it falls apart.',
+    when: 'Weekends, special occasions, Ramadan. More time-intensive than msemen — reserved for unhurried mornings',
+    detail: 'Porous surface traps every drop of honey-butter sauce. Cooked on one side only — bottom golden, top stays soft and riddled with holes. The word "baghrir" may derive from Arabic "baghir" — one who drinks without being able to quench thirst (said of animals). Fitting: the pancake absorbs endlessly. Also known as ghrayef in Tunisia and eastern Algeria. On the 9th day of Ramadan, Mozabite communities in Algeria exchange baghrir as tradition ("m\'layin"), also distributed to the poor. The batter must be exactly right — too thick and no holes form, too thin and it falls apart.',
     keyFact: 'Named for an animal that drinks without being able to quench its thirst — the pancake that absorbs everything',
   },
   {
@@ -62,7 +62,7 @@ export const BREADS: Bread[] = [
     method: 'Semolina, buttermilk, baking powder shaped into thick rounds and dry-cooked on griddle. No oil needed',
     flour: 'Fine semolina (not flour). Buttermilk or milk. No yeast — baking powder for leavening',
     when: 'Breakfast, snack, tea time. Quick to make — the fast bread. Native to the Middle Atlas region',
-    detail: 'The cornbread of Morocco. Grainy exterior, crumbly interior. Dense and satisfying. The name "harcha" comes from "harsh/coarse" — describing its texture. Hockey-puck shape. Golden when cooked. Mild flavour that works with both sweet (honey, jam) and savoury (butter, jben cheese, olive oil). The quickest of the griddle breads to prepare — no resting time, no layering, no special technique. Democratically simple. Gluten-sensitive travellers take note: traditional harcha from the Middle Atlas sometimes uses corn flour mixed with wheat.',
+    detail: 'The cornbread of Morocco. Grainy exterior, crumbly interior. Dense and satisfying. The name "harcha" comes from "harsh/coarse" — describing its texture. Hockey-puck shape. Golden when cooked. Mild flavour that works with both sweet (honey, jam) and savoury (butter, jben cheese, olive oil). The quickest of the griddle breads to prepare — no resting time, no layering, no special technique. Gluten-sensitive travellers take note: traditional harcha from the Middle Atlas sometimes uses corn flour mixed with wheat.',
     keyFact: 'The name means "rough/coarse" — and the semolina texture delivers exactly that promise',
   },
   {
@@ -177,10 +177,10 @@ export const HERO_STATS = [
 ]
 
 export const KEY_NUMBERS = [
-  { number: '$1.78B', context: 'Annual wheat import bill (2024) — 17.83 billion MAD. The cost of feeding a nation that cannot grow enough grain' },
+  { number: '$1.78B', context: 'Annual wheat import bill (2024) — 17.83 billion MAD. Morocco imports more wheat than any Arab country' },
   { number: '81%', context: 'Mandated flour extraction rate for subsidised national flour — maximises yield per kernel. 74% for special flour' },
-  { number: '1981', context: 'The year bread riots in Casablanca killed 66+ and permanently cemented bread price stability as a political imperative' },
-  { number: '3', context: 'Meals per day where bread is served — breakfast, lunch, and dinner. There is no meal in Morocco without bread' },
+  { number: '1981', context: 'The year bread riots in Casablanca killed 66+ ' },
+  { number: '3', context: 'Meals per day where bread is served — breakfast, lunch, and dinner. Bread at every meal' },
   { number: '1,300', context: 'm³ of water required to produce one tonne of wheat — why Morocco\'s drought-hit agriculture cannot keep pace with demand' },
   { number: 'MAD 270', context: 'Government reference price per quintal of wheat — the price ceiling above which subsidies are activated to stabilise bread costs' },
 ]
