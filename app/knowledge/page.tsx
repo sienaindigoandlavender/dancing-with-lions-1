@@ -21,6 +21,20 @@ interface Story {
 
 const STORIES: Story[] = [
   {
+    slug: 'what-solomon-knew',
+    title: 'What Solomon Knew',
+    subtitle: 'Nine domains of knowledge. One unified system. Root to star. The last map before the disciplines fractured.',
+    tag: 'Knowledge Systems',
+    tagColor: '#B8860B',
+  },
+  {
+    slug: 'the-stone-language',
+    title: 'The Stone Language',
+    subtitle: 'When the landscape has no trees, humans stack rocks. Nine cultures. Five continents. One instinct.',
+    tag: 'Convergence',
+    tagColor: '#8B7355',
+  },
+  {
     slug: 'the-mystique',
     title: 'The Mystique',
     subtitle: 'A map of the luminous in-between. Thin places, synchronicity, baraka, the unicorn frequency.',
