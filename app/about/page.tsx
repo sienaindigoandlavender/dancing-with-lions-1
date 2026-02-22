@@ -120,28 +120,6 @@ export default function AboutPage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* Founder */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <p className="micro-label">Founder</p>
-          </div>
-          <div className="md:col-span-8 max-w-[580px] space-y-5">
-            <p className="font-serif text-[32px] text-dwl-black italic">Jacqueline Ng</p>
-            <p className="text-body text-dwl-black leading-relaxed">
-              Hakka Chinese, born in Mauritius, 11 years living in Marrakech.
-              Runs a riad in the medina. Speaks Darija. Studies textiles, food systems,
-              architecture, and the history that connects all of it.
-            </p>
-            <p className="text-body text-dwl-black leading-relaxed">
-              25 years building brands before this. Dancing with Lions is what happens
-              when you stop building for clients and start building for a country
-              you fell in love with.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Geography */}
       <section className="bg-dwl-offwhite">
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
