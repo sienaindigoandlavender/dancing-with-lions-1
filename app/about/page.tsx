@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About — Dancing with Lions',
-  description: 'Dancing with Lions is a sovereign business intelligence operation focused on Morocco and the Maghreb. Founded by J. Ng.',
+  description: 'Dancing with Lions publishes interactive data stories about Morocco — history, food, architecture, music, textiles, language, and economy. Founded by Jacqueline Ng. Based in Marrakech.',
 }
 
 export default function AboutPage() {
   return (
     <div className="pt-16">
+      {/* Hero */}
       <section className="max-w-wide mx-auto px-6 md:px-10 pt-section pb-16">
         <p className="micro-label mb-4">About</p>
         <h1 className="font-serif text-[clamp(3rem,8vw,6rem)] text-dwl-black leading-[0.95]">
@@ -17,35 +18,26 @@ export default function AboutPage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* Mission */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <div className="max-w-[640px]">
-          <p className="font-serif text-[28px] md:text-[34px] leading-[1.4] text-dwl-black italic">
-            Making sure that in 2030, Morocco is not perceived as just the Dubai of Africa.
-          </p>
-        </div>
-      </section>
-
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
-
-      {/* What It Is */}
+      {/* What We Do */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="micro-label">What It Is</p>
+            <p className="micro-label">What We Do</p>
           </div>
           <div className="md:col-span-8 max-w-[580px] space-y-6">
             <p className="text-body text-dwl-black leading-relaxed">
-              Dancing with Lions is a sovereign business intelligence operation — data, research,
-              structured intelligence — about Al Maghrib and its connected worlds.
+              We publish interactive data stories about Morocco — its history, food,
+              architecture, music, textiles, language, economy, and the cultural systems
+              that hold it all together.
             </p>
-            <p className="text-body text-dwl-body leading-relaxed">
-              It publishes. It builds digital tools and interactive data experiences. It holds
-              deep, structured intelligence that institutions, investors, AI systems, consultants,
-              and brands need — and delivers it in forms that are both rigorous and beautiful.
+            <p className="text-body text-dwl-black leading-relaxed">
+              Each story takes a subject — the geometry of zellige, the economics of a
+              Moroccan wedding, the 315,000-year human timeline, the route of every
+              spice in the souk — and turns it into something you can explore. Maps you
+              can drag. Timelines you can scroll. Numbers that move.
             </p>
-            <p className="font-serif text-[20px] text-dwl-black italic">
-              The aesthetic says Monocle. The architecture says Bloomberg. The soul is something new.
+            <p className="text-body text-dwl-black leading-relaxed">
+              There are {'>'}100 data stories published so far, with more every week.
             </p>
           </div>
         </div>
@@ -53,24 +45,27 @@ export default function AboutPage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* What It Is Not */}
+      {/* Why */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="micro-label">What It Is Not</p>
+            <p className="micro-label">Why</p>
           </div>
-          <div className="md:col-span-8 max-w-[580px]">
-            {[
-              'Not a hospitality company',
-              'Not a tour operator',
-              'Not a travel magazine',
-              'Not an NGO saving dying traditions',
-              'Not a startup pitching to committees',
-            ].map((item, i) => (
-              <div key={i} className="py-3 border-b border-dwl-border">
-                <p className="text-[16px] text-dwl-gray">{item}</p>
-              </div>
-            ))}
+          <div className="md:col-span-8 max-w-[580px] space-y-6">
+            <p className="font-serif text-[28px] md:text-[34px] leading-[1.4] text-dwl-black italic">
+              Morocco is one of the most documented countries on earth and one of the
+              least understood.
+            </p>
+            <p className="text-body text-dwl-black leading-relaxed">
+              There are millions of photographs of tagines and riads. There is almost
+              nothing that explains how a hammam heating system works, why Moroccan
+              geometric patterns use only five families of stars, or what happened in
+              this country for 300,000 years before Islam arrived.
+            </p>
+            <p className="text-body text-dwl-black leading-relaxed">
+              That deeper layer — the structures, the systems, the data underneath
+              the beauty — is what we publish.
+            </p>
           </div>
         </div>
       </section>
@@ -84,17 +79,18 @@ export default function AboutPage() {
             <p className="micro-label">The Network</p>
           </div>
           <div className="md:col-span-8">
-            <p className="font-serif text-[22px] text-dwl-black italic mb-8 max-w-[580px]">
-              Dancing with Lions is the publisher. Everything else is a title in the catalogue.
+            <p className="text-body text-dwl-black leading-relaxed mb-8 max-w-[580px]">
+              Dancing with Lions is the publisher. Each title below covers a
+              different layer of Morocco.
             </p>
             <div className="max-w-[580px]">
               {[
-                { title: 'Slow Morocco', domain: 'slowmorocco.com', type: 'Cultural travel intelligence' },
-                { title: 'House of Weaves', domain: 'houseofweaves.com', type: 'Ethnographic textile archive' },
+                { title: 'Slow Morocco', domain: 'slowmorocco.com', type: 'Cultural journeys' },
+                { title: 'House of Weaves', domain: 'houseofweaves.com', type: 'Textile archive' },
                 { title: 'Cuisines of Morocco', domain: 'cuisinesofmorocco.com', type: 'Food intelligence' },
-                { title: 'Darija', domain: 'dharija.space', type: 'Language data' },
+                { title: 'Darija', domain: 'dharija.space', type: 'Language' },
                 { title: 'Derb 37', domain: 'derb37.com', type: 'Street-level Marrakech' },
-                { title: 'Amazigh Online', domain: 'amazigh.online', type: 'Amazigh culture & language' },
+                { title: 'Amazigh Online', domain: 'amazigh.online', type: 'Amazigh culture' },
                 { title: 'Architecture of Morocco', domain: 'architectureofmorocco.com', type: 'Built heritage' },
                 { title: 'Festivals in Morocco', domain: 'festivalsinmorocco.com', type: 'Cultural calendar' },
                 { title: 'Music in Morocco', domain: 'musicinmorocco.com', type: 'Musical traditions' },
@@ -107,7 +103,7 @@ export default function AboutPage() {
                     <p className="text-[15px] text-dwl-black font-semibold">{site.title}</p>
                   </div>
                   <div className="col-span-3">
-                    <p className="text-[13px] text-dwl-gray">{site.type}</p>
+                    <p className="text-[13px] text-dwl-black">{site.type}</p>
                   </div>
                   <div className="col-span-3 text-right">
                     <a href={`https://${site.domain}`} target="_blank" rel="noopener noreferrer"
@@ -130,16 +126,17 @@ export default function AboutPage() {
           <div className="md:col-span-4">
             <p className="micro-label">Founder</p>
           </div>
-          <div className="md:col-span-8 max-w-[580px]">
-            <p className="font-serif text-[32px] text-dwl-black italic mb-6">J. Ng</p>
-            <p className="text-body text-dwl-body leading-relaxed">
-              Hakka Chinese, born in Mauritius, trained in Canada, rooted in Morocco.
-              11 years living in Marrakech. 25 years building brands.
+          <div className="md:col-span-8 max-w-[580px] space-y-5">
+            <p className="font-serif text-[32px] text-dwl-black italic">Jacqueline Ng</p>
+            <p className="text-body text-dwl-black leading-relaxed">
+              Hakka Chinese, born in Mauritius, 11 years living in Marrakech.
+              Runs a riad in the medina. Speaks Darija. Studies textiles, food systems,
+              architecture, and the history that connects all of it.
             </p>
-            <p className="text-body text-dwl-body leading-relaxed mt-4">
-              The riad is the credential, not the definition. Cultural intelligence —
-              the building, the mapping, the connecting, the making-data-alive —
-              that&apos;s where the brain lives.
+            <p className="text-body text-dwl-black leading-relaxed">
+              25 years building brands before this. Dancing with Lions is what happens
+              when you stop building for clients and start building for a country
+              you fell in love with.
             </p>
           </div>
         </div>
@@ -149,14 +146,11 @@ export default function AboutPage() {
       <section className="bg-dwl-offwhite">
         <div className="max-w-wide mx-auto px-6 md:px-10 py-section-sm">
           <p className="micro-label mb-4">Geography</p>
-          <p className="font-serif text-[24px] text-dwl-black italic max-w-[580px] leading-[1.4]">
-            Until 2030: Morocco. Full depth. The proof of concept.
+          <p className="text-body text-dwl-black max-w-[580px] leading-relaxed">
+            Based in Marrakech, Morocco. Everything we publish starts here — then follows
+            the routes outward through the Maghreb, the Trans-Saharan corridor, and
+            the Andalusi bridge to southern Spain.
           </p>
-          <p className="text-body text-dwl-body mt-4 max-w-[580px]">
-            The architecture expands along routes, not borders — Al Maghrib, the Trans-Saharan corridor,
-            the Andalusi bridge to southern Spain and Portugal.
-          </p>
-          <p className="text-[14px] text-dwl-muted mt-6">Marrakech, Morocco</p>
         </div>
       </section>
     </div>
