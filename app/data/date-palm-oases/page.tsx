@@ -278,7 +278,7 @@ export default function DatePalmOasesPage() {
       {/* ═══ BIBLIOGRAPHY ═══ */}
       <section style={{ background: '#fafafa' }}>
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="micro-label mb-4">007 — Bibliography</p>
+          <p className="micro-label mb-4">007 — Sources</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
           <p className="text-[14px] text-dwl-body max-w-[480px] leading-relaxed mb-10">
             Six works. Agronomy, ecology, hydrology, pathology.
@@ -320,16 +320,16 @@ export default function DatePalmOasesPage() {
               'Rough Guides: Draa/Dadès/Ziz/Todra valleys, oases measured by number of palms not area, khettara underground channels, seguia communal rotation, 220+ date varieties at Zagora souk, Boufeggous stores 4 years, caravan routes to Timbuktu',
               'EFSA (European Food Safety Authority): Bayoud spread via irrigation water/wind/root contact/infected offshoots on caravan routes, Draa→Saoura valley river transmission, quarantine A2 pathogen',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: ACCENT }}>Sources: FAO, Ministry of Agriculture Morocco</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

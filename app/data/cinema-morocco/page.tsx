@@ -363,7 +363,7 @@ export default function CinemaMoroccoPage() {
             Clear mountain air funnels down from the High Atlas.
             It rarely clouds over, let alone rains.
           </p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— AramcoWorld</p>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>— AramcoWorld</p>
         </div>
       </section>
 
@@ -377,7 +377,7 @@ export default function CinemaMoroccoPage() {
               <div key={n.label} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
                 <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#A0452E' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
-                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
+                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>{n.note}</p>
               </div>
             ))}
           </div>
@@ -401,16 +401,16 @@ export default function CinemaMoroccoPage() {
               'Laure Wanders / Tuljak / Continent Hop: Atlas Studios visitor guides, set descriptions, Hills Have Eyes gas station, tour details',
               'Ouarzazate.city / Slate / Atlas Obscura: studio history, set preservation, David Lean 1962, "not clear where studio ends and desert begins"',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#A0452E' }}>Sources: CCM Morocco</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

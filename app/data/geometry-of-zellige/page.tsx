@@ -255,7 +255,7 @@ export default function GeometryZelligePage() {
             non-periodic patterns with five-fold symmetry — 
             500 years before Western mathematics described them.
           </p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>Harvard &amp; Princeton, published in Science (2007)</p>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Harvard &amp; Princeton, published in Science (2007)</p>
         </div>
       </section>
 
@@ -292,16 +292,16 @@ export default function GeometryZelligePage() {
               'Why Tile — Islamic Tile History: Penrose tilings in 15th C girih, Harvard/Princeton 2007 discovery, quasi-crystals',
               'Wolfram MathWorld — Wallpaper Groups: Hermann-Mauguin symbols, orbifold notation, Coxeter references',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D5F8A' }}>Sources: Architectural documentation</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

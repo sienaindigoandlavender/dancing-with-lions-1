@@ -284,7 +284,7 @@ export default function HammamCulturePage() {
               <div key={n.unit} className="p-6 md:p-8" style={{ background: '#0a0a0a' }}>
                 <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: ACCENT }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.unit}</p>
-                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
+                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>{n.note}</p>
               </div>
             ))}
           </div>
@@ -294,7 +294,7 @@ export default function HammamCulturePage() {
       {/* ═══ BIBLIOGRAPHY ═══ */}
       <section style={{ background: '#fafafa' }} className="">
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-          <p className="micro-label mb-4">007 — Bibliography</p>
+          <p className="micro-label mb-4">007 — Sources</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic text-dwl-black leading-[1.05] mb-4">Further Reading</h2>
           <p className="text-[14px] text-dwl-body max-w-[480px] leading-relaxed mb-10">
             Six works. Architectural, theological, ethnographic.
@@ -336,16 +336,16 @@ export default function HammamCulturePage() {
               'BeautyMatter: Roman/Byzantine/Central Asian origins, Ottoman architects 14th–20th C, geometric tile work, domed ceilings with glass oculi, functional arched doorways',
               'EurekAlert (Prof. Idriz research): Ghusl after sexual intercourse/menstruation/childbirth, Quran emphasis on water as source of life, wudu institutionalised hammam as communal space, Ottoman hammams as essential as schools',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: ACCENT }}>Sources: Ethnographic research</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

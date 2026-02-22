@@ -193,8 +193,8 @@ export default function GeometryOfCulturePage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Star family nomenclature and construction methods from Bourgoin (1879) &ldquo;Arabic Geometrical
             Pattern and Design,&rdquo; Bonner (2017) &ldquo;Islamic Geometric Patterns,&rdquo; and Critchlow
             (1976) &ldquo;Islamic Patterns.&rdquo; Wallpaper group classification from Abas &amp; Salman (1995)
@@ -222,23 +222,23 @@ function StarCard({ star: s, index, parentVis }: { star: StarFamily; index: numb
             <span className="font-mono text-[13px] font-bold" style={{ color: C.ink }}>{s.name}</span>
             <span className="font-mono text-[10px]" style={{ color: C.construction }}>{s.wallpaperGroup}</span>
           </div>
-          <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.arabicName} · {s.prevalence}</span>
+          <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>{s.arabicName} · {s.prevalence}</span>
         </div>
       </div>
       {expanded && (
         <div className="px-4 pb-4 pt-1 border-t space-y-2" style={{ borderColor: `${C.star}20` }}>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>Construction</p>
+              <p className="font-mono text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.7)' }}>Construction</p>
               <p className="font-mono text-[11px]" style={{ color: C.text }}>{s.construction}</p>
             </div>
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>Dynasties</p>
+              <p className="font-mono text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.7)' }}>Dynasties</p>
               <p className="font-mono text-[11px]" style={{ color: C.text }}>{s.dynasties}</p>
             </div>
           </div>
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Monuments</p>
+            <p className="font-mono text-[9px] uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.7)' }}>Monuments</p>
             <div className="flex flex-wrap gap-1">
               {s.monuments.map(m => (
                 <span key={m} className="font-mono text-[10px] px-2 py-0.5 border rounded-full" style={{ borderColor: C.border, color: C.text }}>{m}</span>

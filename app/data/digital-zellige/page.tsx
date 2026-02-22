@@ -482,8 +482,8 @@ export default function DigitalZelligePage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             2025 full-year exports (MAD 1.23 billion, +11%): State Secretariat for Handicrafts and the
             Social and Solidarity Economy, via Morocco World News (Jan 16, 2026), Hespress, Barlaman Today.
             Product breakdown (pottery 36%, carpets 18%, clothing 17%): same source. Destination shares

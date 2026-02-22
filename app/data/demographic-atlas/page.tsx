@@ -650,7 +650,7 @@ export default function DemographicAtlasPage() {
       
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Population Density — Mapped</p>
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Population Density — Mapped</p>
         <DemographicatlasMap />
       </div></section>
 
@@ -673,8 +673,8 @@ export default function DemographicAtlasPage() {
       {/* SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Population totals: RGPH 2024, 7th General Census (HCP). Regional breakdown: HCP
             preliminary results (Nov 2024, Morocco World News). Age structure: UN World Population
             Prospects 2024. Fertility: HCP 2024 census (1.97 TFR, Bladi Dec 2024); historical

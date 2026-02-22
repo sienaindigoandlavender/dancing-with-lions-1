@@ -467,8 +467,8 @@ export default function FourPeaksPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Jbel Toubkal (4,167m): Wikipedia; Britannica; Grokipedia; Adventure Alternative;
             Cicerone Press. First ascent 1923: Wikipedia. Toubkal National Park (380 km²):
             Grokipedia. Jbel Saghro (2,712m Amalou n&apos;Mansour): Wikipedia; Lonely Planet;

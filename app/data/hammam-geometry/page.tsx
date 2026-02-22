@@ -645,11 +645,11 @@ export default function HammamGeometryPage() {
 
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
-        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <p>Architecture: Raftani & Radoine (2008), "The Architecture of the Hammams of Fez, Morocco" (ResearchGate). Hammam Saffarin: Wikipedia, based on rehabilitation documentation. Hypocaust system: Alksar.com; Wikipedia (Hammam). Thermal data: SaunaDekor.com (Moroccan Bath specifications: 38–42°C, 50–80% humidity); Humidity Matters Ltd; Effe Perfect Wellness. Light levels: Raftani & Radoine (2016), daylight factor measurements in Fes hammams — max horizontal illuminance &lt;60 lx, roof openings &lt;2% of floor area. Social history: Morocco World News; Sarah Tours; Middle East Eye. Products: editorial documentation from Moroccan hammam traditions. Roman precedent: Volubilis Idrissid bath plan (Alaa El-Habashi, 2006). Timeline: compiled from Raftani & Radoine, Wikipedia, and Morocco heritage sources.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.7)' }}>
           © Dancing with Lions · dancingwithlions.com · Architectural plans are diagrammatic representations based on published research, not measured surveys. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

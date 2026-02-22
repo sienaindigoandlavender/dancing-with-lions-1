@@ -446,7 +446,7 @@ export default function GnawaRoadPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: El Hamel, Chouki. <em>Black Morocco: A History of Slavery, Race, and Islam</em>. Cambridge University Press, 2013.
             Becker, Cynthia. <em>Blackness in Morocco: Gnawa Identity through Music and Visual Culture</em>. University of Minnesota Press, 2020.
             Kapchan, Deborah. <em>Traveling Spirit Masters: Moroccan Gnawa Trance and Music in the Global Marketplace</em>. Wesleyan, 2007.
@@ -458,7 +458,7 @@ export default function GnawaRoadPage() {
             Hisham Aidi, &quot;Gnawa Mirror: Race, Music, and the Imperialism of Categories,&quot; <em>IJMES</em>, 2023.
             Trade route coordinates based on historical caravan waypoints (Taghaza, Sijilmasa, Oualata, Araouane).
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

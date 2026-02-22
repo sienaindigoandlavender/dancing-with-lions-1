@@ -78,14 +78,14 @@ export default function GnawaAtlasPage() {
           </svg>
         </div>
         <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
-          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block transition-colors" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block transition-colors" style={{ color: 'rgba(255,255,255,0.5)' }}>← Data Index</Link>
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>
             Module 083 · Musical &amp; Spiritual Intelligence
           </p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             The Gnawa<br />Atlas
           </h1>
-          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.7)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Descendants of West African slaves. Five hundred years of spiritual music.
             Guembri, qraqeb, seven colours, the all-night lila. UNESCO, 2019.
           </p>
@@ -93,7 +93,7 @@ export default function GnawaAtlasPage() {
             {HERO_STATS.map((st, i) => (
               <div key={i}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{st.label}</span>
               </div>
             ))}
           </div>
@@ -149,7 +149,7 @@ export default function GnawaAtlasPage() {
         <div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
           <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Seven Mluk</p>
           <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-4" style={{ color: '#fff' }}>Seven Colours,<br />Seven Realms</h2>
-          <p className="text-[14px] max-w-[480px] leading-relaxed mb-16" style={{ color: 'rgba(255,255,255,0.35)' }}>
+          <p className="text-[14px] max-w-[480px] leading-relaxed mb-16" style={{ color: 'rgba(255,255,255,0.6)' }}>
             The lila moves through seven spirit families — each identified by a colour, an incense, a rhythm, and a character.
           </p>
           <div className="flex gap-1 mb-12">
@@ -166,7 +166,7 @@ export default function GnawaAtlasPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 min-h-[200px]">
             <div className="md:col-span-5">
               <h3 className="font-serif italic text-[28px] md:text-[36px]" style={{ color: '#fff', lineHeight: 1.1 }}>{SEVEN_COLOURS[activeColour].name}</h3>
-              <p className="text-[13px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>{SEVEN_COLOURS[activeColour].arabic}</p>
+              <p className="text-[13px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{SEVEN_COLOURS[activeColour].arabic}</p>
               <p className="text-[14px] leading-relaxed mt-6" style={{ color: 'rgba(255,255,255,0.5)' }}>{SEVEN_COLOURS[activeColour].character}</p>
             </div>
             <div className="md:col-span-3">
@@ -402,7 +402,7 @@ export default function GnawaAtlasPage() {
       {/* ═══ FOOTER ═══ */}
       <footer>
         <div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]">
-          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 083 · The Gnawa Atlas · © Dancing with Lions</p>
+          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Module 083 · The Gnawa Atlas · © Dancing with Lions</p>
           <p className="text-[11px] mt-2" style={{ color: 'rgba(255,255,255,0.2)' }}>Data: UNESCO ICH, Deborah Kapchan, IEMed, Afropop Worldwide, Penn Museum, Wikipedia</p>
         </div>
         <div style={{ backgroundColor: '#161616' }} className="py-3">

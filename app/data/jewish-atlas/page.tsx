@@ -355,7 +355,7 @@ export default function JewishAtlasPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: Zafrani, Haïm. <em>Two Thousand Years of Jewish Life in Morocco</em>. Sephardic House, 2005.
             Deshen, Shlomo A. <em>The Mellah Society: Jewish Community Life in Sherifian Morocco</em>. University of Chicago Press, 1989.
             Boum, Aomar. <em>Memories of Absence: How Muslims Remember Jews in Morocco</em>. Stanford University Press, 2013.
@@ -365,7 +365,7 @@ export default function JewishAtlasPage() {
             Chabad.org: &quot;19 Facts About Moroccan Jews.&quot;
             Coordinates via Google Earth and OpenStreetMap.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

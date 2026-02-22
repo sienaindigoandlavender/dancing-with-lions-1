@@ -343,7 +343,7 @@ export default function DirhamsJourneyPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: Bank Al-Maghrib: &quot;Reform of the Exchange Rate Regime&quot; (bkam.ma).
             Exchange-rates.org: EUR/MAD and USD/MAD annual averages 2005–2025.
             Investing.com: EUR/MAD historical data.
@@ -354,7 +354,7 @@ export default function DirhamsJourneyPage() {
             Morocco World News: &quot;Morocco to Loosen Dirham Peg by 2026.&quot;
             MIPA Institute: &quot;Why did Morocco's New Currency Policy Falter?&quot;
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

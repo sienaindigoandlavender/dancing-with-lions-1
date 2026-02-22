@@ -530,8 +530,8 @@ export default function ChameleonCountryPage() {
 {/* SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Revenue: Minister Bensaid, Chamber of Representatives, Jan 2026 (Morocco
             World News). $150M (MAD 1.5B) foreign revenue 2025; pre-2021 under $50M.
             Gladiator II: Le Monde, $30M local spend. Atlas Studios: founded 1983,
