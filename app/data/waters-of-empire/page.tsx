@@ -163,11 +163,68 @@ const C = {
   darkMid: '#161616',
 }
 
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+
 // ── PAGE ──────────────────────────────────────────
 
 export default function WatersOfEmpire() {
   const [hoveredSite, setHoveredSite] = useState<number | null>(null)
   const [activeEra, setActiveEra] = useState<string | null>(null)
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const [mapReady, setMapReady] = useState(false)
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
+    import('mapbox-gl').then((mapboxgl) => {
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link'); link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
+        center: [10, 38], zoom: 3.2, minZoom: 2, maxZoom: 10,
+        attributionControl: false,
+      })
+      map.addControl(new mapboxgl.default.AttributionControl({ compact: true }), 'bottom-left')
+      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
+      map.on('load', () => {
+        const regionColors: Record<string, string> = {
+          'italy': C.roman, 'north-africa': C.islamic, 'levant': C.roman,
+          'anatolia': C.roman, 'iberia': C.roman, 'britain': C.roman,
+          'gaul': C.roman, 'germania': C.roman,
+        }
+        SITES.forEach((site) => {
+          const color = regionColors[site.region] || C.roman
+          const size = site.type === 'thermae' ? 16 : site.type === 'natural' ? 14 : 12
+          const el = document.createElement('div')
+          el.style.cssText = `width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2.5px solid white;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3);transition:transform 0.2s;`
+          el.title = site.name
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.5)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          const typeLabel = site.type === 'thermae' ? 'Major Thermae' : site.type === 'natural' ? 'Natural Hot Springs' : 'Balneum'
+          const popup = new mapboxgl.default.Popup({ offset: 14, closeButton: false, maxWidth: '280px' })
+            .setHTML(`
+              <div style="font-family:Inter,system-ui,sans-serif;padding:4px 0">
+                <p style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${color};margin:0 0 4px">${site.built} · ${typeLabel}</p>
+                <p style="font-weight:700;font-size:14px;margin:0 0 2px;color:#0A0A0A">${site.name}</p>
+                <p style="font-size:12px;color:#666;margin:0 0 8px">${site.modern}</p>
+                <p style="font-size:12px;color:#333;line-height:1.6;margin:0">${site.note}</p>
+              </div>
+            `)
+          new mapboxgl.default.Marker({ element: el })
+            .setLngLat([site.lng, site.lat])
+            .setPopup(popup)
+            .addTo(map)
+        })
+        setMapReady(true)
+      })
+      mapRef.current = map
+    })
+    return () => { if (mapRef.current) mapRef.current.remove(); mapRef.current = null }
+  }, [])
 
   return (
     <div style={{ background: C.bg, minHeight: '100vh', fontFamily: F.body }}>
@@ -244,85 +301,15 @@ export default function WatersOfEmpire() {
             From Bath in England to Palmyra in the Syrian desert. Every dot is an archaeological site with Roman thermae ruins.
           </p>
 
-          {/* SVG Visualization — geographic scatter with radial glow */}
-          <div style={{ position: 'relative' }}>
-            <svg viewBox="0 0 1000 500" style={{ width: '100%', height: 'auto' }}>
-              <defs>
-                <radialGradient id="glow-roman" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor={C.roman} stopOpacity="0.4" />
-                  <stop offset="100%" stopColor={C.roman} stopOpacity="0" />
-                </radialGradient>
-                <radialGradient id="glow-islamic" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor={C.islamic} stopOpacity="0.4" />
-                  <stop offset="100%" stopColor={C.islamic} stopOpacity="0" />
-                </radialGradient>
-                <filter id="softglow">
-                  <feGaussianBlur stdDeviation="2" result="blur" />
-                  <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                </filter>
-              </defs>
-
-              {/* Mediterranean outline — simplified */}
-              <path d="M 50,250 Q 200,200 350,230 Q 450,210 550,225 Q 650,200 750,210 Q 850,220 950,240"
-                fill="none" stroke={C.border} strokeWidth="1" strokeDasharray="4,4" />
-              <text x="500" y="270" textAnchor="middle" style={{ fontSize: 10, fill: C.light, fontFamily: F.body, letterSpacing: '0.3em' }}>MEDITERRANEAN</text>
-
-              {/* Region labels */}
-              <text x="150" y="140" textAnchor="middle" style={{ fontSize: 9, fill: C.light, fontFamily: F.body, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' } as React.CSSProperties}>IBERIA</text>
-              <text x="380" y="100" textAnchor="middle" style={{ fontSize: 9, fill: C.light, fontFamily: F.body, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' } as React.CSSProperties}>ITALIA</text>
-              <text x="420" y="360" textAnchor="middle" style={{ fontSize: 9, fill: C.light, fontFamily: F.body, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' } as React.CSSProperties}>NORTH AFRICA</text>
-              <text x="780" y="140" textAnchor="middle" style={{ fontSize: 9, fill: C.light, fontFamily: F.body, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' } as React.CSSProperties}>LEVANT</text>
-              <text x="130" y="80" textAnchor="middle" style={{ fontSize: 9, fill: C.light, fontFamily: F.body, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' } as React.CSSProperties}>BRITANNIA</text>
-              <text x="340" y="60" textAnchor="middle" style={{ fontSize: 9, fill: C.light, fontFamily: F.body, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' } as React.CSSProperties}>GERMANIA</text>
-
-              {/* Site dots */}
-              {SITES.map((site, i) => {
-                // Simplified projection: lng → x, lat → y (inverted)
-                const x = ((site.lng + 10) / 55) * 900 + 50
-                const y = 500 - ((site.lat - 25) / 35) * 400
-                const isHovered = hoveredSite === i
-                const r = site.type === 'thermae' ? 10 : site.type === 'natural' ? 8 : 6
-                const isNA = site.region === 'north-africa'
-
-                return (
-                  <g key={i}
-                    onMouseEnter={() => setHoveredSite(i)}
-                    onMouseLeave={() => setHoveredSite(null)}
-                    style={{ cursor: 'pointer' }}>
-                    {/* Glow */}
-                    <circle cx={x} cy={y} r={isHovered ? r * 4 : r * 2} fill={isNA ? 'url(#glow-islamic)' : 'url(#glow-roman)'} style={{ transition: 'r 0.3s ease', opacity: isHovered ? 1 : 0.5 }} />
-                    {/* Dot */}
-                    <circle cx={x} cy={y} r={isHovered ? r * 1.3 : r * 0.7} fill={isNA ? C.islamic : C.roman} style={{ transition: 'all 0.3s ease' }} filter={isHovered ? 'url(#softglow)' : undefined} />
-                    {/* Label */}
-                    {isHovered && (
-                      <text x={x} y={y - r * 2} textAnchor="middle" style={{ fontSize: 10, fontWeight: 600, fill: C.text, fontFamily: F.body }}>{site.modern}</text>
-                    )}
-                  </g>
-                )
-              })}
-            </svg>
-
-            {/* Detail card */}
-            {hoveredSite !== null && (
-              <div style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0,
-                background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(10px)',
-                borderTop: `2px solid ${SITES[hoveredSite].region === 'north-africa' ? C.islamic : C.roman}`,
-                padding: '20px 24px',
-                transition: 'all 0.3s ease',
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
-                  <div>
-                    <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: SITES[hoveredSite].region === 'north-africa' ? C.islamic : C.roman, marginBottom: 4 }}>
-                      {SITES[hoveredSite].built} · {SITES[hoveredSite].type}
-                    </div>
-                    <div style={{ fontFamily: F.display, fontSize: 22, fontWeight: 400, color: C.black }}>{SITES[hoveredSite].name}</div>
-                    <div style={{ fontSize: 13, color: C.mid, marginTop: 2 }}>{SITES[hoveredSite].modern}</div>
-                  </div>
-                  <div style={{ fontSize: 13, lineHeight: 1.7, color: C.text, maxWidth: 480 }}>
-                    {SITES[hoveredSite].note}
-                  </div>
-                </div>
+          {/* Mapbox interactive map */}
+          <div ref={mapContainer} style={{
+            width: '100%', height: 'clamp(400px, 55vh, 560px)', borderRadius: 4,
+            background: '#f5f5f0', border: `1px solid ${C.border}`,
+            opacity: mapReady ? 1 : 0.6, transition: 'opacity 0.8s ease',
+          }}>
+            {!MAPBOX_TOKEN && (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+                <p style={{ fontSize: 13, color: C.light }}>Map requires NEXT_PUBLIC_MAPBOX_TOKEN.</p>
               </div>
             )}
           </div>
