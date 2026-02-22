@@ -183,6 +183,39 @@ const C = {
   dark: '#0E0E0E',
 }
 
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
+
+interface MapSite {
+  name: string
+  lat: number
+  lng: number
+  era: string
+  color: string
+  note: string
+}
+
+const MAP_SITES: MapSite[] = [
+  // First Humans
+  { name: 'Jebel Irhoud', lat: 31.854, lng: -8.872, era: 'First Humans', color: '#8B5E3C', note: '315,000 years old. Oldest known Homo sapiens. Five individuals, stone tools, evidence of fire.' },
+  { name: 'Taforalt (Grotte des Pigeons)', lat: 34.832, lng: -2.412, era: 'First Humans', color: '#8B5E3C', note: '15,000-year-old burials. Earliest evidence of dentistry in Africa. Snail shell diet.' },
+  { name: 'Dar es-Soltan', lat: 33.756, lng: -6.937, era: 'First Humans', color: '#8B5E3C', note: 'Aterian stone tools. Homo sapiens fossils dated to 100,000+ years.' },
+  { name: 'Oukaimeden', lat: 31.200, lng: -7.862, era: 'First Humans', color: '#8B5E3C', note: 'High Atlas rock engravings. Bronze Age (c. 1600 BCE). Weapons, animals, geometric symbols.' },
+  // Phoenician
+  { name: 'Lixus (Larache)', lat: 35.206, lng: -6.110, era: 'Phoenician', color: '#7B3FA0', note: '12th century BCE trading post. Later the largest garum factory in the western Mediterranean.' },
+  { name: 'Mogador (Essaouira)', lat: 31.506, lng: -9.770, era: 'Phoenician', color: '#7B3FA0', note: 'Westernmost Phoenician outpost. Purple dye factory on the Îles Purpuraires. Murex shells.' },
+  { name: 'Tingis (Tangier)', lat: 35.787, lng: -5.813, era: 'Phoenician', color: '#7B3FA0', note: 'Ancient port. Phoenician, then Carthaginian, then capital of Mauretania Tingitana.' },
+  { name: 'Rusaddir (Melilla)', lat: 35.292, lng: -2.938, era: 'Phoenician', color: '#7B3FA0', note: 'Phoenician trading post. Eastern Mediterranean goods flowed through here.' },
+  { name: 'Tamuda (Tétouan)', lat: 35.587, lng: -5.327, era: 'Phoenician', color: '#7B3FA0', note: 'Pre-Roman Amazigh city with Phoenician influence. Later a Roman military camp.' },
+  // Carthage & Mauretania
+  { name: 'Volubilis', lat: 34.073, lng: -5.554, era: 'Mauretania / Rome', color: '#A0522D', note: 'Capital of Juba II. Greek mosaics, library, 58 olive presses. Occupied continuously for 1,000 years.' },
+  { name: 'Chellah (Rabat)', lat: 34.004, lng: -6.823, era: 'Mauretania / Rome', color: '#A0522D', note: 'Sala Colonia. Phoenician origins, Roman colony, Marinid necropolis. Layers upon layers.' },
+  // Roman
+  { name: 'Banasa', lat: 34.610, lng: -6.200, era: 'Roman', color: '#C93C20', note: 'Veterans\' colony. Triton mosaic baths. Abandoned 285 CE when Rome retreated.' },
+  { name: 'Thamusida (Kenitra)', lat: 34.262, lng: -6.535, era: 'Roman', color: '#C93C20', note: 'Military camp on the Sebou river. Controlled river access to the interior.' },
+  // Vandal / Byzantine
+  { name: 'Ceuta', lat: 35.889, lng: -5.307, era: 'Byzantine', color: '#4A6B8A', note: 'Byzantine stronghold. Last foothold of Constantinople in the far west.' },
+]
+
 // ── COMPONENTS ────────────────────────────────────
 
 function EraCard({ era, index, isActive, onClick }: { era: Era; index: number; isActive: boolean; onClick: () => void }) {
@@ -325,6 +358,52 @@ function TimelineBar() {
 
 export default function BeforeTheCrescent() {
   const [activeEra, setActiveEra] = useState<number | null>(0)
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
+  const [mapReady, setMapReady] = useState(false)
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current || !MAPBOX_TOKEN) return
+    import('mapbox-gl').then((mapboxgl) => {
+      if (!document.querySelector('link[href*="mapbox-gl"]')) {
+        const link = document.createElement('link'); link.rel = 'stylesheet'
+        link.href = 'https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css'
+        document.head.appendChild(link)
+      }
+      mapboxgl.default.accessToken = MAPBOX_TOKEN
+      const map = new mapboxgl.default.Map({
+        container: mapContainer.current!, style: 'mapbox://styles/mapbox/light-v11',
+        center: [-5.5, 33], zoom: 5.2, minZoom: 4, maxZoom: 10,
+        attributionControl: false,
+      })
+      map.addControl(new mapboxgl.default.AttributionControl({ compact: true }), 'bottom-left')
+      map.addControl(new mapboxgl.default.NavigationControl({ showCompass: false }), 'top-right')
+      map.on('load', () => {
+        MAP_SITES.forEach((site) => {
+          const el = document.createElement('div')
+          el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${site.color};border:2.5px solid white;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.3);transition:transform 0.2s;`
+          el.title = site.name
+          el.addEventListener('mouseenter', () => { el.style.transform = 'scale(1.5)' })
+          el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
+          const popup = new mapboxgl.default.Popup({ offset: 12, closeButton: false, maxWidth: '260px' })
+            .setHTML(`
+              <div style="font-family:Inter,system-ui,sans-serif;padding:4px 0">
+                <p style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${site.color};margin:0 0 4px">${site.era}</p>
+                <p style="font-weight:700;font-size:13px;margin:0 0 6px;color:#0A0A0A">${site.name}</p>
+                <p style="font-size:12px;color:#333;line-height:1.5;margin:0">${site.note}</p>
+              </div>
+            `)
+          new mapboxgl.default.Marker({ element: el })
+            .setLngLat([site.lng, site.lat])
+            .setPopup(popup)
+            .addTo(map)
+        })
+        setMapReady(true)
+      })
+      mapRef.current = map
+    })
+    return () => { if (mapRef.current) mapRef.current.remove(); mapRef.current = null }
+  }, [])
 
   return (
     <div style={{ background: C.bg, minHeight: '100vh', fontFamily: F.body }}>
@@ -378,6 +457,45 @@ export default function BeforeTheCrescent() {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ ARCHAEOLOGICAL MAP ═══ */}
+      <section style={{ padding: '80px 24px', background: C.white, borderTop: `1px solid ${C.border}` }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.light, marginBottom: 8 }}>Geography</p>
+          <h2 style={{ fontFamily: F.display, fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 300, fontStyle: 'italic', color: C.black, marginBottom: 12 }}>
+            Where the layers sit
+          </h2>
+          <p style={{ fontSize: 14, color: C.mid, marginBottom: 32, maxWidth: 600 }}>
+            15 archaeological sites across Morocco. Each marker colour represents a different civilisation. Tap for detail.
+          </p>
+          <div ref={mapContainer} style={{
+            width: '100%', height: 'clamp(380px, 50vh, 520px)', borderRadius: 4,
+            background: '#f5f5f0', border: `1px solid ${C.border}`,
+            opacity: mapReady ? 1 : 0.6, transition: 'opacity 0.8s ease',
+          }}>
+            {!MAPBOX_TOKEN && (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+                <p style={{ fontSize: 13, color: C.light }}>Map requires NEXT_PUBLIC_MAPBOX_TOKEN.</p>
+              </div>
+            )}
+          </div>
+          {/* Legend */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginTop: 16 }}>
+            {[
+              { color: '#8B5E3C', label: 'First Humans (315,000+ BCE)' },
+              { color: '#7B3FA0', label: 'Phoenician (1100–500 BCE)' },
+              { color: '#A0522D', label: 'Mauretania / Rome' },
+              { color: '#C93C20', label: 'Roman (40–285 CE)' },
+              { color: '#4A6B8A', label: 'Byzantine' },
+            ].map((l, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: l.color }} />
+                <span style={{ fontSize: 11, color: C.mid }}>{l.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
