@@ -27,6 +27,13 @@ const STORIES: Story[] = [
     tag: 'Luminous',
     tagColor: '#C4963C',
   },
+  {
+    slug: 'the-lions-road',
+    title: 'The Lion\'s Road',
+    subtitle: 'How an animal that never lived in China became the guardian of its civilisation. Silk Road, Buddhism, and 2,000 years of reimagining.',
+    tag: 'Cultural Intelligence',
+    tagColor: '#E63946',
+  },
 ]
 
 const F = {
