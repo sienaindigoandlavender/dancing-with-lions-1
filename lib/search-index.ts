@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────
-// DWL Search Index — 112 Data Modules
-// Canonical numbering: 001–112
+// DWL Search Index — 113 Data Modules
+// Canonical numbering: 001–113
 // ─────────────────────────────────────────────────
 
 export interface SearchEntry {
@@ -149,4 +149,5 @@ export const SEARCH_INDEX: SearchEntry[] = [
   { id: 'argan-constellation', number: '110', title: 'The Argan Constellation', category: 'Economy & Trade', description: 'Argan oil extraction: every manual step mapped. The labour, the cooperatives, the women. Sustainability and the argan triangle.', tags: ['argan', 'oil', 'cooperative', 'women', 'labour', 'Souss', 'sustainability', 'extraction', 'UNESCO', 'tree'], href: '/data/argan-constellation' },
   { id: 'calendar-of-light', number: '111', title: 'The Calendar of Light', category: 'Living Data', description: 'Daylight hours by month across Morocco. Latitude, solar angle, golden hour. The astronomical calendar that shapes daily life.', tags: ['daylight', 'light', 'solar', 'astronomy', 'latitude', 'golden hour', 'calendar', 'sun', 'season', 'photography'], href: '/data/calendar-of-light' },
   { id: 'pulse-medina', number: '112', title: 'The Pulse of the Medina', category: 'Urban Life', description: 'The medina as a living organism. Activity patterns, foot traffic, commerce rhythms. How the old city breathes through the day.', tags: ['medina', 'pulse', 'activity', 'foot traffic', 'commerce', 'rhythm', 'urban', 'daily life', 'pattern', 'living'], href: '/data/pulse-medina' },
+  { id: 'the-apothecary', number: '113', title: 'The Apothecary', category: 'Food & Agriculture', description: 'Morocco\'s living pharmacopoeia. 7,000 plant species, 800 medicinal, 1,118 remedies catalogued. The attar, the scholarly lineage from Ibn al-Baytar to Bellakhdar, and why the knowledge is vanishing.', tags: ['herbalism', 'attar', 'medicinal plants', 'pharmacopoeia', 'herbs', 'spices', 'Bellakhdar', 'Ibn al-Baytar', 'traditional medicine', 'Lamiaceae', 'oregano', 'thyme', 'rosemary', 'lavender', 'mint', 'saffron', 'argan', 'Nigella', 'cumin', 'ethnobotany', 'Darija', 'souk', 'roots', 'laaroug'], href: '/data/the-apothecary' },
 ]
