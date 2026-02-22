@@ -149,7 +149,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search 61 data stories..."
+            placeholder={`Search ${totalCount} data stories...`}
             className="w-full pl-8 pr-4 py-2 text-[24px] md:text-[32px] font-serif italic text-dwl-black bg-transparent outline-none placeholder:text-dwl-muted"
             style={{ borderBottom: '1px solid #e5e5e5' }}
             autoComplete="off"
