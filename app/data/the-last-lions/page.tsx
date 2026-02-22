@@ -313,7 +313,7 @@ export default function TheLastLions() {
           {mapLayer === 'wild' && (
             <div>
               <p style={{ fontFamily: F.mono, fontSize: 13, color: C.mid, lineHeight: 1.7, marginBottom: 24 }}>
-                Where lions still roam in the wild today. ~20,000–25,000 individuals across sub-Saharan Africa + ~700 Asiatic lions in India. Down from ~200,000 a century ago. No wild lions remain in North Africa, the Middle East, or Europe.
+                Where lions still roam in the wild today. ~20,000–25,000 individuals across sub-Saharan Africa + ~700 Asiatic lions in India. Down from ~200,000 a century ago. No wild lions remain in North Africa, the Middle East, or Europe. Botswana hosts ~3,500 — Africa's second largest population after Tanzania. Namibia's Kunene desert lions (56–60 individuals) hunt seals on the Skeleton Coast and survive without drinking water. Uganda's tree-climbing lions of Ishasha are down to ~40, poisoned by farmers. West Africa's lions are Critically Endangered — fewer than 250 mature adults across the entire region, genetically closer to India's Asiatic lions than to southern African ones.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 1 }}>
                 {WILD_POPULATIONS.map((w, i) => (

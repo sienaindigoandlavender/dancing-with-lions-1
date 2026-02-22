@@ -176,16 +176,28 @@ export interface WildPopulation {
 }
 
 export const WILD_POPULATIONS: WildPopulation[] = [
+  // ── EAST AFRICA ──
   { name: 'Serengeti-Mara', country: 'Tanzania / Kenya', coords: [35.0, -2.3], population: '~3,000', trend: 'stable', type: 'african' },
   { name: 'Selous-Niassa', country: 'Tanzania / Mozambique', coords: [37.5, -9.0], population: '~4,000', trend: 'declining', type: 'african' },
   { name: 'Ruaha-Rungwa', country: 'Tanzania', coords: [34.5, -7.5], population: '~2,000', trend: 'declining', type: 'african' },
+  { name: 'Murchison Falls', country: 'Uganda', coords: [31.7, 2.3], population: '~240', trend: 'stable', type: 'african' },
+  { name: 'Queen Elizabeth NP', country: 'Uganda', coords: [30.0, -0.2], population: '~40', trend: 'declining', type: 'african' },
+  { name: 'Kidepo Valley', country: 'Uganda', coords: [33.8, 3.9], population: '~22', trend: 'critical', type: 'african' },
+  // ── SOUTHERN AFRICA ──
+  { name: 'Okavango Delta', country: 'Botswana', coords: [22.5, -19.8], population: '~1,200', trend: 'stable', type: 'african' },
+  { name: 'Central Kalahari', country: 'Botswana', coords: [24.5, -22.0], population: '~700', trend: 'stable', type: 'african' },
+  { name: 'Kgalagadi Transfrontier', country: 'Botswana / South Africa', coords: [20.5, -25.5], population: '~750', trend: 'stable', type: 'african' },
+  { name: 'Chobe-Linyanti', country: 'Botswana', coords: [25.0, -18.5], population: '~800', trend: 'increasing', type: 'african' },
   { name: 'Kruger National Park', country: 'South Africa', coords: [31.5, -24.0], population: '~1,600', trend: 'stable', type: 'african' },
-  { name: 'Okavango-Hwange', country: 'Botswana / Zimbabwe', coords: [25.0, -19.5], population: '~2,500', trend: 'increasing', type: 'african' },
+  { name: 'Hwange', country: 'Zimbabwe', coords: [26.5, -19.0], population: '~500', trend: 'stable', type: 'african' },
   { name: 'Luangwa Valley', country: 'Zambia', coords: [31.5, -13.0], population: '~800', trend: 'stable', type: 'african' },
-  { name: 'Etosha', country: 'Namibia', coords: [16.0, -18.8], population: '~500', trend: 'increasing', type: 'african' },
-  { name: 'Queen Elizabeth NP', country: 'Uganda', coords: [30.0, -0.2], population: '~150', trend: 'declining', type: 'african' },
-  { name: 'Niokolo-Koba', country: 'Senegal', coords: [-12.7, 13.0], population: '~15–30', trend: 'critical', type: 'african' },
-  { name: 'W-Arly-Pendjari', country: 'Benin / Burkina Faso / Niger', coords: [1.5, 11.5], population: '~350', trend: 'critical', type: 'african' },
+  // ── NAMIBIA ──
+  { name: 'Etosha', country: 'Namibia', coords: [16.0, -18.8], population: '~500', trend: 'stable', type: 'african' },
+  { name: 'Kunene Desert Lions', country: 'Namibia', coords: [13.5, -19.5], population: '~56–60', trend: 'critical', type: 'african' },
+  // ── WEST AFRICA ── (Critically Endangered — fewer than 250 mature adults across the entire region)
+  { name: 'W-Arly-Pendjari (WAP)', country: 'Benin / Burkina Faso / Niger', coords: [1.5, 11.5], population: '~250–400', trend: 'critical', type: 'african' },
+  { name: 'Niokolo-Koba', country: 'Senegal', coords: [-12.7, 13.0], population: '~30–40', trend: 'critical', type: 'african' },
+  // ── ASIA ──
   { name: 'Gir Forest', country: 'India', coords: [70.86, 21.14], population: '~700', trend: 'increasing', type: 'asiatic' },
 ]
 
