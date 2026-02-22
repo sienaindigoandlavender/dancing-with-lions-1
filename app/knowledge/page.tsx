@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 /* ═══════════════════════════════════════════════════
    KNOWLEDGE — Password-Protected Private Vault
-   Dancing with Lions · Not indexed
+   Dancing with Lions · Not indexed · WHITE BG
    ═══════════════════════════════════════════════════ */
 
 const PASS_KEY = 'dwl-knowledge-access'
@@ -37,8 +37,13 @@ const STORIES: Story[] = [
 ]
 
 const F = {
-  sans: "'Inter', 'Helvetica Neue', Helvetica, sans-serif",
-  display: "'Georgia', 'Times New Roman', serif",
+  mono: "var(--font-plex-mono), 'IBM Plex Mono', 'Courier New', monospace",
+  serif: "'Instrument Serif', Georgia, serif",
+}
+
+const C = {
+  bg: '#ffffff', ink: '#0a0a0a', body: '#262626', mid: '#525252',
+  muted: '#737373', border: '#e5e5e5',
 }
 
 export default function KnowledgePage() {
@@ -54,7 +59,7 @@ export default function KnowledgePage() {
   }, [])
 
   const handleSubmit = () => {
-    if (input.toLowerCase().trim() === CORRECT) {
+    if (input.trim() === CORRECT) {
       localStorage.setItem(PASS_KEY, 'true')
       setUnlocked(true)
       setError(false)
@@ -64,39 +69,35 @@ export default function KnowledgePage() {
     }
   }
 
-  if (checking) return <div style={{ minHeight: '100vh', background: '#0A0A0A' }} />
+  if (checking) return <div style={{ minHeight: '100vh', background: C.bg }} />
 
   // ── LOCKED STATE ──
   if (!unlocked) {
     return (
       <div style={{
-        minHeight: '100vh',
-        background: '#0A0A0A',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 24,
+        minHeight: '100vh', background: C.bg,
+        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
       }}>
         <div style={{ maxWidth: 400, width: '100%', textAlign: 'center' }}>
           <div style={{
-            fontSize: 11, fontWeight: 600, letterSpacing: '0.18em',
-            textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)',
-            marginBottom: 40, fontFamily: F.sans,
+            fontSize: 10, fontWeight: 600, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: C.muted,
+            marginBottom: 40, fontFamily: F.mono,
           }}>
             Private
           </div>
 
           <h1 style={{
-            fontFamily: F.display, fontSize: 'clamp(36px, 5vw, 52px)',
-            fontWeight: 400, fontStyle: 'italic', color: '#fff',
+            fontFamily: F.serif, fontSize: 'clamp(36px, 5vw, 52px)',
+            fontWeight: 400, fontStyle: 'italic', color: C.ink,
             lineHeight: 1.1, marginBottom: 16,
           }}>
             Knowledge
           </h1>
 
           <p style={{
-            fontFamily: F.sans, fontSize: 14, lineHeight: 1.7,
-            color: 'rgba(255,255,255,0.4)', marginBottom: 48,
+            fontFamily: F.mono, fontSize: 14, lineHeight: 1.7,
+            color: C.muted, marginBottom: 48,
           }}>
             This section is private.
           </p>
@@ -109,26 +110,17 @@ export default function KnowledgePage() {
               onKeyDown={e => e.key === 'Enter' && handleSubmit()}
               placeholder="Enter passphrase"
               style={{
-                width: '100%',
-                background: 'transparent',
-                border: 'none',
-                borderBottom: `1px solid ${error ? 'rgba(200,80,80,0.6)' : 'rgba(255,255,255,0.15)'}`,
-                color: '#fff',
-                fontFamily: F.sans,
-                fontSize: 16,
-                padding: '16px 0',
-                outline: 'none',
-                textAlign: 'center',
+                width: '100%', background: 'transparent', border: 'none',
+                borderBottom: `1px solid ${error ? 'rgba(200,80,80,0.6)' : C.border}`,
+                color: C.ink, fontFamily: F.mono, fontSize: 16,
+                padding: '16px 0', outline: 'none', textAlign: 'center',
                 letterSpacing: '0.1em',
               }}
             />
           </div>
 
           {error && (
-            <p style={{
-              fontFamily: F.sans, fontSize: 12, color: 'rgba(200,80,80,0.7)',
-              marginTop: 8,
-            }}>
+            <p style={{ fontFamily: F.mono, fontSize: 12, color: 'rgba(200,80,80,0.7)', marginTop: 8 }}>
               Not quite.
             </p>
           )}
@@ -136,26 +128,21 @@ export default function KnowledgePage() {
           <button
             onClick={handleSubmit}
             style={{
-              marginTop: 32,
-              background: 'transparent',
-              border: '1px solid rgba(255,255,255,0.2)',
-              color: 'rgba(255,255,255,0.6)',
-              fontFamily: F.sans,
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              padding: '14px 40px',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
+              marginTop: 32, background: 'transparent',
+              border: `1px solid ${C.border}`, color: C.mid,
+              fontFamily: F.mono, fontSize: 11, fontWeight: 600,
+              letterSpacing: '0.14em', textTransform: 'uppercase',
+              padding: '14px 40px', cursor: 'pointer', transition: 'all 0.3s ease',
             }}
             onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = '#fff';
-              (e.target as HTMLElement).style.color = '#0A0A0A'
+              (e.target as HTMLElement).style.background = C.ink;
+              (e.target as HTMLElement).style.color = '#fff';
+              (e.target as HTMLElement).style.borderColor = C.ink
             }}
             onMouseLeave={e => {
               (e.target as HTMLElement).style.background = 'transparent';
-              (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)'
+              (e.target as HTMLElement).style.color = C.mid;
+              (e.target as HTMLElement).style.borderColor = C.border
             }}
           >
             Enter
@@ -167,29 +154,29 @@ export default function KnowledgePage() {
 
   // ── UNLOCKED STATE — STORY INDEX ──
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: C.bg }}>
 
       {/* Header */}
       <section style={{ padding: '140px 24px 60px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{
-          fontSize: 11, fontWeight: 600, letterSpacing: '0.18em',
-          textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)',
-          marginBottom: 32, fontFamily: F.sans,
+          fontSize: 10, fontWeight: 600, letterSpacing: '0.18em',
+          textTransform: 'uppercase', color: C.muted,
+          marginBottom: 32, fontFamily: F.mono,
         }}>
           Private · {STORIES.length} Stories
         </div>
 
         <h1 style={{
-          fontFamily: F.display, fontSize: 'clamp(40px, 6vw, 64px)',
-          fontWeight: 400, fontStyle: 'italic', color: '#fff',
+          fontFamily: F.serif, fontSize: 'clamp(40px, 6vw, 64px)',
+          fontWeight: 400, fontStyle: 'italic', color: C.ink,
           lineHeight: 1.05, marginBottom: 24,
         }}>
           Knowledge
         </h1>
 
         <p style={{
-          fontFamily: F.sans, fontSize: 16, lineHeight: 1.8,
-          color: 'rgba(255,255,255,0.4)', maxWidth: 520,
+          fontFamily: F.mono, fontSize: 15, lineHeight: 1.8,
+          color: C.mid, maxWidth: 520,
         }}>
           For understanding. No agenda. The stories that live in the in-between — too luminous for the public index, too important to leave unwritten.
         </p>
@@ -206,45 +193,36 @@ export default function KnowledgePage() {
             <div
               style={{
                 padding: '40px 0',
-                borderTop: i === 0 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-                borderBottom: '1px solid rgba(255,255,255,0.08)',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
+                borderTop: `1px solid ${C.border}`,
+                cursor: 'pointer', transition: 'all 0.3s ease',
               }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.paddingLeft = '16px'
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.paddingLeft = '0'
-              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.paddingLeft = '16px' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.paddingLeft = '0' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
                 <span style={{
-                  fontFamily: F.sans, fontSize: 10, fontWeight: 600,
+                  fontFamily: F.mono, fontSize: 10, fontWeight: 600,
                   letterSpacing: '0.14em', textTransform: 'uppercase',
-                  color: story.tagColor, opacity: 0.8,
+                  color: story.tagColor,
                 }}>
                   {story.tag}
                 </span>
-                <span style={{
-                  fontFamily: F.sans, fontSize: 10,
-                  color: 'rgba(255,255,255,0.2)',
-                }}>
+                <span style={{ fontFamily: F.mono, fontSize: 10, color: C.muted }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
 
               <h2 style={{
-                fontFamily: F.display, fontSize: 'clamp(24px, 3.5vw, 36px)',
-                fontWeight: 400, fontStyle: 'italic', color: '#fff',
+                fontFamily: F.serif, fontSize: 'clamp(24px, 3.5vw, 36px)',
+                fontWeight: 400, fontStyle: 'italic', color: C.ink,
                 lineHeight: 1.2, marginBottom: 8,
               }}>
                 {story.title}
               </h2>
 
               <p style={{
-                fontFamily: F.sans, fontSize: 14, lineHeight: 1.7,
-                color: 'rgba(255,255,255,0.35)', maxWidth: 560,
+                fontFamily: F.mono, fontSize: 14, lineHeight: 1.7,
+                color: C.mid, maxWidth: 560,
               }}>
                 {story.subtitle}
               </p>
@@ -262,13 +240,10 @@ export default function KnowledgePage() {
             setInput('')
           }}
           style={{
-            background: 'transparent',
-            border: 'none',
-            color: 'rgba(255,255,255,0.15)',
-            fontFamily: F.sans,
-            fontSize: 11,
-            letterSpacing: '0.1em',
-            cursor: 'pointer',
+            background: 'transparent', border: 'none',
+            color: C.muted, fontFamily: F.mono,
+            fontSize: 11, letterSpacing: '0.1em', cursor: 'pointer',
+            opacity: 0.4,
           }}
         >
           Lock
