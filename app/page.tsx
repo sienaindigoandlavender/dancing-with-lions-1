@@ -97,31 +97,6 @@ export default function HomePage() {
 
       <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
-      {/* THE THESIS */}
-      <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <p className="micro-label mb-4">The Problem</p>
-            <p className="font-serif text-[72px] md:text-[96px] text-dwl-black leading-none italic">0</p>
-            <p className="text-meta uppercase tracking-[0.08em] text-dwl-gray mt-2">
-              Structured, current, machine-readable data platforms covering the Maghreb
-            </p>
-          </div>
-          <div className="md:col-span-8 md:pt-8">
-            <p className="font-serif text-[24px] md:text-[30px] leading-[1.45] text-dwl-black max-w-[640px]">
-              Who&apos;s polling Moroccan consumer sentiment? Who has structured data on Algerian market conditions
-              that isn&apos;t five years old? Who&apos;s tracking real estate investment patterns across the Maghreb
-              in a format a fund manager in London can use?
-            </p>
-            <p className="text-body text-dwl-body mt-6 max-w-[640px]">
-              Almost nobody. And the little that exists is ugly, fragmented, outdated,
-              and locked in PDFs written by people who&apos;ve never lived in the region.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-wide mx-auto px-6 md:px-10"><div className="border-t border-dwl-border" /></div>
 
       {/* DATA MODULES */}
       <section className="max-w-wide mx-auto px-6 md:px-10 py-section">
