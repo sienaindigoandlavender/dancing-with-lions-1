@@ -126,12 +126,12 @@ interface ScholarData {
 }
 
 const SCHOLARS: ScholarData[] = [
-  { name: 'Abul-Khayr Al-Ichbilî', date: '12th C', work: ''Umdat at-tabîb', contribution: 'Seville botanist. First systematic taxonomy of medicinal plants in the Islamic world. Catalogued Andalusi and Maghrebi flora.' },
-  { name: 'Ibn al-Baytar', date: '13th C', work: 'Jami' al-mufradat', contribution: 'Born in Málaga. Walked from al-Andalus to Damascus collecting specimens. Catalogued 1,400 plants. The largest materia medica of the medieval world.' },
-  { name: 'Al-Wazir Al-Ghassanî', date: '16th C', work: 'Hadiqat al-azhar', contribution: 'Moroccan physician. Documented local medicinal plants in Fez. The first purely Moroccan pharmacopoeia.' },
-  { name: 'Anonymous (South Morocco)', date: '16th–17th C', work: 'Tuhfat al-ahbâb', contribution: 'Unknown author from the pre-Saharan south. Recorded Amazigh and Arab remedies passed through oral tradition. Never translated.' },
-  { name: 'Abderezaq al-Jazairî', date: '18th C', work: 'Kechf er-rumûz', contribution: 'Algerian physician. Bridged Maghrebi and Eastern traditions. Confirmed continuity across 500 years of practice.' },
-  { name: 'Jamal Bellakhdar', date: '1997–2020', work: 'La Pharmacopée Marocaine Traditionnelle', contribution: 'Pharmacist, born Tangier 1947. 40 years of field research. 200+ tradipraticiens interviewed. 450 informants. 1,118 species catalogued across 1,370 pages. The definitive work.' },
+  { name: "Abul-Khayr Al-Ichbili", date: "12th C", work: "\u2018Umdat at-tabib", contribution: "Seville botanist. First systematic taxonomy of medicinal plants in the Islamic world. Catalogued Andalusi and Maghrebi flora." },
+  { name: "Ibn al-Baytar", date: "13th C", work: "Jami\u2019 al-mufradat", contribution: "Born in Malaga. Walked from al-Andalus to Damascus collecting specimens. Catalogued 1,400 plants. The largest materia medica of the medieval world." },
+  { name: "Al-Wazir Al-Ghassani", date: "16th C", work: "Hadiqat al-azhar", contribution: "Moroccan physician. Documented local medicinal plants in Fez. The first purely Moroccan pharmacopoeia." },
+  { name: "Anonymous (South Morocco)", date: "16th\u201317th C", work: "Tuhfat al-ahbab", contribution: "Unknown author from the pre-Saharan south. Recorded Amazigh and Arab remedies passed through oral tradition. Never translated." },
+  { name: "Abderezaq al-Jazairi", date: "18th C", work: "Kechf er-rumuz", contribution: "Algerian physician. Bridged Maghrebi and Eastern traditions. Confirmed continuity across 500 years of practice." },
+  { name: "Jamal Bellakhdar", date: "1997\u20132020", work: "La Pharmacopee Marocaine Traditionnelle", contribution: "Pharmacist, born Tangier 1947. 40 years of field research. 200+ tradipraticiens interviewed. 450 informants. 1,118 species catalogued across 1,370 pages. The definitive work." },
 ]
 
 // ── HOOKS ────────────────────────────────────────
