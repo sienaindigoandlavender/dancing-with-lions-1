@@ -378,7 +378,7 @@ export default function AgricultureRadialChart() {
           {/* Center text */}
           {hovered === null ? (
             <g>
-              <text x={CX} y={CY - 18} textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="'IBM Plex Mono', monospace" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }}>
+              <text x={CX} y={CY - 18} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="'IBM Plex Mono', monospace" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }}>
                 TOTAL EXPORTS
               </text>
               <text x={CX} y={CY + 10} textAnchor="middle" fill="#ffffff" fontSize="28" fontFamily="'Georgia', serif" fontStyle="italic">
@@ -399,7 +399,7 @@ export default function AgricultureRadialChart() {
               <text x={CX} y={CY + 16} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="'IBM Plex Mono', monospace">
                 {arcs[hovered].detail}
               </text>
-              <text x={CX} y={CY + 32} textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="'IBM Plex Mono', monospace">
+              <text x={CX} y={CY + 32} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="'IBM Plex Mono', monospace">
                 {arcs[hovered].region}
               </text>
             </g>
@@ -514,7 +514,7 @@ export default function AgricultureRadialChart() {
           fontFamily: "'Georgia', 'Times New Roman', serif",
           fontSize: '12px',
           fontStyle: 'italic',
-          color: 'rgba(255,255,255,0.4)',
+          color: 'rgba(255,255,255,0.7)',
         }}>
           Sources: FAO, Ministry of Agriculture Morocco
         </p>

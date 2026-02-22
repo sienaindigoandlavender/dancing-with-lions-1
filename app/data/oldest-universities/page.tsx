@@ -25,12 +25,12 @@ export default function OldestUniversitiesPage() {
       <section className="relative min-h-[100vh] flex flex-col justify-end overflow-hidden" style={{ background: '#0a0a0a' }}>
         <div className="absolute inset-0 pointer-events-none"><svg viewBox="0 0 1200 800" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMidYMid slice"><circle cx={600} cy={400} r={200} stroke={ACCENT} strokeWidth="0.5" fill="none" /><path d="M480,520 Q600,240 720,520" stroke={ACCENT} strokeWidth="0.4" fill="none" opacity={0.3} /></svg></div>
         <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
-          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.5)' }}>← Data Index</Link>
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 072 · Knowledge Intelligence</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>The World&rsquo;s Oldest<br />Universities</h1>
-          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>229 years before Bologna. 237 before Oxford. Morocco&rsquo;s claim to the oldest continuously operating university in the world.</p>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.7)', animation: 'fadeUp 1s ease 0.7s forwards' }}>229 years before Bologna. 237 before Oxford. Morocco&rsquo;s claim to the oldest continuously operating university in the world.</p>
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
-            {HERO_STATS.map((st, i) => (<div key={i}><span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span><span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span></div>))}
+            {HERO_STATS.map((st, i) => (<div key={i}><span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span><span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{st.label}</span></div>))}
           </div>
         </div>
         <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
@@ -67,10 +67,10 @@ export default function OldestUniversitiesPage() {
               <div className={i % 2 === 0 ? 'md:col-span-3' : 'md:col-span-3 md:col-start-2'}>
                 <h3 className="font-serif italic text-[22px]" style={{ color: '#fff' }}>{s.name}</h3>
                 <p className="text-[12px] mt-1" style={{ color: ACCENT }}>{s.lifespan}</p>
-                <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.field}</p>
+                <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.field}</p>
               </div>
               <div className="md:col-span-5"><p className="text-[14px] leading-[1.75]" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.contribution}</p></div>
-              <div className="md:col-span-3"><span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: 'rgba(255,255,255,0.25)' }}>Connection</span><p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s.connection}</p></div>
+              <div className="md:col-span-3"><span className="text-[10px] uppercase tracking-[0.1em] block mb-2" style={{ color: 'rgba(255,255,255,0.25)' }}>Connection</span><p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s.connection}</p></div>
             </div>))}
         </div>
       </div></section>
@@ -139,7 +139,7 @@ export default function OldestUniversitiesPage() {
         <p className="text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#999' }}>Sources</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">{BIBLIOGRAPHY.map((b, i) => (<div key={i}><span className="text-[12px] text-[#525252]">{b.source}</span><p className="text-[11px] text-[#999] leading-relaxed">{b.detail}</p></div>))}</div>
       </div></section>
-      <footer><div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]"><p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 072 · Oldest Universities · © Dancing with Lions</p></div><div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div><div style={{ backgroundColor: '#0e0e0e' }} className="py-2" /></footer>
+      <footer><div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]"><p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Module 072 · Oldest Universities · © Dancing with Lions</p></div><div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div><div style={{ backgroundColor: '#0e0e0e' }} className="py-2" /></footer>
     </main>
   )
 }

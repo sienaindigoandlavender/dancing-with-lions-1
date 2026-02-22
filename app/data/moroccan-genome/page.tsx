@@ -656,13 +656,13 @@ export default function MoroccanGenomePage() {
 
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
-        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <p><strong>Genetics:</strong> Moroccan Genome Project Phase 1 (2025), <em>Communications Biology</em>. 109 whole genomes. Ancestry: 51.2% North African, 10.9% European, 10.7% Middle Eastern, 6.8% West African. Y-haplogroups: E1b1b1 36.6%, F 19.5%, G2 17.1%. E-M81 frequency: Reguig et al. (2014), <em>Human Biology</em>, 295 Berber men. E-M81 TMRCA: Solé-Morata et al. (2017), <em>Scientific Reports</em>. Demographic model: Serradell et al. (2024), <em>Genome Biology</em>. Taforalt ancient DNA: Loosdrecht et al. (2018), <em>Science</em>. mtDNA synthesis: Frigi et al. (2010); Coudray et al. (2009). Arab/Berber genetic similarity: Arauna et al. (2017), <em>Molecular Biology and Evolution</em>.</p>
           <p><strong>Ethnicity &amp; demographics:</strong> 2021 survey (n=1,200): 68% Arab, 25.6% Berber, 3.6% Sahrawi per Wikipedia "Demographics of Morocco." Britannica breakdown: 44% Arab, 24% Arabized Berber, 21% Berber, 10% Moorish. 2024 Census (HCP): 24.8% Berber-speakers (Tashelhit 14.2%, Tamazight 7.4%, Tarifit 3.2%); 80.6% Arabic mother tongue; 1.5% Berber literacy. Amazigh contestation: IWGIA <em>Indigenous World 2025</em>. Berber language decline: Wikipedia "Berber languages" citing census data 1960–2024.</p>
           <p><strong>Haratin &amp; Gnawa:</strong> El Hamel, Chouki, "Blacks and Slavery in Morocco" (2006). Bouhchichi quote: POMEPS, "National Identity in the Afro-Arab Periphery" (2022). Parliamentary representation: same source (7/515 Black MPs). Gnawa history: Afropop Worldwide. UNESCO Intangible Heritage listing (2019). Haratin demographics: Wikipedia "Haratin," citing French explorer Charles de Foucauld and historian Remco Ensel. Jewish population: World Jewish Congress and Morocco.com.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.7)' }}>
           © Dancing with Lions · dancingwithlions.com · Population genetics and ethnicity data represent group-level patterns and contested political categories. Numbers vary by source, methodology, and political context. This visualisation may not be reproduced without visible attribution.
         </p>
       </section>

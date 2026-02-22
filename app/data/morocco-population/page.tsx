@@ -369,10 +369,10 @@ function BubbleChart() {
           <line x1={padding} y1={40} x2={padding} y2={440} stroke="rgba(255,255,255,0.15)" strokeWidth={1} />
 
           {/* Axis labels */}
-          <text x={460} y={485} textAnchor="middle" style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.4)' }}>
+          <text x={460} y={485} textAnchor="middle" style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.7)' }}>
             DENSITY (people/km²) →
           </text>
-          <text x={15} y={240} textAnchor="middle" transform="rotate(-90, 15, 240)" style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.4)' }}>
+          <text x={15} y={240} textAnchor="middle" transform="rotate(-90, 15, 240)" style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono', fill: 'rgba(255,255,255,0.7)' }}>
             POPULATION (millions) →
           </text>
 
@@ -743,7 +743,7 @@ function Sources() {
           <Link
             href="/data"
             className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity"
-            style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
+            style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}
           >
             ← All Data Modules
           </Link>

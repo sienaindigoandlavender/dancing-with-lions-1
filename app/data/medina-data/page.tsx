@@ -197,8 +197,8 @@ export default function MedinaDataPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Feature counts from UNESCO World Heritage nomination file (1985), ADER-Marrakech
             rehabilitation survey, Ministry of Habous mosque registry, and Wilbaux (2001).
             Foundouk inventory from Saïd Mouline architectural survey. Derb count from SDAU

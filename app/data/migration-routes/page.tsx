@@ -68,12 +68,12 @@ export default function MigrationRoutesPage() {
           </svg>
         </div>
         <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
-          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.5)' }}>← Data Index</Link>
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 085 · Human Movement</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             Migration<br />Routes
           </h1>
-          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.7)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             13 kilometres separate Morocco from Spain at the Strait&apos;s narrowest point.
             Four routes. Six transit cities. The border politics of three continents.
           </p>
@@ -81,7 +81,7 @@ export default function MigrationRoutesPage() {
             {HERO_STATS.map((st, i) => (
               <div key={i}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{st.label}</span>
               </div>
             ))}
           </div>
@@ -156,7 +156,7 @@ export default function MigrationRoutesPage() {
                   <p className="text-[14px] leading-[1.75]" style={{ color: 'rgba(255,255,255,0.5)' }}>{c.description}</p>
                 </div>
                 <div className="md:col-span-3">
-                  <p className="text-[12px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>{c.detail}</p>
+                  <p className="text-[12px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{c.detail}</p>
                 </div>
               </div>
             ))}
@@ -258,7 +258,7 @@ export default function MigrationRoutesPage() {
       </section>
       <footer>
         <div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]">
-          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 085 · Migration Routes · © Dancing with Lions</p>
+          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Module 085 · Migration Routes · © Dancing with Lions</p>
         </div>
         <div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div>
         <div style={{ backgroundColor: '#0e0e0e' }} className="py-2" />

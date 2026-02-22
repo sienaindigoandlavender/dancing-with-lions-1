@@ -558,11 +558,11 @@ export default function MarriageEconomyPage() {
 
 {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
-        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <p>Cost data: MAwebzine (2025), PlanetJawal (2023), Bewildered in Morocco (2025), Movocco (2024), Friendly Morocco (2025). Regional variations: editorial estimates based on aggregated vendor pricing and local reporting. Bridal traditions: Middle East Eye, The Knot, Unique Travel Morocco. Amazigh jewellery: Wikipedia (Jewellery of the Berber cultures), The Metropolitan Museum of Art (Berber Jewelry), Little Moroccan Things, Morocco Travel Blog. Tiznit silver: Morocco World News, iwziwn.com (2025). Wedding season: HCP (Haut-Commissariat au Plan) marriage registration data. Supply chain sourcing: editorial mapping based on vendor origin data and cultural documentation.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.7)' }}>
           © Dancing with Lions · dancingwithlions.com · Cost figures are editorial estimates based on published sources and local reporting. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

@@ -268,8 +268,8 @@ export default function MoroccanCalendarPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             National holidays from Moroccan labour code and HCP official calendar. Islamic dates
             from Umm al-Qura calendar adjusted for Morocco (actual dates depend on moon sighting).
             Amazigh calendar from IRCAM publications and Berber agricultural ethnography. School

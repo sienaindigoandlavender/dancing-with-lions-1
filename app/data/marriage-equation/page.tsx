@@ -520,11 +520,11 @@ export default function MarriageEquationPage() {
 
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
-        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <p>Marriage & divorce data: HCP (Haut-Commissariat au Plan), "Les Femmes Marocaines en Chiffres" (2023, 2024). Statista (Number of Marriages in Morocco 2018–2022; Number of Divorces 2004–2021). 2024 marriage figure (249,089): Justice Minister Abdellatif Ouahbi, December 2024 parliamentary session (Barlaman Today). Age at first marriage: HCP/Statista (Average age at first marriage 2004–2018); Morocco World News (2019). Child marriage: HCP (2024), Barlaman Today (Oct 2025); Morocco World News (Dec 2025); Wilson Center; Girls Not Brides. Divorce ratio (50:100): CSPJ via Morocco World News (June 2023). Consensual divorce: HCP via Hespress (Oct 2025). Women-led households: HCP via Barlaman Today (Oct 2025). Moudawana: Carnegie Endowment (2025), Centre for Public Impact, TIMEP, EuroMed Rights, Fund for Global Human Rights, NYU, National Council on U.S.-Arab Relations, Spheres of Influence. Marriage trend estimates (pre-2018): editorial interpolation based on HCP reporting and Statista anchors. Individual year figures before 2018 are approximations from trend reporting, not precise counts.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.7)' }}>
           © Dancing with Lions · dancingwithlions.com · Pre-2018 marriage volume data is estimated from trend reporting. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

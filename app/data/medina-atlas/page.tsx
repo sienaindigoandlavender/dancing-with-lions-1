@@ -254,7 +254,7 @@ export default function MedinaAtlasPage() {
       
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>The Medinas — Mapped</p>
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>The Medinas — Mapped</p>
         <MedinaatlasMap />
       </div></section>
 
@@ -269,8 +269,8 @@ export default function MedinaAtlasPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Spatial data from UNESCO World Heritage nomination file (1985), Wilbaux (2001)
             &ldquo;La Médina de Marrakech,&rdquo; and ADER-Fès/Marrakech rehabilitation surveys.
             Gate periods from Deverdun (1959) &ldquo;Marrakech.&rdquo; Souk inventory from

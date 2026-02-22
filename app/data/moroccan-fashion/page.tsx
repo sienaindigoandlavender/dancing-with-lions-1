@@ -258,7 +258,7 @@ export default function MoroccanFashionPage() {
       {/* ── BIBLIOGRAPHY ── */}
       <section data-sid="biblio" className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40" style={{ background: '#080808' }}>
         <div className="max-w-4xl mx-auto" style={{ opacity: vis('biblio') ? 1 : 0, transform: vis('biblio') ? 'none' : 'translateY(24px)', transition: 'all 0.8s ease' }}>
-          <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Bibliography</span></div>
+          <div className="mb-4"><span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: ACCENT }}>Sources</span></div>
           <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(24px, 3vw, 32px)' }} className="mb-10">Further Reading</h2>
           <div className="space-y-6">
             {BIBLIOGRAPHY.map((b, i) => (

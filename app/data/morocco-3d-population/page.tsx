@@ -467,8 +467,8 @@ export default function Morocco3DPopulation() {
       {/* Sources */}
       <div style={{ backgroundColor: '#1f1f1f', padding: '48px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', paddingTop: 12 }}>
-          <p style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>Sources</p>
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6, maxWidth: 700 }}>
+          <p style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.7)', marginBottom: 6 }}>Sources</p>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, maxWidth: 700 }}>
             Population data from Haut-Commissariat au Plan (HCP) 2024 General Census of Population and Housing;
             WorldPop population density estimates (2020, ~1km resolution); city populations from citypopulation.de
             based on HCP official results. Grid resolution: ~0.25° (~25km at this latitude). Density values

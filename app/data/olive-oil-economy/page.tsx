@@ -281,7 +281,7 @@ export default function OliveOilEconomyPage() {
             and Saharan proximity concentrates flavour compounds in ways gentler
             climates cannot replicate.
           </p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Hoji / Olive Oil Times</p>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>— Hoji / Olive Oil Times</p>
         </div>
       </section>
 
@@ -319,16 +319,16 @@ export default function OliveOilEconomyPage() {
               'International Olive Council (IOC): Volubilis Roman presses, Moroccan nuba classification, Al-Haik variety collections from 1927',
               'Yac Shop (2024): Prices reached 130 MAD/litre, Brazil 10K t import, Haouzia/Menara varieties, 12–24 litres per quintal yield range',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#5C7C3E' }}>Sources: IOC, FAO, Ministry of Agriculture Morocco</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>
