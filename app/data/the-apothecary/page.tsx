@@ -206,7 +206,7 @@ export default function TheApothecaryPage() {
           el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
           const popup = new mapboxgl.default.Popup({ offset: 14, closeButton: false, maxWidth: '260px' })
             .setHTML(`
-              <div style="font-family:Inter,system-ui,sans-serif;padding:4px 0">
+              <div style="font-family:'IBM Plex Mono',monospace;padding:4px 0">
                 <p style="font-weight:700;font-size:13px;margin:0 0 4px;color:#0A0A0A">${r.name}</p>
                 <p style="font-size:11px;color:#2D6A4F;font-weight:600;margin:0 0 6px">${r.plants.join(' · ')}</p>
                 <p style="font-size:12px;color:#444;line-height:1.5;margin:0">${r.note}</p>
@@ -231,7 +231,7 @@ export default function TheApothecaryPage() {
   const filteredPlants = activeFilter === 'all' ? PLANTS : PLANTS.filter(p => p.part === activeFilter)
 
   return (
-    <div style={{ background: C.bg, color: C.ink, fontFamily: "'Inter', system-ui, sans-serif" }}>
+    <div style={{ background: C.bg, color: C.ink, fontFamily: "var(--font-plex-mono), 'IBM Plex Mono', 'Courier New', monospace" }}>
 
       {/* ═══ HERO ═══ */}
       <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(80px, 15vh, 160px) clamp(24px, 5vw, 64px) clamp(40px, 8vh, 80px)' }}>
@@ -239,10 +239,10 @@ export default function TheApothecaryPage() {
           <p style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.muted, marginBottom: 16, fontWeight: 500 }}>
             Module 113 · Ethnobotanical Intelligence
           </p>
-          <h1 style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: 300, fontStyle: 'italic', lineHeight: 0.9, letterSpacing: '-0.02em', color: C.ink, marginBottom: 20 }}>
+          <h1 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: 300, fontStyle: 'italic', lineHeight: 0.9, letterSpacing: '-0.02em', color: C.ink, marginBottom: 20 }}>
             The Apothecary
           </h1>
-          <p style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontStyle: 'italic', lineHeight: 1.5, color: C.text, maxWidth: 640, marginBottom: 48 }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontStyle: 'italic', lineHeight: 1.5, color: C.text, maxWidth: 640, marginBottom: 48 }}>
             Morocco has 7,000 plant species. 800 are medicinal. The attar in the souk still prescribes what Ibn al-Baytar catalogued walking from Málaga to Damascus in the 13th century.
           </p>
           <div style={{ width: 48, height: 1, background: C.herb }} />
@@ -258,7 +258,7 @@ export default function TheApothecaryPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 32 }}>
             {STATS.map((s, i) => (
               <div key={i} style={{ opacity: statsSection.visible ? 1 : 0, transform: statsSection.visible ? 'none' : 'translateY(20px)', transition: `all 0.8s cubic-bezier(0.23, 1, 0.32, 1) ${i * 0.1}s` }}>
-                <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300, fontStyle: 'italic', color: '#ffffff', lineHeight: 1.1, marginBottom: 6 }}>
+                <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300, fontStyle: 'italic', color: '#ffffff', lineHeight: 1.1, marginBottom: 6 }}>
                   {typeof s.value === 'string' && s.value.includes(',')
                     ? <AnimatedNumber value={parseInt(s.value.replace(',', ''))} suffix="" />
                     : s.value}
@@ -292,7 +292,7 @@ export default function TheApothecaryPage() {
           <p style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.muted, marginBottom: 8, fontWeight: 500 }}>
             Where the Plants Grow
           </p>
-          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 12, lineHeight: 1.3 }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 12, lineHeight: 1.3 }}>
             Nine medicinal plant regions of Morocco
           </p>
           <p style={{ fontSize: 13, color: C.muted, marginBottom: 24 }}>
@@ -327,7 +327,7 @@ export default function TheApothecaryPage() {
           <p style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.muted, marginBottom: 8, fontWeight: 500 }}>
             Dominant Plant Families
           </p>
-          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 40, lineHeight: 1.3 }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 40, lineHeight: 1.3 }}>
             Percentage of all medicinal taxa in Morocco
           </p>
           {FAMILIES.map((f, i) => {
@@ -357,7 +357,7 @@ export default function TheApothecaryPage() {
           <p style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.muted, marginBottom: 8, fontWeight: 500 }}>
             The Materia Medica
           </p>
-          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 12, lineHeight: 1.3 }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 12, lineHeight: 1.3 }}>
             16 key plants ranked by relative frequency of citation
           </p>
           <p style={{ fontSize: 13, color: C.muted, marginBottom: 32 }}>
@@ -426,7 +426,7 @@ export default function TheApothecaryPage() {
           <p style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: C.muted, marginBottom: 8, fontWeight: 500 }}>
             The Scholarly Lineage
           </p>
-          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 12, lineHeight: 1.3 }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontStyle: 'italic', color: C.ink, marginBottom: 12, lineHeight: 1.3 }}>
             800 years of writing it down
           </p>
           <p style={{ fontSize: 14, color: C.text, lineHeight: 1.8, marginBottom: 40, maxWidth: 600 }}>
@@ -506,10 +506,10 @@ export default function TheApothecaryPage() {
       {/* ═══ DARK CLOSE ═══ */}
       <section style={{ padding: 'clamp(60px, 10vh, 100px) clamp(24px, 5vw, 64px)', background: C.dark }}>
         <div style={{ maxWidth: 640, margin: '0 auto' }}>
-          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', lineHeight: 1.5, color: 'rgba(255,255,255,0.85)' }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', lineHeight: 1.5, color: 'rgba(255,255,255,0.85)' }}>
             Morocco is the second-richest country for plant biodiversity in the entire Mediterranean basin. 800 species heal. 40 exist nowhere else. The global market for medicinal plants reached $4.18 billion in 2023. Morocco ranks 12th in global exports.
           </p>
-          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', lineHeight: 1.5, color: 'rgba(255,255,255,0.85)', marginTop: 28 }}>
+          <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', lineHeight: 1.5, color: 'rgba(255,255,255,0.85)', marginTop: 28 }}>
             But the most valuable thing is not the plant. It is the person who knows what it does. And that person is getting older.
           </p>
         </div>
@@ -541,7 +541,6 @@ export default function TheApothecaryPage() {
       </section>
 
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500;600&display=swap');
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
       `}</style>
     </div>

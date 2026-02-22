@@ -385,7 +385,7 @@ function ConfederationMap({ groups, selectedGroup, onSelect, showLanguageLayer }
         labelEl.style.whiteSpace = 'nowrap'
         labelEl.style.fontSize = isSelected ? '12px' : '10px'
         labelEl.style.fontWeight = isSelected ? '700' : '500'
-        labelEl.style.fontFamily = 'Inter, system-ui, sans-serif'
+        labelEl.style.fontFamily = "'IBM Plex Mono', monospace"
         labelEl.style.color = isSelected ? '#0a0a0a' : '#737373'
         labelEl.style.textShadow = '0 0 4px #FAFAF8, 0 0 4px #FAFAF8, 0 0 4px #FAFAF8'
         labelEl.style.transition = 'all 0.2s'
@@ -437,7 +437,7 @@ function ConfederationMap({ groups, selectedGroup, onSelect, showLanguageLayer }
           labelEl.style.transform = 'translateX(-50%)'
           labelEl.style.whiteSpace = 'nowrap'
           labelEl.style.fontSize = '8px'
-          labelEl.style.fontFamily = 'Inter, system-ui, sans-serif'
+          labelEl.style.fontFamily = "'IBM Plex Mono', monospace"
           labelEl.style.color = lang.color
           labelEl.style.fontWeight = '600'
           labelEl.style.textShadow = '0 0 3px #FAFAF8, 0 0 3px #FAFAF8'

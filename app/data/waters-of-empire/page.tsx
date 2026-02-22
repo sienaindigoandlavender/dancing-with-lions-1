@@ -140,8 +140,8 @@ function CountUp({ value, duration = 2000 }: { value: number; duration?: number 
 // ── STYLES ────────────────────────────────────────
 
 const F = {
-  display: '"Cormorant Garamond", "Garamond", Georgia, serif',
-  body: '"Inter", -apple-system, sans-serif',
+  display: '"Instrument Serif", Georgia, serif',
+  body: '"IBM Plex Mono", monospace',
 }
 
 const C = {
@@ -207,7 +207,7 @@ export default function WatersOfEmpire() {
           const typeLabel = site.type === 'thermae' ? 'Major Thermae' : site.type === 'natural' ? 'Natural Hot Springs' : 'Balneum'
           const popup = new mapboxgl.default.Popup({ offset: 14, closeButton: false, maxWidth: '280px' })
             .setHTML(`
-              <div style="font-family:Inter,system-ui,sans-serif;padding:4px 0">
+              <div style="font-family:'IBM Plex Mono',monospace;padding:4px 0">
                 <p style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${color};margin:0 0 4px">${site.built} · ${typeLabel}</p>
                 <p style="font-weight:700;font-size:14px;margin:0 0 2px;color:#0A0A0A">${site.name}</p>
                 <p style="font-size:12px;color:#666;margin:0 0 8px">${site.modern}</p>
