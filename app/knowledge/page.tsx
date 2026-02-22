@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    KNOWLEDGE — Password-Protected Private Vault
    Dancing with Lions · Not indexed · WHITE BG
-   ═══════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════ */
 
 const PASS_KEY = 'dwl-knowledge-access'
 const CORRECT = 'c0usc0us*2344'
@@ -21,11 +21,32 @@ interface Story {
 
 const STORIES: Story[] = [
   {
+    slug: 'the-son-who-took-the-fire',
+    title: 'The Son Who Took the Fire',
+    subtitle: 'Menelik I travels to Jerusalem. Returns with the Ark of the Covenant. A 14th-century myth becomes the constitutional basis for 704 years of Ethiopian monarchy.',
+    tag: 'Political Theology',
+    tagColor: '#5C4033',
+  },
+  {
+    slug: 'the-queen-who-did-not-kneel',
+    title: 'The Queen Who Did Not Kneel',
+    subtitle: 'Bilqis ruled the wealthiest trade monopoly on earth. She did not go to Jerusalem because she was smitten. She went because Solomon was building a fleet that would destroy her economy.',
+    tag: 'Geopolitics',
+    tagColor: '#8B4557',
+  },
+  {
     slug: 'what-solomon-knew',
     title: 'What Solomon Knew',
     subtitle: 'Nine domains of knowledge. One unified system. Root to star. The last map before the disciplines fractured.',
     tag: 'Knowledge Systems',
     tagColor: '#B8860B',
+  },
+  {
+    slug: 'the-ring-and-the-smoke',
+    title: 'The Ring and the Smoke',
+    subtitle: 'Solomon across three religions. What each tradition kept, what each erased, and what the pattern reveals.',
+    tag: 'Comparative Religion',
+    tagColor: '#6B5B73',
   },
   {
     slug: 'the-stone-language',
@@ -85,7 +106,7 @@ export default function KnowledgePage() {
 
   if (checking) return <div style={{ minHeight: '100vh', background: C.bg }} />
 
-  // ── LOCKED STATE ──
+  // —— LOCKED STATE ——
   if (!unlocked) {
     return (
       <div style={{
@@ -166,7 +187,7 @@ export default function KnowledgePage() {
     )
   }
 
-  // ── UNLOCKED STATE — STORY INDEX ──
+  // —— UNLOCKED STATE — STORY INDEX ——
   return (
     <div style={{ minHeight: '100vh', background: C.bg }}>
 
