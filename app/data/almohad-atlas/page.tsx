@@ -565,7 +565,7 @@ export default function AlmohadAtlasPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: Wikipedia: &quot;Almohad architecture,&quot; &quot;Almohad Caliphate,&quot; &quot;Moorish architecture,&quot; &quot;Kutubiyya Mosque,&quot; &quot;Tinmal Mosque,&quot; &quot;Hassan Tower,&quot; &quot;Giralda,&quot; &quot;Torre del Oro,&quot; &quot;Bab Agnaou,&quot; &quot;Kasbah of the Udayas,&quot; &quot;Alcázar of Seville,&quot; &quot;Walls of Marrakesh.&quot;
             Metropolitan Museum of Art: &quot;The Art of the Almoravid and Almohad Periods.&quot;
             Archnet: &quot;Timeline: Almohad (1130–1269).&quot;
@@ -577,7 +577,7 @@ export default function AlmohadAtlasPage() {
             Dr. Íñigo Almela, Ataral digital atlas: 70+ Almohad buildings documented.
             Coordinates via Google Earth, OpenStreetMap, and Archnet.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

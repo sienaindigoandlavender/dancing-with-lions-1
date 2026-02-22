@@ -634,8 +634,8 @@ export default function ArganConstellationPage() {
       {/* SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Labour hours: &ldquo;20 hours of expert labor&rdquo; per litre (GI case study,
             IPR Trends 2024); &ldquo;up to 20 hours by hand&rdquo; (Morocco Explore Tours);
             &ldquo;about 40 hours&rdquo; (Moroccan Elixir); &ldquo;around 10 hours&rdquo;

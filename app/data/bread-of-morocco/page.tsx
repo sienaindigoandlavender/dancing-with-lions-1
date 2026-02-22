@@ -36,19 +36,19 @@ export default function BreadOfMoroccoPage() {
           </svg>
         </div>
         <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
-          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.5)' }}>← Data Index</Link>
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 074 · Food Intelligence</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>
             Bread of<br />Morocco
           </h1>
-          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.7)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Eight breads. The communal oven. A grain dependency that shapes foreign policy. In Morocco, bread is never cut — it is torn, kissed if dropped, and shared before every meal.
           </p>
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
             {HERO_STATS.map((st, i) => (
               <div key={i}>
                 <span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span>
-                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span>
+                <span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{st.label}</span>
               </div>
             ))}
           </div>
@@ -245,7 +245,7 @@ export default function BreadOfMoroccoPage() {
       {/* ═══ FOOTER ═══ */}
       <footer>
         <div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]">
-          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 074 · Bread of Morocco · © Dancing with Lions</p>
+          <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Module 074 · Bread of Morocco · © Dancing with Lions</p>
           <p className="text-[11px] mt-2" style={{ color: 'rgba(255,255,255,0.2)' }}>Data: HCP, USDA FAS, ONICL, ONSSA, World Bank</p>
         </div>
         <div style={{ backgroundColor: '#161616' }} className="py-3">

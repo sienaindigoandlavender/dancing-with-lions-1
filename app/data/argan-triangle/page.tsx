@@ -301,7 +301,7 @@ export default function ArganTrianglePage() {
       <section className="py-24 md:py-40 flex items-center justify-center min-h-[42vh]" style={{ background: '#111' }}>
         <div className="max-w-[720px] px-6 md:px-10 text-center">
           <p className="font-serif italic leading-[1.2]" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', color: '#5C7C3E' }}>Everyone wants their share of the value chain and there is less and less room for women.</p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Jamila Idbourous, President, Union of Women&rsquo;s Cooperatives (The Ecologist, 2025)</p>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>— Jamila Idbourous, President, Union of Women&rsquo;s Cooperatives (The Ecologist, 2025)</p>
         </div>
       </section>
 
@@ -336,7 +336,7 @@ export default function ArganTrianglePage() {
               <div key={n.label} data-sid={`kn-${i}`} className="p-6 md:p-8" style={{ paddingTop: i % 2 === 1 ? '24px' : '0',  background: '#0a0a0a', opacity: visibleSections.has(`kn-${i}`) ? 1 : 0, transform: visibleSections.has(`kn-${i}`) ? 'translateY(0)' : 'translateY(6px)', transition: `all 0.5s ease ${i * 80}ms` }}>
                 <p className="font-serif italic text-[32px] md:text-[44px] leading-none" style={{ color: '#5C7C3E' }}>{n.value}</p>
                 <p className="text-[12px] mt-2 font-medium" style={{ color: 'rgba(0,0,0,0.6)' }}>{n.label}</p>
-                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.35)' }}>{n.note}</p>
+                <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>{n.note}</p>
               </div>
             ))}
           </div>
@@ -349,15 +349,15 @@ export default function ArganTrianglePage() {
           <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(0,0,0,0.3)' }}>Sources</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
             {['United Nations — International Day of Argania: 2021 resolution, 113 co-sponsors, tree biology','UNESCO — Arganeraie Biosphere Reserve (1998): ~2.5M hectares, 8 provinces','UNESCO — Intangible Cultural Heritage (2014): Argan practices inscribed','FAO — GIAHS (2018): Argan agro-sylvo-pastoral system, Ait Souab–Ait Mansour','Wikipedia — Argan oil: 40 kg/litre, UCFA 22 cooperatives, ~300 firms Essaouira','Wikipedia — Sideroxylon spinosum: 8,280 km², 50% loss, Tashelhit vocabulary','Morocco World News: 20M trees, roots 30m, crown 70m, ANDZOA 2010','The Ecologist (Nov 2025): Idbourous quote, cooperative margins, Covid price surge','Springer Human Ecology (2023): UCFA/FIFARGANE/FNFARGNANE unions, 8 provinces','Market.us / IMARC / Persistence: Global market $370M (2024), CAGR 9–12%'].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#5C7C3E' }}>Sources: UNESCO, HCEFLCD Morocco</p>
           </div>
-          <div className="mt-6"><Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← All Data Modules</Link></div>
+          <div className="mt-6"><Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>← All Data Modules</Link></div>
         </div>
       </section>
     </div>

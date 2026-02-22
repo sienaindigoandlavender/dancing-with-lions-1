@@ -201,10 +201,10 @@ export default function AutomotiveIndustryPage() {
 
           {/* Operator legend */}
           <div className="flex gap-8 mt-10 opacity-0" style={{ animation: 'fadeUp 1s ease 1.1s forwards' }}>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#C8A415' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Renault Group</span></div>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#2D5F8A' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Stellantis</span></div>
-            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full" style={{ background: '#72EFDD' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Supplier Zones</span></div>
-            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#E63946' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.35)' }}>Tanger Med Port</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#C8A415' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.6)' }}>Renault Group</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#2D5F8A' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.6)' }}>Stellantis</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full" style={{ background: '#72EFDD' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.6)' }}>Supplier Zones</span></div>
+            <div className="flex items-center gap-2"><div className="w-3 h-3" style={{ background: '#E63946' }} /><span className="text-[11px] uppercase tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.6)' }}>Tanger Med Port</span></div>
           </div>
         </div>
       </section>
@@ -477,18 +477,18 @@ export default function AutomotiveIndustryPage() {
               'World Bank — Morocco trade and export data',
               'AIVAM — Association des Importateurs de Véhicules Au Maroc',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
 
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#C8A415' }}>Sources: AMICA, Ministry of Industry Morocco</p>
           </div>
 
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

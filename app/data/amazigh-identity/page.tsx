@@ -68,14 +68,14 @@ export default function AmazighIdentityPage() {
           <span style={{ fontSize: 'clamp(20rem, 40vw, 50rem)', color: 'rgba(230,57,70,0.04)', fontFamily: 'serif', lineHeight: 1 }}>ⵣ</span>
         </div>
         <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
-          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.5)' }}>← Data Index</Link>
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 011 · Identity Intelligence</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>Amazigh<br />Identity Map</h1>
-          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.7)', animation: 'fadeUp 1s ease 0.7s forwards' }}>
             Three languages. Three confederations. One alphabet older than Arabic. The Imazighen — &ldquo;the free people&rdquo; — and their 3,000-year fight to remain visible.
           </p>
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
-            {HERO_STATS.map((st, i) => (<div key={i}><span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span><span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span></div>))}
+            {HERO_STATS.map((st, i) => (<div key={i}><span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span><span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{st.label}</span></div>))}
           </div>
         </div>
         <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
@@ -125,11 +125,11 @@ export default function AmazighIdentityPage() {
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
         <p className="text-[10px] uppercase tracking-[0.12em] mb-4" style={{ color: ACCENT }}>002 — The Decline</p>
         <h2 className="font-serif text-[32px] md:text-[44px] italic leading-[1.05] mb-6" style={{ color: '#fff' }}>Census Data</h2>
-        <p className="text-[14px] max-w-[480px] leading-relaxed mb-16" style={{ color: 'rgba(255,255,255,0.35)' }}>Percentage of Moroccan population identifying as Amazigh-speaking. A century of decline — then constitutional recognition.</p>
+        <p className="text-[14px] max-w-[480px] leading-relaxed mb-16" style={{ color: 'rgba(255,255,255,0.6)' }}>Percentage of Moroccan population identifying as Amazigh-speaking. A century of decline — then constitutional recognition.</p>
         <div id="census-chart" className="space-y-4">
           {CENSUS_DATA.map((c, i) => (
             <div key={i} className="grid grid-cols-12 gap-4 items-center">
-              <div className="col-span-2 md:col-span-1"><span className="text-[12px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{c.label}</span></div>
+              <div className="col-span-2 md:col-span-1"><span className="text-[12px]" style={{ color: 'rgba(255,255,255,0.7)' }}>{c.label}</span></div>
               <div className="col-span-8 md:col-span-9">
                 <div className="h-8 relative" style={{ background: 'rgba(255,255,255,0.03)' }}>
                   <div className="absolute top-0 left-0 h-full transition-all duration-1000 ease-out flex items-center" style={{ width: censusAnimated ? `${c.total * 2}%` : '0%', background: `${ACCENT}cc`, transitionDelay: `${i * 150}ms` }}>
@@ -194,16 +194,16 @@ export default function AmazighIdentityPage() {
                 <p className="text-[11px] mt-2" style={{ color: 'rgba(255,255,255,0.25)' }}>{t.geography}</p>
               </div>
               <div className="md:col-span-6"><p className="text-[14px] leading-[1.75]" style={{ color: 'rgba(255,255,255,0.5)' }}>{t.description}</p></div>
-              <div className="md:col-span-3"><div className="border-l-2 pl-4" style={{ borderColor: ACCENT }}><p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{t.keyFact}</p></div></div>
+              <div className="md:col-span-3"><div className="border-l-2 pl-4" style={{ borderColor: ACCENT }}><p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.7)' }}>{t.keyFact}</p></div></div>
             </div>))}
         </div>
         {/* Tifinagh alphabet grid */}
-        <div className="mt-20"><p className="text-[10px] uppercase tracking-[0.12em] mb-8" style={{ color: 'rgba(255,255,255,0.3)' }}>Neo-Tifinagh Alphabet (33 letters)</p>
+        <div className="mt-20"><p className="text-[10px] uppercase tracking-[0.12em] mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Neo-Tifinagh Alphabet (33 letters)</p>
           <div className="grid grid-cols-6 md:grid-cols-11 gap-2">
             {TIFINAGH_ALPHABET.map((ch, i) => (
               <div key={i} className="text-center py-3 transition-colors" style={{ background: 'rgba(255,255,255,0.03)' }}>
                 <span className="block text-[24px]" style={{ color: ACCENT }}>{ch.letter}</span>
-                <span className="text-[9px] block mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>{ch.name}</span>
+                <span className="text-[9px] block mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{ch.name}</span>
               </div>))}
           </div>
         </div>
@@ -247,7 +247,7 @@ export default function AmazighIdentityPage() {
         <p className="text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#999' }}>Sources</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">{BIBLIOGRAPHY.map((b, i) => (<div key={i}><span className="text-[12px] text-[#525252]">{b.source}</span><p className="text-[11px] text-[#999] leading-relaxed">{b.detail}</p></div>))}</div>
       </div></section>
-      <footer><div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]"><p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 011 · Amazigh Identity Map · © Dancing with Lions</p></div><div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div><div style={{ backgroundColor: '#0e0e0e' }} className="py-2" /></footer>
+      <footer><div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]"><p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Module 011 · Amazigh Identity Map · © Dancing with Lions</p></div><div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div><div style={{ backgroundColor: '#0e0e0e' }} className="py-2" /></footer>
     </main>
   )
 }
