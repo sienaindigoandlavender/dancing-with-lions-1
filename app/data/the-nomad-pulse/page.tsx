@@ -553,8 +553,8 @@ export default function NomadPulsePage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Internet penetration (92.2%, 35.5M users): DataReportal Digital 2026: Morocco; Morocco
             World News (Nov 2025); Hespress. Mobile connections (57.1M, 148%): DataReportal 2026.
             Broadband mobile (87.7%): DataReportal 2026, citing GSMA Intelligence. 5G rollout

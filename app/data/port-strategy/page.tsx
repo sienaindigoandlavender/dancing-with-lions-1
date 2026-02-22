@@ -237,7 +237,7 @@ export default function PortStrategyPage() {
             This port should not be reserved only for
             Nador. All regions must benefit from it.
           </p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Nizar Baraka, Minister of Equipment &amp; Water, on Nador West Med</p>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>— Nizar Baraka, Minister of Equipment &amp; Water, on Nador West Med</p>
         </div>
       </section>
 
@@ -275,16 +275,16 @@ export default function PortStrategyPage() {
               'SeaVantage MENA Port Report: 142M tonnes, vehicle exports, automotive logistics, surpassing European ports',
               'ALG Global: North Africa 42% of Africa TEU volume, Tanger Med as Europe–West Africa link',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#2D5F8A' }}>Sources: ANP Morocco, Tanger Med Authority</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

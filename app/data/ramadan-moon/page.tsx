@@ -228,7 +228,7 @@ export default function RamadanMoonPage() {
           })}
 
           {/* Annotations */}
-          <text x={moonPositions[0].x - 16} y={moonPositions[0].y - 20} textAnchor="end" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily="var(--font-plex-mono), monospace">
+          <text x={moonPositions[0].x - 16} y={moonPositions[0].y - 20} textAnchor="end" fill="rgba(255,255,255,0.7)" fontSize="9" fontFamily="var(--font-plex-mono), monospace">
             First crescent
           </text>
           <text x={moonPositions[0].x - 16} y={moonPositions[0].y - 10} textAnchor="end" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="var(--font-plex-mono), monospace">
@@ -239,7 +239,7 @@ export default function RamadanMoonPage() {
             Full moon · Laylat al-Badr
           </text>
 
-          <text x={moonPositions[29].x + 16} y={moonPositions[29].y - 20} textAnchor="start" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily="var(--font-plex-mono), monospace">
+          <text x={moonPositions[29].x + 16} y={moonPositions[29].y - 20} textAnchor="start" fill="rgba(255,255,255,0.7)" fontSize="9" fontFamily="var(--font-plex-mono), monospace">
             New crescent
           </text>
           <text x={moonPositions[29].x + 16} y={moonPositions[29].y - 10} textAnchor="start" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="var(--font-plex-mono), monospace">
@@ -350,7 +350,7 @@ export default function RamadanMoonPage() {
                     <text
                       x={px} y={py - 10}
                       textAnchor="middle"
-                      fill={isHovered ? '#fff' : 'rgba(255,255,255,0.4)'}
+                      fill={isHovered ? '#fff' : 'rgba(255,255,255,0.7)'}
                       fontSize={isHovered ? '10' : '8'}
                       fontFamily="var(--font-plex-mono), monospace"
                       fontWeight={isHovered ? '600' : '400'}
@@ -372,7 +372,7 @@ export default function RamadanMoonPage() {
 
               <defs>
                 <radialGradient id="dot-glow" cx="35%" cy="30%">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.5)" />
                   <stop offset="100%" stopColor="rgba(0,0,0,0)" />
                 </radialGradient>
               </defs>
@@ -391,7 +391,7 @@ export default function RamadanMoonPage() {
                 </p>
               </>
             ) : (
-              <p className="font-serif italic text-[15px] text-white/30">
+              <p className="font-serif italic text-[15px] text-white/50">
                 Hover a year to see fasting conditions
               </p>
             )}
@@ -435,11 +435,11 @@ export default function RamadanMoonPage() {
                         transitionDelay: `${i * 60}ms`,
                       }}
                     />
-                    <span className="absolute left-1 top-1/2 -translate-y-1/2 text-[8px] text-white/40">☀</span>
+                    <span className="absolute left-1 top-1/2 -translate-y-1/2 text-[8px] text-white/60">☀</span>
                   </div>
                   <span
                     className="text-[11px] font-serif italic transition-colors"
-                    style={{ color: isHovered ? color : 'rgba(255,255,255,0.4)' }}
+                    style={{ color: isHovered ? color : 'rgba(255,255,255,0.7)' }}
                   >
                     {y.hours}h
                   </span>
@@ -459,7 +459,7 @@ export default function RamadanMoonPage() {
           <p className="font-serif italic text-[clamp(1.3rem,4vw,2rem)] text-white leading-[1.35]">
             A lunar year is 354 days. A solar year is 365. The 11-day gap means Ramadan walks backward through the calendar. In 33 years, it completes the circle.
           </p>
-          <p className="text-[10px] text-white/30 mt-3">
+          <p className="text-[10px] text-white/50 mt-3">
             Someone born in 1990 has already fasted in every season.
           </p>
         </div>

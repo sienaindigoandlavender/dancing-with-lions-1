@@ -423,7 +423,7 @@ export default function SpiceRoutesPage() {
       
       {/* ═══ MAP ═══ */}
       <section style={{ background: '#0a0a0a' }}><div className="px-8 md:px-[8%] lg:px-[12%] py-16 md:py-24">
-        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Spice Origins — Mapped</p>
+        <p className="text-[11px] uppercase tracking-[0.12em] mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Spice Origins — Mapped</p>
         <SpiceroutesMap />
       </div></section>
 
@@ -444,8 +444,8 @@ export default function SpiceRoutesPage() {
       {/* SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Spice origins, trade routes, and culinary uses from field research, ONSSA (National
             Office of Food Safety) import records, and FAO agricultural trade data. Saffron:
             Taliouine cooperative data, PDO registry. Ras el hanout composition: composite from

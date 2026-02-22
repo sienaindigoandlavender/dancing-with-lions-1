@@ -511,8 +511,8 @@ export default function StorksEyeViewPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Morocco breeding pairs (2,931): GREPOM BirdLife Morocco 2014 census, in Journal of
             Coastal Conservation (2020). 8th International White Stork Census (2024): NABU/BirdLife
             International, preliminary results (O. Himmi, Mohammed V University Rabat). Rabat nest
@@ -554,7 +554,7 @@ function SiteRow({ site: s, index, parentVis, maxNests }: {
         <span className="font-mono text-[11px] font-bold w-12 text-right shrink-0" style={{ color: C.stork }}>
           {s.nests}
         </span>
-        <span className="font-mono text-[9px] w-16 text-right shrink-0" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.city}</span>
+        <span className="font-mono text-[9px] w-16 text-right shrink-0" style={{ color: 'rgba(255,255,255,0.7)' }}>{s.city}</span>
       </div>
       {expanded && (
         <div className="ml-44 pl-3 border-l-2 py-2 mb-2" style={{ borderColor: C.stork }}>
@@ -565,7 +565,7 @@ function SiteRow({ site: s, index, parentVis, maxNests }: {
               { l: 'Season', v: s.period },
             ].map(f => (
               <div key={f.l}>
-                <p className="font-mono text-[9px] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>{f.l}</p>
+                <p className="font-mono text-[9px] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>{f.l}</p>
                 <p className="font-mono text-[11px]" style={{ color: C.text }}>{f.v}</p>
               </div>
             ))}

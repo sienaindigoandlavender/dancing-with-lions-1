@@ -412,7 +412,7 @@ function DesalinationTimeline() {
           <span className="text-[10px] font-mono" style={{ color: C.muted }}>Operational</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3" style={{ background: C.water, opacity: 0.5, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.3) 2px, rgba(255,255,255,0.3) 4px)' }} />
+          <div className="w-3 h-3" style={{ background: C.water, opacity: 0.5, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.5) 2px, rgba(255,255,255,0.5) 4px)' }} />
           <span className="text-[10px] font-mono" style={{ color: C.muted }}>Under construction</span>
         </div>
       </div>
@@ -598,12 +598,12 @@ export default function WaterEquationPage() {
 
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-24 md:py-40">
-        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <p>Dam capacity and fill rates: Morocco Ministry of Equipment and Water daily reports (2024–2026); World Bank Morocco CCDR Background Note: Water Scarcity and Droughts (2023). Aquifer depletion: Hssaisoune et al. (2020), &ldquo;Moroccan Groundwater Resources and Evolution with Global Climate Changes,&rdquo; Geosciences 10(2):81; Fanack Water country profile. Desalination: Morocco World News; Aquatech Trade; IDA Water. Basin data: Hespress, North Africa Post, Morocco World News (Dec 2025 – Feb 2026). National Water Plan: U.S. Commercial Service Morocco Water report; Frontiers in Sustainable Food Systems (2025). Siltation projections: World Bank Morocco CCDR (2023).</p>
           <p>Fill rate data for 2010–2024 are annual averages from Ministry of Equipment and Water. January 2026 figure (61.3%) is a point-in-time measurement reflecting exceptional winter rainfall.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.7)' }}>
           © Dancing with Lions · dancingwithlions.com · All data from published sources as cited. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

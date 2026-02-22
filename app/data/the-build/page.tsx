@@ -586,8 +586,8 @@ export default function TheBuildPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Highway: Autoroutes du Maroc (ADM) annual reports 2004–2025; Ministry of Equipment &amp; Water.
             Railway: Office National des Chemins de Fer (ONCF); $9.6B rail plan (2025).
             Airport capacity: Office National des Aéroports (ONDA); Mohammed V Terminal 3 project.

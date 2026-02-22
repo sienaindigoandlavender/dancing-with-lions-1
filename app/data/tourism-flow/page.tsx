@@ -531,7 +531,7 @@ export default function TourismFlowPage() {
           <p className="font-serif italic text-[clamp(1.3rem,4vw,2.2rem)] text-white leading-[1.3]">
             Marrakech alone accounts for 40% of all overnight stays. One city. Four out of every ten hotel nights in the entire country.
           </p>
-          <p className="text-[10px] text-white/30 mt-4">
+          <p className="text-[10px] text-white/50 mt-4">
             28.7 million overnight stays recorded in 2024. +12% over 2023.
           </p>
         </div>
@@ -636,7 +636,7 @@ export default function TourismFlowPage() {
                   { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://dancingwithlions.com/data/tourism-flow')}` },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="px-4 py-2 text-[11px] text-white/40 border border-white/10 hover:border-white/30 hover:text-[#1C1917]/70 transition-all">
+                    className="px-4 py-2 text-[11px] text-white/60 border border-white/10 hover:border-white/30 hover:text-[#1C1917]/70 transition-all">
                     {s.label}
                   </a>
                 ))}

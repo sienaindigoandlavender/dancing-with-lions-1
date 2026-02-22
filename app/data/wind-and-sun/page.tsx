@@ -613,8 +613,8 @@ export default function WindAndSunPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[700px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Installation data: MASEN (Moroccan Agency for Sustainable Energy); ONEE
             (Office National de l&apos;Électricité et de l&apos;Eau Potable); Global Energy Monitor
             wind/solar trackers; IRENA Renewable Energy Statistics 2024.

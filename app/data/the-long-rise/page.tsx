@@ -382,8 +382,8 @@ export default function TheLongRisePage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Arrivals 2000–2023: WorldData.info, sourced from UN World Tourism Organization (UNWTO)
             and World Bank. 2024 (17.4M): Morocco Ministry of Tourism via Morocco World News (Jan 2025),
             UN Tourism, Arab Weekly. 2025 (~20M): Ministry of Tourism (18M by Nov 2025, per Travel and

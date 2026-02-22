@@ -561,7 +561,7 @@ export default function ZaouiaMapPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: Cornell, Vincent J. <em>Realm of the Saint: Power and Authority in Moroccan Sufism</em>. University of Texas Press, 1998.
             Abun-Nasr, Jamil M. <em>The Tijaniyya: A Sufi Order in the Modern World</em>. Oxford University Press, 1965.
             Trimingham, J.S. <em>The Sufi Orders in Islam</em>. Oxford University Press, 1971.
@@ -571,7 +571,7 @@ export default function ZaouiaMapPage() {
             Piraino, Francesco. &quot;Les politiques du soufisme en France.&quot; <em>Social Compass</em>, 2019.
             Site coordinates verified via Google Earth and OpenStreetMap.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

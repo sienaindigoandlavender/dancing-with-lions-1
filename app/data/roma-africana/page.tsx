@@ -473,8 +473,8 @@ export default function RomaAfricanaPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Africa (Roman province): Wikipedia; Encyclopaedia Britannica &ldquo;Africa — Roman territory.&rdquo;
             Mauretania: Wikipedia; Britannica. Roman Africa: Wikipedia; Oxford Reference; World History
             Edu. Province dates and boundaries: UNRV.com; Omniatlas. Volubilis: UNESCO World Heritage;

@@ -596,7 +596,7 @@ function RegionMini({ region: r, index, parentVis }: { region: typeof REGIONS[0]
       )}
       {/* ── FOOTER ── */}
       <div style={{ backgroundColor: '#1f1f1f', padding: '32px 24px 16px', marginTop: 32 }}>
-        <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
+        <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.7)' }}>
           © {new Date().getFullYear()} Dancing with Lions. All rights reserved.
         </p>
         <p style={{ textAlign: 'center', fontSize: 10, color: 'rgba(255,255,255,0.25)', marginTop: 4 }}>

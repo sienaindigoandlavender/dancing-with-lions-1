@@ -581,8 +581,8 @@ export default function ShadowMoucharabiehPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Monthly climate data: WMO 1991–2020 normals via ClimateToTravel, Weather Atlas,
             Climate-Data.org. Marrakech (Jul high 36.8°C): Weather Atlas. Tangier (Aug high 30.1°C):
             Weather Atlas. Ouarzazate (Jul high ~39.5°C): ClimateToTravel. Warming trend (+1.6°C since

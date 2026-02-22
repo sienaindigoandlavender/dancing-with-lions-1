@@ -622,8 +622,8 @@ export default function EmptyQuarterPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Area (9.2M km²), countries, terrain types: Wikipedia &ldquo;Sahara&rdquo;; Britannica
             &ldquo;Sahara.&rdquo; Terrain percentages (25% erg, majority hamada): Wikipedia; Britannica;
             Geographical.co.uk. Emi Koussi (3,415m): Britannica; DesertUSA. Qattara Depression

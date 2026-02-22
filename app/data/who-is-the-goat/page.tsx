@@ -721,12 +721,12 @@ export default function WhoIsTheGoatPage() {
 
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-16">
-        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="micro-label mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+        <div className="text-[12px] leading-relaxed space-y-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           <p>Distance and country counts: Wikipedia, &ldquo;List of places visited by Ibn Battuta&rdquo;; Britannica, &ldquo;Ibn Battuta&rdquo;; World History Encyclopedia. Marco Polo distances from Wikipedia and Brilliant Maps. Biographical data: Britannica, Encyclopedia.com, ORIAS (UC Berkeley). Route coordinates reconstructed from historical itineraries and modern atlases. Scoring methodology is editorial — the numbers are real, the weights are ours.</p>
           <p>Ibn Battuta&apos;s Rihla was rediscovered by French scholars in Algeria in 1829 and first translated into French by Defrémery and Sanguinetti (1853–58). English translation by H.A.R. Gibb for the Hakluyt Society (1958–1994). Marco Polo&apos;s Il Milione survives in approximately 150 manuscript copies across European libraries.</p>
         </div>
-        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-[11px] mt-6 pt-4 border-t" style={{ borderColor: C.border, color: 'rgba(255,255,255,0.7)' }}>
           © Dancing with Lions · dancingwithlions.com · All data from published sources as cited. This visualization may not be reproduced without visible attribution.
         </p>
       </section>

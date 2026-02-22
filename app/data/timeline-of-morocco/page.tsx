@@ -332,8 +332,8 @@ export default function TimelineOfMoroccoPage() {
         </div>
 
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Jebel Irhoud (315,000 years): Hublin et al., Nature 546 (2017); Max Planck Institute;
             Scientific American; Smithsonian NMNH. Taforalt beads (~82,000 years): Bouzouggar et al.,
             PNAS (2007). Phoenician settlements: UNESCO Lixus documentation; Encyclopaedia Britannica.

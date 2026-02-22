@@ -683,7 +683,7 @@ export default function SevenSaintsPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: Deverdun, Gaston. <em>Marrakech: des origines à 1912</em>. Éditions Techniques Nord-Africaines, 1959.
             Wikipedia contributors. &quot;Seven Saints of Marrakesh.&quot; Wikipedia.
             Parker, Richard. <em>A Practical Guide to Islamic Monuments in Morocco</em>. Baraka Press, 1981.
@@ -692,7 +692,7 @@ export default function SevenSaintsPage() {
             BirdLife International Sacred Natural Sites framework.
             Site coordinates verified via Google Earth and OpenStreetMap.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

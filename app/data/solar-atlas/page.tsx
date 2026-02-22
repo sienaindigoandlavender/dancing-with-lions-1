@@ -283,7 +283,7 @@ export default function SolarAtlasPage() {
             three times more power in Morocco than in the UK,
             and five times more from January to March.
           </p>
-          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.35)' }}>— Xlinks testimony to UK Parliament</p>
+          <p className="text-[12px] mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>— Xlinks testimony to UK Parliament</p>
         </div>
       </section>
 
@@ -321,16 +321,16 @@ export default function SolarAtlasPage() {
               'CIF — Ouarzazate: 3,500 soccer fields, 2M mirrors, CSP thermal storage technology explainer',
               'UK Parliament — Xlinks written evidence: 3× more power than UK, 34% solar load factor, 20% better GHI than Spain',
             ].map((s, i) => (
-              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s}</p>
+              <p key={i} className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>{s}</p>
             ))}
           </div>
           <div className="mt-0 pt-6" style={{ backgroundColor: '#1f1f1f', padding: '48px 24px 16px', marginLeft: '-24px', marginRight: '-24px', marginBottom: '-24px' }}>
             <p className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>&copy; {new Date().getFullYear()} Dancing with Lions. All rights reserved.</p>
-            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>This visualization may not be reproduced without visible attribution.</p>
+            <p className="text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>This visualization may not be reproduced without visible attribution.</p>
             <p className="font-serif text-[18px] italic mt-2" style={{ color: '#F59E0B' }}>Sources: MASEN, IRENA, World Bank</p>
           </div>
           <div className="mt-6">
-            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.4)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+            <Link href="/data" className="text-[11px] uppercase tracking-[0.08em] font-medium pb-1 hover:opacity-60 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
               ← All Data Modules
             </Link>
           </div>

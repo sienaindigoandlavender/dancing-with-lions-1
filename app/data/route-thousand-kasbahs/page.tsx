@@ -73,12 +73,12 @@ export default function KasbahsPage() {
           <rect x={960} y={320} width={40} height={180} fill="none" stroke={ACCENT} strokeWidth="0.4" />
         </svg></div>
         <div className="relative z-10 px-8 md:px-[8%] lg:px-[12%] pb-20 md:pb-28">
-          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.3)' }}>← Data Index</Link>
+          <Link href="/data" className="text-[10px] tracking-[0.25em] uppercase mb-10 block" style={{ color: 'rgba(255,255,255,0.5)' }}>← Data Index</Link>
           <p className="text-[11px] uppercase tracking-[0.2em] mb-6 opacity-0" style={{ color: ACCENT, animation: 'fadeUp 1s ease 0.3s forwards' }}>Module 075 · Architectural Intelligence</p>
           <h1 className="font-serif leading-[0.92] tracking-[-0.03em] opacity-0" style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)', color: '#ffffff', fontStyle: 'italic', animation: 'fadeUp 1s ease 0.5s forwards' }}>Route of a<br />Thousand Kasbahs</h1>
-          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.4)', animation: 'fadeUp 1s ease 0.7s forwards' }}>Tizi n&apos;Tichka to Ouarzazate to the Drâa Valley. Pisé fortresses, Glaoui palaces, and Hollywood sets dissolving back into the earth they were built from.</p>
+          <p className="text-[15px] md:text-[17px] max-w-[520px] leading-relaxed mt-8 opacity-0" style={{ color: 'rgba(255,255,255,0.7)', animation: 'fadeUp 1s ease 0.7s forwards' }}>Tizi n&apos;Tichka to Ouarzazate to the Drâa Valley. Pisé fortresses, Glaoui palaces, and Hollywood sets dissolving back into the earth they were built from.</p>
           <div className="flex flex-wrap gap-10 md:gap-16 mt-12 opacity-0" style={{ animation: 'fadeUp 1s ease 0.9s forwards' }}>
-            {HERO_STATS.map((st, i) => (<div key={i}><span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span><span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>{st.label}</span></div>))}
+            {HERO_STATS.map((st, i) => (<div key={i}><span className="font-serif italic block" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: ACCENT, lineHeight: 1 }}>{st.value}</span><span className="text-[10px] tracking-[0.1em] uppercase block mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{st.label}</span></div>))}
           </div>
         </div>
         <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) }}`}</style>
@@ -92,7 +92,7 @@ export default function KasbahsPage() {
           {ROUTE_STOPS.map((s, i) => (
             <div key={i} className="grid grid-cols-12 gap-4 md:gap-10 py-6" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               <div className="col-span-2 md:col-span-1"><span className="font-serif italic text-[18px]" style={{ color: ACCENT }}>{s.km}</span><span className="text-[10px] block" style={{ color: 'rgba(255,255,255,0.25)' }}>km</span></div>
-              <div className="col-span-4 md:col-span-3"><span className="font-serif italic text-[16px]" style={{ color: '#fff' }}>{s.name}</span><span className="text-[11px] block mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>{s.elevation}</span></div>
+              <div className="col-span-4 md:col-span-3"><span className="font-serif italic text-[16px]" style={{ color: '#fff' }}>{s.name}</span><span className="text-[11px] block mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.elevation}</span></div>
               <div className="col-span-6 md:col-span-8"><p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.highlight}</p></div>
             </div>))}
         </div>
@@ -174,7 +174,7 @@ export default function KasbahsPage() {
           {FILMS.map((f, i) => (
             <div key={i} className="py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               <div className="flex items-baseline gap-2"><span className="font-serif italic text-[16px]" style={{ color: '#fff' }}>{f.title}</span><span className="text-[12px]" style={{ color: ACCENT }}>{f.year}</span></div>
-              <p className="text-[12px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>{f.location} — {f.role}</p>
+              <p className="text-[12px] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{f.location} — {f.role}</p>
             </div>))}
         </div>
       </div></section>
@@ -200,7 +200,7 @@ export default function KasbahsPage() {
         <p className="text-[10px] uppercase tracking-[0.12em] mb-6" style={{ color: '#999' }}>Sources</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">{BIBLIOGRAPHY.map((b, i) => (<div key={i}><span className="text-[12px] text-[#525252]">{b.source}</span><p className="text-[11px] text-[#999] leading-relaxed">{b.detail}</p></div>))}</div>
       </div></section>
-      <footer><div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]"><p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>Module 075 · Route of a Thousand Kasbahs · © Dancing with Lions</p></div><div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div><div style={{ backgroundColor: '#0e0e0e' }} className="py-2" /></footer>
+      <footer><div style={{ backgroundColor: '#1f1f1f' }} className="py-16 px-8 md:px-[8%]"><p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Module 075 · Route of a Thousand Kasbahs · © Dancing with Lions</p></div><div style={{ backgroundColor: '#161616' }} className="py-3"><p className="text-center text-[10px]" style={{ color: 'rgba(255,255,255,0.15)' }}>dancingwithlions.com</p></div><div style={{ backgroundColor: '#0e0e0e' }} className="py-2" /></footer>
     </main>
   )
 }

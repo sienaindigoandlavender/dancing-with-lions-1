@@ -500,7 +500,7 @@ export default function TheStraitPage() {
       {/* ═══ SOURCES ═══ */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-8 pb-24">
         <div className="border-t pt-6" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sources: Kennedy, Hugh. <em>Muslim Spain and Portugal: A Political History of al-Andalus</em>. Routledge, 1996.
             Bennison, Amira K. <em>The Almoravid and Almohad Empires</em>. Edinburgh University Press, 2016.
             Harvey, L.P. <em>Muslims in Spain, 1500–1614</em>. University of Chicago Press, 2005.
@@ -511,7 +511,7 @@ export default function TheStraitPage() {
             Metropolitan Museum of Art: &quot;The Art of the Almoravid and Almohad Periods.&quot;
             Coordinates via Google Earth and OpenStreetMap.
           </p>
-          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-mono text-[9px] mt-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © Dancing with Lions. All rights reserved. This visualization may not be reproduced without visible attribution.
           </p>
         </div>

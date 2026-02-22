@@ -575,8 +575,8 @@ export default function SolarCompassPage() {
           </p>
         </div>
         <div className="border-t mt-8 pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Noor-Ouarzazate specifications: MASEN, ACWA Power project documentation, World Bank
             (Clean Technology Fund), CIF background brief. Phase capacities: 160 + 200 + 150 + 72 MW
             (Wikipedia/MASEN). GWh estimates: Noor I 370, Noor II 600, Noor III 500 (King&apos;s College London,
@@ -608,7 +608,7 @@ function PhaseCard({ phase: p, index, parentVis, maxCap }: { phase: typeof PHASE
             <span className="font-mono text-[13px] font-bold" style={{ color: C.ink }}>{p.name}</span>
             <span className="font-mono text-[12px] font-bold" style={{ color: p.color }}>{p.capacity} MW</span>
           </div>
-          <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.type} · {p.commissioned}</span>
+          <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>{p.type} · {p.commissioned}</span>
           {/* Capacity bar */}
           <div className="mt-1 h-2 rounded-sm" style={{ background: `${C.border}30` }}>
             <div className="h-full rounded-sm transition-all duration-700"
@@ -627,12 +627,12 @@ function PhaseCard({ phase: p, index, parentVis, maxCap }: { phase: typeof PHASE
               { l: 'Cooling', v: p.cooling },
             ].map(f => (
               <div key={f.l}>
-                <p className="font-mono text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>{f.l}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.7)' }}>{f.l}</p>
                 <p className="font-mono text-[11px]" style={{ color: C.text }}>{f.v}</p>
               </div>
             ))}
           </div>
-          <p className="font-mono text-[10px] leading-[1.6]" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.note}</p>
+          <p className="font-mono text-[10px] leading-[1.6]" style={{ color: 'rgba(255,255,255,0.7)' }}>{p.note}</p>
         </div>
       )}
     </div>

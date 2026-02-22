@@ -225,7 +225,7 @@ export default function WatersOfEmpire() {
                 <div key={i} ref={ref} style={{ textAlign: 'center', opacity: inView ? 1 : 0, transform: inView ? 'translateY(0)' : 'translateY(20px)', transition: `all 0.8s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 100}ms` }}>
                   <div style={{ fontFamily: F.display, fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300, color: '#ffffff', lineHeight: 1 }}>{n.value}</div>
                   <div style={{ fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.7)', marginTop: 8 }}>{n.label}</div>
-                  <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{n.sub}</div>
+                  <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', marginTop: 4 }}>{n.sub}</div>
                 </div>
               )
             })}
@@ -382,7 +382,7 @@ export default function WatersOfEmpire() {
                     <div style={{ fontFamily: F.display, fontSize: 18, fontWeight: 400, color: isRemoved ? C.light : C.islamic, fontStyle: 'italic', textDecoration: isRemoved ? 'line-through' : 'none' }}>{r.islamic}</div>
                     {r.islamicArabic !== '—' && <div style={{ fontSize: 16, color: C.light, marginTop: 2, fontFamily: 'serif', direction: 'rtl' } as React.CSSProperties}>{r.islamicArabic}</div>}
                   </div>
-                  <div style={{ fontSize: 13, lineHeight: 1.7, color: C.mid }}>{r.function}</div>
+                  <div style={{ fontSize: 13, lineHeight: 1.7, color: C.text }}>{r.function}</div>
                   <div style={{ fontFamily: F.display, fontSize: 18, color: C.text, textAlign: 'right', fontStyle: 'italic' }}>{r.temp}</div>
                 </div>
               )
@@ -448,7 +448,7 @@ export default function WatersOfEmpire() {
 
                   <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', color: t.color, marginBottom: 4 }}>{t.year}</div>
                   <div style={{ fontFamily: F.display, fontSize: 20, fontWeight: 400, color: C.black, marginBottom: 6 }}>{t.label}</div>
-                  <div style={{ fontSize: 14, lineHeight: 1.75, color: C.mid }}>{t.detail}</div>
+                  <div style={{ fontSize: 14, lineHeight: 1.75, color: C.text }}>{t.detail}</div>
                 </div>
               )
             })}
@@ -461,9 +461,9 @@ export default function WatersOfEmpire() {
         <div style={{ maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontFamily: F.display, fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.5, color: '#ffffff' }}>
             When Rome fell, Europe stopped bathing.<br />
-            <span style={{ color: 'rgba(255,255,255,0.4)' }}>Islam didn't.</span>
+            <span style={{ color: 'rgba(255,255,255,0.7)' }}>Islam didn't.</span>
           </div>
-          <p style={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.5)', marginTop: 32, maxWidth: 520, margin: '32px auto 0' }}>
+          <p style={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.75)', marginTop: 32, maxWidth: 520, margin: '32px auto 0' }}>
             The oldest Islamic hammam in Morocco sits on the ruins of a Roman colony at Volubilis. Same site. Same underfloor heating. Different God, same physics. The three-room sequence — warm, hot, furnace — has not changed in twenty-six centuries.
           </p>
         </div>
@@ -472,7 +472,7 @@ export default function WatersOfEmpire() {
       {/* ═══ BIBLIOGRAPHY ═══ */}
       <section style={{ padding: '80px 24px', background: C.bg }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.light, marginBottom: 24 }}>Bibliography</p>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.light, marginBottom: 24 }}>Sources</p>
           {BIBLIOGRAPHY.map((b, i) => (
             <p key={i} style={{ fontSize: 13, lineHeight: 1.8, color: C.mid, marginBottom: 8, paddingLeft: 24, textIndent: -24 }}>{b}</p>
           ))}
@@ -481,7 +481,7 @@ export default function WatersOfEmpire() {
 
       {/* ═══ FOOTER ═══ */}
       <footer style={{ padding: '40px 24px', background: C.dark, textAlign: 'center' }}>
-        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.06em' }}>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em' }}>
           © {new Date().getFullYear()} Dancing with Lions · J. Ng · Knowledge Series
         </div>
       </footer>

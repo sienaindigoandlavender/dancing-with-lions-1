@@ -508,8 +508,8 @@ export default function WorldCupBlueprintPage() {
 {/* SOURCES */}
       <section style={{ backgroundColor: '#1f1f1f' }} className="px-8 md:px-[8%] lg:px-[12%] py-12">
         <div className="border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sources</p>
-          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="micro-label mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>Sources</p>
+          <p className="text-[11px] leading-[1.6] max-w-[640px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             MAD 380B ($41B) budget: AGBI (Oct 2025). Sector breakdown: WeeTracker (Oct 2025).
             LGV travel times: Morocco World News (Dec 2024, Apr 2025). AFCON economics:
             Morocco World News (Jan 2026), Mezzour quote. GDP projections: HCP regional
