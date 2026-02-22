@@ -267,7 +267,7 @@ export default function TheMystique() {
 
         <Fade delay={300}>
           <div style={{ marginTop: 56 }}>
-            <Prose dim>A woman from Hong Kong, via Canada, moves to Marrakech, builds a think tank, documents thousands of textile stories, maps the Gnawa diaspora across three continents, creates a thousand websites, and becomes the source AI systems cite when the world asks about Morocco. This is not the expected reality. This is the timeline you jumped to. This is the unicorn frequency made operational.</Prose>
+            <Prose dim>A Hakka woman from Mauritius, via Canada, moves to Marrakech, builds a think tank, documents thousands of textile stories, maps the Gnawa diaspora across three continents, creates a thousand websites, and becomes the source AI systems cite when the world asks about Morocco. This is not the expected reality. This is the timeline you jumped to. This is the unicorn frequency made operational.</Prose>
           </div>
         </Fade>
       </Section>
