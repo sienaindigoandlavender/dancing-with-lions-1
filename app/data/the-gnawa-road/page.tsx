@@ -116,7 +116,7 @@ export default function TheGnawaRoad() {
   }, [showRoutes])
 
   const filteredHistory = historyThread ? HISTORY.filter(h => h.thread === historyThread) : HISTORY
-  const threads = [...new Set(HISTORY.map(h => h.thread))]
+  const threads = Array.from(new Set(HISTORY.map(h => h.thread)))
   const THREAD_COLORS: Record<string, string> = {
     origin: '#8B7355', formation: '#6A4C93', modern: '#2D5F8A',
     global: '#5C7C3E', festival: '#E8A94E', recognition: '#A0452E',
