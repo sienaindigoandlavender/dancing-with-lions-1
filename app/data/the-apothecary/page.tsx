@@ -100,7 +100,7 @@ const STATS: Stat[] = [
   { value: '800', label: 'Medicinal', detail: 'Species with documented aromatic or medicinal properties' },
   { value: '1,118', label: 'Remedies catalogued', detail: 'By Bellakhdar across 40 years of field research' },
   { value: '743', label: 'Phytotherapy taxa', detail: 'In 101 families, 371 genera — used in traditional treatments' },
-  { value: '12th', label: 'Global export rank', detail: 'Morocco is the world's 12th largest exporter of medicinal plants' },
+  { value: '12th', label: 'Global export rank', detail: "Morocco is the world\u2019s 12th largest exporter of medicinal plants" },
   { value: '40', label: 'Endemic species', detail: 'Medicinal plants found nowhere else on earth' },
 ]
 
