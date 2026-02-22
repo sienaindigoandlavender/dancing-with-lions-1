@@ -5,7 +5,7 @@ import { COMPARISON, HAPLOGROUPS, TIMELINE, LOCATIONS, BIBLIOGRAPHY } from './da
 
 const C = {
   bg: '#ffffff', alt: '#fafafa', ink: '#0a0a0a', body: '#262626',
-  mid: '#525252', muted: '#737373', border: '#e5e5e5',
+  mid: '#262626', muted: '#737373', border: '#e5e5e5',
 }
 const F = {
   mono: "var(--font-plex-mono), 'IBM Plex Mono', 'Courier New', monospace",
@@ -29,7 +29,7 @@ function Title({ children }: { children: React.ReactNode }) {
   return <h2 style={{ fontFamily: F.serif, fontSize: 'clamp(28px, 4.5vw, 48px)', fontWeight: 400, fontStyle: 'italic', color: C.ink, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.02em' }}>{children}</h2>
 }
 function Body({ children }: { children: React.ReactNode }) {
-  return <p style={{ fontFamily: F.mono, fontSize: 15, lineHeight: 1.85, color: C.mid, marginBottom: 20, maxWidth: 640 }}>{children}</p>
+  return <p style={{ fontFamily: F.mono, fontSize: 15, lineHeight: 1.85, color: C.body, marginBottom: 20, maxWidth: 640 }}>{children}</p>
 }
 function Sec({ children, bg = C.bg }: { children: React.ReactNode; bg?: string }) {
   return <section style={{ background: bg, padding: '80px 24px', borderTop: `1px solid ${C.border}` }}><div style={{ maxWidth: 900, margin: '0 auto' }}>{children}</div></section>
@@ -224,7 +224,7 @@ export default function SharedGrandmother() {
                   Origin: {h.origin} · Age: {h.age} · Frequency: {h.frequency}
                 </div>
                 <div style={{ maxHeight: expandedDna === i ? 400 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                  <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.mid, paddingTop: 8 }}>{h.detail}</p>
+                  <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.body, paddingTop: 8 }}>{h.detail}</p>
                 </div>
               </div>
             </Fade>
@@ -260,10 +260,10 @@ export default function SharedGrandmother() {
                     <span style={{ fontFamily: F.mono, fontSize: 11, fontWeight: 600, color: C.ink }}>{row.label}</span>
                   </div>
                   <div style={{ padding: '10px 12px', borderBottom: `1px solid ${C.border}` }}>
-                    <span style={{ fontFamily: F.mono, fontSize: 12, color: C.mid, lineHeight: 1.6 }}>{row.amazigh}</span>
+                    <span style={{ fontFamily: F.mono, fontSize: 12, color: C.body, lineHeight: 1.6 }}>{row.amazigh}</span>
                   </div>
                   <div style={{ padding: '10px 12px', borderBottom: `1px solid ${C.border}` }}>
-                    <span style={{ fontFamily: F.mono, fontSize: 12, color: C.mid, lineHeight: 1.6 }}>{row.sami}</span>
+                    <span style={{ fontFamily: F.mono, fontSize: 12, color: C.body, lineHeight: 1.6 }}>{row.sami}</span>
                   </div>
                 </div>
                 {row.note && (
@@ -300,7 +300,7 @@ export default function SharedGrandmother() {
                 <div>
                   <div style={{ fontFamily: F.mono, fontSize: 14, fontWeight: 600, color: C.ink }}>{e.title}</div>
                   <div style={{ maxHeight: expandedEvent === i ? 300 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                    <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.mid, paddingTop: 8 }}>{e.detail}</p>
+                    <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.body, paddingTop: 8 }}>{e.detail}</p>
                   </div>
                 </div>
               </div>

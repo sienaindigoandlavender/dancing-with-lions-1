@@ -5,7 +5,7 @@ import { ISLANDS, MENCEYATOS, DNA_MARKERS, GENETIC_ASYMMETRY, SURVIVALS, TIMELIN
 
 const C = {
   bg: '#ffffff', alt: '#fafafa', ink: '#0a0a0a', body: '#262626',
-  mid: '#525252', muted: '#737373', border: '#e5e5e5',
+  mid: '#262626', muted: '#737373', border: '#e5e5e5',
 }
 const F = {
   mono: "var(--font-plex-mono), 'IBM Plex Mono', 'Courier New', monospace",
@@ -29,7 +29,7 @@ function Title({ children }: { children: React.ReactNode }) {
   return <h2 style={{ fontFamily: F.serif, fontSize: 'clamp(28px, 4.5vw, 48px)', fontWeight: 400, fontStyle: 'italic', color: C.ink, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.02em' }}>{children}</h2>
 }
 function Body({ children }: { children: React.ReactNode }) {
-  return <p style={{ fontFamily: F.mono, fontSize: 15, lineHeight: 1.85, color: C.mid, marginBottom: 20, maxWidth: 640 }}>{children}</p>
+  return <p style={{ fontFamily: F.mono, fontSize: 15, lineHeight: 1.85, color: C.body, marginBottom: 20, maxWidth: 640 }}>{children}</p>
 }
 function Sec({ children, bg = C.bg }: { children: React.ReactNode; bg?: string }) {
   return <section style={{ background: bg, padding: '80px 24px', borderTop: `1px solid ${C.border}` }}><div style={{ maxWidth: 900, margin: '0 auto' }}>{children}</div></section>
@@ -168,7 +168,7 @@ export default function GuancheGhost() {
                 {isl.area}{isl.population ? ` · ${isl.population}` : ''}{isl.menceyatos ? ` · ${isl.menceyatos} menceyatos` : ''}
               </div>
               <div style={{ maxHeight: expandedIsland === i ? 400 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.mid, paddingTop: 8 }}>{isl.detail}</p>
+                <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.body, paddingTop: 8 }}>{isl.detail}</p>
               </div>
             </div>
           </Fade>
@@ -194,7 +194,7 @@ export default function GuancheGhost() {
                   <div style={{ fontFamily: F.mono, fontSize: 10, color: stanceColors[m.stance], letterSpacing: '0.08em', textTransform: 'uppercase' as const, marginTop: 2 }}>{m.stance} · {m.mencey}</div>
                   <div style={{ fontFamily: F.mono, fontSize: 10, color: C.muted, marginTop: 2 }}>{m.territory}</div>
                   <div style={{ maxHeight: expandedMencey === i ? 300 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                    <p style={{ fontFamily: F.mono, fontSize: 12, lineHeight: 1.7, color: C.mid, paddingTop: 8 }}>{m.detail}</p>
+                    <p style={{ fontFamily: F.mono, fontSize: 12, lineHeight: 1.7, color: C.body, paddingTop: 8 }}>{m.detail}</p>
                   </div>
                 </div>
               </Fade>
@@ -224,7 +224,7 @@ export default function GuancheGhost() {
                   <span style={{ fontFamily: F.mono, fontSize: 10, color: C.muted }}> indigenous</span>
                 </div>
                 <div style={{ padding: '10px 12px', background: ASH + '10' }}>
-                  <span style={{ fontFamily: F.mono, fontSize: 12, color: C.mid, fontWeight: 600 }}>{row.european}</span>
+                  <span style={{ fontFamily: F.mono, fontSize: 12, color: C.body, fontWeight: 600 }}>{row.european}</span>
                   <span style={{ fontFamily: F.mono, fontSize: 10, color: C.muted }}> european</span>
                 </div>
               </div>
@@ -249,7 +249,7 @@ export default function GuancheGhost() {
                 Ancient: {d.ancientFreq} → Modern: {d.modernFreq}
               </div>
               <div style={{ maxHeight: expandedDna === i ? 300 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.mid, paddingTop: 8 }}>{d.detail}</p>
+                <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.body, paddingTop: 8 }}>{d.detail}</p>
               </div>
             </div>
           </Fade>
@@ -293,7 +293,7 @@ export default function GuancheGhost() {
                   <span style={{ fontFamily: F.mono, fontSize: 10, color: C.muted }}>{s.type}</span>
                 </div>
                 <div style={{ maxHeight: expandedSurvival === i ? 400 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                  <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.mid, paddingTop: 8 }}>{s.detail}</p>
+                  <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.body, paddingTop: 8 }}>{s.detail}</p>
                 </div>
               </div>
             </Fade>
@@ -342,7 +342,7 @@ export default function GuancheGhost() {
                 <div>
                   <div style={{ fontFamily: F.mono, fontSize: 14, fontWeight: 600, color: C.ink }}>{e.title}</div>
                   <div style={{ maxHeight: expandedEvent === i ? 400 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                    <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.mid, paddingTop: 8 }}>{e.detail}</p>
+                    <p style={{ fontFamily: F.mono, fontSize: 13, lineHeight: 1.8, color: C.body, paddingTop: 8 }}>{e.detail}</p>
                   </div>
                 </div>
               </div>
