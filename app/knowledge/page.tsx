@@ -21,6 +21,13 @@ interface Story {
 
 const STORIES: Story[] = [
   {
+    slug: 'the-churches-that-swallowed-the-mountain',
+    title: 'The Churches That Swallowed the Mountain',
+    subtitle: 'Eleven churches carved downward into living rock by the dynasty the Solomonic myth was written to erase. 800 years later, still holding services.',
+    tag: 'Architecture · Resistance',
+    tagColor: '#A0522D',
+  },
+  {
     slug: 'the-son-who-took-the-fire',
     title: 'The Son Who Took the Fire',
     subtitle: 'Menelik I travels to Jerusalem. Returns with the Ark of the Covenant. A 14th-century myth becomes the constitutional basis for 704 years of Ethiopian monarchy.',
