@@ -168,8 +168,8 @@ function useInView(threshold = 0.15) {
 // ── STYLES ────────────────────────────────────────
 
 const F = {
-  display: '"Cormorant Garamond", "Garamond", Georgia, serif',
-  body: '"Inter", -apple-system, sans-serif',
+  display: '"Instrument Serif", Georgia, serif',
+  body: '"IBM Plex Mono", monospace',
 }
 
 const C = {
@@ -387,7 +387,7 @@ export default function BeforeTheCrescent() {
           el.addEventListener('mouseleave', () => { el.style.transform = 'scale(1)' })
           const popup = new mapboxgl.default.Popup({ offset: 12, closeButton: false, maxWidth: '260px' })
             .setHTML(`
-              <div style="font-family:Inter,system-ui,sans-serif;padding:4px 0">
+              <div style="font-family:'IBM Plex Mono',monospace;padding:4px 0">
                 <p style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${site.color};margin:0 0 4px">${site.era}</p>
                 <p style="font-weight:700;font-size:13px;margin:0 0 6px;color:#0A0A0A">${site.name}</p>
                 <p style="font-size:12px;color:#333;line-height:1.5;margin:0">${site.note}</p>
