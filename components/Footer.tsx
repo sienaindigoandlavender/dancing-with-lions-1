@@ -13,7 +13,6 @@ const LEGAL_LINKS = [
   { label: 'Privacy', href: '/privacy' },
   { label: 'Terms', href: '/terms' },
   { label: 'Disclaimer', href: '/disclaimer' },
-  { label: 'IP', href: '/intellectual-property' },
 ]
 
 const NETWORK_SITES = [
@@ -53,9 +52,6 @@ export default function Footer() {
                 </Link>
                 <Link href="/about" className="text-[14px] text-white/50 hover:text-white transition-colors">
                   About
-                </Link>
-                <Link href="/intellectual-property" className="text-[14px] text-white/50 hover:text-white transition-colors">
-                  IP &amp; Licensing
                 </Link>
               </div>
             </div>

@@ -40,9 +40,6 @@ export default function Header() {
               <Link href="/about" className="meta-text hover:text-dwl-black transition-colors">
                 About
               </Link>
-              <Link href="/intellectual-property" className="meta-text hover:text-dwl-black transition-colors">
-                IP &amp; Licensing
-              </Link>
               {/* Search icon */}
               <button
                 onClick={() => setSearchOpen(true)}
@@ -91,9 +88,6 @@ export default function Header() {
               </Link>
               <Link href="/about" onClick={() => setMenuOpen(false)} className="meta-text">
                 About
-              </Link>
-              <Link href="/intellectual-property" onClick={() => setMenuOpen(false)} className="meta-text">
-                IP &amp; Licensing
               </Link>
             </nav>
           </div>
